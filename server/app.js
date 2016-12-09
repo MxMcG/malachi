@@ -6,11 +6,14 @@ const proxy = httpProxy.createProxyServer();
 const app = express();
 
 const isProduction = process.env.NODE_ENV === 'production';
+console.log('**********************')
+console.log('ENV', process.env.NODE_ENV)
+console.log('**********************')
 const port = isProduction ? process.env.PORT : 3000;
-const publicPath = path.resolve(__dirname, 'public');
+const templatePath = path.resolve(__dirname, 'template');
 
 // We point to our static assets
-app.use(express.static(publicPath));
+app.use(express.static(templatePath));
 
 // We only want to run the workflow when not in production
 if (!isProduction) {
@@ -25,7 +28,7 @@ if (!isProduction) {
   // to webpack-dev-server
   app.all('/build/*', (req, res) => {
     proxy.web(req, res, {
-        target: 'http://localhost:3100'
+        target: 'http://localhost:3000'
     });
   });
 

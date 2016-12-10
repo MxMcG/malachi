@@ -10,7 +10,11 @@ console.log('**********************')
 console.log('ENV', process.env.NODE_ENV)
 console.log('**********************')
 const port = isProduction ? process.env.PORT : 3000;
-const templatePath = path.resolve(__dirname, 'template');
+const templatePath = path.resolve(__dirname, '../templates/index.html');
+
+console.log('**********************')
+console.log(templatePath)
+console.log('**********************')
 
 // We point to our static assets
 app.use(express.static(templatePath));
@@ -28,7 +32,7 @@ if (!isProduction) {
   // to webpack-dev-server
   app.all('/build/*', (req, res) => {
     proxy.web(req, res, {
-        target: 'http://localhost:3000'
+        target: 'http://localhost:8080'
     });
   });
 

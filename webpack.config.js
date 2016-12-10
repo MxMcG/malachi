@@ -3,6 +3,7 @@ var path = require('path');
 var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 var buildPath = path.resolve(__dirname, 'build');
 var mainPath = path.resolve(__dirname, 'client', 'app.js');
+var componentsPath = path.resolve(__dirname, 'client', 'components.js');
 
 var config = {
 
@@ -34,6 +35,13 @@ var config = {
     publicPath: '/build/'
   },
   module: {
+    preLoaders: [
+      {
+        test: /\.js?$/,
+        loaders: ['eslint'],
+        include: componentsPath
+      }
+    ],
 
     loaders: [
 

@@ -10,7 +10,7 @@ console.log('**********************')
 console.log('ENV', process.env.NODE_ENV)
 console.log('**********************')
 const port = isProduction ? process.env.PORT : 3000;
-const templatePath = path.resolve(__dirname, '../templates/index.html');
+const templatePath = path.resolve(__dirname, '../templates');
 
 console.log('**********************')
 console.log(templatePath)

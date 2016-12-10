@@ -3,4 +3,4 @@ import { render } from 'react-dom';
 import { Todos } from './components';
 
 render(
-  <Todos />, document.getElementById('app'));
+  <Todos />, window.document.getElementById('app'));

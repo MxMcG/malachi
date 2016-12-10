@@ -1,13 +1,21 @@
-import React from 'react';
+import { Component } from 'react';
 
-export const Todos = React.createClass({
+export default class Todos extends Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      test: 'HIII'
+    }
+  }
+
   render() {
     return (
       <ul>
-        <li>hello 1</li>
+        <li>{this.state.test}</li>
         <li>hello 2</li>
-        <li>hello 3</li>
+        <li>hello 44</li>
       </ul>
     );
   }
-});
+}

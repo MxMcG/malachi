@@ -2,8 +2,8 @@ var Webpack = require('webpack');
 var path = require('path');
 var nodeModulesPath = path.resolve(__dirname, 'node_modules');
 var buildPath = path.resolve(__dirname, 'build');
-var mainPath = path.resolve(__dirname, 'client', 'app.js');
-var componentsPath = path.resolve(__dirname, 'client', 'components.js');
+var mainPath = path.resolve(__dirname, 'client', 'app.jsx');
+// var componentsPath = path.resolve(__dirname, 'client', 'components.jsx');
 
 var config = {
 
@@ -37,9 +37,9 @@ var config = {
   module: {
     preLoaders: [
       {
-        test: /\.js?$/,
+        test: /\.jsx?$/,
         loaders: ['eslint'],
-        include: componentsPath
+        include: mainPath
       }
     ],
 

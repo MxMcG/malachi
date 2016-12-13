@@ -5,31 +5,27 @@ const WebpackDevServer = require("webpack-dev-server");
 const exec = require('child_process').exec;
 const config = require('./webpack.config.js');
 
-gulp.task('dev', (callback) => {
+gulp.task('dev:build', (callback) => {
   const compiler = webpack(config);
   new WebpackDevServer(compiler, {
 
   }).listen(8080, "localhost", (err) => {
     if (err) throw new gutil.PluginError("webpack-dev-server", err);
-    // Server listening
-    gutil.log("[webpack-dev-server]", "http://localhost:8080/build/bundle.js");
-    // keep the server alive or continue?
-    // callback();
+    gutil.log('Bundling assets...');
   });
 });
 
-gulp.task('devserver', () => {
-
-  exec('node server/app.js', (error, stdout, stderr) => {
-    if (error) {
-      console.error(`exec error: ${error}`);
-      return;
-    }
-    console.log(`stdout: ${stdout}`);
-    console.log(`stderr: ${stderr}`);
+gulp.task('dev:start', () => {
+  const child = exec('node server/app.js');
+  child.stdout.on('data', (data) => {
+    console.log('STDOUT: ' + data);
   });
-
-  console.log('Task Ran');
+  child.stderr.on('data', (data) => {
+    console.log('STDERR: ' + data);
+  });
+  child.on('close', (code) => {
+    console.log('CLOSING PROCESS: ' + code);
+  });
 });
 
 gulp.task('express prod', () => {

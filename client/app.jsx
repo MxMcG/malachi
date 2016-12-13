@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
-import { Todos } from './components';
+import Todos from './components';
 
-render(
-  <Todos />, window.document.getElementById('app'));
+if (global.window) {
+  render(
+    <Todos />, global.window.document.getElementById('app'));
+}

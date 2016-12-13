@@ -1,21 +1,20 @@
-import { Component } from 'react';
+import React from 'react';
 
-export default class Todos extends Component {
+export default class Todos extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log('te');
     this.state = {
-      test: 'HIII'
+      test: ''
     }
   }
 
   render() {
     return (
-      <ul>
-        <li>{this.state.test}</li>
-        <li>hello 2</li>
-        <li>hello 44</li>
-      </ul>
+      <div>
+        <h2>KOOO</h2>
+      </div>
     );
   }
 }

@@ -4,5 +4,5 @@ import Todos from './components';
 
 if (global.window) {
   render(
-    <Todos />, global.window.document.getElementById('app2'));
+    <Todos />, global.window.document.getElementById('appw'));
 }

@@ -28,3 +28,17 @@ gulp.task('dev:start', () => {
     console.log('CLOSING PROCESS: ' + code);
   });
 });
+
+gulp.task('prod:build', (callback) => {
+  // builds by project and outputs to specific project folder
+});
+
+gulp.task('prod:upload', (callback) => {
+  // takes build and updates CDN with bundled project at property folder
+});
+
+gulp.task('prod:start', (callback) => {
+  // starts express instance based on project
+  // this instance points to the CDN bundle.js based on project acrn
+  // this should be ran from within the droplet/ production instance as the last step of project deployment
+});

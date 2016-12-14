@@ -4,3 +4,4 @@ require('./components/TestB/index.jsx');
 
 // require all styles used in project
 require('./components/TestA/css/test.scss');
+require('./components/TestB/css/test.scss');

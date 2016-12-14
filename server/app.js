@@ -36,3 +36,7 @@ app.get('/*', (req, res) => {
 app.listen(port, () => {
   console.log('Server running on port ' + port);
 });
+
+// ex: https://www.westward.com/ => localhost:3000/ww/
+// localhost:3000/<project acrn>/api
+// localhost:3000/<project acrn>/admin

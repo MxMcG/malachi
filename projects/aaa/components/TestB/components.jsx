@@ -13,7 +13,7 @@ export default class Todos extends React.Component {
   render() {
     return (
       <div>
-        <h2>KOOO</h2>
+        <h2>Test B</h2>
       </div>
     );
   }

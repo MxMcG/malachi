@@ -3,9 +3,9 @@ const WebpackDevServer = require('webpack-dev-server');
 const path = require('path');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const buildPath = path.resolve(__dirname, 'build');
-const mainPath = path.resolve(__dirname, 'client', 'app.jsx');
 const env = process.env.NODE_ENV
-// const componentsPath = path.resolve(__dirname, 'client', 'components.jsx');
+const activeProject = require('yargs').argv.project;
+const mainPath = path.resolve(__dirname, 'projects', activeProject, 'config.js');
 
 const config = {
 
@@ -66,7 +66,7 @@ const config = {
   },
   devServer: {
     hot: true,
-    contentBase: './client'
+    contentBase: './projects'
   },
   resolve: {
     extensions: ['', '.js', '.jsx']

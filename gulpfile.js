@@ -4,6 +4,7 @@ const webpack = require('webpack');
 const WebpackDevServer = require("webpack-dev-server");
 const exec = require('child_process').exec;
 const config = require('./webpack.config.js');
+const activeProject = require('yargs').argv.project;
 
 gulp.task('dev:build', (callback) => {
   const compiler = webpack(config);
@@ -26,8 +27,4 @@ gulp.task('dev:start', () => {
   child.on('close', (code) => {
     console.log('CLOSING PROCESS: ' + code);
   });
-});
-
-gulp.task('express prod', () => {
-  console.log('Task Ran');
 });

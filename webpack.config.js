@@ -46,22 +46,21 @@ const config = {
     ],
 
     loaders: [
+      // I highly recommend using the babel-loader as it gives you
+      // ES6/7 syntax and JSX transpiling out of the box
+      {
+        test: /\.jsx$/,
+        loader: 'babel',
+        exclude: [nodeModulesPath]
+      },
 
-    // I highly recommend using the babel-loader as it gives you
-    // ES6/7 syntax and JSX transpiling out of the box
-    {
-      test: /\.jsx$/,
-      loader: 'babel',
-      exclude: [nodeModulesPath]
-    },
-
-    // Let us also add the style-loader and css-loader, which you can
-    // expand with less-loader etc.
-    {
-      test: /\.css$/,
-      loader: 'style!css'
-    }
-
+      // Let us also add the style-loader and css-loader, which you can
+      // expand with less-loader etc.
+      {
+        test: /\.scss$/,
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+        exclude: [nodeModulesPath]
+      }
     ]
   },
   devServer: {

@@ -1,0 +1,14 @@
+{
+  "project": "aaa",
+  "components": {
+    "TestA": {
+      "headline": "First Test Headline"
+    },
+    "TestB": {
+      "headline": "Second Test Headline"
+    },
+    "TestC": {
+      "headline": "Second Test Headline"
+    }
+  }
+}

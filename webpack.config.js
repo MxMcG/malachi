@@ -5,7 +5,7 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const buildPath = path.resolve(__dirname, 'build');
 const env = process.env.NODE_ENV
 const activeProject = require('yargs').argv.project;
-const mainPath = path.resolve(__dirname, 'projects', activeProject, 'config.js');
+const mainPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'config.js') : null
 
 const config = {
 
@@ -41,7 +41,7 @@ const config = {
       {
         test: /\.jsx?$/,
         loaders: ['eslint'],
-        include: mainPath
+        exclude: [nodeModulesPath]
       }
     ],
 

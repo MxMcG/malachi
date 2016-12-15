@@ -5,18 +5,25 @@ const WebpackDevServer = require("webpack-dev-server");
 const exec = require('child_process').exec;
 const config = require('./webpack.config.js');
 const activeProject = require('yargs').argv.project;
+const database = require('./server/database');
 
-gulp.task('dev:build', (callback) => {
+gulp.task('dev:build', () => {
+  process.env.NODE_ENV = 'development';
+  if (!activeProject) {
+    return gutil.log('Please provide a project argument ex: --project <accronym>');
+  }
+  // take content.json and ship it to mongo db
+  database.connectToDB(activeProject);
+
   const compiler = webpack(config);
-  new WebpackDevServer(compiler, {
-
-  }).listen(8080, "localhost", (err) => {
+  new WebpackDevServer(compiler).listen(8080, "localhost", (err) => {
     if (err) throw new gutil.PluginError("webpack-dev-server", err);
     gutil.log('Bundling assets...');
   });
 });
 
 gulp.task('dev:start', () => {
+  process.env.NODE_ENV = 'development';
   const child = exec('node server/app.js');
   child.stdout.on('data', (data) => {
     console.log('STDOUT: ' + data);

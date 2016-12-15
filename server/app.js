@@ -10,6 +10,13 @@ const port = isProduction ? process.env.PORT : 3000;
 const templatePath = path.resolve(__dirname, '../templates');
 const env = process.env.NODE_ENV;
 
+if (env === 'development') {
+  
+}
+// Determine env
+// access content.json
+// set cdn url to content object
+
 app.use(logger('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));

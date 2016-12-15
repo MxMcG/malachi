@@ -13,8 +13,7 @@ gulp.task('dev:build', () => {
     return gutil.log('Please provide a project argument ex: --project <accronym>');
   }
   // take content.json and ship it to mongo db
-  database.connectToDB(activeProject);
-
+  database.connectToDB(activeProject, 'uploadContentDev');
   const compiler = webpack(config);
   new WebpackDevServer(compiler).listen(8080, "localhost", (err) => {
     if (err) throw new gutil.PluginError("webpack-dev-server", err);
@@ -24,6 +23,7 @@ gulp.task('dev:build', () => {
 
 gulp.task('dev:start', () => {
   process.env.NODE_ENV = 'development';
+  process.env.ACTIVE_PROJECT = activeProject;
   const child = exec('node server/app.js');
   child.stdout.on('data', (data) => {
     console.log('STDOUT: ' + data);

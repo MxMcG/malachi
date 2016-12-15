@@ -1,5 +1,4 @@
 // TODO add linting to server files
-
 const path = require('path');
 const gutil = require("gulp-util");
 const mongoose = require('mongoose');
@@ -7,7 +6,7 @@ const mongodbUri = 'mongodb://mxmcg-1:Mx11mcg27*^*@ds035546-a0.mlab.com:35546,ds
 const activeProject = require('yargs').argv.project;
 const projectContent = activeProject ? require(`../projects/${activeProject}/content/content.json`) : null
 
-const connectToDB = (project) => {
+const connectToDB = (project, task, callback) => {
   /*
    * Mongoose by default sets the auto_reconnect option to true.
    * We recommend setting socket options at both the server and replica set level.
@@ -19,37 +18,68 @@ const connectToDB = (project) => {
     replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } }
   };
   mongoose.connect(mongodbUri, options);
-  const conn = mongoose.connection;
-  conn.on('error', console.error.bind(console, 'connection error:'));
-  conn.once('open', () => {
+  const dbConnection = mongoose.connection;
+  switch (task) {
+    case 'uploadContentDev':
+      uploadContentDev(project, dbConnection);
+      break;
+    case 'fetchContentDev':
+      fetchContentDev(project, dbConnection, (err, data) => {
+        if (err) return callback(err, null);
+        callback(null, data);
+      });
+      break;
+    default:
+      gutil.log('Default task called, please specify a task for db connection');
+  }
+};
+
+const uploadContentDev = (project, dbConnection) => {
+  dbConnection.on('error', console.error.bind(console, 'connection error:'));
+  dbConnection.once('open', () => {
     gutil.log('Connected To MongoDB');
     // take content.json and upload to db
     const schema = new mongoose.Schema({
       projectName: String,
       content: mongoose.Schema.Types.Mixed
     });
-    const Content = mongoose.model('Content', schema);
-    Content.where({ projectName: activeProject }).findOne((err, doc) => {
+    const ContentDev = mongoose.model('ContentDev', schema);
+    ContentDev.where({ projectName: project }).findOne((err, doc) => {
       if (err) gutil.log('DOCUMENT QUERY ERROR');
       if (!doc) {
         gutil.log('No doc for this property, creating new doc ...')
-        const newContent = { projectName: activeProject, content: projectContent, test: 'hii' };
-        Content.create(newContent, (err, updatedContent) => {
+        const newContent = { projectName: project, content: projectContent, test: 'hii' };
+        ContentDev.create(newContent, (err, updatedContent) => {
           if (err) gutil.log('MONGO SAVE ERROR', err);
           gutil.log('Saved new project content to mongodb');
         });
       } else {
-        Content.update({ projectName: activeProject }, { content }, (err, updatedContent) => {
+        ContentDev.update({ projectName: project }, { content: projectContent }, (err, updatedContent) => {
           if (err) gutil.log('MONGO UPDATE ERROR', err);
-          gutil.log('updated project content in mongodb');
+          gutil.log('Updated content in mongodb');
         });
       }
     });
   });
 };
 
-const fetchProjectContent = () => {
-
+const fetchContentDev = (project, dbConnection, callback) => {
+  const schema = new mongoose.Schema({
+    projectName: String,
+    content: mongoose.Schema.Types.Mixed
+  });
+  const ContentDev = mongoose.model('ContentDev', schema);
+  console.log('PROKECT', project);
+  ContentDev.findOne({ projectName: project }, (err, doc) => {
+    if (err) {
+      gutil.log('Error fetching from database', err);
+      callback(err, null);
+    }
+    if (doc) {
+      console.log("GOT DOC", doc)
+      callback(null, doc);
+    }
+  });
 };
 
 

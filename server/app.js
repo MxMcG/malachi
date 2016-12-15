@@ -3,15 +3,20 @@ const path = require('path');
 const fs = require('fs');
 const app = express();
 const logger = require('morgan');
+const database = require('./database');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 3000;
 const templatePath = path.resolve(__dirname, '../templates');
+const activeProject = process.env.ACTIVE_PROJECT;
 const env = process.env.NODE_ENV;
 
 if (env === 'development') {
-  
+  database.connectToDB(activeProject, 'fetchContentDev', (err, data) => {
+    console.log('DATA UP', data);
+    // take data and set it to content on window.
+  });
 }
 // Determine env
 // access content.json

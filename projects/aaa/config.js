@@ -15,3 +15,8 @@ require('./styles/settings.scss');
 // require all component-styles used in project
 require('./components/TestA/css/test.scss');
 require('./components/TestB/css/test.scss');
+
+/**
+ * LIBS
+ */
+require('./libs/setup.js').requestContent();

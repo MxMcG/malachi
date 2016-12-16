@@ -76,8 +76,7 @@ const fetchContentDev = (project, dbConnection, callback) => {
       callback(err, null);
     }
     if (doc) {
-      console.log("GOT DOC", doc)
-      callback(null, doc);
+      callback(null, doc.toObject());
     }
   });
 };

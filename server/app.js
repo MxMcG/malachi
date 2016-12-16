@@ -12,38 +12,41 @@ const templatePath = path.resolve(__dirname, '../templates');
 const activeProject = process.env.ACTIVE_PROJECT;
 const env = process.env.NODE_ENV;
 
+const config = {};
 if (env === 'development') {
   database.connectToDB(activeProject, 'fetchContentDev', (err, data) => {
-    console.log('DATA UP', data);
-    // take data and set it to content on window.
+    // delete unwanted mongo db properties
+    delete data._id;
+    delete data.__v;
+    config.content = data;
   });
 }
+
 // Determine env
 // access content.json
 // set cdn url to content object
-
+app.use(express.static(templatePath));
 app.use(logger('combined'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(templatePath));
-
-/**
- * Error Handling Middleware
- */
+// app.use(session(sessionData));
 app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error', {
-      message: err.message,
-      error: err
+    message: err.message,
+    error: err
   });
+  next();
 });
 
-app.get('/*', (req, res) => {
-  console.log('HIII')
-  console.log('hello, world!')
-
+app.get('/', (req, res) => {
+  res.render('../templates/index.html');
 })
+
+app.get('/api/content', (req, res) => {
+  res.json(config.content);
+});
 
 app.listen(port, () => {
   console.log('Server running on port ' + port);

@@ -72,7 +72,12 @@ const config = {
   },
   // We have to manually add the Hot Replacement plugin when running
   // from Node
-  plugins: [new Webpack.HotModuleReplacementPlugin()]
+  plugins: [
+    new Webpack.HotModuleReplacementPlugin(),
+    new Webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    }),
+  ]
 };
 
 module.exports = config;

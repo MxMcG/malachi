@@ -4,7 +4,7 @@ export default class Todos extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log('te');
+    // console.log('te', content);
     this.state = {
       test: ''
     }

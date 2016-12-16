@@ -1,7 +1,7 @@
 /**
  * LIBS
  */
-require('./libs/setup.js').requestContent();
+// require('./libs/setup.js').requestContent();
 /**
  * COMPONENTS
  */

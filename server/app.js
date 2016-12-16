@@ -41,7 +41,7 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.get('/', (req, res) => {
+app.get('/*', (req, res) => {
   res.render('index.ejs', { content: config.content });
 })
 

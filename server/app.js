@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT : 3000;
-const templatePath = path.resolve(__dirname, '../templates');
+const templatePath = path.resolve(__dirname, '../views');
 const activeProject = process.env.ACTIVE_PROJECT;
 const env = process.env.NODE_ENV;
 
@@ -25,6 +25,7 @@ if (env === 'development') {
 // Determine env
 // access content.json
 // set cdn url to content object
+app.set('view engine', 'ejs');
 app.use(express.static(templatePath));
 app.use(logger('combined'));
 app.use(bodyParser.json());
@@ -41,7 +42,7 @@ app.use((err, req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-  res.render('../templates/index.html');
+  res.render('index.ejs', { content: config.content });
 })
 
 app.get('/api/content', (req, res) => {

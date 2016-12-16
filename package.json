@@ -14,6 +14,7 @@
   "dependencies": {
     "body-parser": "^1.15.2",
     "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.5",
     "express": "^4.14.0",
     "fs": "0.0.1-security",
     "immutable": "^3.8.1",

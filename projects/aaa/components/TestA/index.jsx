@@ -3,6 +3,8 @@ import { render } from 'react-dom';
 import Todos from './components';
 
 if (global.window) {
+  const window = global.window;
   render(
-    <Todos />, global.window.document.getElementById('app'));
+    <Todos window={window} content={content} />,
+      global.window.document.getElementById('app'));
 }

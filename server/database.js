@@ -29,6 +29,9 @@ const connectToDB = (project, task, callback) => {
         callback(null, data);
       });
       break;
+    case 'uploadContentProd':
+      uploadContentProd(project, dbConnection);
+      break;
     default:
       gutil.log('Default task called, please specify a task for db connection');
   }
@@ -55,6 +58,35 @@ const uploadContentDev = (project, dbConnection) => {
         });
       } else {
         ContentDev.update({ projectName: project }, { content: projectContent }, (err, updatedContent) => {
+          if (err) gutil.log('MONGO UPDATE ERROR', err);
+          gutil.log('Updated content in mongodb');
+        });
+      }
+    });
+  });
+};
+
+const uploadContentProd = (project, dbConnection) => {
+  dbConnection.on('error', console.error.bind(console, 'connection error:'));
+  dbConnection.once('open', () => {
+    gutil.log('Connected To MongoDB');
+    // take content.json and upload to db
+    const schema = new mongoose.Schema({
+      projectName: String,
+      content: mongoose.Schema.Types.Mixed
+    });
+    const ContentProd = mongoose.model('ContentProd', schema);
+    ContentProd.where({ projectName: project }).findOne((err, doc) => {
+      if (err) gutil.log('DOCUMENT QUERY ERROR');
+      if (!doc) {
+        gutil.log('No doc for this property, creating new doc ...')
+        const newContent = { projectName: project, content: projectContent, test: 'hii' };
+        ContentProd.create(newContent, (err, updatedContent) => {
+          if (err) gutil.log('MONGO SAVE ERROR', err);
+          gutil.log('Saved new project content to mongodb');
+        });
+      } else {
+        ContentProd.update({ projectName: project }, { content: projectContent }, (err, updatedContent) => {
           if (err) gutil.log('MONGO UPDATE ERROR', err);
           gutil.log('Updated content in mongodb');
         });

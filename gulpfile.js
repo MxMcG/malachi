@@ -3,30 +3,33 @@ const gutil = require("gulp-util");
 const webpack = require('webpack');
 const WebpackDevServer = require("webpack-dev-server");
 const exec = require('child_process').exec;
-const config = require('./webpack.config.js');
+const devconfig = require('./webpack.config.js');
+const prodconfig = require('./webpack.config.production.js');
 const activeProject = require('yargs').argv.project;
 const database = require('./server/database');
 
-gulp.task('dev:build', () => {
+gulp.task('build:dev', () => {
   process.env.NODE_ENV = 'development';
   if (!activeProject) {
     return gutil.log('Please provide a project argument ex: --project <accronym>');
   }
   // take content.json and ship it to mongo db
   database.connectToDB(activeProject, 'uploadContentDev');
-  const compiler = webpack(config);
+  const compiler = webpack(devconfig);
   new WebpackDevServer(compiler).listen(8080, "localhost", (err) => {
     if (err) throw new gutil.PluginError("webpack-dev-server", err);
     gutil.log('Bundling assets...');
+    callback();
   });
 });
 
-gulp.task('dev:start', () => {
+gulp.task('start:dev', (callback) => {
   process.env.NODE_ENV = 'development';
   process.env.ACTIVE_PROJECT = activeProject;
   const child = exec('node server/app.js');
   child.stdout.on('data', (data) => {
     console.log('STDOUT: ' + data);
+    callback();
   });
   child.stderr.on('data', (data) => {
     console.log('STDERR: ' + data);
@@ -36,14 +39,23 @@ gulp.task('dev:start', () => {
   });
 });
 
-gulp.task('prod:build', (callback) => {
-  // builds by project and outputs to specific project folder
-  // setup CDN, output to  project folder in CDN
-  // take current content.json file and upload to mongoDB at ProdContent collection
+gulp.task('build:prod', (callback) => {
+  process.env.NODE_ENV = 'production';
+  if (!activeProject) {
+    return gutil.log('Please provide a project argument ex: --project <accronym>');
+  }
+  // take content.json and ship it to mongo db
+  database.connectToDB(activeProject, 'uploadContentProd');
+  const compiler = webpack(prodconfig, (err, stats) => {
+    if (err) throw new gutil.PluginError("webpack", err);
+    callback();
+  });
 });
 
-gulp.task('prod:build', (callback) => {
+gulp.task('upload:prod', (callback) => {
   // talkes build folder and updates S3 bucket
+  console.log(activeProject);
+  callback();
 });
 
 gulp.task('prod:start', (callback) => {
@@ -51,4 +63,5 @@ gulp.task('prod:start', (callback) => {
   // this instance points to the CDN bundle.js based on project acrn
   // this should be ran from within the droplet/ production instance as the last step of project deployment
   // runs app.js with given property
+  callback()
 });

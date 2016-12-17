@@ -1,5 +1,4 @@
 const Webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
 const path = require('path');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const env = process.env.NODE_ENV
@@ -11,15 +10,8 @@ const config = {
 
   // Makes sure errors in console map to the correct file
   // and line number
-  devtool: 'eval',
+  devtool: 'source-map',
   entry: [
-
-    // // For hot style updates
-    'webpack/hot/dev-server',
-    //
-    // // The script refreshing the browser on none hot updates
-    'webpack-dev-server/client?http://localhost:8080',
-
     // Our application
     mainPath],
   output: {
@@ -63,20 +55,16 @@ const config = {
       }
     ]
   },
-  devServer: {
-    hot: true,
-    contentBase: './projects'
-  },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
   // We have to manually add the Hot Replacement plugin when running
   // from Node
   plugins: [
-    new Webpack.HotModuleReplacementPlugin(),
     new Webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+      'process.env.NODE_ENV': JSON.stringify('production')
     }),
+    new Webpack.optimize.UglifyJsPlugin()
   ]
 };
 

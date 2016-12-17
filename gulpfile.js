@@ -38,8 +38,12 @@ gulp.task('dev:start', () => {
 
 gulp.task('prod:build', (callback) => {
   // builds by project and outputs to specific project folder
-  // setup CDN, output to project folder in CDN
+  // setup CDN, output to  project folder in CDN
   // take current content.json file and upload to mongoDB at ProdContent collection
+});
+
+gulp.task('prod:build', (callback) => {
+  // talkes build folder and updates S3 bucket
 });
 
 gulp.task('prod:start', (callback) => {

@@ -8,7 +8,7 @@ const prodconfig = require('./webpack.config.production.js');
 const activeProject = require('yargs').argv.project;
 const database = require('./server/database');
 
-gulp.task('build:dev', () => {
+gulp.task('build:dev', (callback) => {
   process.env.NODE_ENV = 'development';
   if (!activeProject) {
     return gutil.log('Please provide a project argument ex: --project <accronym>');
@@ -29,7 +29,6 @@ gulp.task('start:dev', (callback) => {
   const child = exec('node server/app.js');
   child.stdout.on('data', (data) => {
     console.log('STDOUT: ' + data);
-    callback();
   });
   child.stderr.on('data', (data) => {
     console.log('STDERR: ' + data);
@@ -55,6 +54,7 @@ gulp.task('build:prod', (callback) => {
 gulp.task('upload:prod', (callback) => {
   // talkes build folder and updates S3 bucket
   console.log(activeProject);
+
   callback();
 });
 

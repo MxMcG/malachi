@@ -1,10 +1,14 @@
 const Webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const env = process.env.NODE_ENV
 const activeProject = require('yargs').argv.project;
 const buildPath = path.resolve(__dirname, 'build', activeProject);
+const buildPathImg = path.resolve(__dirname, 'build', activeProject, 'images');
 const mainPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'config.js') : null
+const projectImgsPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'images') : null
 
 const config = {
 
@@ -64,7 +68,17 @@ const config = {
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify('production')
     }),
-    new Webpack.optimize.UglifyJsPlugin()
+    new Webpack.optimize.UglifyJsPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: projectImgsPath, to: buildPathImg
+      }
+    ]),
+    new CleanWebpackPlugin(buildPath, {
+      // Without `root` CleanWebpackPlugin won't point to our
+      // project and will fail to work.
+      root: process.cwd()
+    })
   ]
 };
 

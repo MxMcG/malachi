@@ -1,5 +1,6 @@
 const Webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const path = require('path');
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const env = process.env.NODE_ENV

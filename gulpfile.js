@@ -48,6 +48,7 @@ gulp.task('build:prod', (callback) => {
   database.connectToDB(activeProject, 'uploadContentProd');
   const compiler = webpack(prodconfig, (err, stats) => {
     if (err) throw new gutil.PluginError('webpack', err);
+    gutil.log(stats.toJson('minimal'));
     callback();
   });
 });

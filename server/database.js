@@ -54,12 +54,12 @@ const uploadContentDev = (project, dbConnection) => {
         const newContent = { projectName: project, content: projectContent, test: 'hii' };
         ContentDev.create(newContent, (err, updatedContent) => {
           if (err) gutil.log('MONGO SAVE ERROR', err);
-          gutil.log('Saved new project content to mongodb');
+          gutil.log(`Saved new project content to mongodb for ${project}`);
         });
       } else {
         ContentDev.update({ projectName: project }, { content: projectContent }, (err, updatedContent) => {
           if (err) gutil.log('MONGO UPDATE ERROR', err);
-          gutil.log('Updated content in mongodb');
+          gutil.log(`Updated content in mongodb for ${project}`);
         });
       }
     });

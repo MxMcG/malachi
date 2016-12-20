@@ -1,7 +1,7 @@
 {
   "project": "aaa",
   "devCdnBaseUrl": "http://localhost:8080/",
-  "prodCdnBaseUrl": "http://localhost:8080/",
+  "prodCdnBaseUrl": "https://localhost:8080/",
   "components": {
     "TestA": {
       "headline": "First KOOOOl"

@@ -58,6 +58,18 @@ gulp.task('upload:prod', () => {
 });
 
 gulp.task('prod:start', (callback) => {
+  process.env.NODE_ENV = 'production';
+  process.env.ACTIVE_PROJECT = activeProject;
+  const child = exec('node server/app.js');
+  child.stdout.on('data', (data) => {
+    console.log('STDOUT: ' + data);
+  });
+  child.stderr.on('data', (data) => {
+    console.log('STDERR: ' + data);
+  });
+  child.on('close', (code) => {
+    console.log('CLOSING PROCESS: ' + code);
+  });
   // starts express instance based on project
   // this instance points to the CDN bundle.js based on project acrn
   // this should be ran from within the droplet/ production instance as the last step of project deployment

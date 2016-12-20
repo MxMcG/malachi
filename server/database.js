@@ -37,56 +37,57 @@ const connectToDB = (project, task, callback) => {
   }
 };
 
-const uploadContentDev = (project, dbConnection) => {
+const uploadContentDev = (projectAbv, dbConnection) => {
   dbConnection.on('error', console.error.bind(console, 'connection error:'));
   dbConnection.once('open', () => {
     gutil.log('Connected To MongoDB');
     // take content.json and upload to db
     const schema = new mongoose.Schema({
       projectName: String,
-      content: mongoose.Schema.Types.Mixed
+      project: mongoose.Schema.Types.Mixed
     });
     const ContentDev = mongoose.model('ContentDev', schema);
-    ContentDev.where({ projectName: project }).findOne((err, doc) => {
+    ContentDev.where({ projectName: projectAbv }).findOne((err, doc) => {
+      console.log('CONTENT', projectContent)
       if (err) gutil.log('DOCUMENT QUERY ERROR');
       if (!doc) {
         gutil.log('No doc for this property, creating new doc ...')
-        const newContent = { projectName: project, content: projectContent, test: 'hii' };
+        const newContent = { projectName: projectAbv, project: projectContent, test: 'hii' };
         ContentDev.create(newContent, (err, updatedContent) => {
           if (err) gutil.log('MONGO SAVE ERROR', err);
-          gutil.log(`Saved new project content to mongodb for ${project}`);
+          gutil.log(`Saved new project content to mongodb for ${projectAbv}`);
         });
       } else {
-        ContentDev.update({ projectName: project }, { content: projectContent }, (err, updatedContent) => {
+        ContentDev.update({ projectName: projectAbv }, { project: projectContent }, (err, updatedContent) => {
           if (err) gutil.log('MONGO UPDATE ERROR', err);
-          gutil.log(`Updated content in mongodb for ${project}`);
+          gutil.log(`Updated content in mongodb for ${projectAbv}`);
         });
       }
     });
   });
 };
 
-const uploadContentProd = (project, dbConnection) => {
+const uploadContentProd = (projectAbv, dbConnection) => {
   dbConnection.on('error', console.error.bind(console, 'connection error:'));
   dbConnection.once('open', () => {
     gutil.log('Connected To MongoDB');
     // take content.json and upload to db
     const schema = new mongoose.Schema({
       projectName: String,
-      content: mongoose.Schema.Types.Mixed
+      project: mongoose.Schema.Types.Mixed
     });
     const ContentProd = mongoose.model('ContentProd', schema);
-    ContentProd.where({ projectName: project }).findOne((err, doc) => {
+    ContentProd.where({ projectName: projectAbv }).findOne((err, doc) => {
       if (err) gutil.log('DOCUMENT QUERY ERROR');
       if (!doc) {
         gutil.log('No doc for this property, creating new doc ...')
-        const newContent = { projectName: project, content: projectContent, test: 'hii' };
+        const newContent = { projectName: projectAbv, project: projectContent, test: 'hii' };
         ContentProd.create(newContent, (err, updatedContent) => {
           if (err) gutil.log('MONGO SAVE ERROR', err);
           gutil.log('Saved new project content to mongodb');
         });
       } else {
-        ContentProd.update({ projectName: project }, { content: projectContent }, (err, updatedContent) => {
+        ContentProd.update({ projectName: projectAbv }, { project: projectContent }, (err, updatedContent) => {
           if (err) gutil.log('MONGO UPDATE ERROR', err);
           gutil.log('Updated content in mongodb');
         });
@@ -95,14 +96,14 @@ const uploadContentProd = (project, dbConnection) => {
   });
 };
 
-const fetchContentDev = (project, dbConnection, callback) => {
+const fetchContentDev = (projectAbv, dbConnection, callback) => {
   const schema = new mongoose.Schema({
     projectName: String,
-    content: mongoose.Schema.Types.Mixed
+    project: mongoose.Schema.Types.Mixed
   });
   const ContentDev = mongoose.model('ContentDev', schema);
-  console.log('PROKECT', project);
-  ContentDev.findOne({ projectName: project }, (err, doc) => {
+  console.log('PROKECT', projectAbv);
+  ContentDev.findOne({ projectName: projectAbv }, (err, doc) => {
     if (err) {
       gutil.log('Error fetching from database', err);
       callback(err, null);

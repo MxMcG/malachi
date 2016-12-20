@@ -6,6 +6,7 @@ const gutil = require('gutil');
 /**
  * Takes content of build folder and uploads them to AWS S3 bucket
  * makes distinction between file or folder and then places into bucket
+ * TODO need to delete objects such as images if they are deleted in build
  */
 const toS3 = (project) => {
   const projectBuildPath = path.resolve(__dirname, '../build', project);
@@ -23,6 +24,7 @@ const toS3 = (project) => {
         const folderPath = path.join(projectBuildPath, folderContent);
         // read contents of folder and upload to s3
         fs.readdir(folderPath, (err, files) => {
+          console.log('FILES', files)
           files.forEach((file, index) => {
             const fileInDirectory = path.join(projectBuildPath, folderContent, file);
             const contentType = fileType(file);
@@ -30,7 +32,7 @@ const toS3 = (project) => {
               // take data, push to s3
               s3.putObject({
                 Bucket: 'truvine',
-                Key: `${project}/${folderContent}/${file}`,
+                Key: `projects/${project}/${folderContent}/${file}`,
                 Body: data,
                 ACL:'public-read',
                 ContentType: contentType
@@ -54,7 +56,7 @@ const toS3 = (project) => {
         fs.readFile(filePath, (err, data) => {
           s3.putObject({
             Bucket: 'truvine',
-            Key: `${project}/${folderContent}`,
+            Key: `projects/${project}/${folderContent}`,
             Body: data,
             ACL:'public-read',
             ContentType: contentType

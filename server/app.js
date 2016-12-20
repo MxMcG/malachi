@@ -15,9 +15,22 @@ const env = process.env.NODE_ENV;
 const config = {};
 if (env === 'development') {
   database.connectToDB(activeProject, 'fetchContentDev', (err, data) => {
+    if (err) { throw err; }
     // delete unwanted mongo db properties
     delete data._id;
     delete data.__v;
+    config.cdnUrl = 'http://localhost:8080/'
+    config.bundleUrl = 'http://localhost:8080/bundle.js'
+    config.content = data;
+  });
+}
+if (env === 'production') {
+  database.connectToDB(activeProject, 'fetchContentDev', (err, data) => {
+    // delete unwanted mongo db properties
+    delete data._id;
+    delete data.__v;
+    config.cdnUrl = 'https://d3hc4gv509jw9l.cloudfront.net',
+    config.bundleUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject + '/bundle.js.map'
     config.content = data;
   });
 }
@@ -42,12 +55,8 @@ app.use((err, req, res, next) => {
 });
 
 app.get('/*', (req, res) => {
-  res.render('index.ejs', { content: config.content });
+  res.render('index.ejs', { config: config });
 })
-
-app.get('/api/content', (req, res) => {
-  res.json(config.content);
-});
 
 app.listen(port, () => {
   console.log('Server running on port ' + port);

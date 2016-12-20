@@ -7,6 +7,7 @@ const devconfig = require('./webpack.config.js');
 const prodconfig = require('./webpack.config.production.js');
 const activeProject = require('yargs').argv.project;
 const database = require('./server/database');
+const upload = require('./server/upload');
 
 gulp.task('build:dev', (callback) => {
   process.env.NODE_ENV = 'development';
@@ -46,16 +47,13 @@ gulp.task('build:prod', (callback) => {
   // take content.json and ship it to mongo db
   database.connectToDB(activeProject, 'uploadContentProd');
   const compiler = webpack(prodconfig, (err, stats) => {
-    if (err) throw new gutil.PluginError("webpack", err);
+    if (err) throw new gutil.PluginError('webpack', err);
     callback();
   });
 });
 
-gulp.task('upload:prod', (callback) => {
-  // talkes build folder and updates S3 bucket
-  console.log(activeProject);
-
-  callback();
+gulp.task('upload:prod', () => {
+  upload.toS3(activeProject);
 });
 
 gulp.task('prod:start', (callback) => {

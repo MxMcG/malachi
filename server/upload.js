@@ -25,13 +25,15 @@ const toS3 = (project) => {
         fs.readdir(folderPath, (err, files) => {
           files.forEach((file, index) => {
             const fileInDirectory = path.join(projectBuildPath, folderContent, file);
+            const contentType = fileType(file);
             fs.readFile(fileInDirectory, (err, data) => {
               // take data, push to s3
               s3.putObject({
                 Bucket: 'truvine',
                 Key: `${project}/${folderContent}/${file}`,
                 Body: data,
-                ACL:'public-read'
+                ACL:'public-read',
+                ContentType: contentType
               }, (err, file) => {
                 // Log any errors
                 if (err) { gutil.log('Error Uploading File to s3', err); }
@@ -47,13 +49,15 @@ const toS3 = (project) => {
       } else if (isFile) {
         // path to file
         const filePath = path.join(projectBuildPath, folderContent);
+        const contentType = fileType(filePath);
         // read file and upload to s3
         fs.readFile(filePath, (err, data) => {
           s3.putObject({
             Bucket: 'truvine',
             Key: `${project}/${folderContent}`,
             Body: data,
-            ACL:'public-read'
+            ACL:'public-read',
+            ContentType: contentType
           }, (err, file) => {
             // Log any errors
             if (err) { gutil.log('Error Uploading File to s3', err); }
@@ -64,6 +68,25 @@ const toS3 = (project) => {
       }
     });
   });
+}
+
+/**
+ * Returns ContentType value for S3 upload, so files do not autodownload in browser
+ * Add extensions as needed
+ */
+const fileType = (file) => {
+  const type = path.extname(file);
+  switch (type) {
+    case '.jpg':
+      return 'image/jpeg';
+    case '.png':
+      return 'image/png';
+    case '.js':
+      return 'application/javascript';
+    case '.map':
+      return 'application/javascript';
+  }
+  console.log(type)
 }
 
 module.exports = {

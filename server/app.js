@@ -19,23 +19,21 @@ if (env === 'development') {
     // delete unwanted mongo db properties
     delete data._id;
     delete data.__v;
-    config.cdnUrl = 'http://localhost:8080/'
-    config.bundleUrl = 'http://localhost:8080/bundle.js'
+    config.cdnUrl = 'http://localhost:8080/projects/' + activeProject + '/';
+    config.bundleUrl = 'http://localhost:8080/bundle.js/'
     config.content = data;
   });
 }
 if (env === 'production') {
-  database.connectToDB(activeProject, 'fetchProjectVersion', (err, currentProjectVersion) => {
-    if (err) { throw err; }
-    config.currentProjectVersion = currentProjectVersion;
-    database.connectToDB(activeProject, 'fetchContentProd', (err, data) => {
-      // delete unwanted mongo db properties
-      delete data._id;
-      delete data.__v;
-      config.cdnUrl = 'https://d3hc4gv509jw9l.cloudfront.net/',
-      config.bundleUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject + '_v' + currentProjectVersion + '/bundle.js'
-      config.content = data;
-    });
+  database.connectToDB(activeProject, 'fetchContentProd', (err, data) => {
+    // delete unwanted mongo db properties
+    const currentProjectVersion = data.projectVersion;
+    delete data._id;
+    delete data.__v;
+    config.projectVersion = currentProjectVersion;
+    config.cdnUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject +  '_v' + currentProjectVersion + '/';
+    config.bundleUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject + '_v' + currentProjectVersion + '/bundle.js';
+    config.content = data;
   });
 }
 

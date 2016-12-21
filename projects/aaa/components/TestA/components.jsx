@@ -15,7 +15,7 @@ export default class Todos extends React.Component {
     return (
       <div>
         <h2>{headline}</h2>
-        <img className="imageOne" src={cdnBase + 'projects/aaa/images/testimg2.jpg'}></img>
+        <img className="imageOne" src={cdnBase + 'images/testimg2.jpg'}></img>
       </div>
     );
   }

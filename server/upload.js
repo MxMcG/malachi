@@ -19,13 +19,16 @@ const toS3 = (project) => {
     else {
       const projectBuildPath = path.resolve(__dirname, '../build', project);
       const s3 = new AWS.S3();
-      s3.deleteObject({
-        Bucket: 'truvine',
-        Key: `projects/${project}_v${previousVersion}`
-      }, (err, data) => {
-        if (err) console.log('Error deleting project from s3 bucket', err.stack);
-        else console.log('Deleted project from s3 bucket', data);
-      });
+      if (previousVersion > 0) {
+        s3.deleteObject({
+          Bucket: 'truvine',
+          Key: `/projects/${project}_v${previousVersion}`
+        }, (err, data) => {
+          if (err) console.log('Error deleting project from s3 bucket', err.stack);
+          else console.log('Deleted project from s3 bucket', data);
+          console.log("deleted Path", `projects/${project}_v${previousVersion}`)
+        });
+      }
       fs.readdir(projectBuildPath, (err, folderContents) => {
         folderContents.forEach((folderContent) => {
           const folderContentPath = path.join(projectBuildPath, folderContent);

@@ -39,6 +39,11 @@ gulp.task('start:dev', (callback) => {
   });
 });
 
+/**
+ * Outputs production bundle to build/<project>
+ * Pushes content to ContentProd DB model
+ * Increments project version number
+ */
 gulp.task('build:prod', (callback) => {
   process.env.NODE_ENV = 'production';
   if (!activeProject) {
@@ -53,6 +58,9 @@ gulp.task('build:prod', (callback) => {
   });
 });
 
+/**
+ * Adds version number to project folder then uploads each file to S3
+ */
 gulp.task('upload:prod', () => {
   upload.toS3(activeProject);
 });

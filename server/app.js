@@ -25,13 +25,17 @@ if (env === 'development') {
   });
 }
 if (env === 'production') {
-  database.connectToDB(activeProject, 'fetchContentDev', (err, data) => {
-    // delete unwanted mongo db properties
-    delete data._id;
-    delete data.__v;
-    config.cdnUrl = 'https://d3hc4gv509jw9l.cloudfront.net',
-    config.bundleUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject + '/bundle.js.map'
-    config.content = data;
+  database.connectToDB(activeProject, 'fetchProjectVersion', (err, currentProjectVersion) => {
+    if (err) { throw err; }
+    config.currentProjectVersion = currentProjectVersion;
+    database.connectToDB(activeProject, 'fetchContentProd', (err, data) => {
+      // delete unwanted mongo db properties
+      delete data._id;
+      delete data.__v;
+      config.cdnUrl = 'https://d3hc4gv509jw9l.cloudfront.net/',
+      config.bundleUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject + '_v' + currentProjectVersion + '/bundle.js'
+      config.content = data;
+    });
   });
 }
 

@@ -32,6 +32,18 @@ const connectToDB = (project, task, callback) => {
     case 'uploadContentProd':
       uploadContentProd(project, dbConnection);
       break;
+    case 'fetchContentProd':
+      fetchContentProd(project, dbConnection, (err, data) => {
+        if (err) return callback(err, null);
+        callback(null, data);
+      });
+      break;
+    case 'fetchProjectVersion':
+      fetchProjectVersion(project, dbConnection, (err, data) => {
+        if (err) return callback(err, null);
+        callback(null, data);
+      });
+      break;
     default:
       gutil.log('Default task called, please specify a task for db connection');
   }
@@ -44,7 +56,8 @@ const uploadContentDev = (projectAbv, dbConnection) => {
     // take content.json and upload to db
     const schema = new mongoose.Schema({
       projectName: String,
-      project: mongoose.Schema.Types.Mixed
+      project: mongoose.Schema.Types.Mixed,
+      projectVersion: Number
     });
     const ContentDev = mongoose.model('ContentDev', schema);
     ContentDev.where({ projectName: projectAbv }).findOne((err, doc) => {
@@ -74,20 +87,25 @@ const uploadContentProd = (projectAbv, dbConnection) => {
     // take content.json and upload to db
     const schema = new mongoose.Schema({
       projectName: String,
-      project: mongoose.Schema.Types.Mixed
+      project: mongoose.Schema.Types.Mixed,
+      projectVersion: Number
     });
     const ContentProd = mongoose.model('ContentProd', schema);
     ContentProd.where({ projectName: projectAbv }).findOne((err, doc) => {
       if (err) gutil.log('DOCUMENT QUERY ERROR');
       if (!doc) {
         gutil.log('No doc for this property, creating new doc ...')
-        const newContent = { projectName: projectAbv, project: projectContent, test: 'hii' };
+        const newContent = { projectName: projectAbv, project: projectContent, projectVersion: 1 };
         ContentProd.create(newContent, (err, updatedContent) => {
           if (err) gutil.log('MONGO SAVE ERROR', err);
           gutil.log('Saved new project content to mongodb');
         });
       } else {
-        ContentProd.update({ projectName: projectAbv }, { project: projectContent }, (err, updatedContent) => {
+        // Update project version so CDN can pull most recently changed files :)
+        const currentProjectVersion = doc.toObject().projectVersion;
+        const nextProjectVersion = doc.toObject().projectVersion + 1;
+        gutil.log('Updating doc for this property ... Thank you for your patience :)')
+        ContentProd.update({ projectName: projectAbv }, { project: projectContent, projectVersion: nextProjectVersion }, (err, updatedContent) => {
           if (err) gutil.log('MONGO UPDATE ERROR', err);
           gutil.log('Updated content in mongodb');
         });
@@ -99,22 +117,59 @@ const uploadContentProd = (projectAbv, dbConnection) => {
 const fetchContentDev = (projectAbv, dbConnection, callback) => {
   const schema = new mongoose.Schema({
     projectName: String,
-    project: mongoose.Schema.Types.Mixed
+    project: mongoose.Schema.Types.Mixed,
+    projectVersion: Number
   });
   const ContentDev = mongoose.model('ContentDev', schema);
-  console.log('PROKECT', projectAbv);
   ContentDev.findOne({ projectName: projectAbv }, (err, doc) => {
     if (err) {
       gutil.log('Error fetching from database', err);
       callback(err, null);
     }
     if (doc) {
+      gutil.log('Content Fetched: Development');
       callback(null, doc.toObject());
     }
   });
 };
 
+const fetchContentProd = (projectAbv, dbConnection, callback) => {
+  const schema = new mongoose.Schema({
+    projectName: String,
+    project: mongoose.Schema.Types.Mixed,
+    projectVersion: Number
+  });
+  const ContentProd = mongoose.model('ContentProd', schema);
+  ContentProd.findOne({ projectName: projectAbv }, (err, doc) => {
+    if (err) {
+      gutil.log('Error fetching from database', err);
+      callback(err, null);
+    }
+    if (doc) {
+      gutil.log('Content Fetched: Production');
+      callback(null, doc.toObject());
+    }
+  });
+};
 
+const fetchProjectVersion = (projectAbv, dbConnection, callback) => {
+  const schema = new mongoose.Schema({
+    projectName: String,
+    project: mongoose.Schema.Types.Mixed,
+    projectVersion: Number
+  });
+  const ContentProd = mongoose.model('ContentProd', schema);
+  ContentProd.findOne({ projectName: projectAbv }, (err, doc) => {
+    if (err) {
+      gutil.log('Error fetching version number from database', err);
+      callback(err, null);
+    }
+    if (doc) {
+      gutil.log('Version number fetched: Production');
+      callback(null, doc.toObject().projectVersion)
+    }
+  });
+};
 
 module.exports = {
   connectToDB

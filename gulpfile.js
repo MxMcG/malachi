@@ -48,7 +48,7 @@ gulp.task('build:prod', (callback) => {
   database.connectToDB(activeProject, 'uploadContentProd');
   const compiler = webpack(prodconfig, (err, stats) => {
     if (err) throw new gutil.PluginError('webpack', err);
-    gutil.log(stats.toJson('minimal'));
+    // gutil.log(stats.toJson('minimal'));
     callback();
   });
 });
@@ -57,9 +57,10 @@ gulp.task('upload:prod', () => {
   upload.toS3(activeProject);
 });
 
-gulp.task('prod:start', (callback) => {
+gulp.task('start:prod', (callback) => {
   process.env.NODE_ENV = 'production';
   process.env.ACTIVE_PROJECT = activeProject;
+  process.env.PORT = 3000;
   const child = exec('node server/app.js');
   child.stdout.on('data', (data) => {
     console.log('STDOUT: ' + data);

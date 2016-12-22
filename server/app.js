@@ -7,7 +7,7 @@ const database = require('./database');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const isProduction = process.env.NODE_ENV === 'production';
-const port = isProduction ? process.env.PORT : 3000;
+const port = isProduction ? process.env.PORT: 3000;
 const templatePath = path.resolve(__dirname, '../views');
 const activeProject = process.env.ACTIVE_PROJECT;
 const env = process.env.NODE_ENV;

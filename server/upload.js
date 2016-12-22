@@ -14,23 +14,16 @@ const toS3 = (project) => {
   // first fetch current project version number
   database.connectToDB(activeProject, 'fetchProjectVersion', (err, currentProjectVersion) => {
     // existing CDN version is one less than currentProjectVersion bc build has already incremented in db
-    const previousVersion = currentProjectVersion - 1;
+    const deletableProjectVersion = (currentProjectVersion > 1) ? currentProjectVersion - 2 : currentProjectVersion - 1;
+    const deletableKeyPaths = [];
+
     if (err) { throw err; }
     else {
       const projectBuildPath = path.resolve(__dirname, '../build', project);
       const s3 = new AWS.S3();
-      if (previousVersion > 0) {
-        s3.deleteObject({
-          Bucket: 'truvine',
-          Key: `/projects/${project}_v${previousVersion}`
-        }, (err, data) => {
-          if (err) console.log('Error deleting project from s3 bucket', err.stack);
-          else console.log('Deleted project from s3 bucket', data);
-          console.log("deleted Path", `projects/${project}_v${previousVersion}`)
-        });
-      }
       fs.readdir(projectBuildPath, (err, folderContents) => {
-        folderContents.forEach((folderContent) => {
+        folderContents.forEach((folderContent, outerMostIndex) => {
+          // determine if path contains directory or file
           const folderContentPath = path.join(projectBuildPath, folderContent);
           const isFolder = fs.lstatSync(folderContentPath).isDirectory();
           const isFile = fs.lstatSync(folderContentPath).isFile();
@@ -42,15 +35,18 @@ const toS3 = (project) => {
             const folderPath = path.join(projectBuildPath, folderContent);
             // read contents of folder and upload to s3
             fs.readdir(folderPath, (err, files) => {
-              console.log('FILES', files)
-              files.forEach((file, index) => {
+              console.log('Files in Folder... most likely images', files)
+              files.forEach((file, innerIndex) => {
                 const fileInDirectory = path.join(projectBuildPath, folderContent, file);
+                const keyPath = `projects/${project}_v${currentProjectVersion}/${folderContent}/${file}`;
+                const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}/${file}`;
                 const contentType = fileType(file);
+                deletableKeyPaths.push({ Key: deleteKeyPath });
                 fs.readFile(fileInDirectory, (err, data) => {
                   // take data, push to s3
                   s3.putObject({
                     Bucket: 'truvine',
-                    Key: `projects/${project}_v${currentProjectVersion}/${folderContent}/${file}`,
+                    Key: keyPath,
                     Body: data,
                     ACL:'public-read',
                     ContentType: contentType
@@ -58,7 +54,13 @@ const toS3 = (project) => {
                     // Log any errors
                     if (err) { gutil.log('Error Uploading File to s3', err); }
                     // If everything went successfully, print which file is being uploaded
-                    else { gutil.log('Uploading asset ' + file); }
+                    else {
+                      gutil.log('Uploading asset ' + file);
+                      // if end of new file uploading, delete old version of objects in S3
+                      if (folderContents[outerMostIndex + 1] === undefined && files[innerIndex + 1] === undefined) {
+                        s3deleteObjects(s3, deletableKeyPaths);
+                      }
+                    }
                   });
                 });
               });
@@ -69,12 +71,15 @@ const toS3 = (project) => {
           } else if (isFile) {
             // path to file
             const filePath = path.join(projectBuildPath, folderContent);
+            const keyPath = `projects/${project}_v${currentProjectVersion}/${folderContent}`;
+            const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}`;
             const contentType = fileType(filePath);
+            deletableKeyPaths.push({ Key: deleteKeyPath });
             // read file and upload to s3
             fs.readFile(filePath, (err, data) => {
               s3.putObject({
                 Bucket: 'truvine',
-                Key: `projects/${project}_v${currentProjectVersion}/${folderContent}`,
+                Key: keyPath,
                 Body: data,
                 ACL:'public-read',
                 ContentType: contentType
@@ -82,13 +87,32 @@ const toS3 = (project) => {
                 // Log any errors
                 if (err) { gutil.log('Error Uploading File to s3', err); }
                 // If everything went successfully, print which file is being uploaded
-                else { gutil.log('Uploading asset ' + file); }
+                else {
+                  gutil.log('Uploading asset ' + file);
+                  // if end of new file uploading, delete old version of objects in S3
+                  if (folderContents[outerMostIndex + 1] === undefined) {
+                    s3deleteObjects(s3, deletableKeyPaths);
+                  }
+                }
               });
             });
           }
         });
       });
     }
+  });
+}
+
+const s3deleteObjects = (s3Connection, deletableObjects) => {
+  s3Connection.deleteObjects({
+    Bucket: 'truvine',
+    Delete: {
+      Objects: deletableObjects,
+      Quiet: true || false
+    }
+  }, (err, data) => {
+    if (err) console.log('Error deleting objects', err.stack);
+    else console.log(data);
   });
 }
 

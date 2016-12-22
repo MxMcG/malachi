@@ -104,6 +104,7 @@ const uploadContentProd = (projectAbv, dbConnection) => {
         // Update project version so CDN can pull most recently changed files :)
         const currentProjectVersion = doc.toObject().projectVersion;
         const nextProjectVersion = doc.toObject().projectVersion + 1;
+        gutil.log('Project Version updated to: ', nextProjectVersion);
         gutil.log('Updating doc for this property ... Thank you for your patience :)')
         ContentProd.update({ projectName: projectAbv }, { project: projectContent, projectVersion: nextProjectVersion }, (err, updatedContent) => {
           if (err) gutil.log('MONGO UPDATE ERROR', err);

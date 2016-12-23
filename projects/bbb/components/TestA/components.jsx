@@ -2,19 +2,20 @@ import React from 'react';
 
 export default class Todos extends React.Component {
 
-  constructor(props) {
-    super(props);
-    // console.log('te', content);
+  constructor() {
+    super();
     this.state = {
       test: ''
     }
   }
 
   render() {
+    const headline = this.props.config.content.project.components.TestA.headline
+    const cdnBase = this.props.config.cdnUrl;
     return (
       <div>
-        <h2>Test A</h2>
-        <img className="imageOne" src='http://localhost:8080/projects/aaa/components/TestA/images/testimg.jpg'></img>
+        <h2>{headline}</h2>
+        <img className="imageOne" src={cdnBase + 'images/cattle.jpg'}></img>
       </div>
     );
   }

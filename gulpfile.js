@@ -74,7 +74,7 @@ gulp.task('start:prod', (callback) => {
   process.env.NODE_ENV = 'production';
   process.env.ACTIVE_PROJECT = activeProject;
   process.env.PORT = 5000;
-  const child = exec('NODE_ENV=production PORT=5000 ACTIVE_PROJECT=' + activeProject + 'pm2 start server/app.js');
+  const child = exec('NODE_ENV=production PORT=5000 ACTIVE_PROJECT=' + activeProject + ' pm2 start server/app.js');
   child.stdout.on('data', (data) => {
     console.log('STDOUT: ' + data);
   });

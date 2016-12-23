@@ -12,6 +12,7 @@ const templatePath = path.resolve(__dirname, '../views');
 const activeProject = process.env.ACTIVE_PROJECT;
 const env = process.env.NODE_ENV;
 
+console.log(env)
 const config = {};
 if (env === 'development') {
   database.connectToDB(activeProject, 'fetchContentDev', (err, data) => {

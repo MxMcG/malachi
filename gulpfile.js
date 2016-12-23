@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const pm2 = require('pm2');
+// const pm2 = require('pm2');
 const gutil = require("gulp-util");
 const webpack = require('webpack');
 const WebpackDevServer = require("webpack-dev-server");
@@ -66,32 +66,23 @@ gulp.task('upload:prod', () => {
   upload.toS3(activeProject);
 });
 
+/**
+ * Starts express process via pm2 start
+ * pm2 tasks: kill, logs
+ */
 gulp.task('start:prod', (callback) => {
   process.env.NODE_ENV = 'production';
   process.env.ACTIVE_PROJECT = activeProject;
   process.env.PORT = 5000;
-  pm2.connect(true, function() {
-    pm2.start({
-      name: 'cephas',
-      script: 'server/app.js'
-    }, () => {
-      console.log('pm2 started');
-      pm2.streamLogs('all', 0);
-    });
+  const child = exec('NODE_ENV=production PORT=5000 ACTIVE_PROJECT=' + activeProject + 'pm2 start server/app.js');
+  child.stdout.on('data', (data) => {
+    console.log('STDOUT: ' + data);
   });
-  // const child = exec('node server/app.js');
-  // child.stdout.on('data', (data) => {
-  //   console.log('STDOUT: ' + data);
-  // });
-  // child.stderr.on('data', (data) => {
-  //   console.log('STDERR: ' + data);
-  // });
-  // child.on('close', (code) => {
-  //   console.log('CLOSING PROCESS: ' + code);
-  // });
-  // starts express instance based on project
-  // this instance points to the CDN bundle.js based on project acrn
-  // this should be ran from within the droplet/ production instance as the last step of project deployment
-  // runs app.js with given property
+  child.stderr.on('data', (data) => {
+    console.log('STDERR: ' + data);
+  });
+  child.on('close', (code) => {
+    console.log('CLOSING PROCESS: ' + code);
+  });
   callback()
 });

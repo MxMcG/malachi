@@ -17,9 +17,9 @@ const Redux = require('redux');
 import { Router, Route, browserHistory, IndexRoute, match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
-const configureStore = require('../projects/' + activeProject + '/common/store/configureStore.js').configureStore;
-const routes = require('../projects/' + activeProject + '/common/routes.jsx')
-const createLocation = require('history').createLocation;
+// TODO convert to import
+const configureStore = require('../projects/' + activeProject + '/common/store/configureStore.js').default;
+const App = require('../projects/' + activeProject + '/common/containers/appContainer.js').default;
 
 const config = {};
 if (env === 'development') {
@@ -66,47 +66,28 @@ app.use((err, req, res, next) => {
 });
 
 app.use((req, res) => {
-  const location = createLocation(req.url);
-  // const reducer = Redux.combineReducers(reducers)
   const store = configureStore(config);
-  // Create a new Redux store instance
-  // const store = createStore(counterApp);
-  match({ routes: routes.mainRoute, location: location }, (err, redirectLocation, renderProps) => {
-    if (err) {
-      res.status(500).send(err.message)
-    } else if (redirectLocation) {
-      res.redirect(302, redirectLocation.pathname + redirectLocation.search)
-    } else if (renderProps) {
-      // You can also check renderProps.components or renderProps.routes for
-      // your "not found" component or route respectively, and send a 404 as
-      // below, if you're using a catch-all route.
-
-      const componentHTML = renderToString(
-        <Provider store={store} >
-          <RouterContext {...renderProps} />
-        </Provider>
-      );
-
-      const HTML = `
-      <!DOCTYPE html>
-      <html lang="en">
-        <head>
-          <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
-        </head>
-        <body>
-          <div id="react-view">${componentHTML}</div>
-          <script type="application/javascript">
-            window.__INITIAL_STATE__ = ${JSON.stringify(config)};
-          </script>
-          <script src=${JSON.stringify(config.bundleUrl)}></script>
-        </body>
-      </html>`;
-      res.status(200).send(HTML);
-    } else {
-      res.status(404).send('Not found');
-    }
-  });
+  const componentHTML = renderToString(
+    <Provider store={store} >
+      <App />
+    </Provider>
+  );
+  const HTML = `
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+      <div id="react-view">${componentHTML}</div>
+      <script type="application/javascript">
+        window.__INITIAL_STATE__ = ${JSON.stringify(config)};
+      </script>
+      <script src=${JSON.stringify(config.bundleUrl)}></script>
+    </body>
+  </html>`;
+  res.status(200).send(HTML);
 });
 
 // app.get('/*', (req, res) => {

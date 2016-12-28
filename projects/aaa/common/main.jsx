@@ -3,7 +3,8 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import configureStore from './store/configureStore';
-import App from './containers/appContainer.js';
+import AppContainer from './containers/AppContainer.js';
+console.log('CONTASINERER', AppContainer)
 
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
@@ -11,7 +12,7 @@ const store = configureStore(initialState);
 if (global.window) {
   render(
     <Provider store={store}>
-      <App />
+      <AppContainer />
     </Provider>, global.window.document.getElementById('react-view')
   );
 }

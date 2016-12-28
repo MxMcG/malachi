@@ -53,7 +53,11 @@ const config = {
         loader: 'babel',
         exclude: [nodeModulesPath]
       },
-
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: [nodeModulesPath]
+      },
       // Let us also add the style-loader and css-loader, which you can
       // expand with less-loader etc.
       {

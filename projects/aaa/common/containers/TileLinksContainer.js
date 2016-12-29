@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../../components/Nav/components.jsx';
+import TileLinks from '../../components/TileLinks/components.jsx';
 
 // include actions as they are needed by each component
 // they are called via dispatch()
@@ -10,19 +10,19 @@ const propTypes = {
 };
 
 // in here, we determine the props to be passed down to the specific component needed
-class NavContainer extends Component {
+class TileLinksContainer extends Component {
   componentDidMount () {
     const { dispatch } = this.props;
   }
 
   render () {
     return (
-      <Nav {...this.props} />
+      <TileLinks {...this.props} />
     );
   }
 }
 
-Nav.propTypes = propTypes;
+TileLinksContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
   const componentContent = state.content.project.components;
@@ -33,4 +33,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(NavContainer);
+export default connect(mapStateToProps)(TileLinksContainer);

@@ -2,9 +2,9 @@ const Webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const path = require('path');
+const activeProject = require('yargs').argv.project;
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const env = process.env.NODE_ENV
-const activeProject = require('yargs').argv.project;
 const buildPath = path.resolve(__dirname, 'build', activeProject);
 const buildPathImg = path.resolve(__dirname, 'build', activeProject, 'images');
 const mainPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'config.js') : null
@@ -33,14 +33,6 @@ const config = {
     publicPath: `/build/${activeProject}/`
   },
   module: {
-    preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['eslint'],
-        exclude: [nodeModulesPath]
-      }
-    ],
-
     loaders: [
       // I highly recommend using the babel-loader as it gives you
       // ES6/7 syntax and JSX transpiling out of the box
@@ -49,7 +41,11 @@ const config = {
         loader: 'babel',
         exclude: [nodeModulesPath]
       },
-
+      {
+        test: /\.js$/,
+        loader: 'babel',
+        exclude: [nodeModulesPath]
+      },
       // Let us also add the style-loader and css-loader, which you can
       // expand with less-loader etc.
       {

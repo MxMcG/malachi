@@ -1,23 +1,23 @@
-const express = require('express');
-const path = require('path');
-const fs = require('fs');
-const app = express();
-const logger = require('morgan');
-const database = require('./database');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const isProduction = process.env.NODE_ENV === 'production';
-const port = isProduction ? process.env.PORT: 3000;
-const templatePath = path.resolve(__dirname, '../views');
-const activeProject = process.env.ACTIVE_PROJECT;
-const env = process.env.NODE_ENV;
-// Redux and Routing
-const React = require('react');
-const Redux = require('redux');
+import express from 'express';
+import path from 'path';
+import fs from 'fs';
+import logger from 'morgan';
+import database from './database';
+import cookieParser from 'cookie-parser';
+import bodyParser from 'body-parser';
+import React from 'react';
+import Redux from 'redux';
 import { Router, Route, browserHistory, IndexRoute, match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
-// TODO convert to import
+
+const activeProject = process.env.ACTIVE_PROJECT;
+const app = express();
+const isProduction = process.env.NODE_ENV === 'production';
+const port = isProduction ? process.env.PORT: 3000;
+const templatePath = path.resolve(__dirname, '../views');
+const env = process.env.NODE_ENV;
+// dynamic variables, unable to use es6 imports
 const configureStore = require('../projects/' + activeProject + '/common/store/configureStore.js').default;
 const App = require('../projects/' + activeProject + '/common/containers/appContainer.js').default;
 

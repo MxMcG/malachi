@@ -1,13 +1,19 @@
 {
   "components": {
-    "TestA": {
-      "headline": "First KOOOOl"
+    "Nav": {
+      "headline": "This is a Nav headline",
+      "images": {
+        "cattle": "images/cattle.jpg"
+      }
     },
-    "TestB": {
-      "headline": "Second Test Headline"
+    "DynamicSlider": {
+      "headline": "This is a DynamicSlider headline"
     },
-    "TestC": {
-      "headline": "Second Test Headline"
+    "TileLinks": {
+      "headline": "This is a tileLinks headline"
+    },
+    "Footer": {
+      "headline": "This is a Footer headline"
     }
   }
 }

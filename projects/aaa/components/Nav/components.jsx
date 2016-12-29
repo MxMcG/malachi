@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import TileLinks from '../../common/containers/TileLinksContainer.js';
 
 export default class Nav extends Component {
 
@@ -11,10 +12,11 @@ export default class Nav extends Component {
 
   render() {
     // const headline = this.props.config.content.project.components.TestA.headline
-    // const cdnBase = this.props.config.cdnUrl;
+    const cdnBase = this.props.cdnUrl;
     return (
       <div className="nav" >
-        <h1>NAV</h1>
+        <TileLinks />
+        <img className='imageCattle' src={cdnBase + 'images/cattle.jpg'}></img>
       </div>
     );
   }

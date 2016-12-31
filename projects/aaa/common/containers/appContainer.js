@@ -33,6 +33,7 @@ class AppContainer extends Component {
 AppContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
+  console.log('STATE', state)
   const componentContent = state.content.project.components;
   return {
     componentContent

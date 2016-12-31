@@ -6,12 +6,15 @@ const env = process.env.NODE_ENV
 const activeProject = require('yargs').argv.project;
 const buildPath = path.resolve(__dirname, 'build', activeProject);
 const mainPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'config.js') : null
+const assetsOutput = activeProject ? path.resolve(__dirname, 'projects', activeProject) : null
+const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 
 const config = {
 
   // Makes sure errors in console map to the correct file
   // and line number
   devtool: 'eval',
+  context: assetsOutput,
   entry: [
 
     // // For hot style updates
@@ -21,7 +24,7 @@ const config = {
     'webpack-dev-server/client?http://localhost:8080',
 
     // Our application
-    mainPath],
+    './config.js'],
   output: {
 
     // We need to give Webpack a path. It does not actually need it,
@@ -81,6 +84,7 @@ const config = {
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
     }),
+    new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools-configuration')).development()
   ]
 };
 

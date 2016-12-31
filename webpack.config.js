@@ -7,7 +7,6 @@ const activeProject = require('yargs').argv.project;
 const buildPath = path.resolve(__dirname, 'build', activeProject);
 const mainPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'config.js') : null
 const assetsOutput = activeProject ? path.resolve(__dirname, 'projects', activeProject) : null
-const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
 
 const config = {
 
@@ -83,8 +82,7 @@ const config = {
     new Webpack.HotModuleReplacementPlugin(),
     new Webpack.DefinePlugin({
       'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
-    }),
-    new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools-configuration')).development()
+    })
   ]
 };
 

@@ -10,19 +10,15 @@ const buildPathImg = path.resolve(__dirname, 'build', activeProject, 'images');
 const mainPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'config.js') : null;
 const assetsPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'styles.css') : null;
 const projectImgsPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'images') : null;
-const assetsOutput = activeProject ? path.resolve(__dirname, 'projects', activeProject) : null;
-const WebpackIsomorphicToolsPlugin = require('webpack-isomorphic-tools/plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const config = {
 
   // Makes sure errors in console map to the correct file
   // and line number
   devtool: 'source-map',
-  context: assetsOutput,
   entry: [
     // Our application
-    'config.js'],
+    mainPath],
   output: {
 
     // We need to give Webpack a path. It does not actually need it,
@@ -55,7 +51,7 @@ const config = {
       // expand with less-loader etc.
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract('css!sass'),
+        loaders: ['style-loader', 'css-loader', 'sass-loader'],
         exclude: [nodeModulesPath]
       }
     ]
@@ -79,10 +75,7 @@ const config = {
       // Without `root` CleanWebpackPlugin won't point to our
       // project and will fail to work.
       root: process.cwd()
-    }),
-    new ExtractTextPlugin('style.css'),
-    new WebpackIsomorphicToolsPlugin(require('./webpack-isomorphic-tools-configuration'))
-
+    })
   ]
 };
 

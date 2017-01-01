@@ -7,8 +7,9 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const env = process.env.NODE_ENV
 const buildPath = path.resolve(__dirname, 'build', activeProject);
 const buildPathImg = path.resolve(__dirname, 'build', activeProject, 'images');
-const mainPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'config.js') : null
-const projectImgsPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'images') : null
+const mainPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'config.js') : null;
+const assetsPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'styles.css') : null;
+const projectImgsPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'images') : null;
 
 const config = {
 

@@ -67,11 +67,14 @@ app.use((err, req, res, next) => {
 
 app.use((req, res) => {
   const store = configureStore(config);
+
+  // goal is to bundle JS and then send
   const componentHTML = renderToString(
     <Provider store={store} >
       <App />
     </Provider>
   );
+
   const HTML = `
   <!DOCTYPE html>
   <html lang="en">

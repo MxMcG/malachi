@@ -38,6 +38,7 @@ if (env === 'production') {
     // delete unwanted mongo db properties
     console.log('VERSION', data.projectVersion)
     const currentProjectVersion = data.projectVersion;
+    console.log('ACTIVE PROJECT', activeProject)
 
     delete data._id;
     delete data.__v;

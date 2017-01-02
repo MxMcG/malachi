@@ -72,8 +72,7 @@ const toS3 = (project) => {
             // path to file
             const filePath = path.join(projectBuildPath, folderContent);
             const keyPath = `projects/${project}_v${currentProjectVersion}/${folderContent}`;
-            const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}`;
-            console.log('FILE TYPE ', filePath)
+            const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}`;  
             const contentType = fileType(filePath);
             deletableKeyPaths.push({ Key: deleteKeyPath });
             // read file and upload to s3
@@ -131,7 +130,6 @@ const fileType = (file) => {
     case '.js':
       return 'application/javascript';
     case '.css':
-      console.log('TYPEE')
       return 'text/css';
   }
 }

@@ -1,6 +1,7 @@
 const Webpack = require('webpack');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const activeProject = require('yargs').argv.project;
 const nodeModulesPath = path.resolve(__dirname, 'node_modules');
@@ -33,6 +34,15 @@ const config = {
     // localhost:3000/build. That makes proxying easier to handle
     publicPath: `/build/${activeProject}/`
   },
+  target: 'node',
+  node: {
+    console: false,
+    global: false,
+    process: false,
+    Buffer: false,
+    __filename: false,
+    __dirname: false
+  },
   module: {
     loaders: [
       // I highly recommend using the babel-loader as it gives you
@@ -51,7 +61,7 @@ const config = {
       // expand with less-loader etc.
       {
         test: /\.scss$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader'],
+        loader: ExtractTextPlugin.extract('css!sass'),
         exclude: [nodeModulesPath]
       }
     ]
@@ -75,6 +85,9 @@ const config = {
       // Without `root` CleanWebpackPlugin won't point to our
       // project and will fail to work.
       root: process.cwd()
+    }),
+    new ExtractTextPlugin('index.css', {
+      allChunks: true
     })
   ]
 };

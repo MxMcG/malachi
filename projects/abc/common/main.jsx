@@ -9,10 +9,8 @@ import AppContainer from './containers/appContainer.js';
 const initialState = window.__INITIAL_STATE__;
 const store = configureStore(initialState);
 
-if (global.window) {
-  render(
-    <Provider store={store}>
-      <AppContainer />
-    </Provider>, global.window.document.getElementById('react-view')
-  );
-}
+render(
+  <Provider store={store}>
+    <AppContainer />
+  </Provider>, window.document.getElementById('react-view')
+);

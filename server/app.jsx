@@ -36,11 +36,14 @@ if (env === 'development') {
 if (env === 'production') {
   database.connectToDB(activeProject, 'fetchContentProd', (err, data) => {
     // delete unwanted mongo db properties
+    console.log('VERSION', data.projectVersion)
     const currentProjectVersion = data.projectVersion;
+
     delete data._id;
     delete data.__v;
     config.projectVersion = currentProjectVersion;
     config.cdnUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject +  '_v' + currentProjectVersion + '/';
+    config.bundleCssUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject + '_v' + currentProjectVersion + '/index.css';
     config.bundleUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject + '_v' + currentProjectVersion + '/bundle.js';
     config.content = data;
   });
@@ -75,12 +78,20 @@ app.use((req, res) => {
     </Provider>
   );
 
+  const stylesheet = () => {
+    if (isProduction) {
+      return `<link rel='stylesheet' href=${config.bundleCssUrl} />`;
+    }
+    return "<link rel='stylesheet' />"
+  }
+
   const HTML = `
   <!DOCTYPE html>
   <html lang="en">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
+      ${stylesheet()}
     </head>
     <body>
       <div id="react-view">${componentHTML}</div>

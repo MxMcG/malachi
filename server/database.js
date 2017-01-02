@@ -165,6 +165,10 @@ const fetchProjectVersion = (projectAbv, dbConnection, callback) => {
       gutil.log('Error fetching version number from database', err);
       callback(err, null);
     }
+    if (!doc) {
+      gutil.log('No Versions created for this project yet');
+      callback(null, 1)
+    }
     if (doc) {
       gutil.log('Version number fetched: Production');
       callback(null, doc.toObject().projectVersion)

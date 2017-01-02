@@ -14,7 +14,7 @@ const toS3 = (project) => {
   // first fetch current project version number
   database.connectToDB(activeProject, 'fetchProjectVersion', (err, currentProjectVersion) => {
     // existing CDN version is one less than currentProjectVersion bc build has already incremented in db
-    const deletableProjectVersion = (currentProjectVersion > 1) ? currentProjectVersion - 2 : currentProjectVersion - 1;
+    const deletableProjectVersion = (currentProjectVersion > 1) ? currentProjectVersion - 2 : 1;
     const deletableKeyPaths = [];
 
     if (err) { throw err; }
@@ -57,7 +57,7 @@ const toS3 = (project) => {
                     else {
                       gutil.log('Uploading asset ' + file);
                       // if end of new file uploading, delete old version of objects in S3
-                      if (folderContents[outerMostIndex + 1] === undefined && files[innerIndex + 1] === undefined) {
+                      if (currentProjectVersion > 1 && folderContents[outerMostIndex + 1] === undefined && files[innerIndex + 1] === undefined) {
                         s3deleteObjects(s3, deletableKeyPaths);
                       }
                     }
@@ -73,6 +73,7 @@ const toS3 = (project) => {
             const filePath = path.join(projectBuildPath, folderContent);
             const keyPath = `projects/${project}_v${currentProjectVersion}/${folderContent}`;
             const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}`;
+            console.log('FILE TYPE ', filePath)
             const contentType = fileType(filePath);
             deletableKeyPaths.push({ Key: deleteKeyPath });
             // read file and upload to s3
@@ -90,7 +91,7 @@ const toS3 = (project) => {
                 else {
                   gutil.log('Uploading asset ' + file);
                   // if end of new file uploading, delete old version of objects in S3
-                  if (folderContents[outerMostIndex + 1] === undefined) {
+                  if (currentProjectVersion > 1 && folderContents[outerMostIndex + 1] === undefined) {
                     s3deleteObjects(s3, deletableKeyPaths);
                   }
                 }
@@ -129,8 +130,9 @@ const fileType = (file) => {
       return 'image/png';
     case '.js':
       return 'application/javascript';
-    case '.map':
-      return 'application/javascript';
+    case '.css':
+      console.log('TYPEE')
+      return 'text/css';
   }
 }
 

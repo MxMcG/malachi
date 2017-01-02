@@ -12,10 +12,6 @@ const propTypes = {
 
 // in here, we determine the props to be passed down to the specific component needed
 class FooterContainer extends Component {
-  componentDidMount () {
-    // const { dispatch, content } = this.props;
-    // console.log('')
-  }
 
   render () {
     return (
@@ -27,9 +23,9 @@ class FooterContainer extends Component {
 FooterContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const { content } = state
+  const componentContent = state.content.project.components.Footer;
   return {
-    content
+    componentContent
   };
 }
 

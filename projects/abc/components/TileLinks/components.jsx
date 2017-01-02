@@ -10,12 +10,12 @@ export default class TileLinks extends Component {
   }
 
   render() {
-    // const headline = this.props.config.content.project.components.TestA.headline
-    // const cdnBase = this.props.config.cdnUrl;
+    const headline = this.props.componentContent.headline;
     return (
       <div className="tileLinks" >
-        <a href="https://www.google.com" target="_blank">Lnk</a>
-        <a href="https://www.google.com" target="_blank">Lnk</a>
+        <a href="https://www.google.com" target="_blank">{headline}</a>
+        <br></br>
+        <a href="https://www.google.com" target="_blank">{headline}</a>
       </div>
     );
   }

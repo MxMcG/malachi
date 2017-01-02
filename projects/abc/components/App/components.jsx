@@ -7,7 +7,6 @@ export default class App extends Component {
 
   constructor(props) {
     super(props);
-    console.log('PROPS in COMPONENT', this.props)
     this.state = {
       test: ''
     }

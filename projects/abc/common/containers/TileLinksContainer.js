@@ -25,7 +25,7 @@ class TileLinksContainer extends Component {
 TileLinksContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components;
+  const componentContent = state.content.project.components.TileLinks;
   const { cdnUrl } = state;
   return {
     componentContent,

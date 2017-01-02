@@ -25,7 +25,7 @@ class NavContainer extends Component {
 Nav.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components;
+  const componentContent = state.content.project.components.Nav;
   const { cdnUrl } = state;
   return {
     componentContent,

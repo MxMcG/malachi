@@ -11,11 +11,10 @@ export default class DynamicSliderContainer extends Component {
   }
 
   render() {
-    // const headline = this.props.config.content.project.components.TestA.headline
-    // const cdnBase = this.props.config.cdnUrl;
+    const headline = this.props.componentContent.headline;
     return (
       <div className="dynamicSliderContainer" >
-        <h1>SLIDER</h1>
+        <h1>{headline}</h1>
       </div>
     );
   }

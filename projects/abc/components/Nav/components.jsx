@@ -11,7 +11,6 @@ export default class Nav extends Component {
   }
 
   render() {
-    console.log('PROPS', this.props)
     const headline = this.props.componentContent.headline;
     const cdnBase = this.props.cdnUrl;
     return (

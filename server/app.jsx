@@ -20,6 +20,7 @@ const env = process.env.NODE_ENV;
 // dynamic variables, unable to use es6 imports
 const configureStore = require('../projects/' + activeProject + '/common/store/configureStore.js').default;
 const App = require('../projects/' + activeProject + '/common/containers/appContainer.js').default;
+const Admin = require('../projects/' + activeProject + '/common/containers/AdminContainer.js').default;
 
 const config = {};
 if (env === 'development') {
@@ -67,6 +68,43 @@ app.use((err, req, res, next) => {
   next();
 });
 
+app.get('/admin', (req, res) => {
+  // login and select project
+  // render view with dropdown of components
+  // based on curent component in dropdown, component renders in view
+  // all content and images included in component are listed by name with input field
+  // Update button pushes updated content object to database
+  // redeploys with updated content
+
+  const store = configureStore(config, env);
+
+  // goal is to bundle JS and then send
+  const componentHTML = renderToString(
+    <Provider store={store} >
+      <Admin />
+    </Provider>
+  );
+
+  const HTML = `
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+      <div id="react-view">${componentHTML}</div>
+      <script src=${JSON.stringify(config.bundleUrl)}></script>
+      <script type="application/javascript">
+        window.__INITIAL_STATE__ = ${JSON.stringify(config)};
+        window.__DEV_ENV__ = ${JSON.stringify({ env })};
+      </script>
+    </body>
+  </html>`;
+  res.status(200).send(HTML);
+
+});
+
 app.use((req, res) => {
   const store = configureStore(config, env);
 
@@ -104,9 +142,6 @@ app.use((req, res) => {
   res.status(200).send(HTML);
 });
 
-// app.get('/*', (req, res) => {
-//   res.render('index.ejs', { config: config });
-// })
 
 app.listen(port, () => {
   console.log('Server running on port ' + port);

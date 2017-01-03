@@ -7,7 +7,8 @@ import configureStore from './store/configureStore';
 import AppContainer from './containers/appContainer.js';
 
 const initialState = window.__INITIAL_STATE__;
-const store = configureStore(initialState);
+const env = window.__DEV_ENV__.env;
+const store = configureStore(initialState, env);
 
 render(
   <Provider store={store}>

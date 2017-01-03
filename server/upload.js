@@ -8,7 +8,8 @@ const database = require('./database');
 /**
  * Takes content of build folder and uploads them to AWS S3 bucket
  * makes distinction between file or folder and then places into bucket
- * TODO need to delete objects such as images if they are deleted in build
+ * As of present, everytime new content is uploaded, the project version minus 2 is deleted.
+ * This is a problem if someone builds 3 times, does not upload bc only one version will be deleted and others will persist.
  */
 const toS3 = (project) => {
   // first fetch current project version number
@@ -72,7 +73,7 @@ const toS3 = (project) => {
             // path to file
             const filePath = path.join(projectBuildPath, folderContent);
             const keyPath = `projects/${project}_v${currentProjectVersion}/${folderContent}`;
-            const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}`;  
+            const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}`;
             const contentType = fileType(filePath);
             deletableKeyPaths.push({ Key: deleteKeyPath });
             // read file and upload to s3

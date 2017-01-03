@@ -38,8 +38,6 @@ if (env === 'production') {
     // delete unwanted mongo db properties
     console.log('VERSION', data.projectVersion)
     const currentProjectVersion = data.projectVersion;
-    console.log('ACTIVE PROJECT', activeProject)
-
     delete data._id;
     delete data.__v;
     config.projectVersion = currentProjectVersion;
@@ -70,7 +68,7 @@ app.use((err, req, res, next) => {
 });
 
 app.use((req, res) => {
-  const store = configureStore(config);
+  const store = configureStore(config, env);
 
   // goal is to bundle JS and then send
   const componentHTML = renderToString(
@@ -98,6 +96,7 @@ app.use((req, res) => {
       <div id="react-view">${componentHTML}</div>
       <script type="application/javascript">
         window.__INITIAL_STATE__ = ${JSON.stringify(config)};
+        window.__DEV_ENV__ = ${JSON.stringify({ env })};
       </script>
       <script src=${JSON.stringify(config.bundleUrl)}></script>
     </body>

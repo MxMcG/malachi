@@ -4,7 +4,6 @@ export default class Admin extends Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props)
     this.state = {
       test: ''
     }

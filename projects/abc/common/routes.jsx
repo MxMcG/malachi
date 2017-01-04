@@ -1,7 +1,9 @@
 import React from 'react';
-import { Route } from 'react-router';
-import App from '../components/App/components.jsx';
-console.log(App)
+import { Route, browserHistory, Router, IndexRoute } from 'react-router';
+
+import App from './containers/App.jsx';
+import AppContainer from './containers/AppContainer.js';
+import AdminContainer from './containers/AdminContainer.js';
 
 Route.propTypes = {
   component: React.PropTypes.object,
@@ -9,5 +11,8 @@ Route.propTypes = {
 };
 
 export default (
-  <Route path="/" component={App}/>
+  <Route path="/" component={App}>
+    <IndexRoute component={AppContainer}/>
+    <Route path="admin" component={AdminContainer}/>
+  </Route>
 );

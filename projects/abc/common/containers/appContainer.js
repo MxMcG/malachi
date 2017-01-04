@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-// import App from '../../components/App/components.jsx';
+
 import NavContainer from '../../common/containers/NavContainer';
 import DynamicSliderContainer from '../../common/containers/DynamicSliderContainer';
 import FooterContainer from '../../common/containers/FooterContainer';
@@ -16,6 +16,7 @@ const propTypes = {
 // in here, we determine the props to be passed down to the specific component needed
 class AppContainer extends Component {
   componentDidMount () {
+    console.log(this.props.children)
     const { dispatch, componentContent } = this.props;
   }
 

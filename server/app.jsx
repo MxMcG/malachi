@@ -2,7 +2,6 @@ import express from 'express';
 import path from 'path';
 import fs from 'fs';
 import logger from 'morgan';
-import database from './database';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
 import React from 'react';
@@ -10,6 +9,8 @@ import Redux from 'redux';
 import { Router, Route, browserHistory, IndexRoute, match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
+import database from './database';
+import { createLocation } from 'history';
 
 const activeProject = process.env.ACTIVE_PROJECT;
 const app = express();
@@ -19,8 +20,9 @@ const templatePath = path.resolve(__dirname, '../views');
 const env = process.env.NODE_ENV;
 // dynamic variables, unable to use es6 imports
 const configureStore = require('../projects/' + activeProject + '/common/store/configureStore.js').default;
-const App = require('../projects/' + activeProject + '/common/containers/appContainer.js').default;
-const Admin = require('../projects/' + activeProject + '/common/containers/AdminContainer.js').default;
+const routes = require('../projects/' + activeProject + '/common/routes.jsx').default;
+// const App = require('../projects/' + activeProject + '/common/containers/appContainer.js').default;
+// const Admin = require('../projects/' + activeProject + '/common/containers/AdminContainer.js').default;
 
 const config = {};
 if (env === 'development') {
@@ -68,78 +70,50 @@ app.use((err, req, res, next) => {
   next();
 });
 
-app.get('/admin', (req, res) => {
-  // login and select project
-  // render view with dropdown of components
-  // based on curent component in dropdown, component renders in view
-  // all content and images included in component are listed by name with input field
-  // Update button pushes updated content object to database
-  // redeploys with updated content
-
+app.get('*', (req, res) => {
   const store = configureStore(config, env);
+  const location = createLocation(req.url);
 
-  // goal is to bundle JS and then send
-  const componentHTML = renderToString(
-    <Provider store={store} >
-      <Admin />
-    </Provider>
-  );
-
-  const HTML = `
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-    </head>
-    <body>
-      <div id="react-view">${componentHTML}</div>
-      <script src=${JSON.stringify(config.bundleUrl)}></script>
-      <script type="application/javascript">
-        window.__INITIAL_STATE__ = ${JSON.stringify(config)};
-        window.__DEV_ENV__ = ${JSON.stringify({ env })};
-      </script>
-    </body>
-  </html>`;
-  res.status(200).send(HTML);
-
-});
-
-app.use((req, res) => {
-  const store = configureStore(config, env);
-
-  // goal is to bundle JS and then send
-  const componentHTML = renderToString(
-    <Provider store={store} >
-      <App />
-    </Provider>
-  );
-
-  const stylesheet = () => {
-    if (isProduction) {
-      return `<link rel='stylesheet' href=${config.bundleCssUrl} />`;
+  match({ routes, location }, (err, redirectLocation, renderProps) => {
+    console.log('Theses ROues', renderProps)
+    if (err) {
+      console.error(err);
+      return res.status(500).end('Internal server error');
     }
-    return "<link rel='stylesheet' />"
-  }
+    if (!renderProps) return res.status(404).end('Not found.');
+    // goal is to bundle JS and then send
+    const componentHTML = renderToString(
+      <Provider store={store} >
+        <RouterContext {...renderProps} />
+      </Provider>
+    );
 
-  const HTML = `
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      ${stylesheet()}
-    </head>
-    <body>
-      <div id="react-view">${componentHTML}</div>
-      <script type="application/javascript">
-        window.__INITIAL_STATE__ = ${JSON.stringify(config)};
-        window.__DEV_ENV__ = ${JSON.stringify({ env })};
-      </script>
-      <script src=${JSON.stringify(config.bundleUrl)}></script>
-    </body>
-  </html>`;
-  res.status(200).send(HTML);
+    const stylesheet = () => {
+      if (isProduction) {
+        return `<link rel='stylesheet' href=${config.bundleCssUrl} />`;
+      }
+      return "<link rel='stylesheet' />";
+    }
+
+    const HTML = `
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1">
+            ${stylesheet()}
+      </head>
+      <body>
+        <div id="react-view">${componentHTML}</div>
+        <script type="application/javascript">
+          window.__INITIAL_STATE__ = ${JSON.stringify(config)};
+          window.__DEV_ENV__ = ${JSON.stringify({ env })};
+        </script>
+
+      </body>
+    </html>`;
+    res.status(200).send(HTML);
+  });
 });
 
 

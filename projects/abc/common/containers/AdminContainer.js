@@ -14,6 +14,7 @@ const propTypes = {
 // in here, we determine the props to be passed down to the specific component needed
 class AdminContainer extends Component {
   componentDidMount () {
+    console.log('CONTENT', this.props)
     const { dispatch, componentContent } = this.props;
   }
 
@@ -27,6 +28,7 @@ class AdminContainer extends Component {
 AdminContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
+  console.log('STATE', state)
   const componentContent = state.content.project.components;
   return {
     componentContent

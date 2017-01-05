@@ -1,17 +1,9 @@
-// action is called with new data,
-
-export addData (text) => {
+export const activateComponent = (componentClass) => {
   return {
-    type: 'ADD_DATA',
-    text,
-    date: Date.now()
+    type: 'ACTIVATE_COMPONENT',
+    payload: componentClass
   }
 }
 
-export deleteData (text) => {
-  return {
-    type: 'DELETE_DATA',
-    text,
-    date: Date.now()
-  }
-}
+// <h1>ADMIN</h1>
+// { React.createElement(this.props.activeComponentClass) }

@@ -75,7 +75,6 @@ app.get('*', (req, res) => {
   const location = createLocation(req.url);
 
   match({ routes, location }, (err, redirectLocation, renderProps) => {
-    console.log('Theses ROues', renderProps)
     if (err) {
       console.error(err);
       return res.status(500).end('Internal server error');
@@ -109,7 +108,7 @@ app.get('*', (req, res) => {
           window.__INITIAL_STATE__ = ${JSON.stringify(config)};
           window.__DEV_ENV__ = ${JSON.stringify({ env })};
         </script>
-
+        <script src=${JSON.stringify(config.bundleUrl)}></script>
       </body>
     </html>`;
     res.status(200).send(HTML);

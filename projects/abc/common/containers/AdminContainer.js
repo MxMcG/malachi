@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { activateComponent } from '../actions/appActions.js';
+import { activateComponent, loadComponentsAdmin } from '../actions/appActions.js';
 import Admin from '../../components/Admin/index.jsx';
 
 // include actions as they are needed by each component
@@ -29,19 +29,44 @@ AdminContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
   const componentContent = state.content.project.components;
-  const activeComponentClass = state.activateComponent.activeComponentClass;
+  const loadedComponentsAdmin = state.admin.loadedComponentsAdmin;
+  console.log('STATE', state)
   return {
     componentContent,
     selectedComponent: 'FooterContainer',
-    components: [],
-    activeComponentClass
+    loadedComponentsAdmin
   };
 }
 
 function mapDispatchToProps (dispatch) {
   return {
-    activateComponent: (component) => {
-      dispatch(activateComponent(component))
+    dispatchActivateComponent: (component) => {
+      return (dispatch) => {
+        dispatch(activateComponent(component)).then(response => {
+          console.log('MASEW', response)
+          // you should probably get a real id for your new todo item here,
+          // and update your store, but we'll leave that to you
+        }).catch(err => {
+          console.log('dfsdf', err)
+        // Error: handle it the way you like, undoing the optimistic update,
+        //  showing a "out of sync" message, etc.
+        });
+      }
+    },
+    dispatchLoadProjectComponents: (components) => {
+      console.log('UPP')
+      return (dispatch) => {
+        console.log('UPPsss')
+        dispatch(loadComponentsAdmin(components)).then((response) => {
+          console.log('MASEW', response)
+          // you should probably get a real id for your new todo item here,
+          // and update your store, but we'll leave that to you
+        }).catch(err => {
+          console.log('dfsdf', err)
+        // Error: handle it the way you like, undoing the optimistic update,
+        //  showing a "out of sync" message, etc.
+        });
+      }
     }
   }
 }

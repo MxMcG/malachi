@@ -5,5 +5,9 @@ export const activateComponent = (componentClass) => {
   }
 }
 
-// <h1>ADMIN</h1>
-// { React.createElement(this.props.activeComponentClass) }
+export const loadComponentsAdmin = (components) => {
+  return {
+    type: 'LOAD_COMPONENTS_ADMIN',
+    payload: components
+  }
+}

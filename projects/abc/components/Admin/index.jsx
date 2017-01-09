@@ -12,6 +12,12 @@ export default class Admin extends Component {
     this.loadComponents(this.props.componentContent);
   }
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.componentsLoaded === true) {
+      this.activateComponent(newProps.loadedComponentsAdmin)
+    }
+  }
+
   loadComponents(components) {
     const projectComponents = Object.keys(components);
     const componentsPayload = [];
@@ -27,51 +33,39 @@ export default class Admin extends Component {
       componentsPayload.push(componentData);
       if (projectComponents[index + 1] === undefined) {
         this.props.dispatchLoadProjectComponents(componentsPayload);
-        this.activateComponent();
       }
     });
   }
 
-  activateComponent() {
+  activateComponent(loadedComponents) {
     const selectedComponent = this.props.selectedComponent;
-    this.props.loadedComponentsAdmin.forEach((component) => {
+    loadedComponents.forEach((component) => {
       if (component.name === selectedComponent) {
         this.props.dispatchActivateComponent(component.payload);
       }
     });
   }
 
-  renderComponent() {
-    if (this.props.activeComponentClass !== null) {
+  renderActiveComponent() {
+    if (this.props.activeComponentClass !== undefined) {
       return React.createElement(this.props.activeComponentClass)
     }
-  }
-
-  handleChange() {
-
   }
 
   renderDropDown() {
     const selectedComponent = this.props.selectedComponent;
     const options = [];
-    console.log('OPTIONS BEFORE', options)
-    console.log('COMPOENTNs', this.props.components)
     this.props.components.forEach((component, index) => {
       options.push(<option key={index} value={component.name}>{component.name}</option>);
     });
-    console.log('OPTIONS', options)
     return options;
-
   }
 
   render() {
-    console.log('PROPS', this.props)
-    const selectedComponent = this.props.selectedComponent;
     return (
       <div className="admin" >
         <h1>ADMIN</h1>
-
-
+        { this.renderActiveComponent() }
       </div>
     );
   }

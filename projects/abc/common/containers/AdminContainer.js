@@ -1,7 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
-import { activateComponent, loadComponentsAdmin } from '../actions/appActions.js';
+import { activateComponent, loadComponentsAdmin, componentsLoadedAdmin } from '../actions/appActions.js';
 import Admin from '../../components/Admin/index.jsx';
 
 // include actions as they are needed by each component
@@ -30,43 +31,25 @@ AdminContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   const componentContent = state.content.project.components;
   const loadedComponentsAdmin = state.admin.loadedComponentsAdmin;
-  console.log('STATE', state)
+  const componentsLoaded = state.admin.componentsLoaded;
+  const activeComponentClass = state.admin.activeComponentClass;
   return {
     componentContent,
     selectedComponent: 'FooterContainer',
-    loadedComponentsAdmin
+    loadedComponentsAdmin,
+    componentsLoaded,
+    activeComponentClass
   };
 }
 
 function mapDispatchToProps (dispatch) {
   return {
     dispatchActivateComponent: (component) => {
-      return (dispatch) => {
-        dispatch(activateComponent(component)).then(response => {
-          console.log('MASEW', response)
-          // you should probably get a real id for your new todo item here,
-          // and update your store, but we'll leave that to you
-        }).catch(err => {
-          console.log('dfsdf', err)
-        // Error: handle it the way you like, undoing the optimistic update,
-        //  showing a "out of sync" message, etc.
-        });
-      }
+      dispatch(activateComponent(component))
     },
     dispatchLoadProjectComponents: (components) => {
-      console.log('UPP')
-      return (dispatch) => {
-        console.log('UPPsss')
-        dispatch(loadComponentsAdmin(components)).then((response) => {
-          console.log('MASEW', response)
-          // you should probably get a real id for your new todo item here,
-          // and update your store, but we'll leave that to you
-        }).catch(err => {
-          console.log('dfsdf', err)
-        // Error: handle it the way you like, undoing the optimistic update,
-        //  showing a "out of sync" message, etc.
-        });
-      }
+      dispatch(loadComponentsAdmin(components));
+      dispatch(componentsLoadedAdmin(true));
     }
   }
 }

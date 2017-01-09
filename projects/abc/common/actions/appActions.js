@@ -11,3 +11,10 @@ export const loadComponentsAdmin = (components) => {
     payload: components
   }
 }
+
+export const componentsLoadedAdmin = (bool) => {
+  return {
+    type: 'COMPONENTS_LOADED',
+    payload: bool
+  }
+}

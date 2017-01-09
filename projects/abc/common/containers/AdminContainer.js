@@ -2,7 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { activateComponent, loadComponentsAdmin, componentsLoadedAdmin } from '../actions/appActions.js';
+import { activateComponent,
+        loadComponentsAdmin,
+        componentsLoadedAdmin,
+        updateSelectedComponent } from '../actions/appActions.js';
 import Admin from '../../components/Admin/index.jsx';
 
 // include actions as they are needed by each component
@@ -33,9 +36,10 @@ function mapStateToProps(state) {
   const loadedComponentsAdmin = state.admin.loadedComponentsAdmin;
   const componentsLoaded = state.admin.componentsLoaded;
   const activeComponentClass = state.admin.activeComponentClass;
+  const selectedComponent = state.admin.selectedComponent;
   return {
     componentContent,
-    selectedComponent: 'FooterContainer',
+    selectedComponent,
     loadedComponentsAdmin,
     componentsLoaded,
     activeComponentClass
@@ -50,7 +54,10 @@ function mapDispatchToProps (dispatch) {
     dispatchLoadProjectComponents: (components) => {
       dispatch(loadComponentsAdmin(components));
       dispatch(componentsLoadedAdmin(true));
-    }
+    },
+    dispatchSelectComponent: (component) => {
+      dispatch(updateSelectedComponent(component))
+    },
   }
 }
 

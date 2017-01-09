@@ -14,7 +14,7 @@ export default class Admin extends Component {
 
   componentWillReceiveProps(newProps) {
     if (newProps.componentsLoaded === true) {
-      this.activateComponent(newProps.loadedComponentsAdmin)
+      this.activateComponent(newProps.loadedComponentsAdmin, newProps.selectedComponent)
     }
   }
 
@@ -37,13 +37,19 @@ export default class Admin extends Component {
     });
   }
 
-  activateComponent(loadedComponents) {
-    const selectedComponent = this.props.selectedComponent;
+  activateComponent(loadedComponents, selectedComponent) {
+    const selectedComponentName = selectedComponent ? selectedComponent : this.props.selectedComponent;
+
     loadedComponents.forEach((component) => {
       if (component.name === selectedComponent) {
         this.props.dispatchActivateComponent(component.payload);
       }
     });
+  }
+
+  handleDropDown(e) {
+    const selectedComponent = e.target.value;
+    this.props.dispatchSelectComponent(selectedComponent);
   }
 
   renderActiveComponent() {
@@ -52,19 +58,28 @@ export default class Admin extends Component {
     }
   }
 
-  renderDropDown() {
-    const selectedComponent = this.props.selectedComponent;
-    const options = [];
-    this.props.components.forEach((component, index) => {
-      options.push(<option key={index} value={component.name}>{component.name}</option>);
-    });
-    return options;
+  renderDropdown() {
+    if (this.props.componentsLoaded === true) {
+      const selectedComponent = this.props.selectedComponent;
+      const options = [];
+      this.props.loadedComponentsAdmin.forEach((component, index) => {
+        if (component.name === selectedComponent) {
+          options.push(<option key={index} value={component.name} selected>{component.name}</option>);
+        } else {
+          options.push(<option key={index} value={component.name}>{component.name}</option>);
+        }
+      });
+      return options;
+    }
   }
 
   render() {
     return (
       <div className="admin" >
         <h1>ADMIN</h1>
+        <select onChange={this.handleDropDown.bind(this)} >
+          { this.renderDropdown() }
+        </select>
         { this.renderActiveComponent() }
       </div>
     );

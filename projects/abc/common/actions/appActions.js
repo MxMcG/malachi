@@ -18,3 +18,10 @@ export const componentsLoadedAdmin = (bool) => {
     payload: bool
   }
 }
+
+export const updateSelectedComponent = (componentName) => {
+  return {
+    type: 'UPDATE_SELECTED_COMPONENT',
+    payload: componentName
+  }
+}

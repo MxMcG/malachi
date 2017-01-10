@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
-
-import NavContainer from '../../common/containers/NavContainer';
+// import DropZone from 'react-dropzone';
 
 export default class Admin extends Component {
 
   constructor(props) {
     super(props);
+
   }
 
   componentWillMount() {
+    console.log('APP PROPS', this.props)
     this.loadComponents(this.props.componentContent);
   }
 
@@ -46,17 +47,6 @@ export default class Admin extends Component {
     });
   }
 
-  handleDropDown(e) {
-    const selectedComponent = e.target.value;
-    this.props.dispatchSelectComponent(selectedComponent);
-  }
-
-  renderActiveComponent() {
-    if (this.props.activeComponentClass !== undefined) {
-      return React.createElement(this.props.activeComponentClass)
-    }
-  }
-
   renderDropdown() {
     if (this.props.componentsLoaded === true) {
       const selectedComponent = this.props.selectedComponent;
@@ -72,13 +62,13 @@ export default class Admin extends Component {
     }
   }
 
+  renderActiveComponent() {
+    if (this.props.activeComponentClass !== undefined) {
+      return React.createElement(this.props.activeComponentClass)
+    }
+  }
+
   renderComponentContent() {
-    // for every piece of content in the component, render and input field
-    // prefill input button with current content
-    // as user types new content, component should display what they are typing
-    // state is not altered until user presses push live
-    // when done typing, there should be a push live button that goes through process of
-    // deploying with updated content
     const selectedComponent = this.props.selectedComponent;
     const content = this.props.loadedComponentContent;
     const activeContentPoints = [];
@@ -96,7 +86,35 @@ export default class Admin extends Component {
         }
       }
     }
+    activeContentPoints.reverse();
     return this.createInputs(activeContentPoints);
+  }
+
+  createInputs(content) {
+    const inputs = [];
+
+    content.forEach((contentPoint, index) => {
+      const currentContent = content[index];
+      // TODO add image dropzone and cms handling
+      const html =
+      (
+        <div key={index}>
+          <label>{currentContent.key}<br></br>
+            <input type='text' onChange={this.handleChange.bind(this)}
+              name={currentContent.key} value={currentContent.value} />
+          </label>
+        </div>
+      );
+      inputs.push(html);
+    });
+
+    return (
+      <div className="component-inputs">
+        <form onSubmit={this.handleSubmit}>
+          { inputs }
+        </form>
+      </div>
+    );
   }
 
   handleChange(e) {
@@ -105,25 +123,9 @@ export default class Admin extends Component {
     this.props.dispatchEditContent(name, value, this.props.selectedComponent)
   }
 
-  createInputs(content) {
-    const inputs = [];
-    content.forEach((contentPoint, index) => {
-      const currentContent = content[index];
-      inputs.push(
-        <div key={index}>
-          <label>{currentContent.key}<br></br>
-            <input type='text' onChange={this.handleChange.bind(this)} name={currentContent.key} value={currentContent.value} />
-          </label>
-        </div>
-      );
-    });
-    return (
-      <div className="component-inputs">
-        <form onSubmit={this.handleSubmit}>
-          { inputs }
-        </form>
-      </div>
-    );
+  handleDropDown(e) {
+    const selectedComponent = e.target.value;
+    this.props.dispatchSelectComponent(selectedComponent);
   }
 
   render() {
@@ -135,6 +137,10 @@ export default class Admin extends Component {
         <div className="component-display">
           { this.renderActiveComponent() }
           { this.renderComponentContent() }
+        </div>
+        <div className="buttons">
+          <button>Preview</button>
+          <button>Publish</button>
         </div>
       </div>
     );

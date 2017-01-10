@@ -11,13 +11,14 @@ export default class Nav extends Component {
   }
 
   render() {
-    const headline = this.props.componentContent.headline;
-    const cdnBase = this.props.cdnUrl;
+    const { headline, cattleImg, testImg } = this.props.componentContent;
+    const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="nav" >
         <h1>{headline}</h1>
         <TileLinks />
-        <img className='imageCattle' src={cdnBase + 'images/cattle.jpg'}></img>
+        <img className='imageCattle' src={cdnImageBase + cattleImg}></img>
+        <img className='imageCattle' src={cdnImageBase + testImg}></img>
       </div>
     );
   }

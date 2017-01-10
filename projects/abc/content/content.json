@@ -3,9 +3,8 @@
     "NavContainer": {
       "headline": "This is a Nav headline YOO",
       "subheadline": "This is a another one dog",
-      "images": {
-        "cattle": "images/cattle.jpg"
-      },
+      "cattleImg": "cattle.jpg",
+      "testImg": "testimg2.jpg",
       "thirdheadline": "happy third headline"
     },
     "DynamicSliderContainer": {

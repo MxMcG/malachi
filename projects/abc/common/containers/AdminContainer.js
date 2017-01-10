@@ -1,11 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import * as actions from '../actions/index';
 
-import { activateComponent,
-        loadComponentsAdmin,
-        componentsLoadedAdmin,
-        updateSelectedComponent } from '../actions/appActions.js';
 import Admin from '../../components/Admin/index.jsx';
 
 // include actions as they are needed by each component
@@ -33,14 +30,16 @@ AdminContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
   const componentContent = state.content.project.components;
-  const loadedComponentsAdmin = state.admin.loadedComponentsAdmin;
+  const loadedAdminComponents = state.admin.loadedAdminComponents;
   const componentsLoaded = state.admin.componentsLoaded;
   const activeComponentClass = state.admin.activeComponentClass;
   const selectedComponent = state.admin.selectedComponent;
+  const loadedComponentContent = state.content.project.components;
   return {
     componentContent,
     selectedComponent,
-    loadedComponentsAdmin,
+    loadedAdminComponents,
+    loadedComponentContent,
     componentsLoaded,
     activeComponentClass
   };
@@ -49,15 +48,18 @@ function mapStateToProps(state) {
 function mapDispatchToProps (dispatch) {
   return {
     dispatchActivateComponent: (component) => {
-      dispatch(activateComponent(component))
+      dispatch(actions.activateComponent(component))
     },
-    dispatchLoadProjectComponents: (components) => {
-      dispatch(loadComponentsAdmin(components));
-      dispatch(componentsLoadedAdmin(true));
+    dispatchLoadAdminComponents: (components) => {
+      dispatch(actions.loadAdminComponents(components));
+      dispatch(actions.componentsLoadedAdmin(true));
     },
     dispatchSelectComponent: (component) => {
-      dispatch(updateSelectedComponent(component))
+      dispatch(actions.updateSelectedComponent(component))
     },
+    dispatchEditContent: (name, value, selectedComponent) => {
+      dispatch(actions.editContent(name, value, selectedComponent))
+    }
   }
 }
 

@@ -5,9 +5,9 @@ export const activateComponent = (componentClass) => {
   }
 }
 
-export const loadComponentsAdmin = (components) => {
+export const loadAdminComponents = (components) => {
   return {
-    type: 'LOAD_COMPONENTS_ADMIN',
+    type: 'LOAD_ADMIN_COMPONENTS',
     payload: components
   }
 }
@@ -23,5 +23,14 @@ export const updateSelectedComponent = (componentName) => {
   return {
     type: 'UPDATE_SELECTED_COMPONENT',
     payload: componentName
+  }
+}
+
+export const editContent = (name, value, selectedComponent) => {
+  return {
+    type: 'EDIT_CONTENT_ADMIN',
+    name,
+    value,
+    selectedComponent
   }
 }

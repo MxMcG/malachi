@@ -1,7 +1,7 @@
 const initialState = {
   activeComponentClass: undefined,
   componentsLoaded: false,
-  loadedComponentsAdmin: [],
+  loadedAdminComponents: [],
   selectedComponent: 'FooterContainer'
 };
 
@@ -15,14 +15,15 @@ export default function adminReducers (state = initialState, action) {
       return Object.assign({}, state, {
         componentsLoaded: action.payload
       });
-    case 'LOAD_COMPONENTS_ADMIN':
+    case 'LOAD_ADMIN_COMPONENTS':
       return Object.assign({}, state, {
-        loadedComponentsAdmin: action.payload
+        loadedAdminComponents: action.payload
       });
     case 'UPDATE_SELECTED_COMPONENT':
       return Object.assign({}, state, {
         selectedComponent: action.payload
       });
+
     default:
       return state;
   }

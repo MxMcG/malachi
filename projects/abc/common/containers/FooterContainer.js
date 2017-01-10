@@ -23,7 +23,7 @@ class FooterContainer extends Component {
 FooterContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.Footer;
+  const componentContent = state.content.project.components.FooterContainer;
   return {
     componentContent
   };

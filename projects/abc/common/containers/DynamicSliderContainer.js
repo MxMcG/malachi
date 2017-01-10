@@ -26,7 +26,7 @@ class DynamicSliderContainer extends Component {
 DynamicSlider.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.DynamicSlider;
+  const componentContent = state.content.project.components.DynamicSliderContainer;
   return {
     componentContent
   };

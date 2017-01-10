@@ -1,19 +1,27 @@
 {
   "components": {
-    "Nav": {
-      "headline": "This is a Nav headline",
+    "NavContainer": {
+      "headline": "This is a Nav headline YOO",
+      "subheadline": "This is a another one dog",
       "images": {
         "cattle": "images/cattle.jpg"
-      }
+      },
+      "thirdheadline": "happy third headline"
     },
-    "DynamicSlider": {
-      "headline": "This is a DynamicSlider headline"
+    "DynamicSliderContainer": {
+      "headline": "This is a DynamicSlider headline",
+      "subheadline": "This is a another one dog",
+      "thirdheadline": "happy third headline"
     },
-    "TileLinks": {
-      "headline": "This is a tile headline"
+    "TileLinksContainer": {
+      "headline": "This is a tile headline",
+      "subheadline": "This is a another one dog",
+      "thirdheadline": "happy third headline"
     },
-    "Footer": {
-      "headline": "This is a Footer headline"
+    "FooterContainer": {
+      "headline": "This is a Footer headline",
+      "subheadline": "This is a another one dog",
+      "thirdheadline": "happy third headline"
     }
   }
 }

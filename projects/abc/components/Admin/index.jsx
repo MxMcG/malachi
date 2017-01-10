@@ -9,7 +9,6 @@ export default class Admin extends Component {
   }
 
   componentWillMount() {
-    console.log('APP PROPS', this.props)
     this.loadComponents(this.props.componentContent);
   }
 
@@ -128,6 +127,17 @@ export default class Admin extends Component {
     this.props.dispatchSelectComponent(selectedComponent);
   }
 
+  handlePublish(e) {
+    e.preventDefault();
+    console.log('HIII')
+
+    // alright.
+    // content.json file must be based on DB rather than file
+    // do something between existing content.json and existing db content.
+    // on build, take db content and create content.json file
+    // take current content state and upload it to DB
+  }
+
   render() {
     const selectedComponent = this.props.selectedComponent;
     return (
@@ -139,8 +149,7 @@ export default class Admin extends Component {
           { this.renderComponentContent() }
         </div>
         <div className="buttons">
-          <button>Preview</button>
-          <button>Publish</button>
+          <button onClick={this.handlePublish}>Publish Live</button>
         </div>
       </div>
     );

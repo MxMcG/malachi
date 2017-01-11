@@ -30,7 +30,7 @@ AdminContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
   const componentContent = state.content.project.components;
-  const projectName = state.content.project.projectName;
+  const projectName = state.content.projectName;
   const loadedAdminComponents = state.admin.loadedAdminComponents;
   const componentsLoaded = state.admin.componentsLoaded;
   const activeComponentClass = state.admin.activeComponentClass;

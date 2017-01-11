@@ -64,7 +64,6 @@ const uploadContentDev = (projectAbv, dbConnection) => {
 
     const ContentDev = mongoose.model('ContentDev', contentSchema);
     ContentDev.where({ projectName: projectAbv }).findOne((err, doc) => {
-      console.log('CONTENT', projectContent)
       if (err) gutil.log('DOCUMENT QUERY ERROR');
       if (!doc) {
         gutil.log('No doc for this property, creating new doc ...')
@@ -72,6 +71,7 @@ const uploadContentDev = (projectAbv, dbConnection) => {
         ContentDev.create(newContent, (err, updatedContent) => {
           if (err) gutil.log('MONGO SAVE ERROR', err);
           gutil.log(`Saved new project content to mongodb for ${projectAbv}`);
+          // mongoose.connection.close();
         });
       } else {
         // fetchCurrent content
@@ -80,18 +80,27 @@ const uploadContentDev = (projectAbv, dbConnection) => {
         ContentDev.findOne({ projectName: projectAbv }, (err, doc) => {
           if (err) {
             gutil.log('Error fetching from database', err);
-            mongoose.connection.close();
+            // mongoose.connection.close();
             callback(err, null);
           }
           if (doc) {
             gutil.log('Content Fetched: Development');
-            const dbContent = doc.toObject();
+            const dbContent = doc.toObject().project;
+            // take current db doc and merge with content.json for project
+            // db doc may have changed via CMS pushLive
+            // important that no CMS action can add new properties
+            // this merge replaces changed values from CMS actions and will retain any new content properties from local content.json
+            console.log('projectcontent', projectContent)
+            console.log('dbcontent', dbContent)
             const mergedContent = _.merge({}, projectContent, dbContent);
-
+            gutil.log('Merged Content: ', mergedContent);
             ContentDev.update({ projectName: projectAbv }, { project: mergedContent }, (err, updatedContent) => {
-              if (err) gutil.log('MONGO UPDATE ERROR', err);
-              mongoose.connection.close();
+              if (err) {
+                gutil.log('MONGO UPDATE ERROR', err)
+                // mongoose.connection.close();
+              };
               gutil.log(`Updated content in mongodb for ${projectAbv}`);
+              // mongoose.connection.close();
             });
           }
         });
@@ -136,12 +145,12 @@ const fetchContentDev = (projectAbv, dbConnection, callback) => {
   ContentDev.findOne({ projectName: projectAbv }, (err, doc) => {
     if (err) {
       gutil.log('Error fetching from database', err);
-      mongoose.connection.close();
+      // mongoose.connection.close();
       callback(err, null);
     }
     if (doc) {
       gutil.log('Content Fetched: Development');
-      mongoose.connection.close();
+      // mongoose.connection.close();
       callback(null, doc.toObject());
     }
   });
@@ -152,12 +161,12 @@ const fetchContentProd = (projectAbv, dbConnection, callback) => {
   ContentProd.findOne({ projectName: projectAbv }, (err, doc) => {
     if (err) {
       gutil.log('Error fetching from database', err);
-      mongoose.connection.close();
+
       callback(err, null);
     }
     if (doc) {
       gutil.log('Content Fetched: Production');
-      mongoose.connection.close();
+
       callback(null, doc.toObject());
     }
   });
@@ -181,8 +190,16 @@ const fetchProjectVersion = (projectAbv, dbConnection, callback) => {
   });
 };
 
-////CMS
+/**
+ * CMS DB Methods
+ */
 
+// TODO add method to take new images and upload them to CDN
+// user is not adding new image properties, just overwriting
+// existing image properties with new files
+// we need to take the new image files and push them to the CDN
+// no rebuild will be required when CMS push occurs b/c upload
+// will increment version and replace any existing image files in bucket
 const cmsPushContentDev = (projectAbv, content) => {
   return new Promise((resolve, reject) => {
     const options = {
@@ -197,32 +214,16 @@ const cmsPushContentDev = (projectAbv, content) => {
       // take content.json and upload to db
       const ContentDev = mongoose.model('ContentDev', contentSchema);
       ContentDev.where({ projectName: projectAbv }).findOne((err, doc) => {
-        if (err) {
-          reject(err, 'DOCUMENT QUERY ERROR');
-        }
-        // fetchCurrent content
-        // merge currentContent with projectContent
-        // update db with merged object
-        ContentDev.update({ projectName: projectAbv }, { project: content }, (err, updatedContent) => {
-          if (err) {
-            reject(err, 'MONGO UPDATE ERROR')
-          }
+        if (err) reject(err, 'DOCUMENT QUERY ERROR');
+        // update db with CMS content state obj
+        ContentDev.update({ projectName: projectAbv }, { 'project.components': content }, (err, updatedContent) => {
+          if (err) reject(err, 'MONGO UPDATE ERROR');
           gutil.log(`Updated content in mongodb for ${projectAbv}`);
-          return resolve(updatedContent);
+          resolve(updatedContent);
         });
       });
     });
-  }).then((res) => {
-    console.log('Updated Content: ', res)
-  }).catch((err, message) => {
-    gutil.log(message);
-    gutil.log('Error description: ', err);
-  });
-  // return Promise
-  // take state object as arg
-  // take content and overwrite database content
-  // call callback once complete
-
+  })
 };
 
 module.exports = {

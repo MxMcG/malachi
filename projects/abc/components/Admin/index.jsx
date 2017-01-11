@@ -131,6 +131,7 @@ export default class Admin extends Component {
   handlePublish(e) {
     e.preventDefault();
     const contentState = this.props.componentContent;
+    console.log(this.props.projectName)
     request.post('/api/cms/pushContent')
       .send({ content: contentState, projectName: this.props.projectName })
       .set('Accept', 'application/json')

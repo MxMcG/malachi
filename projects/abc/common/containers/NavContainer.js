@@ -22,7 +22,7 @@ class NavContainer extends Component {
   }
 }
 
-Nav.propTypes = propTypes;
+NavContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
   const componentContent = state.content.project.components.NavContainer;

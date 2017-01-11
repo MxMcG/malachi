@@ -117,6 +117,11 @@ app.get('*', (req, res) => {
   });
 });
 
+app.post('/api/cms/pushContent', (req, res) => {
+  const content = req.body.content;
+  const projectName = req.body.projectName;
+  database.cmsPushContentDev(projectName, content)
+});
 
 app.listen(port, () => {
   console.log('Server running on port ' + port);

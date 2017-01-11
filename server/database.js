@@ -1,6 +1,7 @@
 // TODO add linting to server files
 const path = require('path');
 const gutil = require("gulp-util");
+const _ = require('lodash');
 const mongoose = require('mongoose');
 const mongodbUri = 'mongodb://mxmcg-1:Mx11mcg27*^*@ds035546-a0.mlab.com:35546,ds035546-a1.mlab.com:35546/tourlookup-1?replicaSet=rs-ds035546'
 const activeProject = require('yargs').argv.project;
@@ -49,17 +50,19 @@ const connectToDB = (project, task, callback) => {
   }
 };
 
+const contentSchema = new mongoose.Schema({
+  projectName: String,
+  project: mongoose.Schema.Types.Mixed,
+  projectVersion: Number
+});
+
 const uploadContentDev = (projectAbv, dbConnection) => {
   dbConnection.on('error', console.error.bind(console, 'connection error:'));
   dbConnection.once('open', () => {
     gutil.log('Connected To MongoDB');
     // take content.json and upload to db
-    const schema = new mongoose.Schema({
-      projectName: String,
-      project: mongoose.Schema.Types.Mixed,
-      projectVersion: Number
-    });
-    const ContentDev = mongoose.model('ContentDev', schema);
+
+    const ContentDev = mongoose.model('ContentDev', contentSchema);
     ContentDev.where({ projectName: projectAbv }).findOne((err, doc) => {
       console.log('CONTENT', projectContent)
       if (err) gutil.log('DOCUMENT QUERY ERROR');
@@ -71,10 +74,28 @@ const uploadContentDev = (projectAbv, dbConnection) => {
           gutil.log(`Saved new project content to mongodb for ${projectAbv}`);
         });
       } else {
-        ContentDev.update({ projectName: projectAbv }, { project: projectContent }, (err, updatedContent) => {
-          if (err) gutil.log('MONGO UPDATE ERROR', err);
-          gutil.log(`Updated content in mongodb for ${projectAbv}`);
+        // fetchCurrent content
+        // merge currentContent with projectContent
+        // update db with merged object
+        ContentDev.findOne({ projectName: projectAbv }, (err, doc) => {
+          if (err) {
+            gutil.log('Error fetching from database', err);
+            mongoose.connection.close();
+            callback(err, null);
+          }
+          if (doc) {
+            gutil.log('Content Fetched: Development');
+            const dbContent = doc.toObject();
+            const mergedContent = _.merge({}, projectContent, dbContent);
+
+            ContentDev.update({ projectName: projectAbv }, { project: mergedContent }, (err, updatedContent) => {
+              if (err) gutil.log('MONGO UPDATE ERROR', err);
+              mongoose.connection.close();
+              gutil.log(`Updated content in mongodb for ${projectAbv}`);
+            });
+          }
         });
+
       }
     });
   });
@@ -85,12 +106,7 @@ const uploadContentProd = (projectAbv, dbConnection) => {
   dbConnection.once('open', () => {
     gutil.log('Connected To MongoDB');
     // take content.json and upload to db
-    const schema = new mongoose.Schema({
-      projectName: String,
-      project: mongoose.Schema.Types.Mixed,
-      projectVersion: Number
-    });
-    const ContentProd = mongoose.model('ContentProd', schema);
+    const ContentProd = mongoose.model('ContentProd', contentSchema);
     ContentProd.where({ projectName: projectAbv }).findOne((err, doc) => {
       if (err) gutil.log('DOCUMENT QUERY ERROR');
       if (!doc) {
@@ -116,50 +132,39 @@ const uploadContentProd = (projectAbv, dbConnection) => {
 };
 
 const fetchContentDev = (projectAbv, dbConnection, callback) => {
-  const schema = new mongoose.Schema({
-    projectName: String,
-    project: mongoose.Schema.Types.Mixed,
-    projectVersion: Number
-  });
-  const ContentDev = mongoose.model('ContentDev', schema);
+  const ContentDev = mongoose.model('ContentDev', contentSchema);
   ContentDev.findOne({ projectName: projectAbv }, (err, doc) => {
     if (err) {
       gutil.log('Error fetching from database', err);
+      mongoose.connection.close();
       callback(err, null);
     }
     if (doc) {
       gutil.log('Content Fetched: Development');
+      mongoose.connection.close();
       callback(null, doc.toObject());
     }
   });
 };
 
 const fetchContentProd = (projectAbv, dbConnection, callback) => {
-  const schema = new mongoose.Schema({
-    projectName: String,
-    project: mongoose.Schema.Types.Mixed,
-    projectVersion: Number
-  });
-  const ContentProd = mongoose.model('ContentProd', schema);
+  const ContentProd = mongoose.model('ContentProd', contentSchema);
   ContentProd.findOne({ projectName: projectAbv }, (err, doc) => {
     if (err) {
       gutil.log('Error fetching from database', err);
+      mongoose.connection.close();
       callback(err, null);
     }
     if (doc) {
       gutil.log('Content Fetched: Production');
+      mongoose.connection.close();
       callback(null, doc.toObject());
     }
   });
 };
 
 const fetchProjectVersion = (projectAbv, dbConnection, callback) => {
-  const schema = new mongoose.Schema({
-    projectName: String,
-    project: mongoose.Schema.Types.Mixed,
-    projectVersion: Number
-  });
-  const ContentProd = mongoose.model('ContentProd', schema);
+  const ContentProd = mongoose.model('ContentProd', contentSchema);
   ContentProd.findOne({ projectName: projectAbv }, (err, doc) => {
     if (err) {
       gutil.log('Error fetching version number from database', err);
@@ -176,6 +181,51 @@ const fetchProjectVersion = (projectAbv, dbConnection, callback) => {
   });
 };
 
+////CMS
+
+const cmsPushContentDev = (projectAbv, content) => {
+  return new Promise((resolve, reject) => {
+    const options = {
+      server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+      replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } }
+    };
+    mongoose.connect(mongodbUri, options);
+    const dbConnection = mongoose.connection;
+    dbConnection.on('error', console.error.bind(console, 'connection error:'));
+    dbConnection.once('open', () => {
+      gutil.log('Connected To MongoDB');
+      // take content.json and upload to db
+      const ContentDev = mongoose.model('ContentDev', contentSchema);
+      ContentDev.where({ projectName: projectAbv }).findOne((err, doc) => {
+        if (err) {
+          reject(err, 'DOCUMENT QUERY ERROR');
+        }
+        // fetchCurrent content
+        // merge currentContent with projectContent
+        // update db with merged object
+        ContentDev.update({ projectName: projectAbv }, { project: content }, (err, updatedContent) => {
+          if (err) {
+            reject(err, 'MONGO UPDATE ERROR')
+          }
+          gutil.log(`Updated content in mongodb for ${projectAbv}`);
+          return resolve(updatedContent);
+        });
+      });
+    });
+  }).then((res) => {
+    console.log('Updated Content: ', res)
+  }).catch((err, message) => {
+    gutil.log(message);
+    gutil.log('Error description: ', err);
+  });
+  // return Promise
+  // take state object as arg
+  // take content and overwrite database content
+  // call callback once complete
+
+};
+
 module.exports = {
-  connectToDB
+  connectToDB,
+  cmsPushContentDev
 }

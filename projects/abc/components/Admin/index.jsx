@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import request from 'superagent';
 // import DropZone from 'react-dropzone';
 
 export default class Admin extends Component {
@@ -129,8 +130,14 @@ export default class Admin extends Component {
 
   handlePublish(e) {
     e.preventDefault();
-    console.log('HIII')
-
+    const contentState = this.props.componentContent;
+    request.post('/api/cms/pushContent')
+      .send({ content: contentState, projectName: this.props.projectName })
+      .set('Accept', 'application/json')
+      .end((err, res) => {
+      // Calling the end function will send the request
+        console.log("RESSSSSSSS", res)
+      });
     // alright.
     // content.json file must be based on DB rather than file
     // do something between existing content.json and existing db content.
@@ -149,7 +156,7 @@ export default class Admin extends Component {
           { this.renderComponentContent() }
         </div>
         <div className="buttons">
-          <button onClick={this.handlePublish}>Publish Live</button>
+          <button onClick={this.handlePublish.bind(this)}>Publish Live</button>
         </div>
       </div>
     );

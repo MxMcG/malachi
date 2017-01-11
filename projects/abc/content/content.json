@@ -5,7 +5,8 @@
       "subheadline": "This is a another one dog",
       "cattleImg": "cattle.jpg",
       "testImg": "testimg2.jpg",
-      "thirdheadline": "happy third headline"
+      "thirdheadline": "happy third headline",
+      "fourthheadline": "forth forth"
     },
     "DynamicSliderContainer": {
       "headline": "This is a DynamicSlider headline",

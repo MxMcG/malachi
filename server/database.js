@@ -104,7 +104,6 @@ const uploadContentDev = (projectAbv, dbConnection) => {
             });
           }
         });
-
       }
     });
   });
@@ -131,9 +130,35 @@ const uploadContentProd = (projectAbv, dbConnection) => {
         const nextProjectVersion = doc.toObject().projectVersion + 1;
         gutil.log('Project Version updated to: ', nextProjectVersion);
         gutil.log('Updating doc for this property ... Thank you for your patience :)')
-        ContentProd.update({ projectName: projectAbv }, { project: projectContent, projectVersion: nextProjectVersion }, (err, updatedContent) => {
-          if (err) gutil.log('MONGO UPDATE ERROR', err);
-          gutil.log('Updated content in mongodb');
+        // fetchCurrent content
+        // merge currentContent with projectContent
+        // update db with merged object
+        ContentProd.findOne({ projectName: projectAbv }, (err, doc) => {
+          if (err) {
+            gutil.log('Error fetching from database', err);
+            // mongoose.connection.close();
+            callback(err, null);
+          }
+          if (doc) {
+            gutil.log('Content Fetched: Development');
+            const dbContent = doc.toObject().project;
+            // take current db doc and merge with content.json for project
+            // db doc may have changed via CMS pushLive
+            // important that no CMS action can add new properties
+            // this merge replaces changed values from CMS actions and will retain any new content properties from local content.json
+            console.log('projectcontent', projectContent)
+            console.log('dbcontent', dbContent)
+            const mergedContent = _.merge({}, projectContent, dbContent);
+            gutil.log('Merged Content: ', mergedContent);
+            ContentProd.update({ projectName: projectAbv }, { project: mergedContent, projectVersion: nextProjectVersion }, (err, updatedContent) => {
+              if (err) {
+                gutil.log('MONGO UPDATE ERROR', err)
+                // mongoose.connection.close();
+              };
+              gutil.log(`Updated content in mongodb for ${projectAbv}`);
+              // mongoose.connection.close();
+            });
+          }
         });
       }
     });

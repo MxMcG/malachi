@@ -13,15 +13,13 @@ export const setupConfigs = (env, activeProject, callback) => {
       config.cdnImageBase = 'http://localhost:8080/projects/' + activeProject + '/images/';
       config.bundleUrl = 'http://localhost:8080/bundle.js/'
       config.content = data;
-      console.log('CONTENTNNNN', config.content.project.components)
-      console.log('JUST CONTENT', config.content)
       callback(config);
     });
   }
   if (env === 'production') {
     database.connectToDB(activeProject, 'fetchContentProd', (err, data) => {
       // delete unwanted mongo db properties
-      gutil.log('VERSION', data.projectVersion)
+      gutil.log('VERSION PRODUCTION', data.projectVersion)
       const currentProjectVersion = data.projectVersion;
       delete data._id;
       delete data.__v;

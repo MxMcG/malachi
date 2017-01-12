@@ -34,14 +34,12 @@ const config = {
     // localhost:3000/build. That makes proxying easier to handle
     publicPath: `/build/${activeProject}/`
   },
-  target: 'node',
   node: {
-    console: false,
-    global: false,
-    process: false,
-    Buffer: false,
-    __filename: false,
-    __dirname: false
+    console: true,
+    fs: false,
+    net: false,
+    tls: false,
+    tty: false
   },
   module: {
     loaders: [
@@ -81,6 +79,7 @@ const config = {
         from: projectImgsPath, to: buildPathImg
       }
     ]),
+    new Webpack.DefinePlugin({ "global.GENTLY": false }),
     new CleanWebpackPlugin(buildPath, {
       // Without `root` CleanWebpackPlugin won't point to our
       // project and will fail to work.

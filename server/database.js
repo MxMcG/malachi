@@ -226,7 +226,34 @@ const cmsPushContentDev = (projectAbv, content) => {
   })
 };
 
+const cmsPushContentProd = (projectAbv, content) => {
+  return new Promise((resolve, reject) => {
+    const options = {
+      server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } },
+      replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } }
+    };
+    mongoose.connect(mongodbUri, options);
+    const dbConnection = mongoose.connection;
+    dbConnection.on('error', console.error.bind(console, 'connection error:'));
+    dbConnection.once('open', () => {
+      gutil.log('Connected To MongoDB');
+      // take content.json and upload to db
+      const ContentProd = mongoose.model('ContentProd', contentSchema);
+      ContentProd.where({ projectName: projectAbv }).findOne((err, doc) => {
+        if (err) reject(err, 'DOCUMENT QUERY ERROR');
+        // update db with CMS content state obj
+        ContentProd.update({ projectName: projectAbv }, { 'project.components': content }, (err, updatedContent) => {
+          if (err) reject(err, 'MONGO UPDATE ERROR');
+          gutil.log(`Updated content in mongodb for ${projectAbv}`);
+          resolve(updatedContent);
+        });
+      });
+    });
+  })
+};
+
 module.exports = {
   connectToDB,
-  cmsPushContentDev
+  cmsPushContentDev,
+  cmsPushContentProd
 }

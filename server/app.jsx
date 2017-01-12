@@ -102,15 +102,26 @@ app.post('/api/cms/pushContent', (req, res) => {
   const content = req.body.content;
   const projectName = req.body.projectName;
   // takes content from client req, updates db
-  database.cmsPushContentDev(projectName, content).then((message) => {
-    gutil.log('Updated Content: ', message);
-    // run start script to restart the app w new content
-    res.send('Thanks');
-    // ssh into server instance, run a restart script
-  }).catch((err, errMessage) => {
-    gutil.log(errmessage);
-    gutil.log('Error description: ', err);
-  });
+  if (env === 'development') {
+    database.cmsPushContentDev(projectName, content).then((message) => {
+      gutil.log('Updated Content CMS Development: ', message);
+    }).catch((err, errMessage) => {
+      gutil.log(errmessage);
+      gutil.log('Error description: ', err);
+    });
+  }
+  if (env === 'production') {
+    database.cmsPushContentProd(projectName, content).then((message) => {
+      gutil.log('Updated Content CMS Production: ', message);
+    }).catch((err, errMessage) => {
+      gutil.log(errmessage);
+      gutil.log('Error description: ', err);
+    });
+  }
+  // run start script to restart the app w new content
+  res.send('thanks man')
+  // ssh into server instance, run a restart script
+
 });
 
 app.listen(port, () => {

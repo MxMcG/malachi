@@ -39,7 +39,8 @@ const config = {
     fs: false,
     net: false,
     tls: false,
-    tty: false
+    tty: false,
+    __dirname: true
   },
   module: {
     loaders: [

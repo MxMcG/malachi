@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import request from 'superagent';
+const request = require('superagent');
 // import DropZone from 'react-dropzone';
 
 export default class Admin extends Component {

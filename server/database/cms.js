@@ -34,6 +34,26 @@ export const cmsPushContentDev = (projectAbv, content) => {
   })
 };
 
+export const localContentPush = (projectAbv, content, env) => {
+  // TODO check prod or dev
+  return new Promise((resolve, reject) => {
+    gutil.log('Connected To MongoDB');
+    // take content.json and upload to db
+    const ContentDev = mongoose.model('ContentDev', contentSchema);
+    const ContentProd = mongoose.model('ContentProd', contentSchema);
+    const ContentEnv = (env === 'development') ? ContentDev : ContentProd
+    ContentEnv.where({ projectName: projectAbv }).findOne((err, doc) => {
+      if (err) reject(err, 'DOCUMENT QUERY ERROR');
+      // update db with CMS content state obj
+      ContentEnv.update({ projectName: projectAbv }, { 'project': content }, (err, updatedContent) => {
+        if (err) reject(err, 'MONGO UPDATE ERROR');
+        gutil.log(`Updated content in mongodb for ${projectAbv}`);
+        resolve(updatedContent);
+      });
+    });
+  })
+};
+
 export const cmsPushContentProd = (projectAbv, content) => {
   return new Promise((resolve, reject) => {
     gutil.log('Connected To MongoDB');

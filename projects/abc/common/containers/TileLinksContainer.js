@@ -26,10 +26,11 @@ TileLinksContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
   const componentContent = state.content.project.components.TileLinksContainer;
-  const { cdnUrl } = state;
+  const { cdnUrl, cdnImageBase } = state;
   return {
     componentContent,
-    cdnUrl
+    cdnUrl,
+    cdnImageBase
   };
 }
 

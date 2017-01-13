@@ -10,12 +10,30 @@ export default class TileLinks extends Component {
   }
 
   render() {
-    const headline = this.props.componentContent.headline;
+    // should have comonent content available as tiles
+    // div, headline, subheadline, 2 images, description, a link.
+    // array of tiles
+    const { tiles, headline, subheadline, dropdown } = this.props.componentContent;
+    const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="tileLinks" >
-        <a href="https://www.google.com" target="_blank">{headline}</a>
-        <br></br>
-        <a href="https://www.google.com" target="_blank">{headline}</a>
+        <h1>{headline}</h1>
+        <h3>{subheadline}</h3>
+        <h4>{dropdown.headline}</h4>
+        {
+          tiles.map((tile, index) => {
+            return (
+              <div key={index} >
+                <h2>{tile.headline}</h2>
+                <h4>{tile.subheadline}</h4>
+                <img className='tileImage' src={cdnImageBase + tile.images[0].src} />
+                <img className='tileImage' src={cdnImageBase + tile.images[1].src} />
+                <a href={tile.link} target="_blank">LINK</a>
+                <p>{tile.description}</p>
+              </div>
+            )
+          })
+        }
       </div>
     );
   }

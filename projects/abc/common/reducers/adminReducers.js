@@ -2,7 +2,7 @@ const initialState = {
   activeComponentClass: undefined,
   componentsLoaded: false,
   loadedAdminComponents: [],
-  selectedComponent: 'FooterContainer'
+  selectedComponent: 'TileLinksContainer'
 };
 
 export default function adminReducers (state = initialState, action) {

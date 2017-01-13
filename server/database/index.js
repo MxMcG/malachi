@@ -7,7 +7,7 @@ const mongodbUri = 'mongodb://mxmcg-1:Mx11mcg27*^*@ds035546-a0.mlab.com:35546,ds
 const activeProject = require('yargs').argv.project;
 const projectContent = activeProject ? require(`../../projects/${activeProject}/content/content.json`) : null
 
-import { cmsPushContentDev, cmsPushContentProd } from './cms.js';
+import { cmsPushContentDev, cmsPushContentProd, localContentPush } from './cms.js';
 import { fetchContentDev, fetchContentProd, fetchProjectVersion } from './fetch.js';
 import { uploadContentDev, uploadContentProd } from './upload.js';
 
@@ -41,6 +41,7 @@ process.on('SIGINT', () => {
 module.exports = {
   cmsPushContentDev,
   cmsPushContentProd,
+  localContentPush,
   fetchContentDev,
   fetchContentProd,
   fetchProjectVersion,

@@ -9,6 +9,7 @@ const prodconfig = require('./webpack.config.production.js');
 const activeProject = require('yargs').argv.project;
 const database = require('./server/database/index.js');
 const upload = require('./server/upload');
+const projectContent = activeProject ? require(`./projects/${activeProject}/content/content.json`) : null
 
 gulp.task('build:dev', (callback) => {
   process.env.NODE_ENV = 'development';
@@ -21,6 +22,17 @@ gulp.task('build:dev', (callback) => {
   new WebpackDevServer(compiler).listen(8080, "localhost", (err) => {
     if (err) throw new gutil.PluginError("webpack-dev-server", err);
     gutil.log('Bundling assets...');
+    callback();
+  });
+});
+
+gulp.task('pushContent:dev', (callback) => {
+  process.env.NODE_ENV = 'development';
+  database.localContentPush(activeProject, projectContent, process.env.NODE_ENV).then((success) => {
+    gutil.log('Local Content Pushed To DB');
+    callback();
+  }, (err) => {
+    gutil.log('Err Local Content Pushed To DB', err);
     callback();
   });
 });
@@ -57,6 +69,17 @@ gulp.task('build:prod', (callback) => {
     // gutil.log(stats.toJson('minimal'));
     callback();
     process.exit();
+  });
+});
+
+gulp.task('pushContent:prod', (callback) => {
+  process.env.NODE_ENV = 'production';
+  database.localContentPush(activeProject, projectContent, process.env.NODE_ENV).then((success) => {
+    gutil.log('Local Content Pushed To DB');
+    callback();
+  }, (err) => {
+    gutil.log('Err Local Content Pushed To DB', err);
+    callback();
   });
 });
 

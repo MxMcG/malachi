@@ -68,31 +68,166 @@ export default class Admin extends Component {
     }
   }
 
+  dataPointType(dataPoint) {
+    // if contentPoint is an image, always include 'image' in prefix of content point name.
+    if (dataPoint.indexOf('image') !== -1) {
+      return 'image';
+    } else {
+      return 'text';
+    }
+  }
+
+  /**
+   * createContentPoint
+   * parameters:
+   * key => {string}: label text of content point
+   * value => {string}: content that is displayed to user
+   * type => {string}: ex: 'image', 'text'
+   * nestLevel => {string}: number that determines level of input field nest
+   */
+  createContentPoint(key, value, type, nestLevel) {
+    const data = {
+      key,
+      value,
+      type,
+      nestLevel
+    };
+    return data;
+  }
+
   renderComponentContent() {
     const selectedComponent = this.props.selectedComponent;
     const content = this.props.loadedComponentContent;
-    const activeContentPoints = [];
-    for (const component in content) {
-      if (content.hasOwnProperty(component) && (selectedComponent === component)) {
-        const activeContent = content[component];
-        for (const contentPoint in activeContent) {
-          if (activeContent.hasOwnProperty(contentPoint)) {
-            const data = {
-              key: contentPoint,
-              value: activeContent[contentPoint]
-            }
-            activeContentPoints.push(data)
-          }
+    const ACTIVE_CONTENT_POINTS = [];
+
+    const traverseArray = (array, level) => {
+      // console.log(level + "<array>");
+      array.forEach((element) => {
+        traverse(element, level + 1);
+      });
+    }
+
+    const traverseObject = (obj, level) => {
+      // console.log(level + "<object>");
+      for (var key in obj) {
+        if (obj.hasOwnProperty(key)) {
+          // console.log(level + 1 + 'Key' + key);
+          traverse(obj[key], level + 1, key);
         }
       }
     }
-    activeContentPoints.reverse();
-    return this.createInputs(activeContentPoints);
+
+    const traverse = (componentContent, level, key) => {
+      if (Array.isArray(componentContent)) {
+        traverseArray(componentContent, level);
+      } else if ((typeof componentContent === 'object') && (componentContent !== null)) {
+        traverseObject(componentContent, level);
+      } else {
+        ACTIVE_CONTENT_POINTS.push(
+          this.createContentPoint(key, componentContent, this.dataPointType(componentContent), level)
+        );
+        // console.log(`Key/Value: ${componentContent} Level: ${level}`);
+      }
+    }
+
+    for (const component in content) {
+      if (content.hasOwnProperty(component) && (selectedComponent === component)) {
+        const activeContent = content[component];
+        console.log('Initial Content Obj', activeContent)
+        traverse(activeContent, 1);
+      }
+    }
+    console.log(ACTIVE_CONTENT_POINTS);
+    // [
+    //   { name, value, nestLevel, type },
+    //   { name, value, nestLevel, type },
+    //   { name, value, nestLevel, type }
+    // ]
+    return this.createInputs(ACTIVE_CONTENT_POINTS.reverse());
   }
+
+  // renderComponentContent() {
+  //   const selectedComponent = this.props.selectedComponent;
+  //   const content = this.props.loadedComponentContent;
+  //   const ACTIVE_CONTENT_POINTS = [];
+  //   let contentPointValue;
+  //   let dataPointType;
+  //   for (const component in content) {
+  //     if (content.hasOwnProperty(component) && (selectedComponent === component)) {
+  //       const activeContent = content[component];
+  //       // match to component selected in dropdown HIGHEST LEVEL
+  //       // LEVEL 1 //////////////////////////////////////
+  //       for (const contentPoint in activeContent) {
+  //         if (activeContent.hasOwnProperty(contentPoint)) {
+  //           contentPointValue = activeContent[contentPoint];
+  //           // STRING: Check if contentPoint is string, if so, push it into array.
+  //           if (typeof contentPointValue === 'string') {
+  //             dataPointType = this.dataPointType(contentPoint);
+  //             ACTIVE_CONTENT_POINTS.push(this.createContentPoint(contentPoint, contentPointValue, dataPointType, '1'))
+  //           }
+  //           // ARRAY: contentPoint is an array i.e. items: [{}, {}, {}]
+  //           else if (Array.isArray(contentPointValue)) {
+  //             // [ {} {} {} {}]
+  //             contentPointValue.forEach((contentPoint, index) => {
+  //               for (const property in contentPoint) {
+  //                 if (contentPoint.hasOwnProperty(property)) {
+  //                   contentPointValue = contentPoint[property];
+  //                   if (typeof contentPointValue === 'string') {
+  //                     dataPointType = this.dataPointType(property);
+  //                     ACTIVE_CONTENT_POINTS.push(this.createContentPoint(property, contentPointValue, dataPointType, '2'))
+  //                   }
+  //                   // TODO add support for array at this level
+  //                   // OBJECT: contentPoint is a normal object i.e. dropdown: {}
+  //                   else if (typeof contentPointValue === 'object') {
+  //                     for (const property in contentPointValue) {
+  //                       if (contentPointValue.hasOwnProperty(property)) {
+  //
+  //                         if (typeof contentPointValue[property] === 'string') {
+  //                           dataPointType = this.dataPointType(property);
+  //                           ACTIVE_CONTENT_POINTS.push(this.createContentPoint(property, contentPointValue[property], dataPointType, '3'))
+  //                         }
+  //                         else if (typeof contentPointValue === 'object') {
+  //                           for (const property in contentPointValue) {
+  //                             if (contentPointValue.hasOwnProperty(property)) {
+  //                               if (typeof contentPointValue[property] === 'string') {
+  //                                 dataPointType = this.dataPointType(property);
+  //                                 ACTIVE_CONTENT_POINTS.push(this.createContentPoint(property, contentPointValue[property], dataPointType, '4'))
+  //                               }
+  //                             }
+  //                           }
+  //                         }
+  //
+  //                       }
+  //                     }
+  //                   }
+  //
+  //                 }
+  //               }
+  //             });
+  //             // loop through array, until get to string, push into array.
+  //
+  //           }
+  //           // OBJECT: contentPoint is a normal object i.e. dropdown: {}
+  //           else if (typeof contentPointValue === 'object') {
+  //             console.log(contentPointValue)
+  //           }
+  //         }
+  //
+  //       }
+  //     }
+  //   }
+  //   // if (Array.isArray(currentContent.value)) {
+  //   //
+  //   // } else if (typeof currentContent.value === 'object') {
+  //   //
+  //   // }
+  //   ACTIVE_CONTENT_POINTS.reverse();
+  //   console.log(ACTIVE_CONTENT_POINTS)
+  //   return this.createInputs(ACTIVE_CONTENT_POINTS);
+  // }
 
   createInputs(content) {
     const inputs = [];
-
     content.forEach((contentPoint, index) => {
       const currentContent = content[index];
       // TODO add image dropzone and cms handling
@@ -136,14 +271,10 @@ export default class Admin extends Component {
       .send({ content: contentState, projectName: this.props.projectName })
       .set('Accept', 'application/json')
       .end((err, res) => {
+        if (err) { return console.log('add error message here')}
       // Calling the end function will send the request
-        console.log("RESSSSSSSS", res)
+        console.log('Publish was a success!', res)
       });
-    // alright.
-    // content.json file must be based on DB rather than file
-    // do something between existing content.json and existing db content.
-    // on build, take db content and create content.json file
-    // take current content state and upload it to DB
   }
 
   render() {

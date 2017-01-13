@@ -1,10 +1,10 @@
-import database from './database';
+import database from './database/index.js';
 import gutil from 'gulp-util';
 
 export const setupConfigs = (env, activeProject, callback) => {
   const config = {};
   if (env === 'development') {
-    database.connectToDB(activeProject, 'fetchContentDev', (err, data) => {
+    database.fetchContentDev(activeProject, (err, data) => {
       if (err) { throw err; }
       // delete unwanted mongo db properties
       delete data._id;
@@ -16,8 +16,9 @@ export const setupConfigs = (env, activeProject, callback) => {
       callback(config);
     });
   }
+
   if (env === 'production') {
-    database.connectToDB(activeProject, 'fetchContentProd', (err, data) => {
+    database.fetchContentProd(activeProject, (err, data) => {
       // delete unwanted mongo db properties
       gutil.log('VERSION PRODUCTION', data.projectVersion)
       const currentProjectVersion = data.projectVersion;

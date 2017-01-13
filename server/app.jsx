@@ -17,7 +17,7 @@ import gutil from 'gulp-util';
 /**
  * Server Folder Imports
  */
-import database from './database';
+import './database/index.js';
 import { setupConfigs } from './configs';
 /**
  * Dynamic Consts

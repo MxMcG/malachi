@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const gutil = require('gutil');
 const activeProject = require('yargs').argv.project;
-const database = require('./database');
+const database = require('./database/index.js');
 
 /**
  * Takes content of build folder and uploads them to AWS S3 bucket
@@ -13,7 +13,7 @@ const database = require('./database');
  */
 const toS3 = (project) => {
   // first fetch current project version number
-  database.connectToDB(activeProject, 'fetchProjectVersion', (err, currentProjectVersion) => {
+  database.fetchProjectVersion(activeProject, (err, currentProjectVersion) => {
     // existing CDN version is one less than currentProjectVersion bc build has already incremented in db
     const deletableProjectVersion = (currentProjectVersion > 1) ? currentProjectVersion - 2 : 1;
     const deletableKeyPaths = [];

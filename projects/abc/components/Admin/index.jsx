@@ -134,7 +134,7 @@ export default class Admin extends Component {
       if (content.hasOwnProperty(component) && (selectedComponent === component)) {
         const activeContent = content[component];
         console.log('Initial Content Obj', activeContent)
-        traverse(activeContent, 1);
+        traverse(activeContent, 1, component);
       }
     }
     console.log(ACTIVE_CONTENT_POINTS);

@@ -62,6 +62,10 @@ const config = {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract('css!sass'),
         exclude: [nodeModulesPath]
+      },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
       }
     ]
   },

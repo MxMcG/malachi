@@ -5,3 +5,9 @@ export const contentSchema = new mongoose.Schema({
   project: mongoose.Schema.Types.Mixed,
   projectVersion: Number
 });
+
+export const userSchema = new mongoose.Schema({
+  username: String,
+  hash: String,
+  projectAbv: String
+});

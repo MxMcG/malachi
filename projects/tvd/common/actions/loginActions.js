@@ -8,45 +8,17 @@ export const changeLoginForm = (form) => {
 }
 
 export const submitLoginForm = (data) => {
-  const request = require('superagent');  
+  const request = require('superagent');
   return (dispatch) => {
     const saltUsername = salt(data.username);
-    bcrypt.hash(data.password, saltUsername, (err, hash) => {
-      // Something wrong while hashing
-      if (err) {
-        // requestFailed({
-        //   type: 'failed'
-        // });
-        return;
-      }
       request.post('/admin/login')
-        .send({ username: data.username, hash  })
+        .send({ username: data.username, hash: data.password  })
         .set('Accept', 'application/json')
         .end((err, res) => {
           if (err) { return console.log('add error message here')}
         // Calling the end function will send the request
           console.log('Publish was a success!', res)
         });
-
-
-      // });
-      // Use auth.js to fake a request
-      // auth.login(username, hash, (success, err) => {
-      //   // When the request is finished, hide the loading indicator
-      //   dispatch(sendingRequest(false));
-      //   dispatch(setAuthState(success));
-      //   if (success === true) {
-      //     // If the login worked, forward the user to the dashboard and clear the form
-      //     forwardTo('/dashboard');
-      //     dispatch(changeForm({
-      //       username: "",
-      //       password: ""
-      //     }));
-      //   } else {
-      //     requestFailed(err);
-      //   }
-      // });
-    });
   }
 }
 

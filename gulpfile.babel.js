@@ -1,12 +1,15 @@
 const gulp = require('gulp');
-// const pm2 = require('pm2');
 const gutil = require("gulp-util");
 const webpack = require('webpack');
 const WebpackDevServer = require("webpack-dev-server");
 const exec = require('child_process').exec;
 const devconfig = require('./webpack.config.js');
 const prodconfig = require('./webpack.config.production.js');
+// ARGVs
 const activeProject = require('yargs').argv.project;
+const authUsername = require('yargs').argv.username;
+const authPassword = require('yargs').argv.password;
+
 const database = require('./server/database/index.js');
 const upload = require('./server/upload');
 const projectContent = activeProject ? require(`./projects/${activeProject}/content/content.json`) : null
@@ -109,4 +112,17 @@ gulp.task('start:prod', (callback) => {
     console.log('CLOSING PROCESS: ' + code);
   });
   callback()
+});
+
+// USER auth
+
+gulp.task('createUser', (callback) => {
+  process.env.ACTIVE_PROJECT = activeProject;
+  database.createAdminUser(authUsername, authPassword, activeProject).then((data) => {
+    gutil.log(`Successfully added new user: ${data.username} for project: ${data.projectAbv}`);
+    callback();
+  }, (err) => {
+    gutil.log('Error: Pushing User to DB', err);
+    callback();
+  });
 });

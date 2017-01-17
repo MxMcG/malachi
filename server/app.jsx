@@ -130,7 +130,7 @@ app.post('/admin/login', (req, res) => {
   database.loginAdminUser(username, hash).then((message) => {
     gutil.log('Updated Content CMS Development: ', message);
   }).catch((err, errMessage) => {
-    gutil.log(errmessage);
+    gutil.log(errMessage);
     gutil.log('Error description: ', err);
   });
   // run start script to restart the app w new content

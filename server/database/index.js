@@ -10,7 +10,7 @@ const projectContent = activeProject ? require(`../../projects/${activeProject}/
 import { cmsPushContentDev, cmsPushContentProd, localContentPush } from './cms.js';
 import { fetchContentDev, fetchContentProd, fetchProjectVersion } from './fetch.js';
 import { uploadContentDev, uploadContentProd } from './upload.js';
-import { loginAdminUser } from './auth.js';
+import { loginAdminUser, createAdminUser } from './auth.js';
 
 // Create the database connection
 mongoose.connect(mongodbUri);
@@ -48,5 +48,6 @@ module.exports = {
   fetchProjectVersion,
   uploadContentDev,
   uploadContentProd,
-  loginAdminUser
+  loginAdminUser,
+  createAdminUser
 }

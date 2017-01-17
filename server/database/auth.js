@@ -8,18 +8,27 @@ export const loginAdminUser = (username, hash, callback) => {
   return new Promise((resolve, reject) => {
     // look into DB and see if hash and username exists at given property
     const AdminUser = mongoose.model('AdminUser', userSchema);
-    AdminUser.where({ username: username }).findOne((err, doc) => {
+    AdminUser.where({ username }).findOne((err, doc) => {
       if (err) {
         gutil.log('MONGO SAVE ERROR', err)
-        reject(err);
+        return reject(err);
       };
       if (!doc) {
-        gutil.log(`No user found for this username: ${username}`)
+        gutil.log('No user found for this username')
+        return resolve({
+          validUser: false,
+          projectAbv,
+          username
+        });
       }
       const hashDb = doc.toObject().hash;
-      console.log('hash', hash)
-      console.log('hashD', hashDb)
-      console.log(bcrypt.compareSync(hash, hashDb))
+      const projectAbv = doc.toObject().projectAbv;
+      const username = doc.toObject().username;
+      return resolve({
+        validUser: bcrypt.compareSync(hash, hashDb),
+        projectAbv,
+        username
+      });
     });
   })
 };

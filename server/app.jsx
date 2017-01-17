@@ -127,15 +127,19 @@ app.post('/admin/login', (req, res) => {
   const username = req.body.username;
   const hash = req.body.hash;
   // takes content from client req, updates db
-  database.loginAdminUser(username, hash).then((message) => {
-    gutil.log('Updated Content CMS Development: ', message);
+  database.loginAdminUser(username, hash).then((data) => {
+    if (data.validUser) {
+      res.json(data);
+    } else {
+      res.json({
+        message: 'Invalid User',
+        validUser: false
+      });
+    }
   }).catch((err, errMessage) => {
     gutil.log(errMessage);
     gutil.log('Error description: ', err);
   });
-  // run start script to restart the app w new content
-  res.send('thanks man')
-  // ssh into server instance, run a restart script
 });
 
 app.listen(port, () => {

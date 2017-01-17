@@ -10,3 +10,16 @@ h2 {
   height: 200px;
   width: 200px;
 }
+
+.form-error {
+  color: red;
+  font-size: 12px;
+}
+
+.inactive {
+  display: none;
+}
+
+.active {
+  display: inline-block;
+}

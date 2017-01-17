@@ -39,18 +39,26 @@ export default class Login extends Component {
   render() {
     const { headline, cattleImg, testImg } = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
-    console.log('PROPS', this.props)
+    const username = this.props.loginData.username;
+    const password = this.props.loginData.password;
     return (
       <div className="login" >
         <h1>Login</h1>
         <div className="login">
           <form className="loginForm" onSubmit={this.handleLogin.bind(this)}>
-            <label>Email</label>
-            <input type="text" onChange={this.handleUsername.bind(this)}></input>
+            <div>
+              <label>Email</label>
+              <input type="text" onChange={this.handleUsername.bind(this)} value={username} />
+            </div>
             <br></br>
-            <label>Password</label>
-            <input type="password" onChange={this.handlePassword.bind(this)}></input>
-            <input type="submit"/>
+            <div>
+              <label>Password</label>
+              <input type="password" onChange={this.handlePassword.bind(this)} value={password} />
+            </div>
+            <div className="form-error inactive"></div>
+            <div>
+              <input type="submit"/>
+            </div>
           </form>
         </div>
       </div>

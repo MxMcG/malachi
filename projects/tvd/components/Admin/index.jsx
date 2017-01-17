@@ -275,10 +275,16 @@ export default class Admin extends Component {
       });
   }
 
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.dispatchLogout();
+  }
+
   render() {
     const selectedComponent = this.props.selectedComponent;
     return (
       <div className="admin" >
+        <a href="#" className="" onClick={this.handleLogout.bind(this)}>Logout</a>
         <h1>ADMIN</h1>
           { this.renderDropdown() }
         <div className="component-display">

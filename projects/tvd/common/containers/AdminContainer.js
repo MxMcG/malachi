@@ -61,6 +61,9 @@ function mapDispatchToProps (dispatch) {
     },
     dispatchEditContent: (name, value, selectedComponent) => {
       dispatch(actions.editContent(name, value, selectedComponent))
+    },
+    dispatchLogout: () => {
+      dispatch(actions.logout())
     }
   }
 }

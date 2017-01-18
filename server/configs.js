@@ -2,17 +2,20 @@ import database from './database/index.js';
 import gutil from 'gulp-util';
 
 export const setupConfigs = (env, activeProject, callback) => {
-  const config = {};
+  const config = {
+    urls: {}
+  };
   if (env === 'development') {
     database.fetchContentDev(activeProject, (err, data) => {
       if (err) { throw err; }
       // delete unwanted mongo db properties
       delete data._id;
       delete data.__v;
-      config.cdnUrl = 'http://localhost:8080/projects/' + activeProject + '/';
-      config.cdnImageBase = 'http://localhost:8080/projects/' + activeProject + '/images/';
-      config.bundleUrl = 'http://localhost:8080/bundle.js/'
       config.content = data;
+      config.urls.cdnUrl = 'http://localhost:8080/projects/' + activeProject + '/';
+      config.urls.cdnImageBase = 'http://localhost:8080/projects/' + activeProject + '/images/';
+      config.urls.bundleUrl = 'http://localhost:8080/bundle.js/'
+      console.log('CONFIGS', config)
       callback(config);
     });
   }

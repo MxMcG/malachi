@@ -24,6 +24,13 @@ export const updateAdminContent = (payload) => {
   }
 }
 
+export const updateCdnUrls = (payload) => {
+  return {
+    type: 'UPDATE_CDN_URLS',
+    payload
+  }
+}
+
 // ACTION CREATORS
 
 export const logout = () => {
@@ -52,8 +59,7 @@ const updateContent = (dispatch, projectAbv) => {
       }
       // take this content and dispatch change to content state... simple
       const content = JSON.parse(res.text);
-      dispatch(updateCdnUrl(projectAbv));
-      
+      dispatch(updateCdnUrls(projectAbv));
       return resolve(dispatch(updateAdminContent(content)));
     });
   });

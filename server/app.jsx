@@ -90,7 +90,7 @@ app.get('*', (req, res) => {
             window.__INITIAL_STATE__ = ${JSON.stringify(config)};
             window.__DEV_ENV__ = ${JSON.stringify({ env })};
           </script>
-          <script src=${JSON.stringify(config.bundleUrl)}></script>
+          <script src=${JSON.stringify(config.urls.bundleUrl)}></script>
         </body>
       </html>`;
       res.status(200).send(HTML);

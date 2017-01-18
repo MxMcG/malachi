@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import styles from '../../../abc/styles/main.scss';
 const request = require('superagent');
 // import DropZone from 'react-dropzone';
 
@@ -10,6 +11,7 @@ export default class Admin extends Component {
   }
 
   componentWillMount() {
+    this.loadStylesheets(this.props.projectName);
     this.loadComponents(this.props.componentContent);
   }
 
@@ -19,13 +21,19 @@ export default class Admin extends Component {
     }
   }
 
+  loadStylesheets(project) {
+    require(`../../../${project}/styles/main.scss`);
+  }
+
   loadComponents(components) {
     const projectComponents = Object.keys(components);
+    const projectName = this.props.projectName;
     const componentsPayload = [];
+
     // take each component, push to array, once array is filled, dispatch event to update state
     projectComponents.forEach((component, index) => {
       const componentContainer = `${component}`;
-      const payload = require(`../../common/containers/${componentContainer}.js`).default;
+      const payload = require(`../../../${projectName}/common/containers/${componentContainer}.js`).default;
       const name = componentContainer;
       const componentData = {
         name,

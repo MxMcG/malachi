@@ -18,6 +18,7 @@ export default class TileLinks extends Component {
     return (
       <div className="tileLinks" >
         <h1>{headline}</h1>
+        <h1>{headline}</h1>
         <h3>{subheadline}</h3>
         <h4>{dropdown.headline}</h4>
         {

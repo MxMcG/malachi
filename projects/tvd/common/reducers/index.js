@@ -4,11 +4,9 @@ import { cdnUrl, bundleUrl, cdnImageBase } from './urls';
 import adminReducers from './adminReducers';
 import contentReducers from './contentReducers';
 import loginReducers from './loginReducers';
-import content from './content';
 
 const rootReducer = combineReducers({
-  bundleUrl,
-  content,
+  bundleUrl,  
   cdnUrl,
   cdnImageBase,
   admin: adminReducers,

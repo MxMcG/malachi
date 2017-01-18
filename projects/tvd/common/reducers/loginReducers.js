@@ -12,7 +12,7 @@ export default function loginReducers (state = initialState, action) {
     case 'SUBMIT_LOGIN_FORM':
       return Object.assign({}, state, action.payload);
     case 'SET_AUTH_STATE':
-      return Object.assign({}, state, action.payload);    
+      return Object.assign({}, state, action.payload);
     default:
       return state;
     }

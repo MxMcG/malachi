@@ -29,6 +29,7 @@ class AdminContainer extends Component {
 AdminContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
+  console.log("STATE ADMIN", state)
   const componentContent = state.content.project.components;
   const projectName = state.content.projectName;
   const loadedAdminComponents = state.admin.loadedAdminComponents;

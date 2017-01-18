@@ -13,11 +13,6 @@
       "subheadline": "This is a another one dog",
       "thirdheadline": "happy third headline"
     },
-    "LoginContainer": {
-      "headline": "This is a DynamicSlider headline",
-      "subheadline": "This is a another one dog",
-      "thirdheadline": "happy third headline"
-    },
     "TileLinksContainer": {
       "headline": "Main Headline",
       "subheadline": "Main Subheadline",

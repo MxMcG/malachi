@@ -123,6 +123,28 @@ app.post('/api/cms/pushContent', (req, res) => {
   // ssh into server instance, run a restart script
 });
 
+app.post('/api/cms/fetchContent', (req, res) => {
+  const projectAbv = req.body.projectAbv;
+  console.log("PROJECT", projectAbv)
+  // takes content from client req, updates db
+  if (env === 'development') {
+    database.fetchContentDev(projectAbv, (error, data) => {
+      if (error) {
+        gutil.error(err);
+        return res.status(500).end('Internal server error');
+      }
+      res.json(data);
+    });
+  }
+  if (env === 'production') {
+    database.fetchContentProd(projectAbv, (error, response) => {
+
+    });
+  }
+  // run start script to restart the app w new content
+  // ssh into server instance, run a restart script
+});
+
 app.post('/admin/login', (req, res) => {
   const username = req.body.username;
   const hash = req.body.hash;

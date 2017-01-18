@@ -36,9 +36,7 @@ export default class Login extends Component {
     this.props.dispatchChangeLoginForm(newState);
   }
 
-  render() {
-    const { headline, cattleImg, testImg } = this.props.componentContent;
-    const cdnImageBase = this.props.cdnImageBase;
+  render() {    
     const username = this.props.loginData.username;
     const password = this.props.loginData.password;
     return (

@@ -1,6 +1,8 @@
 import bcrypt from 'bcryptjs';
 import { browserHistory } from 'react-router';
 
+// PURE ACTIONS
+
 export const changeLoginForm = (form) => {
   return {
     type: 'UPDATE_LOGIN_FORM',
@@ -14,6 +16,15 @@ export const setAuthState = (payload) => {
     payload
   }
 }
+
+export const updateAdminContent = (payload) => {
+  return {
+    type: 'UPDATE_ADMIN_CONTENT',
+    payload
+  }
+}
+
+// ACTION CREATORS
 
 export const logout = () => {
   return (dispatch) => {
@@ -29,17 +40,25 @@ export const logout = () => {
   }
 }
 
-const forwardTo = (location) => {
-  console.log('forwardTo(' + location + ')');
-  browserHistory.push(location);
-}
+const updateContent = (dispatch, projectAbv) => {
+  return new Promise((resolve, reject) => {
+    const request = require('superagent');
+    request.post('/api/cms/fetchContent')
+    .send({ projectAbv })
+    .set('Accept', 'application/json')
+    .end((err, res) => {
+      if (err) {
+        return reject('Error hitting update content endpoint');
+      }
+      // take this content and dispatch change to content state... simple
+      const content = JSON.parse(res.text);
+      dispatch(updateCdnUrl(projectAbv));
+      
+      return resolve(dispatch(updateAdminContent(content)));
+    });
+  });
 
-const requestFailed = (message) => {
-  const errorDiv = window.document.getElementsByClassName('form-error')[0];
-  errorDiv.innerHTML = '';
-  errorDiv.classList.add('active');
-  errorDiv.innerHTML = message;
-}
+};
 
 export const submitLoginForm = (data) => {
   const request = require('superagent');
@@ -54,7 +73,9 @@ export const submitLoginForm = (data) => {
             return console.log('Error with login endpoint')
           }
         // Calling the end function will send the request
-          const validUser = JSON.parse(res.text).validUser;
+        const response = JSON.parse(res.text);
+          const validUser = response.validUser;
+          const projectAbv = response.projectAbv;
           if (validUser === true) {
             // dispatch invalid user action
             dispatch(
@@ -63,7 +84,11 @@ export const submitLoginForm = (data) => {
                 attempt: 'success'
               })
             );
-            forwardTo('/admin');
+            // dispatch action that updates content state with config for project
+            updateContent(dispatch, projectAbv).then(
+              (success) => { forwardTo('/admin'); },
+              (fail) => { console.log('fail')}
+            )
           } else {
             // dispatch valid user action
             dispatch(
@@ -83,6 +108,20 @@ export const submitLoginForm = (data) => {
           );
         });
   }
+}
+
+// HELPERS
+
+const forwardTo = (location) => {
+  console.log('forwardTo(' + location + ')');
+  browserHistory.push(location);
+}
+
+const requestFailed = (message) => {
+  const errorDiv = window.document.getElementsByClassName('form-error')[0];
+  errorDiv.innerHTML = '';
+  errorDiv.classList.add('active');
+  errorDiv.innerHTML = message;
 }
 
 /**

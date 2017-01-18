@@ -4,7 +4,7 @@ import { activateComponent,
         editContent,
         updateSelectedComponent } from './adminActions.js';
 
-import { changeLoginForm, submitLoginForm, logout } from './loginActions.js';
+import { changeLoginForm, submitLoginForm, logout, updateAdminContent } from './loginActions.js';
 
 export {
   activateComponent,
@@ -14,5 +14,6 @@ export {
   updateSelectedComponent,
   changeLoginForm,
   submitLoginForm,
+  updateAdminContent,
   logout
 };

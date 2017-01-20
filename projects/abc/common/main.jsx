@@ -1,11 +1,11 @@
-import '../styles/main.scss'
+import styles from '../styles/main.scss';
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, Link, browserHistory } from 'react-router'
 import configureStore from './store/configureStore';
 import routes from './routes';
-import AppContainer from './containers/appContainer.js';
+import AppContainer from './containers/AppContainer.js';
 import AdminContainer from './containers/AdminContainer.js';
 
 const initialState = window.__INITIAL_STATE__;

@@ -18,7 +18,6 @@ const config = {
   // Makes sure errors in console map to the correct file
   // and line number
   devtool: 'source-map',
-  context: assetsOutput,
   entry: [
     mainPath
   ],

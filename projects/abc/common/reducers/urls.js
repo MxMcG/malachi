@@ -1,34 +1,27 @@
-const initialState = {};
+import update from 'immutability-helper';
 
-export const cdnUrl = (state = initialState, action) => {
- switch(action.type) {
-   case 'ADD_DATA':
-     return state;
-   case 'DELETE_DATA':
-     return state;
-   default:
-     return state;
- }
-}
+const initialState = {
+  cdnUrl: '',
+  cdnImageBase: '',
+  bundleUrl: ''
+};
 
-export const cdnImageBase = (state = initialState, action) => {
- switch(action.type) {
-   case 'ADD_DATA':
-     return state;
-   case 'DELETE_DATA':
-     return state;
-   default:
-     return state;
- }
-}
+// 'http://localhost:8080/projects/' + activeProject + '/images/';
+// 'http://localhost:8080/projects/' + activeProject + '/';
 
-export const bundleUrl = (state = initialState, action) => {
- switch(action.type) {
-   case 'ADD_DATA':
-     return state;
-   case 'DELETE_DATA':
-     return state;
-   default:
-     return state;
- }
+export default function updateCdnUrls (state = initialState, action) {
+  switch(action.type) {
+    case 'UPDATE_CDN_URLS':
+      const projectAbv = action.payload;
+      const cdnUrl = state.cdnUrl;
+      const cdnImageBase = state.cdnImageBase;
+      const updatedCdnUrl = cdnUrl.replace('/tvd', `/${projectAbv}`);
+      const updatedImageBase = cdnImageBase.replace('/tvd', `/${projectAbv}`);
+      return update(state, {
+       cdnUrl: { $set: updatedCdnUrl },
+       cdnImageBase: { $set: updatedImageBase }
+      });
+      default:
+      return state;
+    }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 export default class TileLinks extends Component {
 
   constructor(props) {
@@ -14,11 +13,11 @@ export default class TileLinks extends Component {
     // should have comonent content available as tiles
     // div, headline, subheadline, 2 images, description, a link.
     // array of tiles
+    console.log('THIS PROPS', this.props)
     const { tiles, headline, subheadline, dropdown } = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="tileLinks" >
-        <h1>{headline}</h1>
         <h1>{headline}</h1>
         <h3>{subheadline}</h3>
         <h4>{dropdown.headline}</h4>

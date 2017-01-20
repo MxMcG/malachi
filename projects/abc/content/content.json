@@ -14,7 +14,7 @@
       "thirdheadline": "happy third headline"
     },
     "TileLinksContainer": {
-      "headline": "ABC",
+      "headline": "Main Headline",
       "subheadline": "Main Subheadline",
       "dropdown": {
         "headline": "This is nested"

@@ -12,7 +12,6 @@ export default class Admin extends Component {
   }
 
   componentWillMount() {
-    this.loadStylesheets(this.props.projectName);
     this.loadComponents(this.props.componentContent);
   }
 
@@ -22,23 +21,17 @@ export default class Admin extends Component {
     }
   }
 
-  loadStylesheets(project) {
-    if (project !== 'zza') {
-
-    }
-  }
-
   loadComponents(components) {
     const projectComponents = Object.keys(components);
     const projectName = this.props.projectName;
     const componentsPayload = [];
 
     // take each component, push to array, once array is filled, dispatch event to update state
+    require('../../../../projects/' + projectName + '/styles/main.scss');
     projectComponents.forEach((component, index) => {
-      // require('../../../../projects/' + projectName + '/styles/main.scss');
       const componentContainer = `${component}`;
       // This guy is the problem
-      // const payload = require('../../../../projects/' + projectName + '/common/containers/' + componentContainer + '.js').default;
+      const payload = require('../../../../projects/' + projectName + '/common/containers/' + componentContainer + '.js').default;
       const name = componentContainer;
       const componentData = {
         name,
@@ -214,9 +207,10 @@ export default class Admin extends Component {
   }
 
   render() {
+    const currentProject = this.props.projectName;
     const selectedComponent = this.props.selectedComponent;
     return (
-      <div className="admin" >
+      <div className={`admin ${currentProject}`} >
         <a href="#" className="" onClick={this.handleLogout.bind(this)}>Logout</a>
         <h1>ADMIN</h1>
           { this.renderDropdown() }

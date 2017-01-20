@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import NavContainer from '../../common/containers/NavContainer';
 import DynamicSliderContainer from '../../common/containers/DynamicSliderContainer';
+import TileLinksContainer from '../../common/containers/TileLinksContainer';
 import FooterContainer from '../../common/containers/FooterContainer';
-import './styles/test.scss';
 
 export default class App extends Component {
 
@@ -12,9 +12,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="app" >
+      <div className="app aa4" >
         <NavContainer />
         <DynamicSliderContainer />
+        <TileLinksContainer />
         <FooterContainer />
       </div>
     );

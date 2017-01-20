@@ -1,1 +1,1 @@
-import './common/main.jsx';
+require('./common/main.jsx');

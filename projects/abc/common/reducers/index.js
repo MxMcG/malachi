@@ -1,17 +1,15 @@
 import { combineReducers } from 'redux';
 
-import content from './content';
-import { cdnUrl, bundleUrl, cdnImageBase } from './urls';
+import urlReducers from './urls';
 import adminReducers from './adminReducers';
 import contentReducers from './contentReducers';
+import loginReducers from './loginReducers';
 
 const rootReducer = combineReducers({
-  bundleUrl,
-  content,
-  cdnUrl,
-  cdnImageBase,
+  urls: urlReducers,
   admin: adminReducers,
-  content: contentReducers
+  content: contentReducers,
+  login: loginReducers
 });
 
 export default rootReducer;

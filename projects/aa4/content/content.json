@@ -1,0 +1,79 @@
+{
+  "components": {
+    "NavContainer": {
+      "headline": "This is a Nav headline YOO",
+      "subheadline": "This is a another one dog",
+      "cattleImg": "cattle.jpg",
+      "testImg": "testimg2.jpg",
+      "thirdheadline": "happy third headline",
+      "fourthheadline": "forth forth"
+    },
+    "DynamicSliderContainer": {
+      "headline": "This is a DynamicSlider headline",
+      "subheadline": "This is a another one dog",
+      "thirdheadline": "happy third headline"
+    },
+    "TileLinksContainer": {
+      "headline": "Big Ups",
+      "subheadline": "Main Subheadline",
+      "dropdown": {
+        "headline": "This is nested"
+      },
+      "tiles": [
+        {
+          "headline": "Tile Headline 1",
+          "subheadline": "Tile Headline 2",
+          "images": [
+            {
+              "alt": "cattleImg",
+              "src": "cattle.jpg"
+            },
+            {
+              "alt": "testImg",
+              "src": "testimg2.jpg"
+            }
+          ],
+          "link": "ww.google.com",
+          "description": "Explain explain explain"
+        },
+        {
+          "headline": "2nd Tile Headline 1",
+          "subheadline": "2nd Tile Headline 2",
+          "images": [
+            {
+              "alt": "cattleImg",
+              "src": "cattle.jpg"
+            },
+            {
+              "alt": "testImg",
+              "src": "testimg2.jpg"
+            }
+          ],
+          "link": "ww.google.com",
+          "description": "Explain explain explain"
+        },
+        {
+          "headline": "3rd Tile Headline 1",
+          "subheadline": "3rd Tile Headline 2",
+          "images": [
+            {
+              "alt": "cattleImg",
+              "src": "cattle.jpg"
+            },
+            {
+              "alt": "testImg",
+              "src": "testimg2.jpg"
+            }
+          ],
+          "link": "ww.google.com",
+          "description": "Explain explain explain"
+        }
+      ]
+    },
+    "FooterContainer": {
+      "headline": "This is a Footer headline",
+      "subheadline": "This is a another one dog",
+      "thirdheadline": "happy third headline"
+    }
+  }
+}

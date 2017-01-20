@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import NavContainer from '../../common/containers/NavContainer';
 import DynamicSliderContainer from '../../common/containers/DynamicSliderContainer';
+import TileLinksContainer from '../../common/containers/TileLinksContainer';
 import FooterContainer from '../../common/containers/FooterContainer';
 
 // include actions as they are needed by each component
@@ -21,9 +22,10 @@ class AppContainer extends Component {
 
   render () {
     return (
-      <div>
+      <div className="app abc">
         <NavContainer />
         <DynamicSliderContainer />
+        <TileLinksContainer />
         <FooterContainer />
       </div>
     );

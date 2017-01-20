@@ -17,6 +17,7 @@ const toS3 = (project) => {
     // existing CDN version is one less than currentProjectVersion bc build has already incremented in db
     const deletableProjectVersion = (currentProjectVersion > 1) ? currentProjectVersion - 2 : 1;
     const deletableKeyPaths = [];
+    gutil.log('Current Project Version: ', currentProjectVersion);
 
     if (err) { throw err; }
     else {

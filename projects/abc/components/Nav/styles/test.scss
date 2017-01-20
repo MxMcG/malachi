@@ -1,12 +1,15 @@
 .nav {
-  background-color: pink;
+  background-color: red;
 }
 
 h2 {
   color: yellow;
 }
 
-.imageCattle {
-  height: 200px;
-  width: 200px;
+.login {
+  background-color: lightblue;
+}
+
+.loginForm label, input {
+  display: block;
 }

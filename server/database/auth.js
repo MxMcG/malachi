@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 
 import { userSchema } from './schemas.js'
 
-export const loginAdminUser = (username, hash, callback) => {
+export const loginAdminUser = (env, username, hash, callback) => {
   return new Promise((resolve, reject) => {
     // look into DB and see if hash and username exists at given property
-    const AdminUser = mongoose.model('AdminUser', userSchema);
+    const AdminUser = (env === 'production') ? mongoose.model('AdminUserProd', userSchema) : mongoose.model('AdminUserDev', userSchema);
     AdminUser.where({ username }).findOne((err, doc) => {
       if (err) {
         gutil.log('MONGO SAVE ERROR', err)
@@ -33,7 +33,7 @@ export const loginAdminUser = (username, hash, callback) => {
   })
 };
 
-export const createAdminUser = (username, password, projectAbv) => {
+export const createAdminUser = (env, username, password, projectAbv) => {
   return new Promise((resolve, reject) => {
     // add user to collection
 
@@ -45,7 +45,7 @@ export const createAdminUser = (username, password, projectAbv) => {
         hash,
         projectAbv
       }
-      const AdminUser = mongoose.model('AdminUser', userSchema);
+      const AdminUser = (env === 'production') ? mongoose.model('AdminUserProd', userSchema) : mongoose.model('AdminUserDev', userSchema)
       AdminUser.create(newUser, (err, user) => {
         if (err) {
           gutil.log('MONGO SAVE ERROR', err)

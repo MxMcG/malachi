@@ -5,15 +5,16 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const env = process.env.NODE_ENV
 const activeProject = require('yargs').argv.project;
 const buildPath = path.resolve(__dirname, 'build', activeProject);
-const mainPath = activeProject ? path.resolve(__dirname, 'projects', activeProject, 'config.js') : null
-const assetsOutput = activeProject ? path.resolve(__dirname, 'projects', activeProject) : null
+const projectPath = activeProject ? path.resolve(__dirname, 'projects', activeProject) : null;
+const mainPath = activeProject ? './projects/' + activeProject + '/config.js' : null;
+const assetsOutput = activeProject ? path.resolve(__dirname, 'projects', activeProject) : null;
+console.log('PATH', mainPath)
 
 const config = {
 
   // Makes sure errors in console map to the correct file
   // and line number
   devtool: 'eval',
-  context: assetsOutput,
   entry: [
 
     // // For hot style updates
@@ -23,7 +24,7 @@ const config = {
     'webpack-dev-server/client?http://localhost:8080',
 
     // Our application
-    './config.js'],
+    mainPath],
   output: {
 
     // We need to give Webpack a path. It does not actually need it,
@@ -69,7 +70,8 @@ const config = {
       },
       {
         test: /\.json$/,
-        loader: 'json-loader'
+        loader: 'json-loader',
+        exclude: [nodeModulesPath]
       }
     ]
   },

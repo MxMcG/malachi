@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 const request = require('superagent');
-import './styles/test.scss';
+const path = require('path');
+
 // import DropZone from 'react-dropzone';
 
 export default class Admin extends Component {
@@ -11,6 +12,7 @@ export default class Admin extends Component {
   }
 
   componentWillMount() {
+    this.loadStylesheets(this.props.projectName);
     this.loadComponents(this.props.componentContent);
   }
 
@@ -20,13 +22,23 @@ export default class Admin extends Component {
     }
   }
 
+  loadStylesheets(project) {
+    if (project !== 'zza') {
+
+    }
+  }
+
   loadComponents(components) {
     const projectComponents = Object.keys(components);
+    const projectName = this.props.projectName;
     const componentsPayload = [];
+
     // take each component, push to array, once array is filled, dispatch event to update state
     projectComponents.forEach((component, index) => {
+      // require('../../../../projects/' + projectName + '/styles/main.scss');
       const componentContainer = `${component}`;
-      const payload = require(`../../common/containers/${componentContainer}.js`).default;
+      // This guy is the problem
+      // const payload = require('../../../../projects/' + projectName + '/common/containers/' + componentContainer + '.js').default;
       const name = componentContainer;
       const componentData = {
         name,
@@ -145,86 +157,6 @@ export default class Admin extends Component {
     return this.createInputs(ACTIVE_CONTENT_POINTS.reverse());
   }
 
-  // renderComponentContent() {
-  //   const selectedComponent = this.props.selectedComponent;
-  //   const content = this.props.loadedComponentContent;
-  //   const ACTIVE_CONTENT_POINTS = [];
-  //   let contentPointValue;
-  //   let dataPointType;
-  //   for (const component in content) {
-  //     if (content.hasOwnProperty(component) && (selectedComponent === component)) {
-  //       const activeContent = content[component];
-  //       // match to component selected in dropdown HIGHEST LEVEL
-  //       // LEVEL 1 //////////////////////////////////////
-  //       for (const contentPoint in activeContent) {
-  //         if (activeContent.hasOwnProperty(contentPoint)) {
-  //           contentPointValue = activeContent[contentPoint];
-  //           // STRING: Check if contentPoint is string, if so, push it into array.
-  //           if (typeof contentPointValue === 'string') {
-  //             dataPointType = this.dataPointType(contentPoint);
-  //             ACTIVE_CONTENT_POINTS.push(this.createContentPoint(contentPoint, contentPointValue, dataPointType, '1'))
-  //           }
-  //           // ARRAY: contentPoint is an array i.e. items: [{}, {}, {}]
-  //           else if (Array.isArray(contentPointValue)) {
-  //             // [ {} {} {} {}]
-  //             contentPointValue.forEach((contentPoint, index) => {
-  //               for (const property in contentPoint) {
-  //                 if (contentPoint.hasOwnProperty(property)) {
-  //                   contentPointValue = contentPoint[property];
-  //                   if (typeof contentPointValue === 'string') {
-  //                     dataPointType = this.dataPointType(property);
-  //                     ACTIVE_CONTENT_POINTS.push(this.createContentPoint(property, contentPointValue, dataPointType, '2'))
-  //                   }
-  //                   // TODO add support for array at this level
-  //                   // OBJECT: contentPoint is a normal object i.e. dropdown: {}
-  //                   else if (typeof contentPointValue === 'object') {
-  //                     for (const property in contentPointValue) {
-  //                       if (contentPointValue.hasOwnProperty(property)) {
-  //
-  //                         if (typeof contentPointValue[property] === 'string') {
-  //                           dataPointType = this.dataPointType(property);
-  //                           ACTIVE_CONTENT_POINTS.push(this.createContentPoint(property, contentPointValue[property], dataPointType, '3'))
-  //                         }
-  //                         else if (typeof contentPointValue === 'object') {
-  //                           for (const property in contentPointValue) {
-  //                             if (contentPointValue.hasOwnProperty(property)) {
-  //                               if (typeof contentPointValue[property] === 'string') {
-  //                                 dataPointType = this.dataPointType(property);
-  //                                 ACTIVE_CONTENT_POINTS.push(this.createContentPoint(property, contentPointValue[property], dataPointType, '4'))
-  //                               }
-  //                             }
-  //                           }
-  //                         }
-  //
-  //                       }
-  //                     }
-  //                   }
-  //
-  //                 }
-  //               }
-  //             });
-  //             // loop through array, until get to string, push into array.
-  //
-  //           }
-  //           // OBJECT: contentPoint is a normal object i.e. dropdown: {}
-  //           else if (typeof contentPointValue === 'object') {
-  //             console.log(contentPointValue)
-  //           }
-  //         }
-  //
-  //       }
-  //     }
-  //   }
-  //   // if (Array.isArray(currentContent.value)) {
-  //   //
-  //   // } else if (typeof currentContent.value === 'object') {
-  //   //
-  //   // }
-  //   ACTIVE_CONTENT_POINTS.reverse();
-  //   console.log(ACTIVE_CONTENT_POINTS)
-  //   return this.createInputs(ACTIVE_CONTENT_POINTS);
-  // }
-
   createInputs(content) {
     const inputs = [];
     content.forEach((contentPoint, index) => {
@@ -276,10 +208,16 @@ export default class Admin extends Component {
       });
   }
 
+  handleLogout(e) {
+    e.preventDefault();
+    this.props.dispatchLogout();
+  }
+
   render() {
     const selectedComponent = this.props.selectedComponent;
     return (
       <div className="admin" >
+        <a href="#" className="" onClick={this.handleLogout.bind(this)}>Logout</a>
         <h1>ADMIN</h1>
           { this.renderDropdown() }
         <div className="component-display">

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './styles/test.scss';
 
-export default class Footer extends Component {
+export default class DynamicSliderContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -13,7 +12,7 @@ export default class Footer extends Component {
   render() {
     const headline = this.props.componentContent.headline;
     return (
-      <div className="footer" >
+      <div className="dynamicSliderContainer" >
         <h1>{headline}</h1>
       </div>
     );

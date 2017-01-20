@@ -69,7 +69,7 @@ gulp.task('build:prod', (callback) => {
   database.uploadContentProd(activeProject);
   const compiler = webpack(prodconfig, (err, stats) => {
     if (err) throw new gutil.PluginError('webpack', err);
-    // gutil.log(stats.toJson('minimal'));
+    gutil.log(stats.toJson());
     callback();
     process.exit();
   });
@@ -116,9 +116,22 @@ gulp.task('start:prod', (callback) => {
 
 // USER auth
 
-gulp.task('createUser', (callback) => {
+gulp.task('createUser:dev', (callback) => {
+  const env = 'development';
   process.env.ACTIVE_PROJECT = activeProject;
-  database.createAdminUser(authUsername, authPassword, activeProject).then((data) => {
+  database.createAdminUser(env, authUsername, authPassword, activeProject).then((data) => {
+    gutil.log(`Successfully added new user: ${data.username} for project: ${data.projectAbv}`);
+    callback();
+  }, (err) => {
+    gutil.log('Error: Pushing User to DB', err);
+    callback();
+  });
+});
+
+gulp.task('createUser:prod', (callback) => {
+  const env = 'production';
+  process.env.ACTIVE_PROJECT = activeProject;
+  database.createAdminUser(env, authUsername, authPassword, activeProject).then((data) => {
     gutil.log(`Successfully added new user: ${data.username} for project: ${data.projectAbv}`);
     callback();
   }, (err) => {

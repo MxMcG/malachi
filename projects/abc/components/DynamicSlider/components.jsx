@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import subcomponents here
+import './styles/test.scss';
 
 export default class DynamicSliderContainer extends Component {
 

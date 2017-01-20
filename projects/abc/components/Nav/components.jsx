@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TileLinks from '../../common/containers/TileLinksContainer.js';
+import './styles/test.scss';
 
 export default class Nav extends Component {
 

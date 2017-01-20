@@ -69,7 +69,9 @@ app.get('*', (req, res) => {
         </Provider>
       );
 
+      // allows server side rendering of css
       const stylesheet = () => {
+        console.log('*************************************', config.bundleCssUrl)
         if (isProduction) {
           return `<link rel='stylesheet' href=${config.bundleCssUrl} />`;
         }
@@ -125,20 +127,23 @@ app.post('/api/cms/pushContent', (req, res) => {
 
 app.post('/api/cms/fetchContent', (req, res) => {
   const projectAbv = req.body.projectAbv;
-  console.log("PROJECT", projectAbv)
   // takes content from client req, updates db
   if (env === 'development') {
     database.fetchContentDev(projectAbv, (error, data) => {
       if (error) {
-        gutil.error(err);
+        gutil.error(error);
         return res.status(500).end('Internal server error');
       }
       res.json(data);
     });
   }
   if (env === 'production') {
-    database.fetchContentProd(projectAbv, (error, response) => {
-
+    database.fetchContentProd(projectAbv, (error, data) => {
+      if (error) {
+        gutil.error(error);
+        return res.status(500).end('Internal server error');
+      }
+      res.json(data);
     });
   }
   // run start script to restart the app w new content
@@ -149,7 +154,7 @@ app.post('/admin/login', (req, res) => {
   const username = req.body.username;
   const hash = req.body.hash;
   // takes content from client req, updates db
-  database.loginAdminUser(username, hash).then((data) => {
+  database.loginAdminUser(env, username, hash).then((data) => {
     if (data.validUser) {
       res.json(data);
     } else {

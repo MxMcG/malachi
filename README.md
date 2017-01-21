@@ -8,9 +8,11 @@ In development, getting an app up and running is simple.
 Open up two terminal windows.
 
 Bundle all front end code in the project's directory:
+
 `$ gulp build:dev --project <projectabbreviation>`
 
 Start express server that uses built assets
+
 `$ gulp start:dev --project <projectabbr>`
 
 Adding new admin users:

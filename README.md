@@ -17,7 +17,7 @@ Start express server that uses built assets
 
 Adding new admin users:
 
-`gulp createUser:dev --project <projectabbr> --username <username> --password <password>`
+`$ gulp createUser:dev --project <projectabbr> --username <username> --password <password>`
 
 
 

@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
+import GSAP from 'react-gsap-enhancer';
 
-export default class DynamicSliderContainer extends Component {
+
+class DynamicSlider extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      test: ''
-    }
+  }
+
+  handleClick() {
+    const controller = this.addAnimation(this.animationSource);
+  }
+
+  animationSource(utils) {
+    return TweenMax.to(utils.target, 1, {x: '+=123'})
   }
 
   render() {
     const headline = this.props.componentContent.headline;
     return (
       <div className="dynamicSliderContainer" >
-        <h1>{headline}</h1>
+        <h1 onClick={this.handleClick.bind(this)}>{headline}</h1>
       </div>
     );
   }
 }
+
+export default GSAP()(DynamicSlider)

@@ -2,7 +2,7 @@
 
 Malachi can best be utilized via various gulp tasks that perform different actions. 
 
-Getting Started
+<h2>Getting Started</h2>
 
 In development, getting an app up and running is simple. 
 Open up two terminal windows.

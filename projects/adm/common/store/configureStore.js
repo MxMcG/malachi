@@ -16,6 +16,7 @@ export default function configureStore (initialState, environment) {
 
   let store;
 
+  // isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document),
   const global = global ? global : { window: null }
   if (environment === 'development' && global.window) {
     store = createStoreWithMiddleware(rootReducer, initialState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

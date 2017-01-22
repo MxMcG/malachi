@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 
-export default class Footer extends Component {
+export default class Shop extends Component {
 
   constructor(props) {
     super(props);
   }
 
   render() {
-    const headline = this.props.componentContent.headline;
+
     return (
       <div className="footer" >
-        <h1>{headline}</h1>
+        <h1>TESASTT</h1>
       </div>
     );
   }

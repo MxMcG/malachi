@@ -16,10 +16,7 @@ export default class Nav extends Component {
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="nav" >
-        <h1>Truvine Web Apps</h1>
-        <div className="login">
-          <Link to="/login" className="">Login</Link>
-        </div>
+        <h1>Westward</h1>
       </div>
     );
   }

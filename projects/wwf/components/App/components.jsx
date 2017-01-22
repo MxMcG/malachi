@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+
 import NavContainer from '../../common/containers/NavContainer';
-import DynamicSliderContainer from '../../common/containers/DynamicSliderContainer';
-import TileLinksContainer from '../../common/containers/TileLinksContainer';
+import HomeContainer from '../../common/containers/HomeContainer';
+import ShopContainer from '../../common/containers/ShopContainer';
+import AboutContainer from '../../common/containers/AboutContainer';
+import EventsContainer from '../../common/containers/EventsContainer';
 import FooterContainer from '../../common/containers/FooterContainer';
 
 export default class App extends Component {
@@ -10,12 +13,27 @@ export default class App extends Component {
     super(props);
   }
 
+  renderContent() {
+    const { path } = this.props;
+    switch ('shop') {
+      case 'home':
+        return <HomeContainer />;
+      case 'shop':
+        return <ShopContainer />;
+      case 'about':
+        return <AboutContainer />;
+      case 'events':
+        return <EventsContainer />;
+      default:
+      return null;
+    }
+  }
+
   render() {
     return (
-      <div  >
+      <div >
         <NavContainer />
-        <DynamicSliderContainer />
-        <TileLinksContainer />
+        { this.renderContent() }
         <FooterContainer />
       </div>
     );

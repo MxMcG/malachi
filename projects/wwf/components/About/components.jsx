@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import ComplexFeatureTextContainer from '../../common/containers/SwipeSlideshowContainer.js';
+import HoverImageTileContainer from '../../common/containers/FeaturedImagesTileContainer.js';
+import CategorizedRowsContainer from '../../common/containers/FeaturedImageSlideshowContainer.js';
+
 export default class About extends Component {
 
   constructor(props) {
@@ -10,7 +14,9 @@ export default class About extends Component {
     console.log("Component Content", this.props.componentContent)
     return (
       <div className="about" >
-        <h1>about</h1>
+        <ComplexFeatureTextContainer />
+        <HoverImageTileContainer />
+        <CategorizedRowsContainer />
       </div>
     );
   }

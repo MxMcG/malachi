@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-import CategorizedTilesContainer from '../../common/containers/CategorizedTilesContainer.js';
-
-export default class Shop extends Component {
+export default class CategorizedTiles extends Component {
 
   constructor(props) {
     super(props);
@@ -12,7 +10,7 @@ export default class Shop extends Component {
     console.log("Component Content", this.props.componentContent)
     return (
       <div className="categorizedTiles" >
-        <CategorizedTilesContainer />
+        <h1>categorizedrows</h1>
       </div>
     );
   }

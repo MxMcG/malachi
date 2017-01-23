@@ -1,79 +1,292 @@
 {
   "components": {
     "NavContainer": {
-      "headline": "This is a Nav headline YOO",
-      "subheadline": "This is a another one dog",
-      "cattleImg": "cattle.jpg",
-      "testImg": "testimg2.jpg",
-      "thirdheadline": "happy third headline",
-      "fourthheadline": "forth forth"
-    },
-    "DynamicSliderContainer": {
-      "headline": "This is a DynamicSlider headline",
-      "subheadline": "This is a another one dog",
-      "thirdheadline": "happy third headline"
-    },
-    "TileLinksContainer": {
-      "headline": "Big Ups",
-      "subheadline": "Main Subheadline",
-      "dropdown": {
-        "headline": "This is nested"
+      "SliderNav": {
+        "logo": "Westward",
+        "links": [
+          {
+            "title": "Home",
+            "route": "home"
+          },
+          {
+            "title": "Shop",
+            "route": "shop"
+          },
+          {
+            "title": "About",
+            "route": "about"
+          },
+          {
+            "title": "Events",
+            "route": "events"
+          }
+        ]
       },
-      "tiles": [
+      "PromoBanner": {
+        "headline": "25% GOES TO MISSIONARIES"
+      }
+    },
+    "HomeContainer": {
+      "SwipeSlideshow": [
         {
-          "headline": "Tile Headline 1",
-          "subheadline": "Tile Headline 2",
-          "images": [
-            {
-              "alt": "cattleImg",
-              "src": "cattle.jpg"
-            },
-            {
-              "alt": "testImg",
-              "src": "testimg2.jpg"
-            }
-          ],
-          "link": "ww.google.com",
-          "description": "Explain explain explain"
+          "headline": "LOCALLY ROASTED COFFEE",
+          "ctaText": "BUY NOW",
+          "image": {
+            "src": "#",
+            "alt": "#"
+          }
         },
         {
-          "headline": "2nd Tile Headline 1",
-          "subheadline": "2nd Tile Headline 2",
-          "images": [
-            {
-              "alt": "cattleImg",
-              "src": "cattle.jpg"
-            },
-            {
-              "alt": "testImg",
-              "src": "testimg2.jpg"
-            }
-          ],
-          "link": "ww.google.com",
-          "description": "Explain explain explain"
-        },
-        {
-          "headline": "3rd Tile Headline 1",
-          "subheadline": "3rd Tile Headline 2",
-          "images": [
-            {
-              "alt": "cattleImg",
-              "src": "cattle.jpg"
-            },
-            {
-              "alt": "testImg",
-              "src": "testimg2.jpg"
-            }
-          ],
-          "link": "ww.google.com",
-          "description": "Explain explain explain"
+          "headline": "LOCAL ORGANIC TRAIL MIX",
+          "ctaText": "BUY NOW",
+          "image": {
+            "src": "#",
+            "alt": "#"
+          }
         }
-      ]
+      ],
+      "FeaturedImagesTile": {
+        "headline": "Organizations We Support",
+        "images": [
+          {
+            "name": "Christian Surfers",
+            "src": "#",
+            "alt": "#"
+          },
+          {
+            "name": "Youth With A Mission",
+            "src": "#",
+            "alt": "#"
+          },
+          {
+            "name": "North Coast Calvary Chapel",
+            "src": "#",
+            "alt": "#"
+          }
+        ]
+      },
+      "FeaturedImageSlideshow": {
+        "headline": "Events",
+        "subheadline": "Westward Cold Brew",
+        "ctaText": "Book Now",
+        "images": [
+          {
+            "name": "imageA",
+            "src": "#",
+            "alt": "#"
+          },
+          {
+            "name": "imageB",
+            "src": "#",
+            "alt": "#"
+          },
+          {
+            "name": "imageC",
+            "src": "#",
+            "alt": "#"
+          }
+        ]
+      },
+      "DynamicImage": {
+        "image": {
+          "src": "#",
+          "alt": "#"
+        }
+      }
+    },
+    "ShopContainer": {
+      "CategorizedTiles": {
+        "tiles": [
+          {
+            "id": 1,
+            "category": "outdoors",
+            "name": "John's Crafts",
+            "headline": "John's Crafts",
+            "image": {
+              "name": "johnsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 2,
+            "category": "outdoors",
+            "name": "Mason's Crafts",
+            "headline": "Mason's Crafts",
+            "image": {
+              "name": "masonsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 3,
+            "category": "outdoors",
+            "name": "Steady State Coffee",
+            "headline": "Steady State Coffee",
+            "image": {
+              "name": "steadyStateCoffee",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 4,
+            "category": "outdoors",
+            "name": "Super Green Tea",
+            "headline": "Super Green Tea",
+            "image": {
+              "name": "superGreenTea",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 5,
+            "category": "apparel",
+            "name": "John's Crafts",
+            "headline": "John's Crafts",
+            "image": {
+              "name": "johnsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 6,
+            "category": "apparel",
+            "name": "Mason's Crafts",
+            "headline": "Mason's Crafts",
+            "image": {
+              "name": "masonsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 7,
+            "category": "apparel",
+            "name": "Steady State Coffee",
+            "headline": "Steady State Coffee",
+            "image": {
+              "name": "steadyStateCoffee",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 8,
+            "category": "apparel",
+            "name": "Super Green Tea",
+            "headline": "Super Green Tea",
+            "image": {
+              "name": "superGreenTea",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 9,
+            "category": "homegoods",
+            "name": "John's Crafts",
+            "headline": "John's Crafts",
+            "image": {
+              "name": "johnsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 10,
+            "category": "homegoods",
+            "name": "Mason's Crafts",
+            "headline": "Mason's Crafts",
+            "image": {
+              "name": "masonsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 11,
+            "category": "homegoods",
+            "name": "Steady State Coffee",
+            "headline": "Steady State Coffee",
+            "image": {
+              "name": "steadyStateCoffee",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 12,
+            "category": "homegoods",
+            "name": "Super Green Tea",
+            "headline": "Super Green Tea",
+            "image": {
+              "name": "superGreenTea",
+              "src": "#",
+              "alt": "#"
+            }
+          }
+        ],
+        "categories": [
+          {
+            "title": "OUTDOORS",
+            "category": "outdoors",
+            "postition": 1
+          },
+          {
+            "title": "APPAREL",
+            "category": "apparel",
+            "postition": 2
+          },
+          {
+            "title": "HOME GOODS",
+            "category": "homegoods",
+            "postition": 3
+          }
+        ]
+      }
+    },
+    "AboutContainer": {
+      "ComplexFeatureText": {
+        "headline": "Our Story",
+        "subheadline": "We Are A Collective Of Crafters",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et eleifend felis, vitae tempor orci. Nunc at ex at justo suscipit sodales. Cras pretium, mi et lacinia congue, augue diam pharetra ligula, quis porta nisi sem a lectus. In convallis vehicula nisl nec auctor. Cras orci nisl, molestie ut ullamcorper at, mollis eget tortor. "
+      },
+      "HoverImageTile": {
+        "title": "Mason Ward",
+        "headline": "Westward",
+        "subheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "ctaText": "Learn More"
+      },
+      "CategorizedRows": {}
+    },
+    "EventsContainer": {
+      "HoverImageTile": {
+        "title": "Mason Ward",
+        "headline": "Westward",
+        "subheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+        "ctaText": "Learn More"
+      }
     },
     "FooterContainer": {
-      "headline": "This is a Footer headline",
-      "subheadline": "This is a another one dog",
-      "thirdheadline": "happy third headline"
+      "SocialFooter": {
+        "title": "Social",
+        "links": [
+          {
+            "name": "facebook",
+            "title": "Facebook.",
+            "href": "#"
+          },
+          {
+            "name": "instagram",
+            "title": "Instagram.",
+            "href": "#"
+          }
+        ]
+      }
     }
   }
 }

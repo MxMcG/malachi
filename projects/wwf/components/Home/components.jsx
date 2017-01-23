@@ -7,6 +7,7 @@ export default class Home extends Component {
   }
 
   render() {
+    console.log("Component Content", this.props.componentContent)
     return (
       <div className="footer" >
         <h1>Hello World</h1>

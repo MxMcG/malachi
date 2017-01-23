@@ -7,8 +7,9 @@ export default class Events extends Component {
   }
 
   render() {
+    console.log("Component Content", this.props.componentContent)
     return (
-      <div className="footer" >
+      <div className="events" >
         <h1>Events</h1>
       </div>
     );

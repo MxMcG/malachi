@@ -7,7 +7,7 @@ export default class About extends Component {
   }
 
   render() {
-
+    console.log("Component Content", this.props.componentContent)
     return (
       <div className="about" >
         <h1>about</h1>

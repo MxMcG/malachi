@@ -7,10 +7,10 @@ export default class Footer extends Component {
   }
 
   render() {
-    const headline = this.props.componentContent.headline;
+    console.log("Component Content", this.props.componentContent)
     return (
       <div className="footer" >
-        <h1>{headline}</h1>
+        <h1>Footer</h1>
       </div>
     );
   }

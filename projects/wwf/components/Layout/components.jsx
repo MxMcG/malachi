@@ -13,30 +13,11 @@ export default class Layout extends Component {
     super(props);
   }
 
-  // renderContent() {
-  //   const { path } = this.props;
-  //   switch ('shop') {
-  //     case 'home':
-  //       return <HomeContainer />;
-  //     case 'shop':
-  //       return <ShopContainer />;
-  //     case 'about':
-  //       return <AboutContainer />;
-  //     case 'events':
-  //       return <EventsContainer />;
-  //     default:
-  //     return null;
-  //   }
-  // }
-
   render() {
-    console.log("LAYOUT PROPS", this.props)
     return (
       <div >
         <NavContainer />
-
         { this.props.children }
-
         <FooterContainer />
       </div>
     );

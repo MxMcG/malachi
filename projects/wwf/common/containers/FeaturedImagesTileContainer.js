@@ -26,9 +26,13 @@ class FeaturedImagesTileContainer extends Component {
 FeaturedImagesTileContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.FeaturedImagesTileContainer;
+  const componentContent = state.content.project.components.HomeContainer.FeaturedImagesTileContainer;
+  const cdnImageBase = state.urls.cdnImageBase;
+  const cdnUrl = state.urls.cdnUrl
   return {
-    componentContent
+    componentContent,
+    cdnUrl,
+    cdnImageBase
   };
 }
 

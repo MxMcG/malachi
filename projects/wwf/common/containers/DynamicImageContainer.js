@@ -26,9 +26,13 @@ class DynamicImageContainer extends Component {
 DynamicImageContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.DynamicImageContainer;
+  const componentContent = state.content.project.components.HomeContainer.DynamicImageContainer
+  const cdnImageBase = state.urls.cdnImageBase;
+  const cdnUrl = state.urls.cdnUrl
   return {
-    componentContent
+  componentContent,
+  cdnUrl,
+  cdnImageBase
   };
 }
 

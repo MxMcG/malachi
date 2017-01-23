@@ -25,7 +25,7 @@ class SwipeSlideshowContainer extends Component {
 SwipeSlideshowContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.SwipeSlideshowContainer;
+  const componentContent = state.content.project.components.HomeContainer.SwipeSlideshowContainer;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
   return {

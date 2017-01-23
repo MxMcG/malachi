@@ -1,7 +1,7 @@
 {
   "components": {
     "NavContainer": {
-      "SliderNav": {
+      "SliderNavContainer": {
         "logo": "Westward",
         "links": [
           {
@@ -22,12 +22,12 @@
           }
         ]
       },
-      "PromoBanner": {
+      "PromoBannerContainer": {
         "headline": "25% GOES TO MISSIONARIES"
       }
     },
     "HomeContainer": {
-      "SwipeSlideshow": [
+      "SwipeSlideshowContainer": [
         {
           "headline": "LOCALLY ROASTED COFFEE",
           "ctaText": "BUY NOW",
@@ -45,7 +45,7 @@
           }
         }
       ],
-      "FeaturedImagesTile": {
+      "FeaturedImagesTileContainer": {
         "headline": "Organizations We Support",
         "images": [
           {
@@ -65,7 +65,7 @@
           }
         ]
       },
-      "FeaturedImageSlideshow": {
+      "FeaturedImageSlideshowContainer": {
         "headline": "Events",
         "subheadline": "Westward Cold Brew",
         "ctaText": "Book Now",
@@ -87,7 +87,7 @@
           }
         ]
       },
-      "DynamicImage": {
+      "DynamicImageContainer": {
         "image": {
           "src": "#",
           "alt": "#"
@@ -95,7 +95,7 @@
       }
     },
     "ShopContainer": {
-      "CategorizedTiles": {
+      "CategorizedTilesContainer": {
         "tiles": [
           {
             "id": 1,
@@ -250,21 +250,21 @@
       }
     },
     "AboutContainer": {
-      "ComplexFeatureText": {
+      "ComplexFeatureTextContainer": {
         "headline": "Our Story",
         "subheadline": "We Are A Collective Of Crafters",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et eleifend felis, vitae tempor orci. Nunc at ex at justo suscipit sodales. Cras pretium, mi et lacinia congue, augue diam pharetra ligula, quis porta nisi sem a lectus. In convallis vehicula nisl nec auctor. Cras orci nisl, molestie ut ullamcorper at, mollis eget tortor. "
       },
-      "HoverImageTile": {
+      "HoverImageTileContainer": {
         "title": "Mason Ward",
         "headline": "Westward",
         "subheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "ctaText": "Learn More"
       },
-      "CategorizedRows": {}
+      "CategorizedRowsContainer": {}
     },
     "EventsContainer": {
-      "HoverImageTile": {
+      "HoverImageTileContainer": {
         "title": "Mason Ward",
         "headline": "Westward",
         "subheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
@@ -272,7 +272,7 @@
       }
     },
     "FooterContainer": {
-      "SocialFooter": {
+      "SocialFooterContainer": {
         "title": "Social",
         "links": [
           {

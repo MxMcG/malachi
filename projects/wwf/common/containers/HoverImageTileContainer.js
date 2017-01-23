@@ -23,9 +23,13 @@ class HoverImageTileContainer extends Component {
 HoverImageTileContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.HoverImageTileContainer;
+  const componentContent = state.content.project.components.ShopContainer.HoverImageTileContainer;
+  const cdnImageBase = state.urls.cdnImageBase;
+  const cdnUrl = state.urls.cdnUrl
   return {
-    componentContent
+    componentContent,
+    cdnUrl,
+    cdnImageBase
   };
 }
 

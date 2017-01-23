@@ -23,9 +23,13 @@ class CategorizedRowsContainer extends Component {
 CategorizedRowsContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.CategorizedRowsContainer;
+  const componentContent = state.content.project.components.AboutContainer.CategorizedRowsContainer;
+  const cdnImageBase = state.urls.cdnImageBase;
+  const cdnUrl = state.urls.cdnUrl
   return {
-    componentContent
+    componentContent,
+    cdnUrl,
+    cdnImageBase
   };
 }
 

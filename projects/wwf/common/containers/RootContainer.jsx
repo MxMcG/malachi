@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { RouteHandler } from 'react-router';
 
-export default class App extends Component {
+export default class RootContainer extends Component {
 
   constructor(props) {
     super(props);

@@ -5,8 +5,6 @@ import { Provider } from 'react-redux';
 import { Router, Route, Link, browserHistory } from 'react-router'
 import configureStore from './store/configureStore';
 import routes from './routes';
-import AppContainer from './containers/AppContainer.js';
-import AdminContainer from './containers/AdminContainer.js';
 
 const initialState = window.__INITIAL_STATE__;
 const env = window.__DEV_ENV__.env;

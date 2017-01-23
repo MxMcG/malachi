@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import App from '../../components/App/components.jsx';
+import Layout from '../../components/Layout/components.jsx';
 
 // include actions as they are needed by each component
 // they are called via dispatch()
@@ -12,28 +12,28 @@ const propTypes = {
 };
 
 // in here, we determine the props to be passed down to the specific component needed
-class AppContainer extends Component {
+class LayoutContainer extends Component {
   componentDidMount () {
     const { dispatch, componentContent } = this.props;
   }
 
   render () {
     return (
-      <div className="app aa4">
-        <App {...this.props} />
+      <div className="layout wwf">
+        <Layout {...this.props} />
       </div>
     );
   }
 }
 
-AppContainer.propTypes = propTypes;
+LayoutContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  console.log('APP STATE', state)
+  console.log('Layout STATE', state)
   const componentContent = state.content.project.components;
   return {
     componentContent
   };
 }
 
-export default connect(mapStateToProps)(AppContainer);
+export default connect(mapStateToProps)(LayoutContainer);

@@ -7,33 +7,36 @@ import AboutContainer from '../../common/containers/AboutContainer';
 import EventsContainer from '../../common/containers/EventsContainer';
 import FooterContainer from '../../common/containers/FooterContainer';
 
-export default class App extends Component {
+export default class Layout extends Component {
 
   constructor(props) {
     super(props);
   }
 
-  renderContent() {
-    const { path } = this.props;
-    switch ('shop') {
-      case 'home':
-        return <HomeContainer />;
-      case 'shop':
-        return <ShopContainer />;
-      case 'about':
-        return <AboutContainer />;
-      case 'events':
-        return <EventsContainer />;
-      default:
-      return null;
-    }
-  }
+  // renderContent() {
+  //   const { path } = this.props;
+  //   switch ('shop') {
+  //     case 'home':
+  //       return <HomeContainer />;
+  //     case 'shop':
+  //       return <ShopContainer />;
+  //     case 'about':
+  //       return <AboutContainer />;
+  //     case 'events':
+  //       return <EventsContainer />;
+  //     default:
+  //     return null;
+  //   }
+  // }
 
   render() {
+    console.log("LAYOUT PROPS", this.props)
     return (
       <div >
         <NavContainer />
-        { this.renderContent() }
+
+        { this.props.children }
+
         <FooterContainer />
       </div>
     );

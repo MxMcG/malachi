@@ -1,9 +1,12 @@
 import React from 'react';
 import { Route, browserHistory, Router, IndexRoute } from 'react-router';
 
-import App from './containers/App.jsx';
-import AppContainer from './containers/appContainer.js';
-import AdminContainer from './containers/AdminContainer.js';
+import RootContainer from './containers/RootContainer.jsx';
+import LayoutContainer from './containers/LayoutContainer.js';
+import HomeContainer from './containers/HomeContainer.js';
+import ShopContainer from './containers/ShopContainer.js';
+import AboutContainer from './containers/AboutContainer.js';
+import EventsContainer from './containers/EventsContainer.js';
 
 Route.propTypes = {
   component: React.PropTypes.object,
@@ -11,8 +14,13 @@ Route.propTypes = {
 };
 
 export default (
-  <Route path="/" component={App}>
-    <IndexRoute component={AppContainer}/>
-    <Route path="admin" component={AdminContainer}/>
+  <Route component={RootContainer}>
+    <Route path="/" component={LayoutContainer}>
+      <IndexRoute component={HomeContainer}/>
+      <Route path="home" component={HomeContainer} />
+      <Route path="shop" component={ShopContainer} />
+      <Route path="about" component={AboutContainer} />
+      <Route path="events" component={EventsContainer} />
+    </Route>
   </Route>
 );

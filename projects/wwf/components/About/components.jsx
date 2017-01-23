@@ -7,10 +7,10 @@ export default class About extends Component {
   }
 
   render() {
-    const headline = this.props.componentContent.headline;
+
     return (
-      <div className="footer" >
-        <h1>{headline}</h1>
+      <div className="about" >
+        <h1>about</h1>
       </div>
     );
   }

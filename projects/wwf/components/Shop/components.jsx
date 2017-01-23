@@ -7,10 +7,9 @@ export default class Shop extends Component {
   }
 
   render() {
-
     return (
       <div className="footer" >
-        <h1>TESASTT</h1>
+        <h1>Shop</h1>
       </div>
     );
   }

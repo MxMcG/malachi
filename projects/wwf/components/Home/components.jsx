@@ -7,10 +7,9 @@ export default class Home extends Component {
   }
 
   render() {
-    const headline = this.props.componentContent.headline;
     return (
       <div className="footer" >
-        <h1>{headline}</h1>
+        <h1>Hello World</h1>
       </div>
     );
   }

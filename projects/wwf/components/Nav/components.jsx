@@ -21,3 +21,6 @@ export default class Nav extends Component {
     );
   }
 }
+
+// create 4 links, add changeRoute listeners to each link, add href with appropriate routes
+// in app, render view based on path prop passed into component

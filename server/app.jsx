@@ -71,7 +71,6 @@ app.get('*', (req, res) => {
 
       // allows server side rendering of css
       const stylesheet = () => {
-        console.log('*************************************', location)
         if (isProduction) {
           return `<link rel='stylesheet' href=${config.bundleCssUrl} />`;
         }

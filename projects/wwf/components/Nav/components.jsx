@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import TileLinks from '../../common/containers/TileLinksContainer.js';
 
 export default class Nav extends Component {
 

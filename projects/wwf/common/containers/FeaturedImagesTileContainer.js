@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import DynamicSlider from '../../components/DynamicSlider/components.jsx';
+import FeaturedImagesTile from '../../components/FeaturedImagesTile/components.jsx';
 
 // include actions as they are needed by each component
 // they are called via dispatch()
@@ -11,25 +11,25 @@ const propTypes = {
 };
 
 // in here, we determine the props to be passed down to the specific component needed
-class DynamicSliderContainer extends Component {
+class FeaturedImagesTileContainer extends Component {
   componentDidMount () {
     const { dispatch, content } = this.props;
   }
 
   render () {
     return (
-      <DynamicSlider {...this.props} />
+      <FeaturedImagesTile {...this.props} />
     );
   }
 }
 
-DynamicSlider.propTypes = propTypes;
+FeaturedImagesTileContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.DynamicSliderContainer;
+  const componentContent = state.content.project.components.FeaturedImagesTileContainer;
   return {
     componentContent
   };
 }
 
-export default connect(mapStateToProps)(DynamicSliderContainer);
+export default connect(mapStateToProps)(FeaturedImagesTileContainer);

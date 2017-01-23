@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import TileLinks from '../../components/TileLinks/components.jsx';
+import FeaturedImageSlideshow from '../../components/FeaturedImageSlideshow/components.jsx';
 
 // include actions as they are needed by each component
 // they are called via dispatch()
@@ -10,22 +10,22 @@ const propTypes = {
 };
 
 // in here, we determine the props to be passed down to the specific component needed
-class TileLinksContainer extends Component {
+class FeaturedImageSlideshowContainer extends Component {
   componentDidMount () {
     const { dispatch } = this.props;
   }
 
   render () {
     return (
-      <TileLinks {...this.props} />
+      <FeaturedImageSlideshow {...this.props} />
     );
   }
 }
 
-TileLinksContainer.propTypes = propTypes;
+FeaturedImageSlideshowContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.TileLinksContainer;
+  const componentContent = state.content.project.components.FeaturedImageSlideshowContainer;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
   return {
@@ -35,4 +35,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(TileLinksContainer);
+export default connect(mapStateToProps)(FeaturedImageSlideshowContainer);

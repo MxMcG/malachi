@@ -7,9 +7,12 @@ class FeaturedImagesTile extends Component {
   }
 
   render() {
+    const { headline, images } = this.props.componentContent;
+    const cdnImageBase = this.props.cdnImageBase;
     return (
-      <div className="featuredImagesTileContainer" >
-        <h2>FEATURED IMAGES TILE</h2>
+      <div className="featuredImagesTile">
+        <h2>{headline}</h2>
+        <img className="image" src={cdnImageBase + "cattle.jpg"}></img>
       </div>
     );
   }

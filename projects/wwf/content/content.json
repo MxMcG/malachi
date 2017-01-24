@@ -27,24 +27,26 @@
       }
     },
     "HomeContainer": {
-      "SwipeSlideshowContainer": [
-        {
-          "headline": "LOCALLY ROASTED COFFEE",
-          "ctaText": "BUY NOW",
-          "image": {
-            "src": "#",
-            "alt": "#"
+      "SwipeSlideshowContainer": {
+        "slides": [
+          {
+            "headline": "LOCALLY ROASTED COFFEE",
+            "ctaText": "BUY NOW",
+            "image": {
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "headline": "LOCAL ORGANIC TRAIL MIX",
+            "ctaText": "BUY NOW",
+            "image": {
+              "src": "#",
+              "alt": "#"
+            }
           }
-        },
-        {
-          "headline": "LOCAL ORGANIC TRAIL MIX",
-          "ctaText": "BUY NOW",
-          "image": {
-            "src": "#",
-            "alt": "#"
-          }
-        }
-      ],
+        ]
+      },
       "FeaturedImagesTileContainer": {
         "headline": "Organizations We Support",
         "images": [
@@ -233,17 +235,17 @@
         "categories": [
           {
             "title": "OUTDOORS",
-            "category": "outdoors",
+            "name": "outdoors",
             "postition": 1
           },
           {
             "title": "APPAREL",
-            "category": "apparel",
+            "name": "apparel",
             "postition": 2
           },
           {
             "title": "HOME GOODS",
-            "category": "homegoods",
+            "name": "homegoods",
             "postition": 3
           }
         ]
@@ -261,7 +263,9 @@
         "subheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
         "ctaText": "Learn More"
       },
-      "CategorizedRowsContainer": {}
+      "CategorizedRowsContainer": {
+        "ctaText": "Learn More"
+      }
     },
     "EventsContainer": {
       "HoverImageTileContainer": {

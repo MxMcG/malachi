@@ -7,10 +7,13 @@ export default class HoverImageTile extends Component {
   }
 
   render() {
-    console.log("Component Content", this.props.componentContent)
+    const { ctaText, headline, subheadline, title } = this.props.componentContent;
     return (
       <div className="hoverImageTile" >
-        <h1>HoverImageTile</h1>
+        <h2>{headline}</h2>
+        <h4>{subheadline}</h4>
+        <h4>{ctaText}</h4>
+        <h5>{title}</h5>
       </div>
     );
   }

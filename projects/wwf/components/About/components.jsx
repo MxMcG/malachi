@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-import ComplexFeatureTextContainer from '../../common/containers/SwipeSlideshowContainer.js';
-import HoverImageTileContainer from '../../common/containers/FeaturedImagesTileContainer.js';
-import CategorizedRowsContainer from '../../common/containers/FeaturedImageSlideshowContainer.js';
+import ComplexFeatureTextContainer from '../../common/containers/ComplexFeatureTextContainer.js';
+import HoverImageTileContainer from '../../common/containers/HoverImageTileContainer.js';
+import CategorizedRowsContainer from '../../common/containers/CategorizedRowsContainer.js';
 
 export default class About extends Component {
 
@@ -11,7 +11,6 @@ export default class About extends Component {
   }
 
   render() {
-    console.log("Component Content", this.props.componentContent)
     return (
       <div className="about" >
         <ComplexFeatureTextContainer />

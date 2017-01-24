@@ -6,12 +6,14 @@ export default class SwipeSlideshow extends Component {
     super(props);
   }
 
-  render() {
-    console.log('THIS PROPS', this.props)
+  render() {  
+    const { slides } = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="swipeSlideshow" >
-        <h2>SwipeSlideshow</h2>
+        <img className="image" src={cdnImageBase + 'cattle.jpg'} alt={slides[0].alt} ></img>
+        <h2>{slides[0].headline}</h2>
+        <button>{slides[0].ctaText}</button>
       </div>
     );
   }

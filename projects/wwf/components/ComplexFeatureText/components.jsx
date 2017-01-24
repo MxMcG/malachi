@@ -7,10 +7,12 @@ export default class ComplexFeatureText extends Component {
   }
 
   render() {
-    console.log("Component Content", this.props.componentContent)
+    const { headline, subheadline, description } = this.props.componentContent;
     return (
       <div className="complexFeatureText" >
-        <h1>ComplexFeatureText</h1>
+        <h2>{headline}</h2>
+        <h4>{subheadline}</h4>
+        <p>{description}</p>
       </div>
     );
   }

@@ -7,10 +7,10 @@ export default class CategorizedRows extends Component {
   }
 
   render() {
-    console.log("Component Content", this.props.componentContent)
+    const { ctaText } = this.props.componentContent;
     return (
-      <div className="CategorizedRows" >
-        <h1>categorizedrows</h1>
+      <div className="categorizedRows" >
+        <h1>{ctaText}</h1>
       </div>
     );
   }

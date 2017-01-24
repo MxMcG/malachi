@@ -7,11 +7,11 @@ export default class DynamicImage extends Component {
   }
 
   render() {
-    console.log('THIS PROPS', this.props)
+    const image = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="dynamicImage" >
-        <h2>DynamicImage</h2>
+        <img className="image" src={cdnImageBase + "cattle.jpg"}></img>
       </div>
     );
   }

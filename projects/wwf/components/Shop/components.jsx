@@ -9,7 +9,6 @@ export default class Shop extends Component {
   }
 
   render() {
-    console.log("Component Content", this.props.componentContent)
     return (
       <div className="categorizedTiles" >
         <CategorizedTilesContainer />

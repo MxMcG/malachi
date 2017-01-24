@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import CategorizedTiles from '../../components/CategorizedTiles/components.jsx';
+import * as actions from '../actions/index';
 
 // include actions as they are needed by each component
 // they are called via dispatch()
@@ -33,4 +34,12 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(CategorizedTilesContainer);
+function mapDispatchToProps (dispatch) {
+  return {
+    dispatchActivateCategory: (category) => {
+      dispatch(actions.activateCategory(category))
+    },
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategorizedTilesContainer);

@@ -14,8 +14,8 @@ export default class Home extends Component {
   render() {
     console.log("Component Content", this.props.componentContent);
     return (
-      <div className="footer" >
-        <SwipeSlideshowContainer />
+      <div className="home" >
+        <SwipeSlideshowContainer / >
         <FeaturedImagesTileContainer />
         <FeaturedImageSlideshowContainer />
         <DynamicImageContainer />

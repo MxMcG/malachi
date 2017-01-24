@@ -7,11 +7,14 @@ export default class FeaturedImageSlideshow extends Component {
   }
 
   render() {
-    console.log('THIS PROPS', this.props)
+    const { headline, subheadline, ctaText, images } = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="featuredImageSlideshow" >
-        <h2>FeaturedImageSlideshow</h2>
+        <h2>{headline}</h2>
+        <h4>{subheadline}</h4>
+        <img className="image" src={cdnImageBase + "cattle.jpg"}></img>
+        <button>{ctaText}</button>
       </div>
     );
   }

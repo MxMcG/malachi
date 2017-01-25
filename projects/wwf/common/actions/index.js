@@ -1,5 +1,6 @@
-import { activateCategory } from './activateCategoryActions';
+import { activateCategory, initializeShopInventory } from './shopActions';
 
 export {
-  activateCategory
+  activateCategory,
+  initializeShopInventory
 };

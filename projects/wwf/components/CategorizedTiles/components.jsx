@@ -6,6 +6,10 @@ export default class CategorizedTiles extends Component {
     super(props);
   }
 
+  componentWillMount() {
+
+  }
+
   handleDropDown(e) {
     e.preventDefault();
     const category = e.target.value
@@ -13,16 +17,24 @@ export default class CategorizedTiles extends Component {
   }
 
   renderDropdown() {
-    const options = [];
-    const categories = this.props.componentContent.categories;
-    categories.forEach((category, index) => {
-      options.push(<option key={index} value={category.title} name={category.name}>{category.title}</option>);
-    });
-    return (
-      <select onChange={this.handleDropDown.bind(this)} value={categories[0].title} name={categories[0].name} >
-        { options }
-      </select>
-    );
+    // const categories = [];
+    // const tiles = [];
+    //
+    // this.props.shopCollections.forEach((collection, index) => {
+    //   if (categories.indexOf(collection.handle) === -1) {
+    //     categories.push(collection.handle);
+    //   }
+    // });
+    // // [ { category, tiles: [{},{},{}] }, ]
+    // categories.forEach((category, index) => {
+    //   tiles.push(
+    //     <div className="tile">
+    //       <h5>Category</h5>
+    //
+    //     </div>
+    //   );
+    // });
+    // return tiles;
   }
 
   renderTiles() {
@@ -30,7 +42,6 @@ export default class CategorizedTiles extends Component {
   }
 
   render() {
-    console.log('CATEGORY', this.props.activeCategory)
     const { tiles, categories } = this.props.componentContent;
     return (
       <div className="categorizedTiles" >

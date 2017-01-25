@@ -275,6 +275,9 @@
         "ctaText": "Learn More"
       }
     },
+    "CrafterContainer": {
+      "headline": "CrafterContainer HEADLINE"
+    },
     "FooterContainer": {
       "SocialFooterContainer": {
         "title": "Social",

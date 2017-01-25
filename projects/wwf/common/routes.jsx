@@ -7,6 +7,7 @@ import HomeContainer from './containers/HomeContainer.js';
 import ShopContainer from './containers/ShopContainer.js';
 import AboutContainer from './containers/AboutContainer.js';
 import EventsContainer from './containers/EventsContainer.js';
+import CrafterContainer from './containers/CrafterContainer.js';
 
 Route.propTypes = {
   component: React.PropTypes.object,
@@ -18,7 +19,9 @@ export default (
     <Route path="/" component={LayoutContainer}>
       <IndexRoute component={HomeContainer}/>
       <Route path="home" component={HomeContainer} />
-      <Route path="shop" component={ShopContainer} />
+      <Route path="shop" component={ShopContainer}>
+        <Route path="/crafters/:id" component={CrafterContainer} />
+      </Route>
       <Route path="about" component={AboutContainer} />
       <Route path="events" component={EventsContainer} />
     </Route>

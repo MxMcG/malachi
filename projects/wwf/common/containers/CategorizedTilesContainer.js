@@ -24,10 +24,13 @@ class CategorizedTilesContainer extends Component {
 CategorizedTilesContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
+  console.log('STAttee', state)
   const componentContent = state.content.project.components.ShopContainer.CategorizedTilesContainer;
   const cdnImageBase = state.urls.cdnImageBase;
-  const cdnUrl = state.urls.cdnUrl
+  const cdnUrl = state.urls.cdnUrl;
+  const shopCollections = state.shop.shopCollections;
   return {
+    shopCollections,
     componentContent,
     cdnUrl,
     cdnImageBase

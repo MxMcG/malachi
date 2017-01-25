@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 
 import urlReducers from './urls';
 import contentReducers from './contentReducers';
-import activateCategoryReducers from './activateCategoryReducers';
+import shopReducers from './shopReducers';
 
 const rootReducer = combineReducers({
   urls: urlReducers,
   content: contentReducers,
-  activeCategory: activateCategoryReducers
+  shop: shopReducers
 });
 
 export default rootReducer;

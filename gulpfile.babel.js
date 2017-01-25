@@ -13,6 +13,7 @@ const authPassword = require('yargs').argv.password;
 const database = require('./server/database/index.js');
 const upload = require('./server/upload');
 const projectContent = activeProject ? require(`./projects/${activeProject}/content/content.json`) : null
+// require('dotenv').config();
 
 gulp.task('build:dev', (callback) => {
   process.env.NODE_ENV = 'development';

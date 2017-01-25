@@ -10,9 +10,8 @@ const shopClient = ShopifyBuy.buildClient({
 export function fetchAllCollections() {
   return function (dispatch) {
     reduceCollectionsToAttributes()
-      .then(queryByCollectionId)
       .then((collections) => {
-        dispatch(actions.initializeShopInventory(collections))
+        dispatch(actions.initializeShopCollections(collections))
       })
       .catch((error) => {
         console.log('Error', error);
@@ -36,20 +35,32 @@ const reduceCollectionsToAttributes = () => {
   });
 }
 
-const queryByCollectionId = (collectionAttrs) => {
-  return new Promise((resolve, reject) => {
-    collectionAttrs.forEach((collection, index) => {
-      // fetch all products of collection
-      shopClient.fetchQueryProducts({ collection_id: collection.collection_id })
-        .then((products) => {
-          collectionAttrs[index]['products'] = products;
-        }).catch((error) => {
-          console.error(new Error('Fetching products error!'));
-          reject(error);
-        });
-      if (collection[index + 1] === undefined) {
-        resolve(collectionAttrs);
-      }
-    })
-  });
+export function fetchAllProducts() {
+  return function (dispatch) {
+    shopClient.fetchAllProducts()
+      .then((products) => {
+        dispatch(actions.initializeShopProducts(products));
+      }).catch((error) => {
+        console.error(new Error('Fetching products error!'));
+        reject(error);
+      });
+  }
 }
+
+// const queryByCollectionId = (collectionAttrs) => {
+//   return new Promise((resolve, reject) => {
+//     collectionAttrs.forEach((collection, index) => {
+//       // fetch all products of collection
+//       shopClient.fetchQueryProducts({ collection_id: collection.collection_id })
+//         .then((products) => {
+//           console.log('products', products)
+//         }).catch((error) => {
+//           console.error(new Error('Fetching products error!'));
+//           reject(error);
+//         });
+//       // if category exists, push products into that object's collection property
+//       // otherwise push in new catObj
+//     })
+//     // loop through categories,
+//   });
+// }

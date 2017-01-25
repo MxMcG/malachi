@@ -1,13 +1,13 @@
-export const activateCategory = (category) => {
+export const initializeShopCollections = (attrs) => {
   return {
-    type: 'ACTIVATE_CATEGORY',
-    payload: category
+    type: 'INITIALIZE_SHOP_COLLECTIONS',
+    payload: attrs
   }
 }
 
-export const initializeShopInventory = (attrs) => {
+export const initializeShopProducts = (attrs) => {
   return {
-    type: 'INITIALIZE_SHOP_INVENTORY',
+    type: 'INITIALIZE_SHOP_PRODUCTS',
     payload: attrs
   }
 }

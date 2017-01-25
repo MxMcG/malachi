@@ -24,25 +24,18 @@ class CategorizedTilesContainer extends Component {
 CategorizedTilesContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  console.log('STAttee', state)
   const componentContent = state.content.project.components.ShopContainer.CategorizedTilesContainer;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl;
   const shopCollections = state.shop.shopCollections;
+  const shopProducts = state.shop.shopProducts;
   return {
     shopCollections,
+    shopProducts,
     componentContent,
     cdnUrl,
     cdnImageBase
   };
 }
 
-function mapDispatchToProps (dispatch) {
-  return {
-    dispatchActivateCategory: (category) => {
-      dispatch(actions.activateCategory(category))
-    },
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(CategorizedTilesContainer);
+export default connect(mapStateToProps)(CategorizedTilesContainer);

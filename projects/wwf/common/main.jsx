@@ -13,6 +13,7 @@ const store = configureStore(initialState, env);
 
 // Fetch all active shop collections i.e. vendors
 store.dispatch(fetchAllCollections());
+store.dispatch(fetchAllProducts());
 
 render(
   <Provider store={store}>

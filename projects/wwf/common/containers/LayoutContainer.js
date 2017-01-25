@@ -29,7 +29,6 @@ class LayoutContainer extends Component {
 LayoutContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  console.log('Layout STATE', state)
   const componentContent = state.content.project.components;
   return {
     componentContent

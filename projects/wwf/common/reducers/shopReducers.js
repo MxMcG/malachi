@@ -1,7 +1,9 @@
 const initialState = {
   activeCategory: 'outdoors',
   shopCollections: [],
-  shopProducts: []
+  shopProducts: [],
+  shopTilesLoaded: false,
+  loadShopTiles: []
 }
 
 export default function shopReducers (state = initialState, action) {
@@ -14,10 +16,18 @@ export default function shopReducers (state = initialState, action) {
       return Object.assign({}, state, {
         shopCollections: action.payload
       });
-      case 'INITIALIZE_SHOP_PRODUCTS':
-        return Object.assign({}, state, {
-          shopProducts: action.payload
-        });
+    case 'INITIALIZE_SHOP_PRODUCTS':
+      return Object.assign({}, state, {
+        shopProducts: action.payload
+      });
+    case 'SHOP_TILES_LOADED':
+      return Object.assign({}, state, {
+        shopTilesLoaded: action.payload
+      });
+    case 'LOAD_SHOP_TILES':
+      return Object.assign({}, state, {
+        loadShopTiles: action.payload
+      });
     default:
     return state;
     }

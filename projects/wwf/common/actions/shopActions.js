@@ -11,3 +11,17 @@ export const initializeShopProducts = (attrs) => {
     payload: attrs
   }
 }
+
+export const shopTilesLoaded = (bool) => {
+  return {
+    type: 'SHOP_TILES_LOADED',
+    payload: bool
+  }
+}
+
+export const loadShopTiles = (elements) => {
+  return {
+    type: 'LOAD_SHOP_TILES',
+    payload: elements
+  }
+}

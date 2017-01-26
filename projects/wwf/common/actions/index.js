@@ -1,6 +1,8 @@
-import { initializeShopProducts, initializeShopCollections } from './shopActions';
+import { initializeShopProducts, initializeShopCollections, shopTilesLoaded, loadShopTiles } from './shopActions';
 
 export {
   initializeShopCollections,
-  initializeShopProducts
+  initializeShopProducts,
+  shopTilesLoaded,
+  loadShopTiles
 };

@@ -71,7 +71,6 @@ app.get('*', (req, res) => {
 
       // allows server side rendering of css
       const stylesheet = () => {
-        console.log('*************************************', location)
         if (isProduction) {
           return `<link rel='stylesheet' href=${config.bundleCssUrl} />`;
         }
@@ -124,6 +123,7 @@ app.post('/api/cms/pushContent', (req, res) => {
   res.send('thanks man')
   // ssh into server instance, run a restart script
 });
+
 
 app.post('/api/cms/fetchContent', (req, res) => {
   const projectAbv = req.body.projectAbv;

@@ -1,19 +1,6 @@
-import { activateComponent,
-        loadAdminComponents,
-        componentsLoadedAdmin,
-        editContent,
-        updateSelectedComponent } from './adminActions.js';
-
-import { changeLoginForm, submitLoginForm, logout, updateAdminContent } from './loginActions.js';
+import { initializeShopProducts, initializeShopCollections } from './shopActions';
 
 export {
-  activateComponent,
-  loadAdminComponents,
-  componentsLoadedAdmin,
-  editContent,
-  updateSelectedComponent,
-  changeLoginForm,
-  submitLoginForm,
-  updateAdminContent,
-  logout
+  initializeShopCollections,
+  initializeShopProducts
 };

@@ -1,15 +1,13 @@
 import { combineReducers } from 'redux';
 
 import urlReducers from './urls';
-import adminReducers from './adminReducers';
 import contentReducers from './contentReducers';
-import loginReducers from './loginReducers';
+import shopReducers from './shopReducers';
 
 const rootReducer = combineReducers({
   urls: urlReducers,
-  admin: adminReducers,
   content: contentReducers,
-  login: loginReducers
+  shop: shopReducers
 });
 
 export default rootReducer;

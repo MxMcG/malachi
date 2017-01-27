@@ -14,10 +14,6 @@ export default class CategorizedTiles extends Component {
     this.updateCollectionsWithProductTypes();
   }
 
-  setupCategories() {
-
-  }
-
   updateCollectionsWithProductTypes() {
     let collections = [];
     this.props.shopCollections.forEach((collection, index) => {
@@ -32,6 +28,7 @@ export default class CategorizedTiles extends Component {
   }
 
   createElements(collections) {
+    console.log('COLLLECTIONS', collections)
     if (collections) {
       const newTiles = [];
       collections.forEach((collection, index) => {
@@ -48,7 +45,7 @@ export default class CategorizedTiles extends Component {
           if (coll.product_type === tile) {
             innerElements.push(
               <div className="tiles" key={innerIndex}>
-                <a href="#">
+                <a href={`/crafters/${coll.collection_id}`}>
                   <img>{coll.image}</img>
                   <p>{coll.title}</p>
                 </a>
@@ -56,7 +53,6 @@ export default class CategorizedTiles extends Component {
             );
           }
         })
-
         const html = (
           <div className="category" key={outerIndex}>
             <h4>{tile}</h4>
@@ -71,9 +67,6 @@ export default class CategorizedTiles extends Component {
   }
 
   render() {
-    // console.log(this.props.shopProducts)
-    // console.log(this.props.shopCollections)
-    console.log('BREAK', this.props)
     let elements = null;
     if (this.props.shopTilesLoaded) {
       elements = this.props.loadedShopTiles;
@@ -86,49 +79,3 @@ export default class CategorizedTiles extends Component {
     );
   }
 }
-
-// const elements = [];
-// const tiles = [];
-// const categoryList = [];
-// for (var i = 0; i < categories.length; i++) {
-//   const category = categories[i];
-//   const tile = {
-//     vendors: [],
-//     title: ''
-//   };
-//   tile.title = category.title;
-//   tile.vendors.push({
-//     'name': category.vendor,
-//     'image': category.image
-//   });
-//   if (categoryList.indexOf(tile.title) === -1) {
-//     categoryList.push(tile.title);
-//   }
-// }
-// [ 'outdoors', 'home goods', 'apparel']
-// [ {}, {}, {} ]
-// create object for each array element
-// loop through tiles and new objects
-// when tile name matches new object name
-// create a property called vendor and push tile vendor data into property
-// const newTiles = [];
-// categoryList.forEach((cat, index) => {
-//   const newTile = { categoryName: cat };
-//   newTiles.push(newTile);
-// });
-// for (let outerIndex = 0; outerIndex < newTiles.length; outerIndex++) {
-//   console.log('newTiles', newTiles[outerIndex].categoryName)
-// }
-
-  // for (let innerIndex = 0; innerIndex < tiles.length; innerIndex++) {
-  //   if (newTiles[outerIndex].categoryName === tiles[innerIndex].title) {
-  //     console.log('let me know', newTiles[outerIndex].categoryName)
-  //   }
-  // }
-
-
-// console.log('tiles', newTiles)
-// <div className="category">
-//   <h4>{category.title}</h4>
-//    {tiles}
-// </div>

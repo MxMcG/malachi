@@ -25,3 +25,10 @@ export const loadShopTiles = (elements) => {
     payload: elements
   }
 }
+
+export const loadCrafterProducts = (products) => {
+  return {
+    type: 'LOAD_CRAFTER_PRODUCTS',
+    payload: products
+  }
+}

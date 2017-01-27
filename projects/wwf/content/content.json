@@ -275,9 +275,6 @@
         "ctaText": "Learn More"
       }
     },
-    "CrafterContainer": {
-      "headline": "CrafterContainer HEADLINE"
-    },
     "FooterContainer": {
       "SocialFooterContainer": {
         "title": "Social",
@@ -293,6 +290,22 @@
             "href": "#"
           }
         ]
+      }
+    },
+    "CrafterContainer": {
+      "ImageWithEffectsContainer": {
+        "image": {
+          "src": "cattle.jpg",
+          "alt": "cattle image"
+        }
+      },
+      "FeaturedTextCrossContainer": {
+        "headline": "About Mason",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      },
+      "ProductsDisplayContainer": {
+        "headline": "His Crafts",
+        "ctaText": "Buy Now"
       }
     }
   }

@@ -3,7 +3,8 @@ const initialState = {
   shopCollections: [],
   shopProducts: [],
   shopTilesLoaded: false,
-  loadShopTiles: []
+  loadShopTiles: [],
+  loadCrafterProducts: []
 }
 
 export default function shopReducers (state = initialState, action) {
@@ -27,6 +28,10 @@ export default function shopReducers (state = initialState, action) {
     case 'LOAD_SHOP_TILES':
       return Object.assign({}, state, {
         loadShopTiles: action.payload
+      });
+    case 'LOAD_CRAFTER_PRODUCTS':
+      return Object.assign({}, state, {
+        loadCrafterProducts: action.payload
       });
     default:
     return state;

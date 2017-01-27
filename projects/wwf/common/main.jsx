@@ -1,3 +1,8 @@
+/**
+ * This file takes all routes and wraps them in the redux store.
+ * also renders the whole front end of the app on the target id element
+ */
+
 import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';

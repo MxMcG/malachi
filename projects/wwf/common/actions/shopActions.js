@@ -1,3 +1,6 @@
+/**
+ * These actions are used to load and manage data from shopify API.
+ */
 export const initializeShopCollections = (attrs) => {
   return {
     type: 'INITIALIZE_SHOP_COLLECTIONS',

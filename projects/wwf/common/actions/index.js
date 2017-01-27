@@ -1,4 +1,12 @@
-import { initializeShopProducts, initializeShopCollections, shopTilesLoaded, loadShopTiles, loadCrafterProducts } from './shopActions';
+/**
+ * All actions are imported here and exported to anywhere they are disptached throughout app.
+ */
+
+import { initializeShopProducts,
+  initializeShopCollections,
+  shopTilesLoaded,
+  loadShopTiles,
+  loadCrafterProducts } from './shopActions';
 
 export {
   initializeShopCollections,

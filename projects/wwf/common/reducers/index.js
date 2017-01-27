@@ -1,3 +1,7 @@
+/**
+ * Combine all reducer functions and export them to be used in store creation.
+ */
+
 import { combineReducers } from 'redux';
 
 import urlReducers from './urls';

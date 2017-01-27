@@ -7,21 +7,14 @@ export default class CategorizedTiles extends Component {
     super(props);
   }
 
-  componentDidUpdate(prevProps, prevState) {
-
-  }
-
   componentWillMount() {
     this.updateCollectionsWithProductTypes();
   }
 
   updateCollectionsWithProductTypes() {
     let collections = [];
-    console.log("WHY", this.props.shopCollections)
     this.props.shopCollections.forEach((collection, index) => {
-      console.log("collection", collection)
       this.props.shopProducts.forEach((product, nestedIndex) => {
-        console.log("product", product)
         if (collection.title === product.attrs.vendor) {
           collection.product_type = product.attrs.product_type;
         }
@@ -32,7 +25,6 @@ export default class CategorizedTiles extends Component {
   }
 
   createElements(collections) {
-    console.log('COLLLECTIONS', collections)
     if (collections) {
       const newTiles = [];
       collections.forEach((collection, index) => {
@@ -40,8 +32,6 @@ export default class CategorizedTiles extends Component {
           newTiles.push(collection.product_type);
         }
       });
-      // console.log('CATEGPOriES', collections)
-      // console.log('NewTiles', newTiles)
       const elements = [];
       newTiles.forEach((tile, outerIndex) => {
         const innerElements = []
@@ -77,8 +67,7 @@ export default class CategorizedTiles extends Component {
     }
     const { tiles, categories } = this.props.componentContent;
     return (
-      <div className="categorizedTiles" >
-        <h1>HII</h1>
+      <div className="categorizedTiles">
         { elements }
       </div>
     );

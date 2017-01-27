@@ -12,8 +12,6 @@ export default class Home extends Component {
   }
 
   render() {
-
-    console.log("Component Content", this.props.componentContent);
     return (
       <div className="home" >
         <SwipeSlideshowContainer / >

@@ -1,3 +1,7 @@
+/**
+ * All routes are contained here, include any new container and route easily.
+ */
+
 import React from 'react';
 import { Route, browserHistory, Router, IndexRoute } from 'react-router';
 

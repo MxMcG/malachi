@@ -1,3 +1,9 @@
+/**
+ * Custom methods to utilize shopify-buy-sdk
+ * note: due to lack of support in safari, currently
+ * use cdn script in <head> instead of npm package.
+ */
+
 import * as actions from './actions/index';
 
 const shopClient = ShopifyBuy.buildClient({

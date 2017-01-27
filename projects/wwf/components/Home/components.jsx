@@ -5,8 +5,6 @@ import FeaturedImagesTileContainer from '../../common/containers/FeaturedImagesT
 import FeaturedImageSlideshowContainer from '../../common/containers/FeaturedImageSlideshowContainer.js';
 import DynamicImageContainer from '../../common/containers/DynamicImageContainer.js';
 
-import ShopifyBuy from 'shopify-buy';
-
 export default class Home extends Component {
 
   constructor(props) {

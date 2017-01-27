@@ -84,6 +84,7 @@ app.get('*', (req, res) => {
           <meta charset="UTF-8">
           <meta name="viewport" content="width=device-width, initial-scale=1">
           ${stylesheet()}
+          <script src="http://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
         </head>
         <body>
           <div id="react-view">${componentHTML}</div>

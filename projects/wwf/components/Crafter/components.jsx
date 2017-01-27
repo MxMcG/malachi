@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
-import { queryByCollectionId } from '../../common/shopify.js';
+
+const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document)
+let queryByCollectionId;
+if (isBrowser) {
+  queryByCollectionId = require('../../common/shopify.js').queryByCollectionId;
+}
 
 import ImageWithEffectsContainer from '../../common/containers/ImageWithEffectsContainer.js';
 import FeaturedTextCrossContainer from '../../common/containers/FeaturedTextCrossContainer.js';
@@ -13,11 +18,11 @@ export default class Crafter extends Component {
 
   componentWillMount() {
     queryByCollectionId(this.props.params.id)
-      .then((products) => {
-        this.props.dispatchLoadCrafterProducts(products);
-      }).catch((error) => {
-        console.log('Fetching products error!', error);
-      });;
+    .then((products) => {
+      this.props.dispatchLoadCrafterProducts(products);
+    }).catch((error) => {
+      console.log('Fetching products error!', error);
+    });;
   }
 
 

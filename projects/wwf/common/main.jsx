@@ -7,13 +7,16 @@ import routes from './routes';
 import '../styles/main.scss';
 import { fetchAllCollections, fetchAllProducts } from './shopify.js';
 
+const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document);
 const initialState = window.__INITIAL_STATE__;
 const env = window.__DEV_ENV__.env;
 const store = configureStore(initialState, env);
 
 // Fetch all active shop collections i.e. vendors
-store.dispatch(fetchAllCollections());
-store.dispatch(fetchAllProducts());
+if (isBrowser) {
+  store.dispatch(fetchAllCollections());
+  store.dispatch(fetchAllProducts());
+}
 
 render(
   <Provider store={store}>

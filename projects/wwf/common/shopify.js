@@ -1,4 +1,3 @@
-import ShopifyBuy from 'shopify-buy';
 import * as actions from './actions/index';
 
 const shopClient = ShopifyBuy.buildClient({
@@ -51,7 +50,7 @@ export function queryByCollectionId(collection_id) {
   return new Promise((resolve, reject) => {
     // fetch all products of collection
     shopClient.fetchQueryProducts({ collection_id })
-      .then((products) => {        
+      .then((products) => {
         resolve(products);
       }).catch((error) => {
         console.error(new Error('Fetching products error!'));

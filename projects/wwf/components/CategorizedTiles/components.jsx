@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class CategorizedTiles extends Component {
 
@@ -16,8 +17,11 @@ export default class CategorizedTiles extends Component {
 
   updateCollectionsWithProductTypes() {
     let collections = [];
+    console.log("WHY", this.props.shopCollections)
     this.props.shopCollections.forEach((collection, index) => {
+      console.log("collection", collection)
       this.props.shopProducts.forEach((product, nestedIndex) => {
+        console.log("product", product)
         if (collection.title === product.attrs.vendor) {
           collection.product_type = product.attrs.product_type;
         }
@@ -45,10 +49,10 @@ export default class CategorizedTiles extends Component {
           if (coll.product_type === tile) {
             innerElements.push(
               <div className="tiles" key={innerIndex}>
-                <a href={`/crafters/${coll.collection_id}`}>
+                <Link to={`/crafters/${coll.collection_id}`} className="">
                   <img className="vendorImage" src={coll.image.src}></img>
                   <p>{coll.title}</p>
-                </a>
+                </Link>
               </div>
             );
           }
@@ -74,6 +78,7 @@ export default class CategorizedTiles extends Component {
     const { tiles, categories } = this.props.componentContent;
     return (
       <div className="categorizedTiles" >
+        <h1>HII</h1>
         { elements }
       </div>
     );

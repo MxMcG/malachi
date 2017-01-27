@@ -17,12 +17,15 @@ export default class Crafter extends Component {
   }
 
   componentWillMount() {
-    queryByCollectionId(this.props.params.id)
-    .then((products) => {
-      this.props.dispatchLoadCrafterProducts(products);
-    }).catch((error) => {
-      console.log('Fetching products error!', error);
-    });;
+    const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document)
+    if (isBrowser) {
+      queryByCollectionId(this.props.params.id)
+      .then((products) => {
+        this.props.dispatchLoadCrafterProducts(products);
+      }).catch((error) => {
+        console.log('Fetching products error!', error);
+      });
+    }
   }
 
 

@@ -1,10 +1,13 @@
+import update from 'immutability-helper';
+
 const initialState = {
   activeCategory: 'outdoors',
   shopCollections: [],
   shopProducts: [],
   shopTilesLoaded: false,
   loadShopTiles: [],
-  loadCrafterProducts: []
+  loadCrafterProducts: [],
+  fetchSlides: []
 }
 
 export default function shopReducers (state = initialState, action) {
@@ -33,6 +36,29 @@ export default function shopReducers (state = initialState, action) {
       return Object.assign({}, state, {
         loadCrafterProducts: action.payload
       });
+    case 'FETCH_SLIDES':
+      return Object.assign({}, state, {
+        fetchSlides: action.payload
+      });
+    case 'ADD_SLIDE_LINK':
+      console.log('href', action.id)
+      console.log('index', action.index)
+      // state.fetchSlides[action.index].href = `/crafters/${id}`;
+      return update(state, {
+        fetchSlides: {
+          [action.index]: {
+            href: {
+              $set: `/crafters/${action.id}`
+            }
+          }
+        }
+      });
+      // return Object.assign({}, state, {
+      //   fetchSlides[action.index].href: `/crafters/${action.id}`
+      // });
+      // return Object.assign({}, state, {
+      //   fetchSlides: action.payload
+      // });
     default:
     return state;
     }

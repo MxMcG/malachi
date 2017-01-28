@@ -6,12 +6,17 @@ import { initializeShopProducts,
   initializeShopCollections,
   shopTilesLoaded,
   loadShopTiles,
-  loadCrafterProducts } from './shopActions';
+  loadCrafterProducts,
+  fetchSlides,
+  addLinksToSlides } from './shopActions';
+
 
 export {
   initializeShopCollections,
   initializeShopProducts,
   shopTilesLoaded,
   loadShopTiles,
-  loadCrafterProducts
+  loadCrafterProducts,
+  fetchSlides,
+  addLinksToSlides
 };

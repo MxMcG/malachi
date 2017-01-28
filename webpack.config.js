@@ -41,11 +41,11 @@ const config = {
   },
   module: {
     preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['eslint'],
-        exclude: [nodeModulesPath]
-      }
+      // {
+      //   test: /\.jsx?$/,
+      //   loaders: ['eslint'],
+      //   exclude: [nodeModulesPath]
+      // }
     ],
 
     loaders: [

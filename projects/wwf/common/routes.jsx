@@ -21,8 +21,7 @@ Route.propTypes = {
 export default (
   <Route component={RootContainer}>
     <Route path="/" component={LayoutContainer}>
-      <IndexRoute component={HomeContainer}/>
-      <Route path="home" component={HomeContainer} />
+      <IndexRoute component={HomeContainer}/>      
       <Route path="shop" component={ShopContainer} />
       <Route path="/crafters/:id" component={CrafterContainer} />
       <Route path="about" component={AboutContainer} />

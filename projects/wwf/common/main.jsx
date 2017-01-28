@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, Link, browserHistory } from 'react-router'
 import configureStore from './store/configureStore';
 import routes from './routes';
+import * as actions from './actions/index';
 import '../styles/main.scss';
 import { fetchAllCollections, fetchAllProducts } from './shopify.js';
 
@@ -22,6 +23,9 @@ if (isBrowser) {
   store.dispatch(fetchAllCollections());
   store.dispatch(fetchAllProducts());
 }
+
+const frontPageSlideData = store.getState().content.project.components.HomeContainer.SwipeSlideshowContainer.slides;
+store.dispatch(actions.fetchSlides(frontPageSlideData));
 
 render(
   <Provider store={store}>

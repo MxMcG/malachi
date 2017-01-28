@@ -33,17 +33,31 @@
             "headline": "LOCALLY ROASTED COFFEE",
             "ctaText": "BUY NOW",
             "image": {
-              "src": "#",
+              "src": "",
               "alt": "#"
-            }
+            },
+            "vendorName": "WestWard",
+            "href": ""
           },
           {
             "headline": "LOCAL ORGANIC TRAIL MIX",
             "ctaText": "BUY NOW",
             "image": {
-              "src": "#",
+              "src": "cattle.jpg",
               "alt": "#"
-            }
+            },
+            "vendorName": "The Giving Keys",
+            "href": ""
+          },
+          {
+            "headline": "LOCAL ORGANIC COCONUT OIL",
+            "ctaText": "BUY NOW",
+            "image": {
+              "src": "testimg2.jpg",
+              "alt": "#"
+            },
+            "vendorName": "Craft + Foster",
+            "href": ""
           }
         ]
       },

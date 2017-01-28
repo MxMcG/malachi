@@ -6,7 +6,26 @@ export default class SwipeSlideshow extends Component {
     super(props);
   }
 
-  render() {  
+  componentDidUpdate(newProps, newState) {
+    if (newProps.shopCollections !== this.props.shopCollections) {
+      this.attachLinksToSlides();
+    }
+  }
+
+  attachLinksToSlides() {
+    const slides = this.props.slides;
+    const shopCollections = this.props.shopCollections;
+    slides.forEach((slide, outerIndex) => {
+      shopCollections.forEach((collection, innerIndex) => {
+        if (slide.vendorName === collection.title) {
+          const id = collection.collection_id;
+          this.props.dispatchAddLinksToSlides(id, outerIndex);
+        }
+      });
+    });
+  }
+
+  render() {
     const { slides } = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
     return (

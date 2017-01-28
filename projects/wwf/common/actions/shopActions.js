@@ -35,3 +35,18 @@ export const loadCrafterProducts = (products) => {
     payload: products
   }
 }
+
+export const fetchSlides = (data) => {
+  return {
+    type: 'FETCH_SLIDES',
+    payload: data
+  }
+}
+
+export const addLinksToSlides = (id, index) => {
+  return {
+    type: 'ADD_SLIDE_LINK',
+    id,
+    index
+  }
+}

@@ -15,7 +15,7 @@ export default class Nav extends Component {
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="nav" >
-        <Link to="/home" className="">
+        <Link to="/" className="">
           <h2>Westward</h2>
         </Link>
         <Link to="/shop" className="">Shop</Link>

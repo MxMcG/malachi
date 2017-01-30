@@ -37,7 +37,9 @@
               "alt": "#"
             },
             "vendorName": "WestWard",
-            "href": ""
+            "hrefCrafter": "",
+            "hrefBuy": "",
+            "productTitle": "Stitched Hat"
           },
           {
             "headline": "LOCAL ORGANIC TRAIL MIX",
@@ -47,7 +49,9 @@
               "alt": "#"
             },
             "vendorName": "The Giving Keys",
-            "href": ""
+            "hrefCrafter": "",
+            "hrefBuy": "",
+            "productTitle": "Hope Key"
           },
           {
             "headline": "LOCAL ORGANIC COCONUT OIL",
@@ -57,7 +61,9 @@
               "alt": "#"
             },
             "vendorName": "Craft + Foster",
-            "href": ""
+            "hrefCrafter": "",
+            "hrefBuy": "",
+            "productTitle": "Lost Coast - 8oz. Soy Candle"
           }
         ]
       },
@@ -66,18 +72,18 @@
         "images": [
           {
             "name": "Christian Surfers",
-            "src": "#",
-            "alt": "#"
+            "src": "cattle.jpg",
+            "alt": "cattle.jpg"
           },
           {
             "name": "Youth With A Mission",
-            "src": "#",
-            "alt": "#"
+            "src": "testimg2.jpg",
+            "alt": "testimg2.jpg"
           },
           {
             "name": "North Coast Calvary Chapel",
-            "src": "#",
-            "alt": "#"
+            "src": "cattle.jpg",
+            "alt": "cattle.jpg"
           }
         ]
       },
@@ -88,17 +94,17 @@
         "images": [
           {
             "name": "imageA",
-            "src": "#",
+            "src": "cattle.jpg",
             "alt": "#"
           },
           {
             "name": "imageB",
-            "src": "#",
+            "src": "testimg2.jpg",
             "alt": "#"
           },
           {
             "name": "imageC",
-            "src": "#",
+            "src": "cattle.jpg",
             "alt": "#"
           }
         ]

@@ -50,3 +50,11 @@ export const addLinksToSlides = (id, index) => {
     index
   }
 }
+
+export const addBuyLinksToSlides = (href, index) => {
+  return {
+    type: 'ADD_BUY_LINKS',
+    href,
+    index
+  }
+}

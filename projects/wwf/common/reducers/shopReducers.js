@@ -41,24 +41,27 @@ export default function shopReducers (state = initialState, action) {
         fetchSlides: action.payload
       });
     case 'ADD_SLIDE_LINK':
-      console.log('href', action.id)
-      console.log('index', action.index)
-      // state.fetchSlides[action.index].href = `/crafters/${id}`;
       return update(state, {
         fetchSlides: {
           [action.index]: {
-            href: {
+            hrefCrafter: {
               $set: `/crafters/${action.id}`
             }
           }
         }
       });
-      // return Object.assign({}, state, {
-      //   fetchSlides[action.index].href: `/crafters/${action.id}`
-      // });
-      // return Object.assign({}, state, {
-      //   fetchSlides: action.payload
-      // });
+    case 'ADD_BUY_LINKS':
+      console.log('href', action.href)
+      console.log('index', action.index)
+      return update(state, {
+        fetchSlides: {
+          [action.index]: {
+            hrefBuy: {
+              $set: action.href
+            }
+          }
+        }
+      });
     default:
     return state;
     }

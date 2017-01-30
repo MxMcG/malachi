@@ -49,7 +49,7 @@ export default class CategorizedTiles extends Component {
         })
         const html = (
           <div className="category" key={outerIndex}>
-            <h4>{tile}</h4>
+            <h2>{tile}</h2>
             { innerElements }
           </div>
         )

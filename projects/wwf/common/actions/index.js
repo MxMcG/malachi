@@ -8,7 +8,8 @@ import { initializeShopProducts,
   loadShopTiles,
   loadCrafterProducts,
   fetchSlides,
-  addLinksToSlides } from './shopActions';
+  addLinksToSlides,
+  addBuyLinksToSlides } from './shopActions';
 
 
 export {
@@ -18,5 +19,6 @@ export {
   loadShopTiles,
   loadCrafterProducts,
   fetchSlides,
-  addLinksToSlides
+  addLinksToSlides,
+  addBuyLinksToSlides
 };

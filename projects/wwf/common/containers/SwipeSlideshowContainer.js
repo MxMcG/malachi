@@ -28,6 +28,7 @@ SwipeSlideshowContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   const componentContent = state.content.project.components.HomeContainer.SwipeSlideshowContainer;
   const shopCollections = state.shop.shopCollections;
+  const shopProducts = state.shop.shopProducts;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl;
   const slides = state.shop.fetchSlides;
@@ -36,6 +37,7 @@ function mapStateToProps(state) {
     cdnUrl,
     cdnImageBase,
     shopCollections,
+    shopProducts,
     slides
   };
 }
@@ -44,6 +46,9 @@ function mapDispatchToProps (dispatch) {
   return {
     dispatchAddLinksToSlides: (id, index) => {
       dispatch(actions.addLinksToSlides(id, index))
+    },
+    dispatchAddBuyButtonLinks: (href, index) => {
+      dispatch(actions.addBuyLinksToSlides(href, index))
     }
   }
 }

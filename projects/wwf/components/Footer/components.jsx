@@ -6,8 +6,7 @@ export default class Footer extends Component {
     super(props);
   }
 
-  render() {
-    console.log("Component Content", this.props.componentContent)
+  render() {    
     return (
       <div className="footer" >
         <h1>Footer</h1>

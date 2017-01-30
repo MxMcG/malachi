@@ -33,17 +33,37 @@
             "headline": "LOCALLY ROASTED COFFEE",
             "ctaText": "BUY NOW",
             "image": {
-              "src": "#",
+              "src": "",
               "alt": "#"
-            }
+            },
+            "vendorName": "WestWard",
+            "hrefCrafter": "",
+            "hrefBuy": "",
+            "productTitle": "Stitched Hat"
           },
           {
             "headline": "LOCAL ORGANIC TRAIL MIX",
             "ctaText": "BUY NOW",
             "image": {
-              "src": "#",
+              "src": "cattle.jpg",
               "alt": "#"
-            }
+            },
+            "vendorName": "The Giving Keys",
+            "hrefCrafter": "",
+            "hrefBuy": "",
+            "productTitle": "Hope Key"
+          },
+          {
+            "headline": "LOCAL ORGANIC COCONUT OIL",
+            "ctaText": "BUY NOW",
+            "image": {
+              "src": "testimg2.jpg",
+              "alt": "#"
+            },
+            "vendorName": "Craft + Foster",
+            "hrefCrafter": "",
+            "hrefBuy": "",
+            "productTitle": "Lost Coast - 8oz. Soy Candle"
           }
         ]
       },
@@ -52,18 +72,18 @@
         "images": [
           {
             "name": "Christian Surfers",
-            "src": "#",
-            "alt": "#"
+            "src": "cattle.jpg",
+            "alt": "cattle.jpg"
           },
           {
             "name": "Youth With A Mission",
-            "src": "#",
-            "alt": "#"
+            "src": "maxTonyDillonPic.jpg",
+            "alt": "testimg2.jpg"
           },
           {
             "name": "North Coast Calvary Chapel",
-            "src": "#",
-            "alt": "#"
+            "src": "cattle.jpg",
+            "alt": "cattle.jpg"
           }
         ]
       },
@@ -74,17 +94,17 @@
         "images": [
           {
             "name": "imageA",
-            "src": "#",
+            "src": "cattle.jpg",
             "alt": "#"
           },
           {
             "name": "imageB",
-            "src": "#",
+            "src": "maxTonyDillonPic.jpg",
             "alt": "#"
           },
           {
             "name": "imageC",
-            "src": "#",
+            "src": "cattle.jpg",
             "alt": "#"
           }
         ]
@@ -275,9 +295,6 @@
         "ctaText": "Learn More"
       }
     },
-    "CrafterContainer": {
-      "headline": "CrafterContainer HEADLINE"
-    },
     "FooterContainer": {
       "SocialFooterContainer": {
         "title": "Social",
@@ -293,6 +310,22 @@
             "href": "#"
           }
         ]
+      }
+    },
+    "CrafterContainer": {
+      "ImageWithEffectsContainer": {
+        "image": {
+          "src": "cattle.jpg",
+          "alt": "cattle image"
+        }
+      },
+      "FeaturedTextCrossContainer": {
+        "headline": "About Mason",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+      },
+      "ProductsDisplayContainer": {
+        "headline": "His Crafts",
+        "ctaText": "Buy Now"
       }
     }
   }

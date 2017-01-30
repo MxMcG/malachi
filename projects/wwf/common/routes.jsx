@@ -1,3 +1,7 @@
+/**
+ * All routes are contained here, include any new container and route easily.
+ */
+
 import React from 'react';
 import { Route, browserHistory, Router, IndexRoute } from 'react-router';
 
@@ -17,11 +21,9 @@ Route.propTypes = {
 export default (
   <Route component={RootContainer}>
     <Route path="/" component={LayoutContainer}>
-      <IndexRoute component={HomeContainer}/>
-      <Route path="home" component={HomeContainer} />
-      <Route path="shop" component={ShopContainer}>
-        <Route path="/crafters/:id" component={CrafterContainer} />
-      </Route>
+      <IndexRoute component={HomeContainer}/>      
+      <Route path="shop" component={ShopContainer} />
+      <Route path="/crafters/:id" component={CrafterContainer} />
       <Route path="about" component={AboutContainer} />
       <Route path="events" component={EventsContainer} />
     </Route>

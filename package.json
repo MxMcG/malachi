@@ -27,6 +27,7 @@
     "immutable": "^3.8.1",
     "lodash": "^4.17.4",
     "mongoose": "^4.5.1",
+    "node-fetch": "^1.6.3",
     "path": "^0.12.7",
     "pm2": "^2.2.2",
     "react": "^15.4.1",
@@ -38,9 +39,9 @@
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-thunk": "^2.1.0",
-    "shopify-buy": "^0.6.0",
     "superagent": "^3.3.1",
-    "webpack-isomorphic-tools": "^2.6.5"
+    "webpack-isomorphic-tools": "^2.6.5",
+    "whatwg-fetch": "^2.0.2"
   },
   "devDependencies": {
     "aws-sdk": "^2.7.15",

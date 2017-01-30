@@ -14,7 +14,7 @@ const config = {
 
   // Makes sure errors in console map to the correct file
   // and line number
-  devtool: 'eval',
+  devtool: 'eval-source-map',
   entry: [
 
     // // For hot style updates
@@ -41,11 +41,11 @@ const config = {
   },
   module: {
     preLoaders: [
-      {
-        test: /\.jsx?$/,
-        loaders: ['eslint'],
-        exclude: [nodeModulesPath]
-      }
+      // {
+      //   test: /\.jsx?$/,
+      //   loaders: ['eslint'],
+      //   exclude: [nodeModulesPath]
+      // }
     ],
 
     loaders: [

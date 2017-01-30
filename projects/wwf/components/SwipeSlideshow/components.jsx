@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class SwipeSlideshow extends Component {
 
@@ -6,15 +7,77 @@ export default class SwipeSlideshow extends Component {
     super(props);
   }
 
-  render() {  
-    const { slides } = this.props.componentContent;
+  componentDidUpdate(newProps, newState) {
+    if (newProps.shopCollections !== this.props.shopCollections) {
+      this.attachLinksToSlides();
+    }
+    if (newProps.shopProducts !== this.props.shopProducts) {
+      this.attachBuyButtonLinks();
+    }
+  }
+
+  attachLinksToSlides() {
+    const slides = this.props.slides;
+    const shopCollections = this.props.shopCollections;
+    const shopProducts = this.props.shopProducts;
+    slides.forEach((slide, outerIndex) => {
+      shopCollections.forEach((collection, innerIndex) => {
+        if (slide.vendorName === collection.title) {
+          const id = collection.collection_id;
+          this.props.dispatchAddLinksToSlides(id, outerIndex);
+        }
+      });
+    });
+  }
+
+  attachBuyButtonLinks() {
+    const slides = this.props.slides;
+    const shopProducts = this.props.shopProducts;
+    slides.forEach((slide, outerIndex) => {
+      shopProducts.forEach((product, innerIndex) => {
+        if (slide.productTitle === product.attrs.title) {
+          this.props.dispatchAddBuyButtonLinks(product.variants[0].checkoutUrl(1), outerIndex);
+        }
+      });
+    });
+  }
+
+  renderSlides() {
+    const loadedSlides = this.props.slides;
+    const preRenderSlides = this.props.componentContent.slides;
     const cdnImageBase = this.props.cdnImageBase;
+    if (!loadedSlides[0]) {
+      return (
+        <div className="swipeSlideshow" >
+          <Link to={preRenderSlides[0].hrefCrafter} className="link">
+            <img className="image" src={cdnImageBase + 'cattle.jpg'}></img>
+            <h2>{preRenderSlides[0].headline}</h2>
+          </Link>
+          <Link to={preRenderSlides[0].hrefBuy} className="link">
+            {preRenderSlides[0].ctaText}
+          </Link>
+        </div>
+      );
+    } else {
+      return (
+        <div className="swipeSlideshow" >
+          <Link to={loadedSlides[0].hrefCrafter} className="link">
+            <img className="image" src={cdnImageBase + 'cattle.jpg'}></img>
+            <h2>{loadedSlides[0].headline}</h2>
+          </Link>
+          <Link to={loadedSlides[0].hrefBuy} className="link" target="_blank">
+            {loadedSlides[0].ctaText}
+          </Link>
+        </div>
+      );
+    }
+  }
+
+  render() {
     return (
-      <div className="swipeSlideshow" >
-        <img className="image" src={cdnImageBase + 'cattle.jpg'} alt={slides[0].alt} ></img>
-        <h2>{slides[0].headline}</h2>
-        <button>{slides[0].ctaText}</button>
+      <div className="swipeSlideshowContainer">
+        { this.renderSlides() }
       </div>
-    );
+    )
   }
 }

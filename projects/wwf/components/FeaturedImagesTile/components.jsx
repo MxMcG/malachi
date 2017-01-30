@@ -6,13 +6,28 @@ class FeaturedImagesTile extends Component {
     super(props);
   }
 
+  renderImages() {
+    const images = this.props.componentContent.images;
+    console.log(
+      'IMAGES', images
+    )
+    const cdnImageBase = this.props.cdnImageBase;
+    const imageElements = [];
+    images.forEach((image, index) => {
+      imageElements.push(<img className="image" src={cdnImageBase + image.src}
+        alt={image.alt} key={index}></img>
+      );
+    });
+    return imageElements;
+  }
+
   render() {
     const { headline, images } = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="featuredImagesTile">
         <h2>{headline}</h2>
-        <img className="image" src={cdnImageBase + "cattle.jpg"}></img>
+        { this.renderImages() }
       </div>
     );
   }

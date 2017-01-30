@@ -1,3 +1,7 @@
+/**
+ * Important place where store is created with redux middleware.{}
+ */
+
 import rootReducer from '../reducers/index';
 import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';

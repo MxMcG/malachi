@@ -1,4 +1,9 @@
-import ShopifyBuy from 'shopify-buy';
+/**
+ * Custom methods to utilize shopify-buy-sdk
+ * note: due to lack of support in safari, currently
+ * use cdn script in <head> instead of npm package.
+ */
+
 import * as actions from './actions/index';
 
 const shopClient = ShopifyBuy.buildClient({
@@ -47,20 +52,15 @@ export function fetchAllProducts() {
   }
 }
 
-// const queryByCollectionId = (collectionAttrs) => {
-//   return new Promise((resolve, reject) => {
-//     collectionAttrs.forEach((collection, index) => {
-//       // fetch all products of collection
-//       shopClient.fetchQueryProducts({ collection_id: collection.collection_id })
-//         .then((products) => {
-//           console.log('products', products)
-//         }).catch((error) => {
-//           console.error(new Error('Fetching products error!'));
-//           reject(error);
-//         });
-//       // if category exists, push products into that object's collection property
-//       // otherwise push in new catObj
-//     })
-//     // loop through categories,
-//   });
-// }
+export function queryByCollectionId(collection_id) {
+  return new Promise((resolve, reject) => {
+    // fetch all products of collection
+    shopClient.fetchQueryProducts({ collection_id })
+      .then((products) => {
+        resolve(products);
+      }).catch((error) => {
+        console.error(new Error('Fetching products error!'));
+        reject(error);
+      });
+  });
+}

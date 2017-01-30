@@ -29,13 +29,28 @@ function mapStateToProps(state) {
   const cdnUrl = state.urls.cdnUrl;
   const shopCollections = state.shop.shopCollections;
   const shopProducts = state.shop.shopProducts;
+  const shopTilesLoaded = state.shop.shopTilesLoaded;
+  const loadedShopTiles = state.shop.loadShopTiles;
   return {
     shopCollections,
+    loadedShopTiles,
     shopProducts,
+    shopTilesLoaded,
     componentContent,
     cdnUrl,
     cdnImageBase
   };
 }
 
-export default connect(mapStateToProps)(CategorizedTilesContainer);
+function mapDispatchToProps (dispatch) {
+  return {
+    dispatchShopTilesLoaded: (boolean) => {
+      dispatch(actions.shopTilesLoaded(boolean))
+    },
+    dispatchLoadShopTiles: (elements) => {
+      dispatch(actions.loadShopTiles(elements))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategorizedTilesContainer);

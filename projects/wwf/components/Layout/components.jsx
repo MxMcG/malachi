@@ -7,6 +7,7 @@ import AboutContainer from '../../common/containers/AboutContainer';
 import EventsContainer from '../../common/containers/EventsContainer';
 import SocialFooterContainer from '../../common/containers/SocialFooterContainer';
 import DynamicImageContainer from '../../common/containers/DynamicImageContainer';
+import CartContainer from '../../common/containers/CartContainer';
 
 export default class Layout extends Component {
 
@@ -18,6 +19,7 @@ export default class Layout extends Component {
     return (
       <div >
         <NavContainer />
+        <CartContainer />
         { this.props.children }
         <DynamicImageContainer />
         <SocialFooterContainer />

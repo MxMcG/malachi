@@ -64,8 +64,7 @@ export default class CategorizedTiles extends Component {
     let elements = null;
     if (this.props.shopTilesLoaded) {
       elements = this.props.loadedShopTiles;
-    }
-    const { tiles, categories } = this.props.componentContent;
+    }    
     return (
       <div className="categorizedTiles">
         { elements }

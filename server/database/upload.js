@@ -36,15 +36,16 @@ export const uploadContentDev = (projectAbv) => {
         if (doc) {
           gutil.log('Content Fetched: Development');
           const dbContent = doc.toObject().project;
+          //TODO if CMS is added, bring merge functionality back in
           // take current db doc and merge with content.json for project
           // db doc may have changed via CMS pushLive
           // important that no CMS action can add new properties
           // this merge replaces changed values from CMS actions and will retain any new content properties from local content.json
-          console.log('projectcontent', projectContent)
-          console.log('dbcontent', dbContent)
-          const mergedContent = _.merge({}, projectContent, dbContent);
-          gutil.log('Merged Content: ', mergedContent);
-          ContentDev.update({ projectName: projectAbv }, { project: mergedContent }, (err, updatedContent) => {
+          // console.log('projectcontent', projectContent)
+          // console.log('dbcontent', dbContent)
+          // const mergedContent = _.merge({}, projectContent, dbContent);
+          // gutil.log('Merged Content: ', mergedContent);
+          ContentDev.update({ projectName: projectAbv }, { project: projectContent }, (err, updatedContent) => {
             if (err) {
               gutil.log('MONGO UPDATE ERROR', err)
 

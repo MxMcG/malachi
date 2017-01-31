@@ -50,7 +50,7 @@ export default class SwipeSlideshow extends Component {
       return (
         <div className="swipeSlideshow" >
           <Link to={preRenderSlides[0].hrefCrafter} className="link">
-            <img className="image" src={cdnImageBase + 'cattle.jpg'}></img>
+            <img className="image" src={cdnImageBase + preRenderSlides[0].src}></img>
             <h2>{preRenderSlides[0].headline}</h2>
           </Link>
           <Link to={preRenderSlides[0].hrefBuy} className="link">
@@ -62,7 +62,7 @@ export default class SwipeSlideshow extends Component {
       return (
         <div className="swipeSlideshow" >
           <Link to={loadedSlides[0].hrefCrafter} className="link">
-            <img className="image" src={cdnImageBase + 'cattle.jpg'}></img>
+            <img className="image" src={cdnImageBase + loadedSlides[0].image.src}></img>
             <h2>{loadedSlides[0].headline}</h2>
           </Link>
           <Link to={loadedSlides[0].hrefBuy} className="link" target="_blank">

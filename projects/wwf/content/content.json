@@ -33,7 +33,7 @@
             "headline": "LOCALLY ROASTED COFFEE",
             "ctaText": "BUY NOW",
             "image": {
-              "src": "",
+              "src": "Westward_03.jpg",
               "alt": "#"
             },
             "vendorName": "WestWard",
@@ -42,10 +42,10 @@
             "productTitle": "Stitched Hat"
           },
           {
-            "headline": "LOCAL ORGANIC TRAIL MIX",
+            "headline": "FAITH, LOVE, HOPE KEYS",
             "ctaText": "BUY NOW",
             "image": {
-              "src": "cattle.jpg",
+              "src": "faithKeys.jpg",
               "alt": "#"
             },
             "vendorName": "The Giving Keys",
@@ -54,10 +54,10 @@
             "productTitle": "Hope Key"
           },
           {
-            "headline": "LOCAL ORGANIC COCONUT OIL",
+            "headline": "LOST COAST CANDLE SERIES",
             "ctaText": "BUY NOW",
             "image": {
-              "src": "testimg2.jpg",
+              "src": "craftFoster.jpg",
               "alt": "#"
             },
             "vendorName": "Craft + Foster",
@@ -72,17 +72,17 @@
         "images": [
           {
             "name": "Christian Surfers",
-            "src": "cattle.jpg",
+            "src": "Westward_06.jpg",
             "alt": "cattle.jpg"
           },
           {
             "name": "Youth With A Mission",
-            "src": "maxTonyDillonPic.jpg",
+            "src": "Westward_08.jpg",
             "alt": "testimg2.jpg"
           },
           {
             "name": "North Coast Calvary Chapel",
-            "src": "cattle.jpg",
+            "src": "Westward_13.jpg",
             "alt": "cattle.jpg"
           }
         ]
@@ -94,24 +94,24 @@
         "images": [
           {
             "name": "imageA",
-            "src": "cattle.jpg",
+            "src": "WestwardLatte.jpg",
             "alt": "#"
           },
           {
             "name": "imageB",
-            "src": "maxTonyDillonPic.jpg",
+            "src": "WestwardTable.jpg",
             "alt": "#"
           },
           {
             "name": "imageC",
-            "src": "cattle.jpg",
+            "src": "WestwardLatte.jpg",
             "alt": "#"
           }
         ]
       },
       "DynamicImageContainer": {
         "image": {
-          "src": "#",
+          "src": "leth.png",
           "alt": "#"
         }
       }
@@ -325,7 +325,7 @@
       },
       "ProductsDisplayContainer": {
         "headline": "His Crafts",
-        "ctaText": "Buy Now"
+        "ctaText": "Add To Cart"
       }
     }
   }

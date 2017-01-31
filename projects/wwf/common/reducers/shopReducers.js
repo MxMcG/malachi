@@ -50,9 +50,7 @@ export default function shopReducers (state = initialState, action) {
           }
         }
       });
-    case 'ADD_BUY_LINKS':
-      console.log('href', action.href)
-      console.log('index', action.index)
+    case 'ADD_BUY_LINKS':      
       return update(state, {
         fetchSlides: {
           [action.index]: {

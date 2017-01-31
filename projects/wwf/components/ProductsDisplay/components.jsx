@@ -34,7 +34,7 @@ export default class ProductsDisplay extends Component {
     return (
       <div className="productsDisplay" >
         <h1>{headline}</h1>
-        { this.renderProducts() }
+          { this.renderProducts() }
       </div>
     );
   }

@@ -10,13 +10,26 @@ export default class Nav extends Component {
     }
   }
 
+  componentWillMount() {
+    this.doIt();
+  }
+
+  doIt() {
+    console.log("JJOOOOOOOOOOOOOO")
+  }
+
+  handleClick() {
+    console.log("CLICKEDDD")
+  }
+
   render() {
-    const { headline, cattleImg, testImg } = this.props.componentContent;
+    console.log("KKKK", this.props.componentContent)
+    const logo = this.props.componentContent.logo;
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="nav" >
         <Link to="/" className="">
-          <h2>Westward</h2>
+          <img onClick={this.handleClick.bind(this)} src={cdnImageBase + logo} />
         </Link>
         <Link to="/shop" className="">Shop</Link>
         <Link to="/about" className="">About</Link>

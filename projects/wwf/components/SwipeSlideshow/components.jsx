@@ -43,6 +43,7 @@ export default class SwipeSlideshow extends Component {
   }
 
   renderSlides() {
+    console.log("DEV_Slides: ", this.props.slides)
     const loadedSlides = this.props.slides;
     const preRenderSlides = this.props.componentContent.slides;
     const cdnImageBase = this.props.cdnImageBase;

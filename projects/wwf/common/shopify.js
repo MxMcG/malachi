@@ -81,8 +81,20 @@ export function createNewCart() {
 }
 
 export function updateCart(dispatch, cart, productId, quantity) {
-  return new Promise((resolve, reject) => {    
+  return new Promise((resolve, reject) => {
     cart.createLineItemsFromVariants({ variant: productId, quantity})
+      .then((cart) => {
+        dispatch(actions.addItemToCart(cart));
+      }).catch((error) => {
+        console.error(new Error('Error Adding to Cart!'));
+        reject(error);
+      });
+  });
+}
+
+export function updateVariantInCart(dispatch, cart, productId, quantity) {
+  return new Promise((resolve, reject) => {
+    cart.updateLineItem(productId, quantity)
       .then((cart) => {
         dispatch(actions.addItemToCart(cart));
       }).catch((error) => {

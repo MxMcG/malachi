@@ -63,8 +63,7 @@ export default class SwipeSlideshow extends Component {
       );
     } else {
       // [ {}, {}, {} ]
-      loadedSlides.forEach((slide, index) => {
-        console.log("LINK?", slide.hrefCrafter)
+      loadedSlides.forEach((slide, index) => {        
         elements.push(
           <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
             <Link to={slide.hrefCrafter} className="link">
@@ -73,9 +72,9 @@ export default class SwipeSlideshow extends Component {
             <Link to={slide.hrefBuy} className="link" target="_blank">
               {slide.ctaText}
             </Link>
-          </div>  
+          </div>
         )
-      }); 
+      });
     }
     return elements;
   }
@@ -108,7 +107,7 @@ export default class SwipeSlideshow extends Component {
     return (
       <div className="swipeSlideshowContainer">
         <Slider {...settings}>
-          { this.renderSlides() }  
+          { this.renderSlides() }
         </Slider>
       </div>
     )

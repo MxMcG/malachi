@@ -19,7 +19,7 @@ export default class Layout extends Component {
     return (
       <div >
         <NavContainer />
-        <CartContainer />
+        <CartContainer {...this.props} />
         { this.props.children }
         <DynamicImageContainer />
         <SocialFooterContainer />

@@ -8,12 +8,12 @@ export default class SliderNav extends Component {
   }
 
   render() {
-    const logoImage = this.props.componentContent.logoImage;
+    const logo = this.props.componentContent.logoImage;
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="nav" >
         <Link to="/" className="">
-          <img className="image" src={cdnImageBase + logoImage}></img>
+          <img src={cdnImageBase + logo} />
         </Link>
         <Link to="/shop" className="">Shop</Link>
         <Link to="/about" className="">About</Link>

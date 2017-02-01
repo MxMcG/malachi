@@ -7,14 +7,12 @@ import Cart from '../../components/Cart/components.jsx';
 // they are called via dispatch()
 
 const propTypes = {
-
+  dispatch: PropTypes.func,
+  content: PropTypes.object
 };
 
 // in here, we determine the props to be passed down to the specific component needed
 class CartContainer extends Component {
-  componentDidMount () {
-    const { dispatch } = this.props;
-  }
 
   render () {
     return (

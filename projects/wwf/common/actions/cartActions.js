@@ -7,3 +7,17 @@ export const showCart = (bool) => {
     payload: bool
   }
 }
+
+export const createCart = (cart) => {
+  return {
+    type: 'CREATE_CART',
+    payload: cart
+  }
+}
+
+export const addItemToCart = (cart) => {
+  return {
+    type: 'ADD_ITEM_TO_CART',
+    payload: cart
+  }
+}

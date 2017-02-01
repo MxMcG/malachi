@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../actions/index';
 import ProductsDisplay from '../../components/ProductsDisplay/components.jsx';
 
 // include actions as they are needed by each component
@@ -27,12 +28,22 @@ function mapStateToProps(state) {
   const loadedProducts = state.shop.loadCrafterProducts;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
+  const activeCart = state.cart.activeCart;
   return {
     componentContent,
     loadedProducts,
     cdnImageBase,
-    cdnUrl
+    cdnUrl,
+    activeCart
   };
 }
+//
+// function mapDispatchToProps (dispatch) {
+//   return {
+//     dispatchAddItemToCart: (boolean) => {
+//       dispatch(actions.updateCart(boolean))
+//     }
+//   }
+// }
 
 export default connect(mapStateToProps)(ProductsDisplayContainer);

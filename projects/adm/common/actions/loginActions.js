@@ -50,7 +50,6 @@ export const logout = () => {
 const updateContent = (dispatch, projectAbv) => {
   return new Promise((resolve, reject) => {
     const request = require('superagent');
-    console.log('HEYYYYYYYYYYYYYYYYYY')
     request.post('/api/cms/fetchContent')
     .send({ projectAbv })
     .set('Accept', 'application/json')

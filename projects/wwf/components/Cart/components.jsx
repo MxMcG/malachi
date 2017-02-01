@@ -11,7 +11,7 @@ export default class Cart extends Component {
   }
 
   render() {
-    console.log("cart props: ", this.props.showCart)
+    console.log("cart props: ", this.props.activeCart)
     const toggle = (this.props.showCart === true) ? 'active' : 'inactive';
     return (
       <div>
@@ -27,7 +27,7 @@ export default class Cart extends Component {
           <div className="cart-section cart-section--top">
             <h2 className="cart-title">Your cart</h2>
             <button className="btn--close">
-              <span>×</span>
+              <span>x</span>
               <span className="visuallyhidden">Close</span>
             </button>
           </div>

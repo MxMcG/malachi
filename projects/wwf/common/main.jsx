@@ -11,7 +11,7 @@ import configureStore from './store/configureStore';
 import routes from './routes';
 import * as actions from './actions/index';
 import '../styles/main.scss';
-import { fetchAllCollections, fetchAllProducts } from './shopify.js';
+import { fetchAllCollections, fetchAllProducts, createNewCart } from './shopify.js';
 
 const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document);
 const initialState = window.__INITIAL_STATE__;
@@ -22,6 +22,7 @@ const store = configureStore(initialState, env);
 if (isBrowser) {
   store.dispatch(fetchAllCollections());
   store.dispatch(fetchAllProducts());
+  store.dispatch(createNewCart());
 }
 
 const frontPageSlideData = store.getState().content.project.components.HomeContainer.SwipeSlideshowContainer.slides;

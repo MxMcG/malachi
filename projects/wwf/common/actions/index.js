@@ -12,7 +12,9 @@ import { initializeShopProducts,
   addBuyLinksToSlides } from './shopActions';
 
 import {
-  showCart
+  showCart,
+  createCart,
+  addItemToCart
 } from './cartActions'
 
 export {
@@ -24,5 +26,7 @@ export {
   fetchSlides,
   addLinksToSlides,
   addBuyLinksToSlides,
-  showCart
+  showCart,
+  createCart,
+  addItemToCart
 };

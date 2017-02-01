@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
+
 const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document)
 let updateVariantInCart;
 if (isBrowser) {
@@ -54,15 +56,13 @@ export default class Cart extends Component {
                         this.decrementQuantity(item.id, (item.quantity - 1))
                       }
                     }>-</span>
-                    <span className="visuallyhidden"></span>
                   </button>
-                  <input className="cart-item__quantity" type="number" min="0" aria-label="Quantity" value={item.quantity} />
+                  <input className="cart-item__quantity" type="number" min="0" aria-label="Quantity" value={item.quantity}/>
                   <button className="btn--seamless quantity-increment" type="button" data-variant-id="10493405315">
                     <span onClick={() => {
                         this.incrementQuantity(item.id, (item.quantity + 1))
                       }
                     }>+</span>
-                    <span className="visuallyhidden"></span>
                   </button>
                 </div>
                 <span className="cart-item__price">{`$${(item.price*item.quantity)}`}</span>
@@ -77,26 +77,24 @@ export default class Cart extends Component {
     return elements;
   }
 
+  handleCloseCart() {
+    console.log("Closed")
+  }
+
   render() {
     const activeCart = this.props.activeCart;
     const toggle = (this.props.showCart === true) ? 'active' : 'inactive';
     return (
       <div>
-        <div onClick={
-            () => {
-              toggle === 'inactive' ? this.showCart(true) : this.showCart(false);
-            }
-        }>
+        <div onClick={ () => { toggle === 'inactive' ? this.showCart(true) : this.showCart(false); }}>
           <button>TOGGLE</button>
         </div>
 
         <div className={`cart ${toggle}`} >
           <div className="">
-            <h2 className="">Your cart</h2>
-            <button className="">
-              <span>x</span>
-              <span className="">Close</span>
-            </button>
+            <h2 className="cart-title">Your cart</h2>
+            <button onClick={() => { this.showCart(false) }} className="btn--close">×</button>
+            <span className="visuallyhidden"></span>
           </div>
 
           <div className="cartItemContainer">
@@ -112,7 +110,9 @@ export default class Cart extends Component {
               </div>
               <div className="">
                 <div className="">Shipping and discount codes are added at checkout.</div>
-                <input type="submit" className="" value="Checkout"/>
+                <Link to={activeCart.checkoutUrl} target="_blank" className="checkoutLink">
+                  <button className="checkoutLinkButton .product__buy">Checkout</button>
+                </Link>
               </div>
             </div>
           </div>
@@ -120,4 +120,5 @@ export default class Cart extends Component {
       </div>
     );
   }
+
 }

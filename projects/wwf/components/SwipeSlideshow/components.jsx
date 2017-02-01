@@ -43,8 +43,7 @@ export default class SwipeSlideshow extends Component {
     });
   }
 
-  renderSlides() {
-    console.log("DEV_Slides: ", this.props.slides)
+  renderSlides() {    
     const loadedSlides = this.props.slides;
     const preRenderSlides = this.props.componentContent.slides;
     const cdnImageBase = this.props.cdnImageBase;
@@ -63,7 +62,7 @@ export default class SwipeSlideshow extends Component {
       );
     } else {
       // [ {}, {}, {} ]
-      loadedSlides.forEach((slide, index) => {        
+      loadedSlides.forEach((slide, index) => {
         elements.push(
           <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
             <Link to={slide.hrefCrafter} className="link">

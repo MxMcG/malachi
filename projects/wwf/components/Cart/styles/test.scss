@@ -37,15 +37,11 @@
   right: 9px;
   top: 8px;
   font-size: 35px;
-  color: green;
+  color: #999;
   border: none;
   background: transparent;
   transition: transform 100ms ease;
   cursor: pointer;
-  &:hover {
-    transform: scale(1.2);
-    color: darken(green, 5%);
-  }
 }
 
 .cart-form {
@@ -166,7 +162,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .cart-item__price {
-  line-height: 23px;  
+  line-height: 23px;
   font-weight: bold;
 }
 
@@ -204,4 +200,33 @@ input[type=number]::-webkit-outer-spin-button {
   margin-left: 5px;
   font-size: 16px;
   color: black;
+}
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.cartItemContainer {
+  padding: 5%;
+}
+
+.checkoutLinkButton {
+  background: #7ab55c;
+  font-size: 16px;
+  padding: 0.5625em 1.875em !important;
+  color: white !important;
+  text-decoration: none;
+  border-radius: 3px;
+  display: inline-block;
+  border: none;
+  text-shadow: none;
+  font-weight: normal;
+  transition: 150ms ease-in-out;
 }

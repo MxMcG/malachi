@@ -32,7 +32,7 @@ export default class ProductsDisplay extends Component {
           <img className="productImage" src={imageSrc}></img>
           <h4 className="productTitle">{title}</h4>
           <p className="productPrice">{price}</p>
-          <button onClick={() => { this.addToCart(id, 1) }}></button>
+          <button onClick={() => { this.addToCart(id, 1) }}>Add To Cart</button>
         </div>
       )
       elements.push(html);

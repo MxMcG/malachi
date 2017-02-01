@@ -30,8 +30,7 @@ export default class Crafter extends Component {
 
 
 
-  render() {
-    console.log('CRADTER', this.props.loadedProducts)
+  render() {    
     return (
       <div className="crafter" >
         <ImageWithEffectsContainer />

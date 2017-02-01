@@ -1,6 +1,7 @@
 {
   "components": {
     "NavContainer": {
+      "logo": "TL.jpg",
       "SliderNavContainer": {
         "logoImage": "WestwardLogo.png"
       },

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Slider from 'react-slick';
 
 export default class SwipeSlideshow extends Component {
 
@@ -47,6 +48,7 @@ export default class SwipeSlideshow extends Component {
     const loadedSlides = this.props.slides;
     const preRenderSlides = this.props.componentContent.slides;
     const cdnImageBase = this.props.cdnImageBase;
+    const elements = [];
     if (!loadedSlides[0]) {
       return (
         <div className="swipeSlideshow" >
@@ -60,25 +62,57 @@ export default class SwipeSlideshow extends Component {
         </div>
       );
     } else {
-      return (
-        <div className="swipeSlideshow" >
-          <Link to={loadedSlides[0].hrefCrafter} className="link">
-            <img className="image" src={cdnImageBase + loadedSlides[0].image.src}></img>
-            <h2>{loadedSlides[0].headline}</h2>
-          </Link>
-          <Link to={loadedSlides[0].hrefBuy} className="link" target="_blank">
-            {loadedSlides[0].ctaText}
-          </Link>
-        </div>
-      );
+      // [ {}, {}, {} ]
+      loadedSlides.forEach((slide, index) => {
+        console.log("LINK?", slide.hrefCrafter)
+        elements.push(
+          <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
+            <Link to={slide.hrefCrafter} className="link">
+              <h2>{slide.headline}</h2>
+            </Link>
+            <Link to={slide.hrefBuy} className="link" target="_blank">
+              {slide.ctaText}
+            </Link>
+          </div>  
+        )
+      }); 
     }
+    return elements;
   }
 
   render() {
+
+    const settings = {
+      dots: true,
+      infinite: true,
+      centerMode: true,
+      slidesToShow: 1,
+      responsive: [
+         {
+           breakpoint: 768,
+           settings: {
+             arrows: false,
+             centerMode: true
+           }
+         },
+         {
+           breakpoint: 480,
+           settings: {
+             arrows: false,
+             centerMode: true
+           }
+         }
+       ]
+    };
+
     return (
       <div className="swipeSlideshowContainer">
-        { this.renderSlides() }
+        <Slider {...settings}>
+          { this.renderSlides() }  
+        </Slider>
       </div>
     )
   }
 }
+
+// style={`background-image:url(${cdnImageBase + slide.image.src})`}

@@ -111,7 +111,7 @@ export default class Cart extends Component {
               <div className="">
                 <div className="">Shipping and discount codes are added at checkout.</div>
                 <Link to={activeCart.checkoutUrl} target="_blank" className="checkoutLink">
-                  <button className="checkoutLinkButton .product__buy">Checkout</button>
+                  <button className="checkoutLinkButton">Checkout</button>
                 </Link>
               </div>
             </div>

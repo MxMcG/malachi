@@ -1,0 +1,13 @@
+{
+  "components": {
+    "NavContainer": {
+      "headline": "This is a test"
+    },
+    "ArticlesContainer": {
+      "headline": "This is a test"
+    },    
+    "FooterContainer": {
+      "headline": "This is a test"
+    }
+  }
+}

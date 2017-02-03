@@ -1,11 +1,15 @@
 .articles {
   padding: 15px 30px;
 
-  p {
+  .paragraph {
     font-size: 18px;
   }
 
-  h2 {
+  .headline {
+    font-weight: bold;
+  }
+
+  .date {
     font-weight: bold;
   }
 }

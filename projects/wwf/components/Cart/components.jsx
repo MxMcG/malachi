@@ -85,31 +85,30 @@ export default class Cart extends Component {
     const activeCart = this.props.activeCart;
     const toggle = (this.props.showCart === true) ? 'active' : 'inactive';
     return (
-      <div>
+      <div className="cartContainer">
         <div onClick={ () => { toggle === 'inactive' ? this.showCart(true) : this.showCart(false); }}>
           <button>TOGGLE</button>
         </div>
-
         <div className={`cart ${toggle}`} >
-          <div className="">
+          <div className="cartTop">
             <h2 className="cart-title">Your cart</h2>
             <button onClick={() => { this.showCart(false) }} className="btn--close">×</button>
             <span className="visuallyhidden"></span>
           </div>
-
           <div className="cartItemContainer">
-            <div className="">
+            <div className="cartItems">
               { this.renderCartItems() }
             </div>
-
-            <div className="">
-              <div className="">Total</div>
-              <div className="">
-                <span className="">CAD</span>
-                <span className="">${activeCart.subtotal}</span>
+            <div className="cart-bottom">
+              <div className="priceTotal">
+                <div className="total">TOTAL</div>
+                <div className="subtotalContainer">
+                  <div className="cad">CAD</div>
+                  <div className="subtotal">${activeCart.subtotal}</div>
+                </div>
               </div>
-              <div className="">
-                <div className="">Shipping and discount codes are added at checkout.</div>
+              <div className="checkout">
+                <div className="checkoutDisclaimer">Shipping and discount codes are added at checkout.</div>
                 <Link to={activeCart.checkoutUrl} target="_blank" className="checkoutLink">
                   <button className="checkoutLinkButton">Checkout</button>
                 </Link>

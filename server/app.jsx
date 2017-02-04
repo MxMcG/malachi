@@ -18,7 +18,7 @@ import gutil from 'gulp-util';
  * Server Folder Imports
  */
 import database from './database/index.js';
-import { setupConfigs } from './configs';
+import { setupConfigs, setHeadByProject } from './configs';
 /**
  * Dynamic Consts
  */
@@ -77,13 +77,18 @@ app.get('*', (req, res) => {
         return "<link rel='stylesheet' />";
       }
 
+      const meta = "<meta name='description' content='Follow the good news of the Messiah and relevant topics. Stories about Jesus Christ and discipleship in the modern Western world'/>";
+      const title = "<title>The Daily Messiah | Breaking News of Salvation from Death</title>";
+
       const HTML = `
       <!DOCTYPE html>
       <html lang="en">
         <head>
           <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=0' />
           ${stylesheet()}
+          ${meta}
+          ${title}
           <script src="https://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />

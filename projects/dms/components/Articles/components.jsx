@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import $ from 'jquery';
 
 export default class Articles extends Component {
 
@@ -34,10 +35,12 @@ export default class Articles extends Component {
 
   incrementArticle() {
     this.props.dispatchIncrementArticleIndex(this.props.activeArticleIndex + 1);
+    $('body').animate({ scrollTop: 0 }, 500);
   }
 
   decrementArticle() {
     this.props.dispatchDecrementArticleIndex(this.props.activeArticleIndex - 1);
+    $('body').animate({ scrollTop: 0 }, 500);
   }
 
   render() {

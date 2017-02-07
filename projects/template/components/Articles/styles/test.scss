@@ -1,11 +1,30 @@
 .articles {
-  padding: 15px 30px;
+  padding: 30px 30px;
 
-  p {
-    font-size: 18px;
+  .paragraph {
+    font-size: 20px;
   }
-
-  h2 {
+  .headline {
     font-weight: bold;
+  }
+  .date {
+    font-weight: bold;
+  }
+  .arrows {
+    padding: 30px 15px;
+    color: white;
+  }
+  .rightArrow {
+    float: right;
+    font-size: 50px;
+    padding: 30px 35px;
+    background-color: #0038b8;
+    border-radius: 100%;
+  }
+  .leftArrow {
+    font-size: 50px;
+    padding: 30px 35px;
+    background-color: #0038b8;
+    border-radius: 100%;
   }
 }

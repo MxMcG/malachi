@@ -1,0 +1,26 @@
+.portfolio {
+  .projects {
+    margin: 42px 0 68px 18px;
+  }
+  .project {
+    margin: 0 106px 0 0;
+  }
+  .socialCircle {
+    display: inline-block;
+    padding: 8px 12px;
+    background: black;
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+    margin: 4px;
+  }
+  .links {
+    border-bottom: 2px black solid;
+    padding-bottom: 22px;
+  }
+
+  @media (min-width: 600px) {
+
+  }
+
+}

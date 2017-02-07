@@ -1,0 +1,48 @@
+.nav {
+  .title {
+    text-decoration: none;
+    font-family: 'Bevan';
+    margin: 0px;
+  }
+  .socialLinks {
+    display: inline-block;
+    float: right;
+  }
+  .link {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+  }
+  .socialCircle {
+    display: inline-block;
+    padding: 8px 12px;
+    background: black;
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+    margin: 4px;
+  }
+  .navLinks {
+    position: relative;
+    top: 24px;
+    float: right;
+    clear: right;
+    right: 12px;
+
+    .link {
+      display: block;
+      font-size: 20px;
+      margin-top: 16px;
+
+    }
+  }
+  .navTop {
+    padding: 18px;
+  }
+  @media (min-width: 600px) {
+    .navTop {
+      padding: 32px;
+    }
+  }
+
+}

@@ -1,4 +1,10 @@
 .nav {
+  background: #F9F4EF;
+  -webkit-box-shadow: 69px -13px 10px #ccc;
+  -moz-box-shadow: 69px -13px 10px #ccc;
+  box-shadow: 69px -13px 10px #ccc;
+  position: relative;
+
   .title {
     text-decoration: none;
     font-family: 'Bevan';
@@ -22,9 +28,15 @@
     font-size: 20px;
     margin: 4px;
   }
+  .linkedIn {
+    background: #42CAFD;
+  }
+  .github {
+    background: #3E4E50;
+  }
   .navLinks {
-    position: relative;
-    top: 24px;
+    position: fixed;
+    top: 118px;
     float: right;
     clear: right;
     right: 12px;
@@ -33,11 +45,29 @@
       display: block;
       font-size: 20px;
       margin-top: 16px;
-
+      color: #00A676;
+      font-weight: bold;
     }
   }
   .navTop {
     padding: 18px;
+    -webkit-box-shadow: 52px -9px 42px #00A676;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 52px -9px 42px #00A676;  /* Firefox 3.5 - 3.6 */
+    box-shadow: 52px -9px 42px #00A676;
+  }
+  .orange {
+    color: #F7B267;
+  }
+  .blue {
+    color: #42CAFD;
+  }
+  .green {
+    color: #00A676;
+    position: relative;
+    top: 3px;
+  }
+  .pink {
+    color: #EF798A;
   }
   @media (min-width: 600px) {
     .navTop {

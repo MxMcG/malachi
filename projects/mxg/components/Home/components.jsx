@@ -23,7 +23,7 @@ export default class Home extends Component {
         </div>
 
         <div className="skillSect">
-          <h4>Skillset</h4>
+          <h3>Skillset</h3>
           <ul>
             <li><span>React.js</span></li>
             <li><span>Express.js</span></li>
@@ -37,7 +37,7 @@ export default class Home extends Component {
             <li><span>Meteor.js</span></li>
             <li><span>Mongoose</span></li>
             <li><span>GA | GTM</span></li>
-            <li><span>Split Tests</span></li>
+            <li><span>A/B Testing</span></li>
             <li><span>ES6</span></li>
           </ul>
         </div>
@@ -65,3 +65,4 @@ export default class Home extends Component {
 //   <li><span>Split Tests</span></li>
 //   <li><span>ES6</span></li>
 // </ul>
+// https://coolors.co/f7b267-ef798a-ffe8d1-42cafd-00a676

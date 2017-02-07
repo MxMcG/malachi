@@ -1,10 +1,12 @@
 .home {
   height: auto;
-
+  background: #F9F6F2;
   .aboutSect {
-    margin: 42px 0 68px 18px;
+    padding: 42px 0 68px 18px;
+
     p {
       margin: 0 106px 0 0;
+      font-size: 17px
     }
     h4 {
       margin: 0;
@@ -22,9 +24,9 @@
   }
 
   .skillSect {
-    margin-bottom: 146px;
+    padding-bottom: 65px;
 
-    h4 {
+    h3 {
       border-bottom: solid 2px black;
       margin: 0px 18px;
       padding-left: 6px;

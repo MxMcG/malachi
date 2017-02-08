@@ -77,8 +77,16 @@ app.get('*', (req, res) => {
         return "<link rel='stylesheet' />";
       }
 
-      const meta = "<meta name='description' content='Follow the good news of the Messiah and relevant topics. Stories about Jesus Christ and discipleship in the modern Western world'/>";
-      const title = "<title>The Daily Messiah | Breaking News of Salvation from Death</title>";
+      let meta;
+      let title;
+      switch (activeProject) {
+        case 'dms':
+          meta = "<meta name='description' content='Follow the good news of the Messiah and relevant topics. Stories about Jesus Christ and discipleship in the modern Western world'/>";
+          title = "<title>The Daily Messiah | Breaking News of Salvation from Death</title>";
+        case 'mxg':
+          meta = "<meta name='description' content='@MxMcG is a full-stack JavaScript developer. Gradaute of UCLA and DevBootcamp S.F. Works out of San Diego, CA.'/>";
+          title = "<title>MxMcG | Full-stack JavaScript Developer</title>";        
+      }
 
       const HTML = `
       <!DOCTYPE html>

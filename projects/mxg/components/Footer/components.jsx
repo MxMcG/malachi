@@ -10,7 +10,18 @@ export default class Footer extends Component {
   render() {
     return (
       <div className="footer">
-        <h2>Footer</h2>
+        <div className="socialLinks">
+          <a href="https://www.linkedin.com/in/mxmcg" className="link" target="_blank">
+            <div className="socialCircle linkedIn">
+              <i className="fa fa-linkedin icon" aria-hidden="true"></i>
+            </div>
+          </a>
+          <a href="https://github.com/MxMcG" className="link" target="_blank">
+            <div className="socialCircle github">
+              <i className="fa fa-github icon" aria-hidden="true"></i>
+            </div>
+          </a>
+        </div>
       </div>
     );
   }

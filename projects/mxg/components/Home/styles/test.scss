@@ -3,9 +3,8 @@
   background: #F9F6F2;
   .aboutSect {
     padding: 42px 0 68px 18px;
-
     p {
-      margin: 0 106px 0 0;
+      margin: 0 35% 0 0;
       font-size: 17px
     }
     h4 {
@@ -24,7 +23,7 @@
   }
 
   .skillSect {
-    padding-bottom: 65px;
+    padding: 0 0 65px 0;
 
     h3 {
       border-bottom: solid 2px black;
@@ -40,8 +39,25 @@
       list-style-position: inside;
     }
     span {
-      position: relative;
-      right: 14px;
+      
+    }
+  }
+
+  @media (min-width: 600px) {
+    img {
+      width: 30%;
+    }
+    .aboutSect {
+      padding: 42px 0 68px 100px;
+    }
+    .skillSect {
+      padding: 0 30% 65px 100px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    img {
+      width: 20%;
     }
   }
 }

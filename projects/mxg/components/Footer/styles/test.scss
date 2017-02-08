@@ -2,5 +2,41 @@
   background-color: #00A676;
   text-align: center;
   color: white;
-  padding: 20px;
+
+  .icon {
+    font-size: 30px;
+  }
+  .socialLinks {
+    display: inline-block;
+    padding: 20px;
+  }
+
+  .link {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+  }
+  .socialCircle {
+    display: inline-block;
+    padding: 12px 16px;
+    background: black;
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+    margin: 4px;
+  }
+  .linkedIn {
+    background: #42CAFD;
+  }
+  .github {
+    background: #3E4E50;
+  }
+  @media (min-width: 600px) {
+    .socialCircle {
+      padding: 10px 12px;
+    }
+    .icon {
+      font-size: 26px 30px;
+    }
+  }
 }

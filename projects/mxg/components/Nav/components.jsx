@@ -19,18 +19,18 @@ export default class Nav extends Component {
               <span className="green">x</span>
               <span className="orange">M</span>
               <span className="green">c</span>
-              <span className="pink">G</span>
+              <span className="pink">G</span>              
             </h2>
           </Link>
           <div className="socialLinks">
             <a href="https://www.linkedin.com/in/mxmcg" className="link" target="_blank">
               <div className="socialCircle linkedIn">
-                <i className="fa fa-linkedin" aria-hidden="true"></i>
+                <i className="fa fa-linkedin icon" aria-hidden="true"></i>
               </div>
             </a>
             <a href="https://github.com/MxMcG" className="link" target="_blank">
               <div className="socialCircle github">
-                <i className="fa fa-github" aria-hidden="true"></i>
+                <i className="fa fa-github icon" aria-hidden="true"></i>
               </div>
             </a>
           </div>

@@ -10,6 +10,9 @@
     font-family: 'Bevan';
     margin: 0px;
   }
+  .icon {
+    font-size: 26px;
+  }
   .socialLinks {
     display: inline-block;
     float: right;
@@ -21,7 +24,7 @@
   }
   .socialCircle {
     display: inline-block;
-    padding: 8px 12px;
+    padding: 6px 9px;
     background: black;
     border-radius: 100%;
     color: white;
@@ -36,7 +39,7 @@
   }
   .navLinks {
     position: fixed;
-    top: 118px;
+    top: 148px;
     float: right;
     clear: right;
     right: 12px;
@@ -72,6 +75,13 @@
   @media (min-width: 600px) {
     .navTop {
       padding: 32px;
+    }
+  }
+  @media (min-width: 768px) {
+    .navLinks {
+      .link {
+        font-size: 30px;
+      }
     }
   }
 

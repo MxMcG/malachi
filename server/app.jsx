@@ -79,14 +79,20 @@ app.get('*', (req, res) => {
 
       let meta;
       let title;
+      console.log(activeProject)
       switch (activeProject) {
         case 'dms':
           meta = "<meta name='description' content='Follow the good news of the Messiah and relevant topics. Stories about Jesus Christ and discipleship in the modern Western world'/>";
           title = "<title>The Daily Messiah | Breaking News of Salvation from Death</title>";
+          break;
         case 'mxg':
           meta = "<meta name='description' content='@MxMcG is a full-stack JavaScript developer. Gradaute of UCLA and DevBootcamp S.F. Works out of San Diego, CA.'/>";
-          title = "<title>MxMcG | Full-stack JavaScript Developer</title>";        
+          title = "<title>MxMcG | Full-stack JavaScript Developer</title>";
+          break;
       }
+      console.log("***********************")
+      console.log("meta", meta)
+      console.log("***********************")
 
       const HTML = `
       <!DOCTYPE html>

@@ -1,5 +1,40 @@
 .featuredImageSlideshow {
-  background-color: #515663;
+text-align: center;
 
+.slick-next {
+    @media screen and(min-width: 768px) {
+    right: -25px;
+  }
+}
+
+.slick-prev {
+    @media screen and(min-width: 768px) {
+      left: -25px
+  }
+}
+
+.slick-list {
   
+
+  @media screen and(min-width: 1500px) {
+    overflow: hidden;
+  }
+}
+  h2 {
+   color: black;
+   margin: 0;
+  }
+
+  h6 {
+    margin: 3px 0 9px 0;
+    display: inline-block;
+    padding: 0 21px 3px 21px;
+    font-weight: 300;
+    text-transform: uppercase;
+    border-bottom: 2px black solid;
+  }
+
+  .image {
+    width: 200px;
+  }
 }

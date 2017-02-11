@@ -1,6 +1,7 @@
 {
   "components": {
     "NavContainer": {      
+      "logo": "TL.jpg",
       "SliderNavContainer": {
         "logoImage": "WestwardLogo.png"
       },
@@ -17,6 +18,7 @@
           {
             "headline": "LOCALLY ROASTED COFFEE",
             "ctaText": "BUY NOW",
+            "paragraph":"Fresh roasted coffee from sunny Carlsbad",
             "image": {
               "src": "Westward_03.jpg",
               "alt": "#"
@@ -29,6 +31,7 @@
           {
             "headline": "FAITH, LOVE, HOPE KEYS",
             "ctaText": "BUY NOW",
+            "paragraph":"Fresh roasted coffee from sunny Carlsbad",
             "image": {
               "src": "faithKeys.jpg",
               "alt": "#"
@@ -41,6 +44,7 @@
           {
             "headline": "LOST COAST CANDLE SERIES",
             "ctaText": "BUY NOW",
+            "paragraph":"Fresh roasted coffee from sunny Carlsbad",
             "image": {
               "src": "craftFoster.jpg",
               "alt": "#"
@@ -103,7 +107,157 @@
     },
     "ShopContainer": {
       "CategorizedTilesContainer": {
-        "headline": "Test"
+        "tiles": [
+          {
+            "id": 1,
+            "category": "outdoors",
+            "name": "John's Crafts",
+            "headline": "John's Crafts",
+            "image": {
+              "name": "johnsCrafts",
+              "src": "Westward_nav_05.jpg",
+              "alt": "John's Crafts"
+            }
+          },
+          {
+            "id": 2,
+            "category": "outdoors",
+            "name": "Mason's Crafts",
+            "headline": "Mason's Crafts",
+            "image": {
+              "name": "masonsCrafts",
+              "src": "Westward_nav_07.jpg",
+              "alt": "Mason's Crafts"
+            }
+          },
+          {
+            "id": 3,
+            "category": "outdoors",
+            "name": "Steady State Coffee",
+            "headline": "Steady State Coffee",
+            "image": {
+              "name": "steadyStateCoffee",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 4,
+            "category": "outdoors",
+            "name": "Super Green Tea",
+            "headline": "Super Green Tea",
+            "image": {
+              "name": "superGreenTea",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 5,
+            "category": "apparel",
+            "name": "John's Crafts",
+            "headline": "John's Crafts",
+            "image": {
+              "name": "johnsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 6,
+            "category": "apparel",
+            "name": "Mason's Crafts",
+            "headline": "Mason's Crafts",
+            "image": {
+              "name": "masonsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 7,
+            "category": "apparel",
+            "name": "Steady State Coffee",
+            "headline": "Steady State Coffee",
+            "image": {
+              "name": "steadyStateCoffee",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 8,
+            "category": "apparel",
+            "name": "Super Green Tea",
+            "headline": "Super Green Tea",
+            "image": {
+              "name": "superGreenTea",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 9,
+            "category": "homegoods",
+            "name": "John's Crafts",
+            "headline": "John's Crafts",
+            "image": {
+              "name": "johnsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 10,
+            "category": "homegoods",
+            "name": "Mason's Crafts",
+            "headline": "Mason's Crafts",
+            "image": {
+              "name": "masonsCrafts",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 11,
+            "category": "homegoods",
+            "name": "Steady State Coffee",
+            "headline": "Steady State Coffee",
+            "image": {
+              "name": "steadyStateCoffee",
+              "src": "#",
+              "alt": "#"
+            }
+          },
+          {
+            "id": 12,
+            "category": "homegoods",
+            "name": "Super Green Tea",
+            "headline": "Super Green Tea",
+            "image": {
+              "name": "superGreenTea",
+              "src": "#",
+              "alt": "#"
+            }
+          }
+        ],
+        "categories": [
+          {
+            "title": "OUTDOORS",
+            "name": "outdoors",
+            "postition": 1
+          },
+          {
+            "title": "APPAREL",
+            "name": "apparel",
+            "postition": 2
+          },
+          {
+            "title": "HOME GOODS",
+            "name": "homegoods",
+            "postition": 3
+          }
+        ]
       }
     },
     "AboutContainer": {

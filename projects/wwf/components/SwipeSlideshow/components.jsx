@@ -61,19 +61,23 @@ export default class SwipeSlideshow extends Component {
         </div>
       );
     } else {
-      // [ {}, {}, {} ]
       loadedSlides.forEach((slide, index) => {
+        console.log("LINK?", slide.hrefCrafter)
         elements.push(
           <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
-            <Link to={slide.hrefCrafter} className="link">
-              <h2>{slide.headline}</h2>
-            </Link>
-            <Link to={slide.hrefBuy} className="link" target="_blank">
-              {slide.ctaText}
-            </Link>
-          </div>
+            <div className="swipeContent">
+              <div className="wesCross"><div className="mi"></div><div className="th"></div></div>
+              <Link to={slide.hrefCrafter} className="link">
+                <h2>{slide.headline}</h2>
+                <p>{slide.paragraph}</p>
+              </Link>
+              <Link to={slide.hrefBuy} className="link cta" target="_blank">
+                {slide.ctaText}
+              </Link>
+            </div>
+          </div>  
         )
-      });
+      }); 
     }
     return elements;
   }
@@ -84,19 +88,26 @@ export default class SwipeSlideshow extends Component {
       dots: true,
       infinite: true,
       centerMode: true,
+      arrows: false,
       slidesToShow: 1,
+      autoplay: false,
+      autoplaySpeed: 4000,
       responsive: [
          {
            breakpoint: 768,
            settings: {
              arrows: false,
+             slidesToShow: 1,
+             centerPadding: '0',
              centerMode: true
            }
          },
          {
            breakpoint: 480,
            settings: {
+             slidesToShow: 1,
              arrows: false,
+             centerPadding: '0',
              centerMode: true
            }
          }
@@ -113,4 +124,3 @@ export default class SwipeSlideshow extends Component {
   }
 }
 
-// style={`background-image:url(${cdnImageBase + slide.image.src})`}

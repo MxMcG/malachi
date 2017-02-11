@@ -1,12 +1,25 @@
-.socialFooter {
-  background-color: #FFA69E;
+.footer {
+font-size: 15px;
+text-align: center;
+padding: 20px 0;
+  -webkit-box-shadow: inset 0px 14px 10px -11px rgba(209,209,209,0.45);
+-moz-box-shadow: inset 0px 14px 10px -11px rgba(209,209,209,0.45);
+box-shadow: inset 0px 14px 10px -11px rgba(209,209,209,0.45);
+
+div, a {
+  font-weight: 300;
 }
 
-h2 {
-  color: white;
+a {
+  margin: 0 5px;
 }
 
-.imageOne {
-  height: 600px;
-  width: 200px;
+div {
+  margin-bottom: 5px;
 }
+
+
+}
+
+
+

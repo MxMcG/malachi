@@ -200,3 +200,7 @@ app.listen(port, () => {
 // ex: https://www.westward.com/ => localhost:3000/ww/
 // localhost:3000/<project acrn>/api
 // localhost:3000/<project acrn>/admin
+
+// // keywords
+// concert tickets
+// live music venue

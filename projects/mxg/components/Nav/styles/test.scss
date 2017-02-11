@@ -1,0 +1,88 @@
+.nav {
+  background: #F9F4EF;
+  -webkit-box-shadow: 69px -13px 10px #ccc;
+  -moz-box-shadow: 69px -13px 10px #ccc;
+  box-shadow: 69px -13px 10px #ccc;
+  position: relative;
+
+  .title {
+    text-decoration: none;
+    font-family: 'Bevan';
+    margin: 0px;
+  }
+  .icon {
+    font-size: 26px;
+  }
+  .socialLinks {
+    display: inline-block;
+    float: right;
+  }
+  .link {
+    text-decoration: none;
+    color: black;
+    display: inline-block;
+  }
+  .socialCircle {
+    display: inline-block;
+    padding: 6px 9px;
+    background: black;
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+    margin: 4px;
+  }
+  .linkedIn {
+    background: #42CAFD;
+  }
+  .github {
+    background: #3E4E50;
+  }
+  .navLinks {
+    position: fixed;
+    top: 148px;
+    float: right;
+    clear: right;
+    right: 12px;
+
+    .link {
+      display: block;
+      font-size: 20px;
+      margin-top: 16px;
+      color: #00A676;
+      font-weight: bold;
+    }
+  }
+  .navTop {
+    padding: 18px;
+    -webkit-box-shadow: 52px -9px 42px #00A676;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+    -moz-box-shadow: 52px -9px 42px #00A676;  /* Firefox 3.5 - 3.6 */
+    box-shadow: 52px -9px 42px #00A676;
+  }
+  .orange {
+    color: #F7B267;
+  }
+  .blue {
+    color: #42CAFD;
+  }
+  .green {
+    color: #00A676;
+    position: relative;
+    top: 3px;
+  }
+  .pink {
+    color: #EF798A;
+  }
+  @media (min-width: 600px) {
+    .navTop {
+      padding: 32px;
+    }
+  }
+  @media (min-width: 768px) {
+    .navLinks {
+      .link {
+        font-size: 30px;
+      }
+    }
+  }
+
+}

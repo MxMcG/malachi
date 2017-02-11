@@ -58,7 +58,7 @@ export default class FeaturedImageSlideshow extends Component {
          }
        ]
     };
- 
+
     return (
       <div className="featuredImageSlideshow" >
         <h2>Events</h2>
@@ -70,8 +70,3 @@ export default class FeaturedImageSlideshow extends Component {
     );
   }
 }
-
-/*<h2>{headline}</h2>
-        <h4>{subheadline}</h4>
-        <img className="image" src={cdnImageBase + images[0].src}></img>
-        <button>{ctaText}</button>*/

@@ -1,5 +1,7 @@
+import React from 'react';
 import database from './database/index.js';
 import gutil from 'gulp-util';
+
 
 export const setupConfigs = (env, activeProject, callback) => {
   const config = {

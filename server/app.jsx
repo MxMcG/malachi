@@ -18,7 +18,7 @@ import gutil from 'gulp-util';
  * Server Folder Imports
  */
 import database from './database/index.js';
-import { setupConfigs } from './configs';
+import { setupConfigs, setHeadByProject } from './configs';
 /**
  * Dynamic Consts
  */
@@ -77,16 +77,37 @@ app.get('*', (req, res) => {
         return "<link rel='stylesheet' />";
       }
 
+      let meta;
+      let title;
+      let googleAnalytics;
+      switch (activeProject) {
+        case 'dms':
+          meta = "<meta name='description' content='Follow the good news of the Messiah and relevant topics. Stories about Jesus Christ and discipleship in the modern Western world'/>";
+          title = "<title>The Daily Messiah | Breaking News of Salvation from Death</title>";
+          googleAnalytics = "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-81672933-3', 'auto');ga('send', 'pageview');</script>";
+          break;
+        case 'mxg':
+          meta = "<meta name='description' content='@MxMcG is a full-stack JavaScript developer. Gradaute of UCLA and DevBootcamp S.F. Works out of San Diego, CA.'/>";
+          title = "<title>MxMcG | Full-stack JavaScript Developer</title>";
+          googleAnalytics = "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-81672933-2', 'auto');ga('send', 'pageview');</script>";
+          break;
+      }
+
       const HTML = `
       <!DOCTYPE html>
       <html lang="en">
         <head>
           <meta charset="UTF-8">
-          <meta name="viewport" content="width=device-width, initial-scale=1">
+          <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=0' />
           ${stylesheet()}
+          ${meta}
+          ${title}
           <script src="https://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
+          <link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet">
+          <script src="https://use.fontawesome.com/22e36cff83.js"></script>
+          ${googleAnalytics}
         </head>
         <body>
           <div id="react-view">${componentHTML}</div>
@@ -179,3 +200,7 @@ app.listen(port, () => {
 // ex: https://www.westward.com/ => localhost:3000/ww/
 // localhost:3000/<project acrn>/api
 // localhost:3000/<project acrn>/admin
+
+// // keywords
+// concert tickets
+// live music venue

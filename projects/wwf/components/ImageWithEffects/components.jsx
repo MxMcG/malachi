@@ -7,11 +7,12 @@ export default class ImageWithEffects extends Component {
   }
 
   render() {
-    const { image } = this.props.componentContent;
+    const { imageBase, imageEffects } = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
     return (
-      <div className="imageWithEffects" >        
-        <img className="image" src={cdnImageBase + image.src} alt={image.alt}></img>
+      <div className="imageWithEffects" >
+        <img className="image" src={cdnImageBase + imageBase.src} alt={imageBase.alt}></img>
+        <img className="image" src={cdnImageBase + imageEffects.src} alt={imageBase.alt}></img>
       </div>
     );
   }

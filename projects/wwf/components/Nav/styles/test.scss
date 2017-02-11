@@ -1,12 +1,12 @@
 .nav {
-height: 62px;
-position: fixed;
-top: 0;
-left:0;
-z-index: 1;
-width:100%;
-letter-spacing: .03em;
-background: white;
+  height: 62px;
+  position: fixed;
+  top: 0;
+  left:0;
+  z-index: 1;
+  width:100%;
+  letter-spacing: .03em;
+  background: white;
 
   @media screen and (min-width: 768px) {
     text-align: center;
@@ -80,4 +80,3 @@ background: white;
   }
 
 }
-

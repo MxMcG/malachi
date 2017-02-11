@@ -1,0 +1,40 @@
+.portfolio {
+  background-color: #F9F6F2;
+  .projects {
+    padding: 42px 0 68px 18px;
+  }
+  .icon {
+    font-size: 26px;
+  }
+  .project {
+    margin: 0 106px 0 0;
+  }
+  .title {
+    color: #00A676;
+  }
+  .socialCircle {
+    display: inline-block;
+    padding: 6px 9px;
+    background: black;
+    border-radius: 100%;
+    color: white;
+    font-size: 20px;
+    margin: 4px;
+  }
+  .projectImg {
+    background: #EF798A;
+  }
+  .links {
+    border-bottom: 2px black solid;
+    padding-bottom: 22px;
+  }
+  .link {
+    text-decoration: none;
+  }
+  @media (min-width: 768px) {
+    .projects {
+      padding: 42px 30% 68px 100px;
+    }
+  }
+
+}

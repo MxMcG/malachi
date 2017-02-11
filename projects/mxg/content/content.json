@@ -1,0 +1,19 @@
+{
+  "components": {
+    "NavContainer": {
+      "headline": ""
+    },
+    "HomeContainer": {
+
+    },
+    "PortfolioContainer": {
+
+    },
+    "ResumeContainer": {
+
+    },
+    "FooterContainer": {
+      "headline": ""
+    }
+  }
+}

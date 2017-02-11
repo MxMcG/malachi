@@ -1,0 +1,63 @@
+.home {
+  height: auto;
+  background: #F9F6F2;
+  .aboutSect {
+    padding: 42px 0 68px 18px;
+    p {
+      margin: 0 35% 0 0;
+      font-size: 17px
+    }
+    h4 {
+      margin: 0;
+    }
+  }
+
+  .image {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  img {
+    border-radius: 100%;
+    width: 50%;
+  }
+
+  .skillSect {
+    padding: 0 0 65px 0;
+
+    h3 {
+      border-bottom: solid 2px black;
+      margin: 0px 18px;
+      padding-left: 6px;
+    }
+    ul {
+      padding-left: 18px;
+      -webkit-column-count: 2; /* Chrome, Safari, Opera */
+      -moz-column-count: 2; /* Firefox */
+      column-count: 2;
+      list-style-type: disc;
+      list-style-position: inside;
+    }
+    span {
+      
+    }
+  }
+
+  @media (min-width: 600px) {
+    img {
+      width: 30%;
+    }
+    .aboutSect {
+      padding: 42px 0 68px 100px;
+    }
+    .skillSect {
+      padding: 0 30% 65px 100px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    img {
+      width: 20%;
+    }
+  }
+}

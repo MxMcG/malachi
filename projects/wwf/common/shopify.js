@@ -64,3 +64,42 @@ export function queryByCollectionId(collection_id) {
       });
   });
 }
+
+export function createNewCart() {
+  return function (dispatch) {
+    return new Promise((resolve, reject) => {
+      // fetch all products of collection
+      shopClient.createCart()
+        .then((cart) => {
+          dispatch(actions.createCart(cart));
+        }).catch((error) => {
+          console.error(new Error('Error Creating Cart!'));
+          reject(error);
+        });
+    });
+  }
+}
+
+export function updateCart(dispatch, cart, productId, quantity) {
+  return new Promise((resolve, reject) => {
+    cart.createLineItemsFromVariants({ variant: productId, quantity})
+      .then((cart) => {
+        dispatch(actions.addItemToCart(cart));
+      }).catch((error) => {
+        console.error(new Error('Error Adding to Cart!'));
+        reject(error);
+      });
+  });
+}
+
+export function updateVariantInCart(dispatch, cart, productId, quantity) {
+  return new Promise((resolve, reject) => {
+    cart.updateLineItem(productId, quantity)
+      .then((cart) => {
+        dispatch(actions.addItemToCart(cart));
+      }).catch((error) => {
+        console.error(new Error('Error Adding to Cart!'));
+        reject(error);
+      });
+  });
+}

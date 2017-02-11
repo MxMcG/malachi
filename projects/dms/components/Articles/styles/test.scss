@@ -1,0 +1,43 @@
+.articles {
+  padding: 34px 30px;
+
+  .paragraph {
+    font-size: 20px;
+  }
+  .headline {
+    font-weight: bold;
+  }
+  .date {
+    font-weight: bold;
+  }
+  .arrows {
+    padding: 30px 15px;
+    color: white;
+    text-align: center;
+  }
+  .rightArrow {
+    font-size: 50px;
+    padding: 30px 35px;
+    background-color: #0038b8;
+    border-radius: 100%;
+    position: relative;
+    left: 18px;
+  }
+  .leftArrow {
+    font-size: 50px;
+    padding: 30px 35px;
+    background-color: #0038b8;
+    border-radius: 100%;
+    position: relative;
+    right: 18px;
+  }
+
+  @media (min-width: 600px) {
+    .rightArrow {
+      margin: 0 60px;
+    }
+    .leftArrow {
+      margin: 0 60px;
+    }
+  }
+}

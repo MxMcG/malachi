@@ -7,11 +7,13 @@ import { combineReducers } from 'redux';
 import urlReducers from './urls';
 import contentReducers from './contentReducers';
 import shopReducers from './shopReducers';
+import cartReducers from './cartReducers';
 
 const rootReducer = combineReducers({
   urls: urlReducers,
   content: contentReducers,
-  shop: shopReducers
+  shop: shopReducers,
+  cart: cartReducers
 });
 
 export default rootReducer;

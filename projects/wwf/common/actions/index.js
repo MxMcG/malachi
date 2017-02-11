@@ -11,6 +11,11 @@ import { initializeShopProducts,
   addLinksToSlides,
   addBuyLinksToSlides } from './shopActions';
 
+import {
+  showCart,
+  createCart,
+  addItemToCart
+} from './cartActions'
 
 export {
   initializeShopCollections,
@@ -20,5 +25,8 @@ export {
   loadCrafterProducts,
   fetchSlides,
   addLinksToSlides,
-  addBuyLinksToSlides
+  addBuyLinksToSlides,
+  showCart,
+  createCart,
+  addItemToCart
 };

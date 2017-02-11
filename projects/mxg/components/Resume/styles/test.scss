@@ -1,0 +1,15 @@
+.resume {
+  background-color: #F9F6F2;
+  min-height: 800px;
+
+  .image {
+    width: 60%;
+    padding: 66px 0 138px 18px;
+  }
+
+  @media (min-width: 768px) {
+    .image {
+      padding: 42px 30% 68px 100px;
+    }
+  }
+}

@@ -1,31 +1,16 @@
 {
   "components": {
-    "NavContainer": {
+    "NavContainer": {      
       "logo": "TL.jpg",
       "SliderNavContainer": {
-        "logo": "Westward",
-        "links": [
-          {
-            "title": "Home",
-            "route": "home"
-          },
-          {
-            "title": "Shop",
-            "route": "shop"
-          },
-          {
-            "title": "About",
-            "route": "about"
-          },
-          {
-            "title": "Events",
-            "route": "events"
-          }
-        ]
+        "logoImage": "WestwardLogo.png"
       },
       "PromoBannerContainer": {
         "headline": "25% GOES TO MISSIONARIES"
       }
+    },
+    "CartContainer": {
+      "headline": "HI"
     },
     "HomeContainer": {
       "SwipeSlideshowContainer": {
@@ -285,7 +270,11 @@
         "title": "Mason Ward",
         "headline": "Westward",
         "subheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "ctaText": "Learn More"
+        "ctaText": "Learn More",
+        "image": {
+          "src": "WestwardAboutMason.png",
+          "alt": "about mason"
+        }
       },
       "CategorizedRowsContainer": {
         "ctaText": "Learn More"
@@ -299,28 +288,30 @@
         "ctaText": "Learn More"
       }
     },
-    "FooterContainer": {
-      "SocialFooterContainer": {
-        "title": "Social",
-        "links": [
-          {
-            "name": "facebook",
-            "title": "Facebook.",
-            "href": "#"
-          },
-          {
-            "name": "instagram",
-            "title": "Instagram.",
-            "href": "#"
-          }
-        ]
-      }
+    "SocialFooterContainer": {
+      "title": "Social",
+      "links": [
+        {
+          "name": "facebook",
+          "title": "Facebook.",
+          "href": "https://www.facebook.com/westwardfoundation/"
+        },
+        {
+          "name": "instagram",
+          "title": "Instagram. @westwardfoundation",
+          "href": "https://www.facebook.com/westwardfoundation/"
+        }
+      ]
     },
     "CrafterContainer": {
       "ImageWithEffectsContainer": {
-        "image": {
-          "src": "cattle.jpg",
-          "alt": "cattle image"
+        "imageBase": {
+          "src": "WestwardMasonHeadshot.jpg",
+          "alt": "mason headshot"
+        },
+        "imageEffects": {
+          "src": "sunsetFade.png",
+          "alt": ""
         }
       },
       "FeaturedTextCrossContainer": {
@@ -328,7 +319,7 @@
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit"
       },
       "ProductsDisplayContainer": {
-        "headline": "His Crafts",
+        "headline": "Featured Crafts",
         "ctaText": "Add To Cart"
       }
     }

@@ -43,7 +43,7 @@ export default class SwipeSlideshow extends Component {
     });
   }
 
-  renderSlides() {
+  renderSlides() {    
     const loadedSlides = this.props.slides;
     const preRenderSlides = this.props.componentContent.slides;
     const cdnImageBase = this.props.cdnImageBase;
@@ -117,11 +117,10 @@ export default class SwipeSlideshow extends Component {
     return (
       <div className="swipeSlideshowContainer">
         <Slider {...settings}>
-          { this.renderSlides() }  
+          { this.renderSlides() }
         </Slider>
       </div>
     )
   }
 }
 
-// style={`background-image:url(${cdnImageBase + slide.image.src})`}

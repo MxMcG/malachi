@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
+const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document)
+let updateCart;
+if (isBrowser) {
+  updateCart = require('../../common/shopify.js').updateCart;
+}
 
 export default class ProductsDisplay extends Component {
 
   constructor(props) {
     super(props);
+  }
+
+  addToCart(id, quantity) {
+    if (isBrowser) {
+      updateCart(this.props.dispatch, this.props.activeCart, id, quantity);
+    }
   }
 
   renderProducts() {
@@ -13,14 +24,15 @@ export default class ProductsDisplay extends Component {
       const imageSrc = product.attrs.images[0].src;
       const title = product.title;
       const price = product.variants[0].formatted_price;
-      const url = product.variants[0].checkoutUrl(1);
+      const id = product.selectedVariant;
+      // const url = product.variants[0].checkoutUrl(1);
       const buttonText = this.props.componentContent.ctaText;
       const html = (
         <div className="product" key={index}>
           <img className="productImage" src={imageSrc}></img>
           <h4 className="productTitle">{title}</h4>
           <p className="productPrice">{price}</p>
-          <a href={url}>{buttonText}</a>
+          <button onClick={() => { this.addToCart(id, 1) }}>Add To Cart</button>
         </div>
       )
       elements.push(html);

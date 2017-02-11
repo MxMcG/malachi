@@ -5,8 +5,10 @@
     },
     "ArticlesContainer": {
       "headline": "",
-      "articles": [        
+      "articles": [
         {
+          "title": "The Mystery of God: He is a particular God",
+          "description": "In a world of political correctness and equal opportunity, it is provocative to claim that the sole maker of the universe is a particular being.",
           "headline": "The Mystery of God: He is a particular God",
           "date": "Feb, 8th 2017.",
           "paragraphs": [
@@ -18,6 +20,8 @@
           ]
         },
         {
+          "title": "JUST IN: Death is defeated by man born in Israel",
+          "description": "According to the Bible, every person to ever live has sinned and is therefore in debt to God. God’s righteous judgement upon sin is death itself.",
           "headline": "JUST IN: Death is defeated by man born in Israel",
           "date": "Feb, 6th 2017.",
           "paragraphs": [
@@ -33,6 +37,8 @@
           ]
         },
         {
+          "title": "Breaking News: Christianity is offensive to the world.",
+          "description": "As the world approaches the triumphant return of Jesus the Messiah, a gray and certainly satanic sentiment fills the realm of modern thought.",
           "headline": "Breaking News: Christianity is offensive to the world.",
           "date": "Feb, 3rd 2017.",
           "paragraphs": [

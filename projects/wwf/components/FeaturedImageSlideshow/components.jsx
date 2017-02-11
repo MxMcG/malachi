@@ -1,38 +1,58 @@
 import React, { Component } from 'react';
 import Slider from 'react-slick';
+import { Link } from 'react-router';
 
 export default class FeaturedImageSlideshow extends Component {
 
   constructor(props) {
     super(props);
+
   }
 
-  render() {
-    const style = {
-      background: 'purple',
-      textAlign: 'center'
-
-    }
-    const { headline, subheadline, ctaText, images } = this.props.componentContent;
-    console.log('CRAY', images)
+  renderImages() {
+    const loadedImages = this.props.componentContent.images;
     const cdnImageBase = this.props.cdnImageBase;
+    const Imageelements = [];
+    if (!loadedImages[0]) {
+      return (
+        <div className="featuredImageSlide" >
+            <img className="image" src={cdnImageBase + loadedImages[0].src}></img>
+        </div>
+      );
+    } else {
+      loadedImages.forEach((images, index) => {
+        Imageelements.push(
+          <div className="featuredImageSlide" style={{backgroundImage: 'url(' + cdnImageBase + images.src + ')'}} key={index}>
+          </div>  
+        )
+      }); 
+    }
+    return Imageelements;
+  }
+
+
+  render() {
+
     const settings = {
       dots: true,
       infinite: true,
       centerMode: true,
       slidesToShow: 1,
+      arrows: true,
       responsive: [
          {
            breakpoint: 768,
            settings: {
-             arrows: false,
+             arrows: true,
+             slidesToShow: 1,
              centerMode: true
            }
          },
          {
            breakpoint: 480,
            settings: {
-             arrows: false,
+             arrows: true,
+             slidesToShow: 1,
              centerMode: true
            }
          }
@@ -41,14 +61,10 @@ export default class FeaturedImageSlideshow extends Component {
  
     return (
       <div className="featuredImageSlideshow" >
+        <h2>Events</h2>
+        <h6>westward cold brew</h6>
         <Slider {...settings}>
-          <div style={style}><h3>1</h3></div>
-          <div style={style}><h3>1</h3></div>
-          <div style={style}><h3>1</h3></div>
-          <div style={style}><h3>1</h3></div>
-          <div style={style}><h3>1</h3></div>
-          <div style={style}><h3>1</h3></div>
-          <div style={style}><h3>1</h3></div>
+            { this.renderImages() }  
         </Slider>
       </div>
     );

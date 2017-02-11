@@ -1,17 +1,200 @@
+
+.slick-list {
+@media screen and (min-width: 500px) {
+  overflow: visible;
+}
+}
+
 .swipeSlideshow {
-background-color: #515663;
+
+
+
+  .swipeContent {
+    position: absolute;
+    text-align: center;
+    width: 50%;
+    top: 20%;
+
+    @media screen and (min-width: 500px) {
+      top: 29%;
+      left: 1%;
+    }
+
+    .cta {
+      color: white;
+      font-size: 15px;
+      display: inline-block;
+      padding: 11px 0;
+      width: 100px;
+      text-align:center;
+      border: 2px solid white;
+
+@media screen and (min-width: 500px) {
+      padding: 11px 0;
+    width: 132px;
+    }
+    }
+
+
+    p {
+    display: none;
+    margin: 8px 0 19px 0;
+    font-weight: 300;
+    color: white;
+
+    @media screen and (min-width: 769px) {
+    display: block;  
+    }
+    }
+  }
 
   h2 {
     color: white;
+    font-size: 30px;
+    margin: 0 20px 7px 20px;
+
+    @media screen and (min-width: 769px) {
+          margin: 0 30px;
+    }
+
+    @media screen and (min-width: 768px) {
+      font-size: 42px;
+    }
   }
 
   .image {
-    height: 200px;
     width: 200px;
   }
 
   .tileImage {
-    height: 200px;
     width: 200px;
   }
 }
+
+
+.wesCross {
+  display: inline-block;
+  margin-bottom: 7px;
+
+  @media screen and (min-width: 500px) {
+margin-bottom: 9px;
+}
+
+  .mi {
+    width: 3px;
+    left: 15px;
+    position: relative;
+    vertical-align: middle;
+    display: inline-block;
+    height: 20px;
+    background: white;
+
+  }
+
+  .th {
+    width: 50px;
+    height: 3px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    background: white;
+  }
+}
+
+
+.swipeSlideshowContainer{
+
+@media screen and (min-width: 500px) {
+max-width: 1000px;
+margin: 0 auto;
+}
+
+}
+
+
+.slick-initialized .slick-slide {
+  background-size: cover;
+  background-position: top;
+}
+
+.slick-slide {
+transform: scale(.5) translateX(40%);
+transition: all .3s ease;
+opacity: .5;
+} 
+
+.slick-slide.slick-active + .slick-slide{
+transform: scale(.5) translateX(-40%);
+opacity: .5;
+} 
+
+.slick-slide.slick-active.swipeSlideshow + .slick-slide{
+  transform: scale(1);
+   -webkit-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.slick-slide.swipeSlideshow.slick-active {
+    -webkit-filter: blur(0px);
+  filter: blur(0px);
+}
+
+.slick-slide.swipeSlideshow {
+  transform: scale(1);
+   -webkit-filter: blur(5px);
+  filter: blur(5px);
+}
+
+.slick-slide.swipeSlideshow:after {
+  padding-top: 300px;
+    @media screen and (min-width: 500px) {
+      padding-top: 75%;
+    }
+}
+
+.slick-slide:after {
+  content: '';
+  display: inline-block;
+  padding-top: 75%;
+}
+
+.slick-slide.slick-active {
+transform: scale(1);
+opacity: 1;
+}
+
+
+.slick-dots li button:before {
+    border: 1px solid black;
+    width: 5px;
+    background: transparent;
+    height: 5px;
+    font-size: 0px;
+    border-radius: 50%;
+}
+
+.slick-dots li button {
+    width: 5px;
+    height: 5px;
+} 
+
+.slick-dots li {
+      width: 10px;
+    height: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    background: black;
+}
+
+.slick-dots {
+  
+  bottom: 20px;
+}
+
+.featuredImageSlideshow {@media screen and (min-width: 500px) {
+max-width: 600px;
+margin: 0 auto;
+}}

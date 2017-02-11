@@ -1,3 +1,48 @@
-body {
-  background-color: #FAF3DD;
+body, html {
+  background-color: #FFF;
+  margin: 0;
+  padding: 0 0 0 0;
+  font-family: 'aleo';
+}
+
+ul, li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a, h2, h4, h5, h6, p{
+  text-decoration: none;
+  color: black;
+  letter-spacing: .03em;
+}
+
+.wwf {
+  position: relative;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.slick-arrow:before {
+  color: black;
+}
+
+.slick-arrow {
+  z-index: 777;
+}
+
+.slick-prev {
+  left: 7px;
+}
+
+.slick-next {
+  right: 7px;
+}
+
+h2 {
+font-weight: normal;
+}
+
+.t_b {
+  transition: all .3s ease;
 }

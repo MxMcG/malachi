@@ -1,9 +1,15 @@
 .categorizedTiles {
-  background-color: #FFA69E;
 
-  .vendorImage {
-    height: 200px;
-    width: 300px;
+  .tiles {
+  display: inline-block;
+  width: 50%;
+
+    img {
+      width: 100%;
+    }
+    h2 {
+      color: black;
+    }
   }
 
 }

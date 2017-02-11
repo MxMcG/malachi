@@ -30,9 +30,12 @@ export default class Nav extends Component {
         <Link to="/" className="">
           <img onClick={this.handleClick.bind(this)} src={cdnImageBase + logo} />
         </Link>
-        <Link to="/shop" className="">Shop</Link>
-        <Link to="/about" className="">About</Link>
-        <Link to="/events" className="">Events</Link>
+        <ul>
+          <li><Link to="/shop" className="" activeClassName="active">Shop</Link></li>
+          <li><Link to="/about" className="" activeClassName="active">About</Link></li>
+          <li><Link to="/events" className="" activeClassName="active">Events</Link></li>
+        </ul>
+        <div className="banner">25% goes to missionaries</div>
       </div>
     );
   }

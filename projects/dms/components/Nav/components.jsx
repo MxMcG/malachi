@@ -12,7 +12,7 @@ export default class Nav extends Component {
     return (
       <div className="nav" >
         <div className="navBar">
-          <h2 className="headline">DAILY MESSIAH</h2>
+          <h1 className="headline">DAILY MESSIAH</h1>
         </div>
       </div>
     );

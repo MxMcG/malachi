@@ -29,7 +29,7 @@ export default class Articles extends Component {
         <div className="article" key={outerIndex}>
           <Helmet title={title} meta={[ { name: "description", content: description } ]} />
           <h2 className="headline">{ headline }</h2>
-          <h4 className="date">{ date }</h4>
+          <h3 className="date">{ date }</h3>
           { allParagraphs }
         </div>
       );

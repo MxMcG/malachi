@@ -26,6 +26,7 @@ class ArticlesContainer extends Component {
 ArticlesContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
+  console.log("BIG STATE", state)
   const componentContent = state.content.project.components.ArticlesContainer;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl;

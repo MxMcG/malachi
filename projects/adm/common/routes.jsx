@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, browserHistory, Router, IndexRoute } from 'react-router';
 
-import App from './containers/App.jsx';
+import App from './containers/App.js';
 import AppContainer from './containers/AppContainer.js';
 import AdminContainer from './containers/AdminContainer.js';
 import LoginContainer from './containers/LoginContainer.js';

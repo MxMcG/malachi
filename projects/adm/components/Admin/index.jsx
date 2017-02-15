@@ -39,6 +39,7 @@ export default class Admin extends Component {
       }
       componentsPayload.push(componentData);
       if (projectComponents[index + 1] === undefined) {
+        // adds components to state of admin component
         this.props.dispatchLoadAdminComponents(componentsPayload);
       }
     });

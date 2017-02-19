@@ -40,8 +40,7 @@ export default class Cart extends Component {
     const activeCart = this.props.cart.activeCart
     const lineItems = activeCart.lineItems;
     if (lineItems) {
-      lineItems.forEach((item, index) => {
-        console.log('LINE ITEM', item)
+      lineItems.forEach((item, index) => {        
         elements.push(
           <div className="cart-item" key={index}>
             <div className="cart-item__img" style={{ backgroundImage: 'url(' + item.image.src + ')' }}></div>
@@ -78,7 +77,7 @@ export default class Cart extends Component {
   }
 
   handleCloseCart() {
-    console.log("Closed")
+    // console.log("Closed")
   }
 
   render() {

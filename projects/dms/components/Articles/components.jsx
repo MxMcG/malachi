@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import $ from 'jquery';
+import Helmet from "react-helmet";
 
 export default class Articles extends Component {
 
@@ -18,14 +19,17 @@ export default class Articles extends Component {
       const allParagraphs = [];
       const headline = article.headline;
       const date = article.date;
+      const title = article.title;
+      const description = article.description;
       const paragraphs = article.paragraphs
       paragraphs.forEach((paragraph, innerIndex) => {
         allParagraphs.push(<p className="paragraph" key={innerIndex}>{ paragraph }</p>)
       })
       allArticles.push(
         <div className="article" key={outerIndex}>
+          <Helmet title={title} meta={[ { name: "description", content: description } ]} />
           <h2 className="headline">{ headline }</h2>
-          <h4 className="date">{ date }</h4>
+          <h3 className="date">{ date }</h3>
           { allParagraphs }
         </div>
       );
@@ -44,6 +48,7 @@ export default class Articles extends Component {
   }
 
   render() {
+
     return (
       <div className="articles" >
         { this.renderArticles() }

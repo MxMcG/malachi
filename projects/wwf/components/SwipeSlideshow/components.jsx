@@ -43,7 +43,7 @@ export default class SwipeSlideshow extends Component {
     });
   }
 
-  renderSlides() {    
+  renderSlides() {
     const loadedSlides = this.props.slides;
     const preRenderSlides = this.props.componentContent.slides;
     const cdnImageBase = this.props.cdnImageBase;
@@ -62,7 +62,6 @@ export default class SwipeSlideshow extends Component {
       );
     } else {
       loadedSlides.forEach((slide, index) => {
-        console.log("LINK?", slide.hrefCrafter)
         elements.push(
           <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
             <div className="swipeContent">
@@ -75,9 +74,9 @@ export default class SwipeSlideshow extends Component {
                 {slide.ctaText}
               </Link>
             </div>
-          </div>  
+          </div>
         )
-      }); 
+      });
     }
     return elements;
   }
@@ -123,4 +122,3 @@ export default class SwipeSlideshow extends Component {
     )
   }
 }
-

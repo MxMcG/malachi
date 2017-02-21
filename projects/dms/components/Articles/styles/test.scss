@@ -1,11 +1,12 @@
 .articles {
-  padding: 34px 30px;
+  padding: 24px 30px;
 
   .paragraph {
-    font-size: 20px;
+    font-size: 22px;
   }
   .headline {
     font-weight: bold;
+    font-size: 30px;
   }
   .date {
     font-weight: bold;
@@ -38,6 +39,9 @@
     }
     .leftArrow {
       margin: 0 60px;
+    }
+    .headline {
+      font-size: 36px;
     }
   }
 }

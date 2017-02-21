@@ -5,9 +5,9 @@
 import React from 'react';
 import { Route, browserHistory, Router, IndexRoute } from 'react-router';
 
-import RootContainer from './containers/RootContainer.jsx';
-import LayoutContainer from './containers/LayoutContainer.jsx';
-import ArticlesContainer from './containers/ArticlesContainer.jsx';
+import RootContainer from './containers/RootContainer.js';
+import LayoutContainer from './containers/LayoutContainer.js';
+import ArticlesContainer from './containers/ArticlesContainer.js';
 
 Route.propTypes = {
   component: React.PropTypes.object,

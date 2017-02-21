@@ -10,19 +10,14 @@ export default class Nav extends Component {
   }
 
   componentWillMount() {
-    this.doIt();
-  }
-
-  doIt() {
-    console.log("JJOOOOOOOOOOOOOO")
+  
   }
 
   handleClick() {
-    console.log("CLICKEDDD")
+    // console.log("CLICKEDDD")
   }
 
   render() {
-    console.log("KKKK", this.props.componentContent)
     const logo = this.props.componentContent.logo;
     const cdnImageBase = this.props.cdnImageBase;
     return (

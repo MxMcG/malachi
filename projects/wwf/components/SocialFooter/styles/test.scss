@@ -1,4 +1,4 @@
-.footer {
+.socialFooter {
 font-size: 15px;
 text-align: center;
 padding: 20px 0;
@@ -6,16 +6,20 @@ padding: 20px 0;
 -moz-box-shadow: inset 0px 14px 10px -11px rgba(209,209,209,0.45);
 box-shadow: inset 0px 14px 10px -11px rgba(209,209,209,0.45);
 
+h2 {
+  font-weight:300;
+  margin:0 0 5px 0;
+  text-transform: uppercase;
+  color: black;
+  font-size: 15px;
+}
+
 div, a {
   font-weight: 300;
 }
 
 a {
   margin: 0 5px;
-}
-
-div {
-  margin-bottom: 5px;
 }
 
 

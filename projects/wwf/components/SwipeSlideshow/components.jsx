@@ -66,7 +66,7 @@ export default class SwipeSlideshow extends Component {
         elements.push(
           <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
             <div className="swipeContent">
-              <div className="wesCross"><div className="mi"></div><div className="th"></div></div>
+              <div className="wesCross"><div className="w">w</div><div className="mi"></div><div className="th"></div></div>
               <Link to={slide.hrefCrafter} className="link">
                 <h2>{slide.headline}</h2>
                 <p>{slide.paragraph}</p>

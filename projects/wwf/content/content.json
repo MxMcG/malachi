@@ -264,8 +264,7 @@
       "ComplexFeatureTextContainer": {
         "headline": "Our Story",
         "subheadline": "We Are A Collective Of Crafters",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et eleifend felis, vitae tempor orci. Nunc at ex at justo suscipit sodales. Cras pretium, mi et lacinia congue, augue diam pharetra ligula, quis porta nisi sem a lectus. In convallis vehicula nisl nec auctor. Cras orci nisl, molestie ut ullamcorper at, mollis eget tortor. "
-      },
+        "description": "We walk with the sun aligning our path we move west; it's the only way that brings life We don't stray far for we know the path we are on is a means of provision and protection Conditions will beat us up; we will keep moving forward We can rest in the midst of the storms Our hope lays in the Son of all creation for we know He has already blazed a trail for us It's not a chasing after freedom; it's walking in it It's not working for Hope; its working from it It's not finding Love along the way; it's living from it! The Son is our Freedom, our Hope, and our Love The pains of this journey have suddenly lost their sting, so WE KEEP MOVING WESTWARD."},
       "HoverImageTileContainer": {
         "title": "Mason Ward",
         "headline": "Westward",
@@ -298,7 +297,7 @@
         },
         {
           "name": "instagram",
-          "title": "Instagram. @westwardfoundation",
+          "title": "Instagram.",
           "href": "https://www.facebook.com/westwardfoundation/"
         }
       ]
@@ -316,8 +315,7 @@
       },
       "FeaturedTextCrossContainer": {
         "headline": "About Mason",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-      },
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
       "ProductsDisplayContainer": {
         "headline": "Featured Crafts",
         "ctaText": "Add To Cart"

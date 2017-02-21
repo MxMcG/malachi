@@ -1,15 +1,44 @@
 .categorizedTiles {
-
+text-align: center;
+ h2 {
+      color: black;
+      text-align: left;
+      margin: 0;
+      padding-left: 15px;
+      padding: 17px 0 17px 15px;
+    }
   .tiles {
   display: inline-block;
   width: 50%;
+  position:relative;
+    @media screen and (min-width: 768px) {
+      width: 25%;
+    }
 
-    img {
-      width: 100%;
-    }
-    h2 {
-      color: black;
-    }
+  p {
+    display: inline-block;
+    line-height: 1;
+    background: white;
+    font-size:15px;
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    border-radius: 25px;
+    padding: 10px 15px;
+    margin: 0;
+    white-space: nowrap;
+  }
+  div {
+    padding-top: 75%;
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+
+   
   }
 
 }

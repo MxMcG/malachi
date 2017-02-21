@@ -91,6 +91,8 @@ app.get('*', (req, res) => {
           title = "<title>MxMcG | Full-stack JavaScript Developer</title>";
           googleAnalytics = "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-81672933-2', 'auto');ga('send', 'pageview');</script>";
           break;
+        default:
+          googleAnalytics = null;
       }
 
       const HTML = `
@@ -100,14 +102,13 @@ app.get('*', (req, res) => {
           <meta charset="UTF-8">
           <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=0' />
           ${stylesheet()}
-          ${meta}
-          ${title}
+          <script src="https://use.fontawesome.com/3dbc112c20.js"></script>
           <script src="https://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
           <link href="https://fonts.googleapis.com/css?family=Bevan" rel="stylesheet">
+          <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
           <script src="https://use.fontawesome.com/22e36cff83.js"></script>
-          ${googleAnalytics}
         </head>
         <body>
           <div id="react-view">${componentHTML}</div>

@@ -87,7 +87,7 @@ export default class Cart extends Component {
     return (
       <div className="cartContainer">
         <div onClick={ () => { toggle === 'inactive' ? this.showCart(true) : this.showCart(false); }}>
-          <button>TOGGLE</button>
+          <div className=""><i className="fa fa-shopping-cart" aria-hidden="true"></i></div>
         </div>
         <div className={`cart ${toggle}`} >
           <div className="cartTop">

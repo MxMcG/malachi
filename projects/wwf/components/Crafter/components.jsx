@@ -34,8 +34,10 @@ export default class Crafter extends Component {
     return (
       <div className="crafter" >
         <ImageWithEffectsContainer />
-        <FeaturedTextCrossContainer />
-        <ProductsDisplayContainer />
+        <div className="cr_b">
+          <FeaturedTextCrossContainer />
+          <ProductsDisplayContainer />
+        </div>
       </div>
     );
   }

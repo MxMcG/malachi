@@ -11,7 +11,7 @@ export default class ComplexFeatureText extends Component {
     return (
       <div className="complexFeatureText" >
         <h2>{headline}</h2>
-        <h4>{subheadline}</h4>
+        <h6>{subheadline}</h6>
         <p>{description}</p>
       </div>
     );

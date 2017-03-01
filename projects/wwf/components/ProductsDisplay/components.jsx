@@ -30,7 +30,7 @@ export default class ProductsDisplay extends Component {
       const html = (
         <div className="product" key={index}>
           <img className="productImage" src={imageSrc}></img>
-          <h4 className="productTitle">{title}</h4>
+          <h6 className="productTitle">{title}</h6>
           <p className="productPrice">{price}</p>
           <button onClick={() => { this.addToCart(id, 1) }}>Add To Cart</button>
         </div>
@@ -45,7 +45,7 @@ export default class ProductsDisplay extends Component {
 
     return (
       <div className="productsDisplay" >
-        <h1>{headline}</h1>
+        <h2>{headline}</h2>
           { this.renderProducts() }
       </div>
     );

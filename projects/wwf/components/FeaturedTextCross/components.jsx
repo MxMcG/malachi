@@ -11,9 +11,9 @@ export default class FeaturedTextCross extends Component {
     if (product) {
       const crafter = product.attrs.vendor;      
       return (
-        <h1>About { crafter }</h1>);
+        <h2>About { crafter }</h2>);
     } else {
-      return (<h1>About</h1>);
+      return (<h2>About</h2>);
     }
   }
 
@@ -21,8 +21,8 @@ export default class FeaturedTextCross extends Component {
     const { headline, description } = this.props.componentContent;
     return (
       <div className="featuredTextCross" >
+        <div className="wesCross"><div className="w">w</div><div className="mi"></div><div className="th"></div></div>
         { this.displayCrafterTitle() }
-        <hr></hr>
         <p>{description}</p>
       </div>
     );

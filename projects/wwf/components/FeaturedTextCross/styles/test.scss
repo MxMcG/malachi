@@ -1,6 +1,46 @@
+.featuredTextCross{
+text-align: center;
+padding-top:25px;
+max-width: 95%;
+margin: 0 auto 50px;
+    h2 {
+      color: black;  
+      display: inline-block;
+      position: relative;
+      vertical-align: middle;
+      margin-right: 47.53px;
+    }
 
-h2 {
-  color: white;
+.wesCross {
+  display: inline-block;
+  margin:0 12px 0 0;
+  vertical-align: middle;
+
+  .w {
+    color:black;
+  }
+
+  .mi, .th {
+    background: black;
+  }
 }
 
+.op_l {
+  vertical-align: middle;
+  width: 20px;
+  height: 2px;
+  background: black;
+  display: inline-block;
+  margin-left: 12px;
+}
+
+p{
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.4;
+    text-align: left;
+    padding-left: 3px;
+}
+}
 

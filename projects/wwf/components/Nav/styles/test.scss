@@ -3,12 +3,12 @@
   position: fixed;
   top: 0;
   left:0;
-  z-index: 1;
+  z-index: 3;
   width:100%;
   letter-spacing: .03em;
   background: white;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 460px) {
     text-align: center;
   }
   a {
@@ -59,7 +59,7 @@
            border-radius: 25px;
            padding: 10px 15px;
 
-           &.active {
+           &.act {
               background: #efefef;
            }
       }

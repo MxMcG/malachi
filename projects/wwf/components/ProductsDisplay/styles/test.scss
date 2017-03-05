@@ -1,3 +1,31 @@
 .productsDisplay {
+  text-align: center;
 
+  img {
+    max-width: 200px;
+    @media screen and (min-width: 769px) {
+      max-width: 100%;
+    }
+  }
+  h2 {
+    color: black;
+    margin-bottom: 30px;
+  } 
+
+  h6 {
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  button {
+        background: black;
+        border: none;
+        color: white;
+        font-family: aleo;
+        padding: 13px 0;
+        font-size: 15px;
+        width: 140px;
+        letter-spacing: .03em;
+        text-transform: uppercase;
+  }
 }

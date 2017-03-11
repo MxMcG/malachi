@@ -30,13 +30,15 @@ function mapStateToProps(state) {
   const cdnUrl = state.urls.cdnUrl;
   const showCart = state.cart.showCart;
   const activeCart = state.cart.activeCart;
+  const quantity = state.cart.quantity;
   return {
     cart,
     componentContent,
     cdnUrl,
     cdnImageBase,
     showCart,
-    activeCart
+    activeCart,
+    quantity
   };
 }
 

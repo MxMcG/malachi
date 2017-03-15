@@ -15,13 +15,15 @@ export default class FeaturedImageSlideshow extends Component {
     const Imageelements = [];
     if (!loadedImages[0]) {
       return (
-        <div className="featuredImageSlide" >
-            <img className="image" src={cdnImageBase + loadedImages[0].src}></img>
+        <div className="wr_o">
+          <div className="featuredImageSlide" >
+              <img className="image" src={cdnImageBase + loadedImages[0].src}></img>
+          </div>
         </div>
       );
     } else {
       loadedImages.forEach((images, index) => {
-        Imageelements.push(
+        Imageelements.push( 
           <div className="featuredImageSlide" style={{backgroundImage: 'url(' + cdnImageBase + images.src + ')'}} key={index}>
           </div>  
         )

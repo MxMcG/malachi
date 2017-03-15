@@ -16,7 +16,9 @@ export default class Home extends Component {
       <div className="home" >
         <SwipeSlideshowContainer / >
         <FeaturedImagesTileContainer />
-        <FeaturedImageSlideshowContainer />        
+        <div className="wr_o">
+          <FeaturedImageSlideshowContainer />        
+        </div>
       </div>
     );
   }

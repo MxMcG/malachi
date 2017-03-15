@@ -64,13 +64,14 @@ export default class SwipeSlideshow extends Component {
       loadedSlides.forEach((slide, index) => {
         elements.push(
           <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
+            <div className="o_lay"></div>
             <div className="swipeContent">
               <div className="wesCross"><div className="w">w</div><div className="mi"></div><div className="th"></div></div>
               <Link to={slide.hrefCrafter} className="link">
                 <h2>{slide.headline}</h2>
                 <p>{slide.paragraph}</p>
               </Link>
-              <Link to={slide.hrefBuy} className="link cta" target="_blank">
+              <Link to={slide.hrefBuy} className="link cta t_b" target="_blank">
                 {slide.ctaText}
               </Link>
             </div>

@@ -91,7 +91,8 @@ export default class Cart extends Component {
     const activeCart = this.props.activeCart;
     const toggle = (this.props.showCart === true) ? 'active' : 'inactive';
     return (
-      <div className="cartContainer">
+
+      <div className="cartContainer t_b">
         { this.renderCounter() }
         <div className="cartIconContainer" onClick={ () => { toggle === 'inactive' ? this.showCart(true) : this.showCart(false); }}>
           <div className="cartIcon">

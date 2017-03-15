@@ -2,7 +2,8 @@ import update from 'immutability-helper';
 
 const initialState = {
   showCart: false,
-  activeCart: {}
+  activeCart: {},
+  quantity: 0
 }
 
 export default function cartReducers (state = initialState, action) {
@@ -15,9 +16,10 @@ export default function cartReducers (state = initialState, action) {
       return Object.assign({}, state, {
         activeCart: action.payload
       });
-    case 'ADD_ITEM_TO_CART':    
+    case 'ADD_ITEM_TO_CART':
       return Object.assign({}, state, {
-        activeCart: action.payload
+        activeCart: action.payload,
+        quantity: state.quantity + 1
       });
       default:
     return state;

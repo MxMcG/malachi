@@ -40,7 +40,7 @@ export default class Cart extends Component {
     const activeCart = this.props.cart.activeCart
     const lineItems = activeCart.lineItems;
     if (lineItems) {
-      lineItems.forEach((item, index) => {        
+      lineItems.forEach((item, index) => {
         elements.push(
           <div className="cart-item" key={index}>
             <div className="cart-item__img" style={{ backgroundImage: 'url(' + item.image.src + ')' }}></div>
@@ -64,7 +64,7 @@ export default class Cart extends Component {
                     }>+</span>
                   </button>
                 </div>
-                <span className="cart-item__price">{`$${(item.price*item.quantity)}`}</span>
+                <span className="cart-item__price">{`$ ${(item.price*item.quantity)}`}</span>
               </div>
             </div>
           </div>
@@ -80,17 +80,29 @@ export default class Cart extends Component {
     // console.log("Closed")
   }
 
+  renderCounter () {
+    const quantity = this.props.cart.quantity
+    if (quantity > 0) {
+      return (<div className="counter">{ quantity }</div>)  ;
+    }
+  }
+
   render() {
     const activeCart = this.props.activeCart;
     const toggle = (this.props.showCart === true) ? 'active' : 'inactive';
     return (
+
       <div className="cartContainer t_b">
-        <div onClick={ () => { toggle === 'inactive' ? this.showCart(true) : this.showCart(false); }}>
-          <div className=""><i className="fa fa-shopping-cart" aria-hidden="true"></i></div>
+        { this.renderCounter() }
+        <div className="cartIconContainer" onClick={ () => { toggle === 'inactive' ? this.showCart(true) : this.showCart(false); }}>
+          <div className="cartIcon">
+            <i className="fa fa-shopping-cart" aria-hidden="true"></i>
+          </div>
         </div>
         <div className={`cart ${toggle}`} >
           <div className="cartTop">
-            <h2 className="cart-title">Your cart</h2>
+            <h2 className="cart-title">Your Cart:</h2>
+            <hr></hr>
             <button onClick={() => { this.showCart(false) }} className="btn--close">×</button>
             <span className="visuallyhidden"></span>
           </div>
@@ -101,10 +113,7 @@ export default class Cart extends Component {
             <div className="cart-bottom">
               <div className="priceTotal">
                 <div className="total">TOTAL</div>
-                <div className="subtotalContainer">
-                  <div className="cad">CAD</div>
-                  <div className="subtotal">${activeCart.subtotal}</div>
-                </div>
+                <div className="subtotal">${activeCart.subtotal}</div>
               </div>
               <div className="checkout">
                 <div className="checkoutDisclaimer">Shipping and discount codes are added at checkout.</div>

@@ -4,31 +4,30 @@ text-align: center;
       color: black;
       text-align: left;
       margin: 0;
-      padding-left: 15px;
-      padding: 17px 0 17px 15px;
+      text-decoration: underline;
+      line-height: 63px;
+      padding: 0 15px;
+      @media screen and (min-width: 769px) {
+        line-height: 83px;
+      }
     }
   .tiles {
   display: inline-block;
   width: 50%;
   position:relative;
-    @media screen and (min-width: 768px) {
-      width: 25%;
-    }
 
   p {
-    display: inline-block;
+    display: block;
     line-height: 1;
     background: white;
-    font-size:15px;
     cursor: pointer;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    border-radius: 25px;
-    padding: 10px 15px;
+    padding: 25px 0;
+    text-align: center;
     margin: 0;
-    white-space: nowrap;
+
+    @media screen and (min-width: 769px) {
+      font-size: 20px;
+    }
   }
   div {
     padding-top: 75%;
@@ -36,9 +35,14 @@ text-align: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+
   }
 
    
   }
 
+}
+
+.category {
+   border-bottom: 1px solid #ebebeb;
 }

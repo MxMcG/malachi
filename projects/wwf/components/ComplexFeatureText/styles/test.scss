@@ -9,21 +9,26 @@
   }
 
   h6 {
-    margin: 3px 0 9px 0;
+    margin: 9px 0 12px 0;
     display: inline-block;
     padding: 0 21px 3px 21px;
     text-transform: uppercase;
     border-bottom: 2px black solid;
+    font-size: 14px;
   }
 
   p {
-    max-width: 350px;
-    margin: 0 auto 35px;
+    max-width: 460px;
+    margin: 0 35px 35px;
     font-size: 12px;
+    font-weight: 300;
+    line-height: 1.75;
+
 
     @media screen and (min-width: 500px) {
-      max-width: 435px;
-
+      font-size: 16px;
+      max-width: 600px;
+      margin: 0 auto 35px;
     }
   }
 
@@ -32,3 +37,5 @@
   }
 
 }
+
+

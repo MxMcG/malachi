@@ -3,8 +3,9 @@
 
   img {
     max-width: 200px;
+    margin-bottom:17px;
     @media screen and (min-width: 769px) {
-      max-width: 100%;
+      max-width: 300px;
     }
   }
   h2 {
@@ -14,7 +15,8 @@
 
   h6 {
     font-weight: 500;
-    margin-bottom: 10px;
+    margin-bottom: 17px;
+    font-size: 15px;
   }
 
   button {
@@ -27,5 +29,14 @@
         width: 140px;
         letter-spacing: .03em;
         text-transform: uppercase;
+  }
+}
+
+.product {
+  margin-bottom: 50px;
+
+  &:last-child {
+    padding-bottom: 30px;
+    margin-bottom:0;
   }
 }

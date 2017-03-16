@@ -1,6 +1,6 @@
 {
   "components": {
-    "NavContainer": {      
+    "NavContainer": {
       "logo": "TL.jpg",
       "SliderNavContainer": {
         "logoImage": "WestwardLogo.png"
@@ -56,6 +56,12 @@
           }
         ]
       },
+      "MissionsBlockContainer": {
+        "image": {
+          "src": "leth.png",
+          "alt": "#"
+        }
+      },
       "FeaturedImagesTileContainer": {
         "headline": "Organizations We Support",
         "images": [
@@ -76,6 +82,7 @@
           }
         ]
       },
+
       "FeaturedImageSlideshowContainer": {
         "headline": "Events",
         "subheadline": "Westward Cold Brew",

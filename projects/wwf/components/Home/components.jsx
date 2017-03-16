@@ -4,6 +4,7 @@ import SwipeSlideshowContainer from '../../common/containers/SwipeSlideshowConta
 import FeaturedImagesTileContainer from '../../common/containers/FeaturedImagesTileContainer.js';
 import FeaturedImageSlideshowContainer from '../../common/containers/FeaturedImageSlideshowContainer.js';
 import DynamicImageContainer from '../../common/containers/DynamicImageContainer.js';
+import MissionsBlockContainer from '../../common/containers/MissionsBlock.js';
 
 export default class Home extends Component {
 
@@ -16,8 +17,9 @@ export default class Home extends Component {
       <div className="home" >
         <SwipeSlideshowContainer / >
         <FeaturedImagesTileContainer />
+        <MissionsBlockContainer />
         <div className="wr_o">
-          <FeaturedImageSlideshowContainer />        
+          <FeaturedImageSlideshowContainer />
         </div>
       </div>
     );

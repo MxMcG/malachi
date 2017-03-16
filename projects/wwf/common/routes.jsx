@@ -10,6 +10,7 @@ import LayoutContainer from './containers/LayoutContainer.js';
 import HomeContainer from './containers/HomeContainer.js';
 import ShopContainer from './containers/ShopContainer.js';
 import AboutContainer from './containers/AboutContainer.js';
+import MissionsContainer from './containers/MissionsContainer.js';
 import EventsContainer from './containers/EventsContainer.js';
 import CrafterContainer from './containers/CrafterContainer.js';
 
@@ -21,11 +22,12 @@ Route.propTypes = {
 export default (
   <Route component={RootContainer}>
     <Route path="/" component={LayoutContainer}>
-      <IndexRoute component={HomeContainer}/>      
+      <IndexRoute component={HomeContainer}/>
       <Route path="shop" component={ShopContainer} />
       <Route path="/crafters/:id" component={CrafterContainer} />
       <Route path="about" component={AboutContainer} />
       <Route path="events" component={EventsContainer} />
+      <Route path="missions" component={MissionsContainer} />
     </Route>
   </Route>
 );

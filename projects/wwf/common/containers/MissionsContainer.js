@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import MissionsBlock from '../../components/MissionsBlock/components.jsx';
+import Missions from '../../components/Missions/components.jsx';
 
 // include actions as they are needed by each component
 // they are called via dispatch()
@@ -15,7 +15,7 @@ class MissionsContainer extends Component {
 
   render () {
     return (
-      <MissionsBlock {...this.props} />
+      <Missions {...this.props} />
     );
   }
 }

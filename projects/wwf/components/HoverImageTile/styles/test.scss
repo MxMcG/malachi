@@ -60,6 +60,12 @@
         color:#ef5b5b;
         width: 100px;
         transition-delay: .1s;
+
+        &:hover {
+          transition-delay: 0;
+          color: #fff;
+          background:#ef5b5b;
+        }
       }
 
 

@@ -6,11 +6,14 @@ export default class MissionsBlock extends Component {
     super(props);
   }
 
-  render() {    
+  render() {
+    const ausSrc = this.props.componentContent.aus;
+    const chilSrc = this.props.componentContent.chil;
     const cdnImageBase = this.props.cdnImageBase;
     return (
-      <div className="missionsBlock" >
-        <h1>ADD ME</h1>
+      <div className="missionsBlock">
+        <img src={ cdnImageBase + ausSrc }></img>
+        <img src={ cdnImageBase + chilSrc }></img>
       </div>
     );
   }

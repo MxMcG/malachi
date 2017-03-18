@@ -4,7 +4,6 @@ text-align: center;
       color: black;
       text-align: left;
       margin: 0;
-      text-decoration: underline;
       line-height: 63px;
       padding: 0 15px;
       @media screen and (min-width: 769px) {
@@ -17,13 +16,14 @@ text-align: center;
   position:relative;
 
   p {
-    display: block;
+    display: inline-block;
     line-height: 1;
     background: white;
     cursor: pointer;
-    padding: 25px 0;
+    border-bottom: 2px solid black;
+    padding: 0 0 2px 0;
     text-align: center;
-    margin: 0;
+    margin: 25px auto;
 
     @media screen and (min-width: 769px) {
       font-size: 20px;

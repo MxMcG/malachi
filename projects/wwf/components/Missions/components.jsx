@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import ComplexFeatureTextContainer from '../../common/containers/ComplexFeatureTextContainer.js';
 
 export default class Missions extends Component {
@@ -10,9 +9,11 @@ export default class Missions extends Component {
 
   render() {
     return (
+
       <div className="missions" >
         <ComplexFeatureTextContainer />
       </div>
+
     );
   }
 }

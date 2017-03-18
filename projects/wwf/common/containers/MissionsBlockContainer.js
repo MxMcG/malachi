@@ -26,7 +26,7 @@ class MissionsBlockContainer extends Component {
 MissionsBlockContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.HomeContainer.MissionsBlockContainer
+  const componentContent = state.content.project.components.HomeContainer.MissionsBlockContainer;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
   return {

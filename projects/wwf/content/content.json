@@ -58,7 +58,7 @@
       },
       "MissionsBlockContainer": {
         "aus": "austr.jpg",
-        "chil": "chile.jpg"        
+        "chil": "chile.jpg"
       },
       "FeaturedImagesTileContainer": {
         "headline": "Organizations We Support",
@@ -158,7 +158,19 @@
       }
     },
     "MissionsContainer": {
-      "text": "fdkdf"
+      "MultTextImgHoverContainer": {
+        "blocks": [
+          {
+
+          },
+          {
+
+          },
+          {
+            
+          }
+        ]
+      }
     },
     "SocialFooterContainer": {
       "title": "Social",

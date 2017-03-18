@@ -14,8 +14,7 @@ export default class About extends Component {
     return (
       <div className="about" >
         <ComplexFeatureTextContainer />
-        <HoverImageTileContainer />
-        <CategorizedRowsContainer />
+        <HoverImageTileContainer />        
       </div>
     );
   }

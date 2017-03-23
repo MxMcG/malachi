@@ -16,6 +16,122 @@ a {
   cursor:pointer;
 }
 
+.c {
+  clear: both;
+}
+
+
+.red {
+  color:#E07A5F;
+}
+
+.cell {display: table-cell;}
+
+.mid {vertical-align: middle;}
+
+
+.missionsBlock {
+  overflow:hidden;
+  margin: 0 auto 40px;
+  max-width: 1400px;
+
+  @media screen and (min-width: 769px) {
+  margin: 0 auto 50px;
+  }
+
+  .con {
+    width: 100%;
+    display: inline-block;
+
+     @media screen and (min-width: 769px) {
+     width: 50%;
+
+
+
+    }
+  }
+
+  .ov { 
+
+      @media screen and (min-width: 769px) {
+     position: relative;
+     top: -30px;
+     left: -30px
+    }
+  }
+
+  .contain {
+    max-width: 500px;
+    margin: 35px auto 40px;
+
+    @media screen and (min-width: 769px) {
+      margin: 30px auto 30px;
+
+    }
+  }
+  .words {
+  box-sizing: border-box;
+  padding: 0 10px;
+       @media screen and (min-width: 769px) {
+        padding: 0 70px 0 40px;
+    
+    }
+  }
+
+  p {
+  margin-bottom: 20px;
+  line-height: 1.7;
+  }
+
+
+
+  h2 {
+    margin-bottom: 12px;
+    color:black;
+  }
+}
+
+.l {
+  font-weight: lighter;
+}
+
+
+.t_left {
+  text-align: center;
+  @media screen and (min-width: 769px) {
+  text-align: left;
+}
+}
+
+.t_right {
+  text-align: center;
+  @media screen and (min-width: 769px) {
+  text-align: right;
+}
+}
+
+.t_cent {
+ text-align: center;
+
+
+ 
+}
+
+.fl_l {
+float:none;
+@media screen and (min-width: 769px) {
+  float:left;
+}
+
+}
+
+.fl_r {
+float:none;
+  @media screen and (min-width: 769px) {
+  float:right;
+}
+}
+
 
 p {
 
@@ -46,7 +162,7 @@ a, h2, h4, h5, h6, p, h1{
   overflow: hidden;
   padding-top: 82px;
   @media screen and (min-width: 769px) {
-    padding-top: 100px;
+    padding-top: 112px;
   }
   
 }
@@ -67,17 +183,27 @@ a, h2, h4, h5, h6, p, h1{
   right: 7px;
 }
 
+
+@media screen and (max-width: 769px) {
+.hide-below-769 {
+    display:none !important;
+
+}  
+}
+
+
+
 .o_lay {
   position: absolute;
   z-index: 2;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,.4);
+  background: rgba(0,0,0,.25);
 }
 
 h2 {
 font-weight: normal;
-font-size: 20px;
+font-size: 22px;
 
 @media screen and (min-width: 768px) {
   font-size: 30px;
@@ -131,4 +257,82 @@ h6 {
     position: relative;
     background: white;
   }
+}
+
+
+   .button {
+          width: 132px;
+      font-size: 14px;
+      display: inline-block;
+      padding: 11px 0;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      font-weight: 400;
+      text-align: center;
+      font-family: 'Source Sans Pro', sans-serif;
+
+  
+
+      &.red {
+        border: 2px solid #E07A5F;
+        color: #E07A5F;
+        &:hover {
+          background:#E07A5F;
+          color: white;
+        }
+      }
+
+      &.black {
+      border: 2px solid black;
+      color: black;
+        &:hover {
+          background:black;
+          color: white;
+        }
+      }
+
+      &.red.solid {
+      border: none;
+      color: white;
+      background: rgba(224, 122, 95, 1);
+        &:hover {
+          background:rgba(224, 122, 95, .8);
+        }
+      }
+   } 
+
+
+
+.slick-next::before {
+  content: '>' !important;
+}
+
+
+
+.slick-prev::before, .slick-next::before {
+  -webkit-transform: scaleY(1.8);
+  -moz-transform: scaleY(1.8);
+  -o-transform: scaleY(1.8);
+  transform: scaleY(1.8);
+    font-weight: bold;
+    display: block;
+
+
+
+}
+
+
+
+
+.slick-prev::before {
+  content: '<' !important;
+}
+
+
+.hov {
+      opacity: 0;
+          transform: rotate3d(0, -20, -1, -35deg);
+      -webkit-transform: rotate3d(0, -20, -1, -35deg);
+      -moz-transform: rotate3d(0, -20, -1, -35deg);
+      -o-transform: rotate3d(0, -20, -1, -35deg);
 }

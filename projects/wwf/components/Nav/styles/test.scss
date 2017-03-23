@@ -90,7 +90,7 @@
   }
 
   .banner {
-    background: black;
+    background: #E07A5F;
     color: white;
     float: left;
     width: 100%;
@@ -99,6 +99,11 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;
+    font-family: 'Source Sans Pro', sans-serif;
+    @media screen and (min-width: 769px) {
+    font-size: 17px;
+    line-height: 30px;
+    }
   }
 
 }

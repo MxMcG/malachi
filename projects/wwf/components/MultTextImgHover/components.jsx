@@ -6,11 +6,70 @@ export default class MultTextImgHover extends Component {
     super(props);
   }
 
+  renderBlocks() {
+    const blocks = this.props.componentContent.blocks;
+    const blockElements = [];
+    blocks.forEach((block, index) => {
+
+      // console.log(block.topBlock.topHeadline);
+      // console.log(block.topBlock.topSubheadline);
+      // console.log(block.topBlock.topDescription);
+
+      // console.log("LOW")
+      // console.log(block.bottomBlock.lowCtaText);
+      // console.log(block.bottomBlock.lowHeadline);
+      // console.log(block.bottomBlock.lowSubheadline);
+      // console.log(block.bottomBlock.lowTitle);
+      // console.log(block.bottomBlock.lowImage);
+
+      blockElements.push(
+        <div key={index}>
+          <div className="complexFeatureText" >
+            <h2>{block.topBlock.topHeadline}</h2>
+            <h6>{block.topBlock.topSubheadline}</h6>
+            <p>{block.topBlock.topDescription}</p>
+          </div>
+
+          <div className="h_c">
+            <img src={this.props.cdnImageBase + block.bottomBlock.lowImage.src} alt={block.bottomBlock.lowImage.alt}></img>
+            <div className="hoverImageTile" >
+              <div className="t_c t_b">
+                <div className="tb_c t_b">
+                    <h5 className="tr_u">{block.bottomBlock.lowTitle}</h5>
+                    <div className="wesCross"><div className="w t_b">w</div><div className="mi t_b"></div><div className="th t_b"></div></div>
+                    <h1 className="tr_u">{block.bottomBlock.lowHeadline}</h1>
+                    <p className="tr_u">{block.bottomBlock.lowSubheadline}</p>
+                    <a className="tr_b red button solid">{block.bottomBlock.lowCtaText}</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    });
+    return blockElements;
+  }
+
   render() {
+    // in here, loop through array of blocks, render each block onto the package
+    // order of blocks should be complex feature text, complex image
     return (
       <div className="MultTextImgHover" >
-        <h1></h1>
+        { this.renderBlocks() }
       </div>
     );
   }
 }
+
+
+
+
+// return (
+
+// );
+//
+// const {  } = this.props.componentContent;
+// const cdnImageBase = this.props.cdnImageBase;
+// return (
+//
+// );

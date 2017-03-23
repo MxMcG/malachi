@@ -161,13 +161,55 @@
       "MultTextImgHoverContainer": {
         "blocks": [
           {
-
+            "topBlock": {
+              "topHeadline": "North Coast Calvary Chapel",
+              "topSubheadline": "We Are A Collective Of Crafters",
+              "topDescription": "We walk with the sun aligning our path we move west; it's the only way that brings life We don't stray far for we know the path we are on is a means of provision and protection Conditions will beat us up; we will keep moving forward We can rest in the midst of the storms Our hope lays in the Son of all creation for we know He has already blazed a trail for us It's not a chasing after freedom; it's walking in it It's not working for Hope; its working from it It's not finding Love along the way; it's living from it! The Son is our Freedom, our Hope, and our Love The pains of this journey have suddenly lost their sting, so WE KEEP MOVING WESTWARD."
+            },
+            "bottomBlock": {
+              "lowCtaText": "Learn More",
+              "lowHeadline": "Westward",
+              "lowSubheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "lowTitle": "Mason Ward",
+              "lowImage": {
+                "src": "WestwardAboutMason.png",
+                "alt": "about mason"
+              }
+            }
           },
           {
-
+            "topBlock": {
+              "topHeadline": "Christian Surfers",
+              "topSubheadline": "International",
+              "topDescription": "We walk with the sun aligning our path we move west; it's the only way that brings life We don't stray far for we know the path we are on is a means of provision and protection Conditions will beat us up; we will keep moving forward We can rest in the midst of the storms Our hope lays in the Son of all creation for we know He has already blazed a trail for us It's not a chasing after freedom; it's walking in it It's not working for Hope; its working from it It's not finding Love along the way; it's living from it! The Son is our Freedom, our Hope, and our Love The pains of this journey have suddenly lost their sting, so WE KEEP MOVING WESTWARD."
+            },
+            "bottomBlock": {
+              "lowCtaText": "Learn More",
+              "lowHeadline": "Christian Surfers",
+              "lowSubheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "lowTitle": "Mason Ward",
+              "lowImage": {
+                "src": "WestwardAboutMason.png",
+                "alt": "about mason"
+              }
+            }
           },
           {
-            
+            "topBlock": {
+              "topHeadline": "Youth With A Mission",
+              "topSubheadline": "We Are A Collective Of Crafters",
+              "topDescription": "We walk with the sun aligning our path we move west; it's the only way that brings life We don't stray far for we know the path we are on is a means of provision and protection Conditions will beat us up; we will keep moving forward We can rest in the midst of the storms Our hope lays in the Son of all creation for we know He has already blazed a trail for us It's not a chasing after freedom; it's walking in it It's not working for Hope; its working from it It's not finding Love along the way; it's living from it! The Son is our Freedom, our Hope, and our Love The pains of this journey have suddenly lost their sting, so WE KEEP MOVING WESTWARD."
+            },
+            "bottomBlock": {
+              "lowCtaText": "Learn More",
+              "lowHeadline": "Westward",
+              "lowSubheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+              "lowTitle": "Mason Ward",
+              "lowImage": {
+                "src": "WestwardAboutMason.png",
+                "alt": "about mason"
+              }
+            }
           }
         ]
       }

@@ -7,7 +7,7 @@
 import * as actions from './actions/index';
 
 const shopClient = ShopifyBuy.buildClient({
-  apiKey: 'f50e172619e144d0e415b0333134ac33',
+  accessToken: 'f50e172619e144d0e415b0333134ac33',
   appId: 6,
   domain: 'westward-foundation.myshopify.com'
 });

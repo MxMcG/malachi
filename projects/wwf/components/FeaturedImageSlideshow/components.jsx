@@ -36,11 +36,12 @@ export default class FeaturedImageSlideshow extends Component {
   render() {
 
     const settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       centerMode: true,
       slidesToShow: 1,
       arrows: true,
+
       responsive: [
          {
            breakpoint: 768,
@@ -62,12 +63,16 @@ export default class FeaturedImageSlideshow extends Component {
     };
 
     return (
-      <div className="featuredImageSlideshow" >
+      <div className="featuredImageSlideshow">
+      <div className="feat_con">
         <h2>Events</h2>
-        <h6>westward cold brew</h6>
+        <h6>Want Westward Cold Brew?</h6>
+      </div>
+        <a href="" className="t_b button red solid">Learn More</a>
         <Slider {...settings}>
             { this.renderImages() }  
         </Slider>
+
       </div>
     );
   }

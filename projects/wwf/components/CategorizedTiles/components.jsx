@@ -40,7 +40,14 @@ export default class CategorizedTiles extends Component {
             innerElements.push(
               <div className="tiles" key={innerIndex}>
                 <Link to={`/crafters/${coll.collection_id}`} className="">
-                  <div className="vendorImage" style={{backgroundImage: 'url(' + coll.image.src + ')'}}></div>
+                  <div className="prodOverlayWrap per">
+                      <div className="vendorImage" style={{backgroundImage: 'url(' + coll.image.src + ')'}}></div>
+                      <div className="overlayDescription t_b hov">
+                        <div className="t_cen">
+                            <p>{coll.title}</p>
+                        </div>
+                      </div>
+                  </div>
                   <p>{coll.title}</p>
                 </Link>
               </div>

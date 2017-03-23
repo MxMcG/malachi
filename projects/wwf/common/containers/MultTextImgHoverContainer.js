@@ -24,8 +24,10 @@ MultTextImgHoverContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
   const componentContent = state.content.project.components.MissionsContainer.MultTextImgHoverContainer;
+  const cdnImageBase = state.urls.cdnImageBase;
   return {
-    componentContent
+    componentContent,
+    cdnImageBase
   };
 }
 

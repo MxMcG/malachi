@@ -13,19 +13,24 @@ text-align: center;
   }
 }
 
+a {
+  margin-bottom: 20px;
+}
 
   h2 {
-   color: black;
-   margin: 0;
+       color: black;
+    margin: 0 auto;
+    padding-bottom: 2px;
+    display: inline-block;
+    border-bottom: 2px black solid;
   }
 
   h6 {
-       margin: 9px 0 12px 0;
-    display: inline-block;
-    padding: 0 21px 3px 21px;
-    text-transform: uppercase;
-    border-bottom: 2px black solid;
-    font-size: 14px;
+margin: 12px 0 15px 0;
+    display: block;
+    font-size: 16px;
+    line-height: 1.7;
+    text-transform: none;
   }
 
   .image {
@@ -39,3 +44,6 @@ text-align: center;
     max-width: 1300px;
     overflow: hidden;
 }
+
+
+

@@ -40,6 +40,7 @@
       h5 {
       text-transform: uppercase;
       transition-delay: .05s;
+      font-family: 'Source Sans Pro', sans-serif;
       }
       h5,p,a {
       font-size: 12px;
@@ -56,17 +57,16 @@
       a {
         line-height: 1;
         padding: 10px 0;
-        border: #ef5b5b 2px solid;
-        color:#ef5b5b;
         width: 100px;
         transition-delay: .1s;
 
         &:hover {
-          transition-delay: 0;
-          color: #fff;
-          background:#ef5b5b;
+          transition-delay: initial;
         }
       }
+
+
+
 
 
       h1 {
@@ -117,4 +117,8 @@
 
 .tr_b {
   transform: translate(0,10px);
+}
+
+.per {
+  perspective: 1000px;
 }

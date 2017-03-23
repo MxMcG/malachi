@@ -19,7 +19,7 @@ export default class HoverImageTile extends Component {
                     <div className="wesCross"><div className="w t_b">w</div><div className="mi t_b"></div><div className="th t_b"></div></div>
                     <h1 className="tr_u">{headline}</h1>
                     <p className="tr_u">{subheadline}</p>
-                    <a className="tr_b">{ctaText}</a>
+                    <a className="tr_b red button solid">{ctaText}</a>
                 </div>
             </div>
         </div>

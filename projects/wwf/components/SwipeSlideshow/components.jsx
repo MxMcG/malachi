@@ -88,7 +88,7 @@ export default class SwipeSlideshow extends Component {
       dots: true,
       infinite: true,
       centerMode: true,
-      arrows: false,
+      arrows: true,
       slidesToShow: 1,
       autoplay: false,
       autoplaySpeed: 4000,

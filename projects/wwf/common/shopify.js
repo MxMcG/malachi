@@ -29,10 +29,16 @@ const reduceCollectionsToAttributes = () => {
     const collectionAttributes = [];
     shopClient.fetchAllCollections()
       .then((collections) => {
-        collections.map((collection) => {
-          collectionAttributes.push(collection.attrs);
+        collections.forEach((collection, index) => {
+          queryByCollectionId(collection.attrs.collection_id).then((products) => {
+            collectionAttributes.push({
+              collection_id: collection.attrs.collection_id,
+              attrs: collection.attrs,
+              products
+            });
+            if (collections[index+1] === undefined) { resolve(collectionAttributes) }         
+          });
         });
-        resolve(collectionAttributes);
       }).catch((error) => {
         console.error(new Error('Fetching products error!'));
         reject(error);
@@ -93,7 +99,6 @@ export function updateCart(dispatch, cart, productId, quantity) {
 }
 
 export function updateVariantInCart(dispatch, cart, productId, quantity) {
-  console.log(quantity)
   return new Promise((resolve, reject) => {
     cart.updateLineItem(productId, quantity)
       .then((cart) => {

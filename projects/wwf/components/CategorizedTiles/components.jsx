@@ -15,6 +15,9 @@ export default class CategorizedTiles extends Component {
 
   componentDidUpdate(nextProps, nextState){
     // if the products and collections are loaded, then fire off the function to load shop tiles.
+    console.log("Called", this.props.shopTilesLoaded)
+    console.log("Called", this.props.shopCollections)
+    console.log("Called", this.props.shopProducts)
     if (
       (this.props.shopProducts.length > 0) &&
       (this.props.shopCollections.length > 0) &&
@@ -23,12 +26,13 @@ export default class CategorizedTiles extends Component {
   }
 
   updateCollectionsWithProductTypes() {
+    console.log("YO")
     let collections = [];
     if (this.props.shopCollections.length === 0) { return null; }
     this.props.shopCollections.forEach((collection, index) => {
       this.props.shopProducts.forEach((product, nestedIndex) => {
-        if (collection.title === product.attrs.vendor) {
-          collection.product_type = product.attrs.product_type;
+        if (collection.attrs.title === product.attrs.vendor) {
+          collection.attrs.product_type = product.attrs.product_type;
         }
       });
       collections.push(collection);
@@ -40,27 +44,27 @@ export default class CategorizedTiles extends Component {
     if (collections) {
       const newTiles = [];
       collections.forEach((collection, index) => {
-        if (newTiles.indexOf(collection.product_type) === -1) {
-          newTiles.push(collection.product_type);
+        if (newTiles.indexOf(collection.attrs.product_type) === -1) {
+          newTiles.push(collection.attrs.product_type);
         }
       });
       const elements = [];
       newTiles.forEach((tile, outerIndex) => {
         const innerElements = []
         collections.forEach((coll, innerIndex) => {
-          if (coll.product_type === tile) {
+          if (coll.attrs.product_type === tile) {
             innerElements.push(
               <div className="tiles" key={innerIndex}>
-                <Link to={`/crafters/${coll.collection_id}`} className="">
+                <Link to={`/crafters/${coll.attrs.collection_id}`} className="">
                   <div className="prodOverlayWrap per">
-                      <div className="vendorImage" style={{backgroundImage: 'url(' + coll.image.src + ')'}}></div>
+                      <div className="vendorImage" style={{backgroundImage: 'url(' + coll.attrs.image.src + ')'}}></div>
                       <div className="overlayDescription t_b hov">
                         <div className="t_cen">
-                            <p>{coll.title}</p>
+                            <p>{coll.attrs.title}</p>
                         </div>
                       </div>
                   </div>
-                  <p>{coll.title}</p>
+                  <p>{coll.attrs.title}</p>
                 </Link>
               </div>
             );

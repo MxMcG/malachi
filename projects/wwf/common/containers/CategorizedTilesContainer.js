@@ -49,6 +49,9 @@ function mapDispatchToProps (dispatch) {
     },
     dispatchLoadShopTiles: (elements) => {
       dispatch(actions.loadShopTiles(elements))
+    },
+    dispatchLoadCrafterProducts: (products) => {
+      dispatch(actions.loadCrafterProducts(products))
     }
   }
 }

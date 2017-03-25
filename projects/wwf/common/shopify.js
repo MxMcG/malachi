@@ -84,7 +84,7 @@ export function updateCart(dispatch, cart, productId, quantity) {
   return new Promise((resolve, reject) => {
     cart.createLineItemsFromVariants({ variant: productId, quantity})
       .then((cart) => {
-        dispatch(actions.addItemToCart(cart));
+        dispatch(actions.addItemToCart(cart, quantity));
       }).catch((error) => {
         console.error(new Error('Error Adding to Cart!'));
         reject(error);
@@ -93,10 +93,11 @@ export function updateCart(dispatch, cart, productId, quantity) {
 }
 
 export function updateVariantInCart(dispatch, cart, productId, quantity) {
+  console.log(quantity)
   return new Promise((resolve, reject) => {
     cart.updateLineItem(productId, quantity)
       .then((cart) => {
-        dispatch(actions.addItemToCart(cart));
+        dispatch(actions.addItemToCart(cart, quantity));
       }).catch((error) => {
         console.error(new Error('Error Adding to Cart!'));
         reject(error);

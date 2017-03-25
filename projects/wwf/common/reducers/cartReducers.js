@@ -19,7 +19,7 @@ export default function cartReducers (state = initialState, action) {
     case 'ADD_ITEM_TO_CART':
       return Object.assign({}, state, {
         activeCart: action.payload,
-        quantity: state.quantity + 1
+        quantity: action.quantity
       });
       default:
     return state;

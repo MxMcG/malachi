@@ -13,6 +13,10 @@ const propTypes = {
 // in here, we determine the props to be passed down to the specific component needed
 class ShopContainer extends Component {
 
+  componentWillMount() {
+
+  }
+
   render () {
     return (
       <Shop {...this.props} />

@@ -10,18 +10,6 @@ export default class MultTextImgHover extends Component {
     const blocks = this.props.componentContent.blocks;
     const blockElements = [];
     blocks.forEach((block, index) => {
-
-      // console.log(block.topBlock.topHeadline);
-      // console.log(block.topBlock.topSubheadline);
-      // console.log(block.topBlock.topDescription);
-
-      // console.log("LOW")
-      // console.log(block.bottomBlock.lowCtaText);
-      // console.log(block.bottomBlock.lowHeadline);
-      // console.log(block.bottomBlock.lowSubheadline);
-      // console.log(block.bottomBlock.lowTitle);
-      // console.log(block.bottomBlock.lowImage);
-
       blockElements.push(
         <div key={index}>
           <div className="complexFeatureText" >
@@ -60,16 +48,3 @@ export default class MultTextImgHover extends Component {
     );
   }
 }
-
-
-
-
-// return (
-
-// );
-//
-// const {  } = this.props.componentContent;
-// const cdnImageBase = this.props.cdnImageBase;
-// return (
-//
-// );

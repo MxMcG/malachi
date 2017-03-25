@@ -7,12 +7,24 @@ export default class CategorizedTiles extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.updateCollectionsWithProductTypes();
+  componentWillMount () {
+    if ((this.props.shopProducts.length > 0) && (this.props.shopCollections.length > 0)) {
+      this.updateCollectionsWithProductTypes();
+    }
+  }
+
+  componentDidUpdate(nextProps, nextState){
+    // if the products and collections are loaded, then fire off the function to load shop tiles.
+    if (
+      (this.props.shopProducts.length > 0) &&
+      (this.props.shopCollections.length > 0) &&
+      (this.props.shopTilesLoaded === false)
+    ) { this.updateCollectionsWithProductTypes(); }
   }
 
   updateCollectionsWithProductTypes() {
     let collections = [];
+    if (this.props.shopCollections.length === 0) { return null; }
     this.props.shopCollections.forEach((collection, index) => {
       this.props.shopProducts.forEach((product, nestedIndex) => {
         if (collection.title === product.attrs.vendor) {
@@ -65,16 +77,18 @@ export default class CategorizedTiles extends Component {
       this.props.dispatchLoadShopTiles(elements);
       this.props.dispatchShopTilesLoaded(true);
     }
+
+    // let elements = null;
+    // if (this.props.shopTilesLoaded) {
+    //   elements = this.props.loadedShopTiles;
+    // }
+    // return elements;
   }
 
   render() {
-    let elements = null;
-    if (this.props.shopTilesLoaded) {
-      elements = this.props.loadedShopTiles;
-    }    
     return (
       <div className="categorizedTiles">
-        { elements }
+        { this.props.loadedShopTiles }
       </div>
     );
   }

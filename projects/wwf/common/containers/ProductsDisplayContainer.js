@@ -16,7 +16,7 @@ class ProductsDisplayContainer extends Component {
 
   render () {
     return (
-      <ProductsDisplay {...this.props} />
+      <ProductsDisplay {...this.props} paramId={this.props.paramId} />
     );
   }
 }

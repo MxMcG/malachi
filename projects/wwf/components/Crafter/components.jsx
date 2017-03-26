@@ -28,15 +28,13 @@ export default class Crafter extends Component {
     }
   }
 
-
-
-  render() {    
+  render() {
     return (
       <div className="crafter" >
         <ImageWithEffectsContainer />
         <div className="cr_b">
           <FeaturedTextCrossContainer />
-          <ProductsDisplayContainer />
+          <ProductsDisplayContainer paramId={this.props.params.id} />
         </div>
       </div>
     );

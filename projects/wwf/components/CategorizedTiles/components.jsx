@@ -15,18 +15,14 @@ export default class CategorizedTiles extends Component {
 
   componentDidUpdate(nextProps, nextState){
     // if the products and collections are loaded, then fire off the function to load shop tiles.
-    console.log("Called", this.props.shopTilesLoaded)
-    console.log("Called", this.props.shopCollections)
-    console.log("Called", this.props.shopProducts)
     if (
-      (this.props.shopProducts.length > 0) &&
-      (this.props.shopCollections.length > 0) &&
+      (this.props.shopProductsLoaded === true) &&
+      (this.props.shopCollectionsLoaded === true) &&
       (this.props.shopTilesLoaded === false)
     ) { this.updateCollectionsWithProductTypes(); }
   }
 
   updateCollectionsWithProductTypes() {
-    console.log("YO")
     let collections = [];
     if (this.props.shopCollections.length === 0) { return null; }
     this.props.shopCollections.forEach((collection, index) => {
@@ -40,7 +36,7 @@ export default class CategorizedTiles extends Component {
     this.createElements(collections);
   }
 
-  createElements(collections) {
+  createElements(collections) {    
     if (collections) {
       const newTiles = [];
       collections.forEach((collection, index) => {

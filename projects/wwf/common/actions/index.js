@@ -9,7 +9,9 @@ import { initializeShopProducts,
   loadCrafterProducts,
   fetchSlides,
   addLinksToSlides,
-  addBuyLinksToSlides } from './shopActions';
+  addBuyLinksToSlides,
+  shopCollectionsLoaded,
+  shopProductsLoaded } from './shopActions';
 
 import {
   showCart,
@@ -28,5 +30,7 @@ export {
   addBuyLinksToSlides,
   showCart,
   createCart,
-  addItemToCart
+  addItemToCart,
+  shopCollectionsLoaded,
+  shopProductsLoaded
 };

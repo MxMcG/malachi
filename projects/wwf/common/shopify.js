@@ -14,7 +14,7 @@ const shopClient = ShopifyBuy.buildClient({
 
 export function fetchAllCollections() {
   return function (dispatch) {
-    reduceCollectionsToAttributes()
+    reduceCollectionsToAttributes(dispatch)
       .then((collections) => {
         dispatch(actions.initializeShopCollections(collections))
       })
@@ -24,11 +24,13 @@ export function fetchAllCollections() {
   }
 }
 
-const reduceCollectionsToAttributes = () => {
+const reduceCollectionsToAttributes = (dispatch) => {
   return new Promise((resolve, reject) => {
     const collectionAttributes = [];
     shopClient.fetchAllCollections()
       .then((collections) => {
+        const collectionCount = collections.length;
+        let counter = 0;
         collections.forEach((collection, index) => {
           queryByCollectionId(collection.attrs.collection_id).then((products) => {
             collectionAttributes.push({
@@ -36,7 +38,11 @@ const reduceCollectionsToAttributes = () => {
               attrs: collection.attrs,
               products
             });
-            if (collections[index+1] === undefined) { resolve(collectionAttributes) }         
+            counter++;
+            if ((counter === collectionCount)) {
+              dispatch(actions.shopCollectionsLoaded(true));
+              resolve(collectionAttributes)
+            }
           });
         });
       }).catch((error) => {
@@ -51,6 +57,7 @@ export function fetchAllProducts() {
     shopClient.fetchAllProducts()
       .then((products) => {
         dispatch(actions.initializeShopProducts(products));
+        dispatch(actions.shopProductsLoaded(true));
       }).catch((error) => {
         console.error(new Error('Fetching products error!'));
         reject(error);

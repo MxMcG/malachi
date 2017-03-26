@@ -19,29 +19,29 @@ export default class ProductsDisplay extends Component {
 
   renderProducts() {
     // const loadedProducts = this.props.loadedProducts;
-    // loop through loadedCollections, find one that matches param id
-    // loop through all of its products
-    console.log(this.props)
     const elements = [];
-    // this.props.shopCollections.forEach((collection, index) => {
-    //   // if (collection.collection_id === this.props.)
-    //     const imageSrc = product.attrs.images[0].src;
-    //     const title = product.title;
-    //     const price = product.variants[0].formatted_price;
-    //     const id = product.selectedVariant;
-    //     // const url = product.variants[0].checkoutUrl(1);
-    //     const buttonText = this.props.componentContent.ctaText;
-    //     const html = (
-    //       <div className="product" key={index}>
-    //         <img className="productImage" src={imageSrc}></img>
-    //         <h6 className="productTitle">{title}</h6>
-    //         <p className="productPrice">{price}</p>
-    //         <button onClick={() => { this.addToCart(id, 1) }}>Add To Cart</button>
-    //       </div>
-    //     )
-    //     elements.push(html);
-    // });
-    // return elements;
+    this.props.shopCollections.forEach((collection, index) => {      
+      if (collection.collection_id.toString() === this.props.paramId) {
+        collection.products.forEach((product, index) => {
+          const imageSrc = product.attrs.images[0].src;
+          const title = product.title;
+          const price = product.variants[0].formatted_price;
+          const id = product.selectedVariant;
+          // const url = product.variants[0].checkoutUrl(1);
+          const buttonText = this.props.componentContent.ctaText;
+          const html = (
+            <div className="product" key={index}>
+              <img className="productImage" src={imageSrc}></img>
+              <h6 className="productTitle">{title}</h6>
+              <p className="productPrice">{price}</p>
+              <button onClick={() => { this.addToCart(id, 1) }}>Add To Cart</button>
+            </div>
+          )
+          elements.push(html);
+        });
+      }
+    });
+    return elements;
   }
 
   render() {

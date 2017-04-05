@@ -4,8 +4,8 @@
 
 @font-face {
     font-family: 'aleo';
-    src: url('aleo-bold-webfont.woff2') format('woff2'),
-         url('aleo-bold-webfont.woff') format('woff');
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-bold-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-bold-webfont.woff') format('woff');
     font-weight: bold;
     font-style: normal;
 
@@ -16,8 +16,8 @@
 
 @font-face {
     font-family: 'aleo';
-    src: url('aleo-bolditalic-webfont.woff2') format('woff2'),
-         url('aleo-bolditalic-webfont.woff') format('woff');
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-bolditalic-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-bolditalic-webfont.woff') format('woff');
     font-weight: bold;
     font-style: italic;
 }
@@ -27,8 +27,8 @@
 
 @font-face {
     font-family: 'aleo';
-    src: url('aleo-italic-webfont.woff2') format('woff2'),
-         url('aleo-italic-webfont.woff') format('woff');
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-italic-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-italic-webfont.woff') format('woff');
     font-weight: normal;
     font-style: italic;
 }
@@ -38,8 +38,8 @@
 
 @font-face {
     font-family: 'aleo';
-    src: url('aleo-light-webfont.woff2') format('woff2'),
-         url('aleo-light-webfont.woff') format('woff');
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-light-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-light-webfont.woff') format('woff');
     font-weight: lighter;
     font-style: normal;
 }
@@ -49,8 +49,8 @@
 
 @font-face {
     font-family: 'aleo';
-    src: url('aleo-lightitalic-webfont.woff2') format('woff2'),
-         url('aleo-lightitalic-webfont.woff') format('woff');
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-lightitalic-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-lightitalic-webfont.woff') format('woff');
     font-weight: lighter;
     font-style: italic;
 
@@ -61,10 +61,9 @@
 
 @font-face {
     font-family: 'aleo';
-    src: url('aleo-regular-webfont.woff2') format('woff2'),
-         url('aleo-regular-webfont.woff') format('woff');
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-regular-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
-

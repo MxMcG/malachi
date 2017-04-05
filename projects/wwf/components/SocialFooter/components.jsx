@@ -13,9 +13,9 @@ export default class SocialFooter extends Component {
       <div className="socialFooter" >
         <h2>{title}</h2>
           <div>
-          <Link to={links[0].href} className="">{links[0].title}</Link>
-          <Link to={links[1].href} className="">{links[1].title}</Link>
-          </div>      
+          <a href={links[0].href} className="" target="_blank">{links[0].title}</a>
+          <a href={links[1].href} className="" target="_blank">{links[1].title}</a>
+          </div>
         </div>
     );
   }

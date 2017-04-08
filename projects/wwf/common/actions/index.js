@@ -11,7 +11,8 @@ import { initializeShopProducts,
   addLinksToSlides,
   addBuyLinksToSlides,
   shopCollectionsLoaded,
-  shopProductsLoaded } from './shopActions';
+  shopProductsLoaded,
+  activateProduct } from './shopActions';
 
 import {
   showCart,
@@ -32,5 +33,6 @@ export {
   createCart,
   addItemToCart,
   shopCollectionsLoaded,
-  shopProductsLoaded
+  shopProductsLoaded,
+  activateProduct
 };

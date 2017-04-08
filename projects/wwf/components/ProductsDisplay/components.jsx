@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document)
 let updateCart;
 if (isBrowser) {
@@ -23,20 +24,20 @@ export default class ProductsDisplay extends Component {
     this.props.shopCollections.forEach((collection, index) => {
       if (collection.collection_id.toString() === this.props.paramId) {
         collection.products.forEach((product, index) => {
-          const dropdowns = [];
-          const selects = product.options.forEach((option) => {
-            const options = [];
-            console.log(option)
-            option.attrs.values.forEach((value) => {
-              options.push(<option value={value}>{value}</option>);
-            })
-            dropdowns.push(
-              <select name={option.attrs.name}>
-                <option selected disabled>{option.attrs.name}</option>
-                {options}
-              </select>
-            );
-          });
+          // We will do the dropdowns on the template page instead
+          // const dropdowns = [];
+          // const selects = product.options.forEach((option) => {
+          //   const options = [];
+          //   option.attrs.values.forEach((value) => {
+          //     options.push(<option value={value}>{value}</option>);
+          //   })
+          //   dropdowns.push(
+          //     <select name={option.attrs.name}>
+          //       <option selected disabled>{option.attrs.name}</option>
+          //       {options}
+          //     </select>
+          //   );
+          // });
           const formattedPrice = product.attrs.variants[0].formatted_price;
           const imageSrc = product.attrs.images[0].src;
           const title = product.title;
@@ -47,9 +48,9 @@ export default class ProductsDisplay extends Component {
             <div className="product" key={index}>
               <img className="productImage" src={imageSrc}></img>
               <h6 className="productTitle">{title}</h6>
-              { dropdowns }
+
               <p className="productPrice">{formattedPrice}</p>
-              <button onClick={() => { this.addToCart(id, 1) }}>Add To Cart</button>
+              <Link to={`/products/${product.id}`}><button>View Product</button></Link>
             </div>
           )
           elements.push(html);

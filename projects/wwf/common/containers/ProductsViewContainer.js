@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
-import ProductsDisplay from '../../components/ProductsDisplay/components.jsx';
+import ProductsView from '../../components/ProductsView/components.jsx';
 
 // include actions as they are needed by each component
 // they are called via dispatch()
@@ -12,22 +12,23 @@ const propTypes = {
 };
 
 // in here, we determine the props to be passed down to the specific component needed
-class ProductsDisplayContainer extends Component {
+class ProductsViewContainer extends Component {
 
   render () {
-    console.log(this.props)
+    console.log("FDFD",this.props)
     return (
-      <ProductsDisplay {...this.props} paramId={this.props.paramId} />
+      <ProductsView {...this.props} paramId={this.props.params.id}/>
     );
   }
 }
 
-ProductsDisplayContainer.propTypes = propTypes;
+ProductsViewContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.CrafterContainer.ProductsDisplayContainer;
+  const componentContent = state.content.project.components.CrafterContainer.ProductsViewContainer;
   const loadedProducts = state.shop.loadCrafterProducts;
   const shopCollections = state.shop.shopCollections;
+  const activeProduct = state.shop.activeProduct;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
   const activeCart = state.cart.activeCart;
@@ -37,16 +38,17 @@ function mapStateToProps(state) {
     cdnImageBase,
     cdnUrl,
     activeCart,
-    shopCollections
+    shopCollections,
+    activeProduct
   };
 }
-//
-// function mapDispatchToProps (dispatch) {
-//   return {
-//     dispatchAddItemToCart: (boolean) => {
-//       dispatch(actions.updateCart(boolean))
-//     }
-//   }
-// }
 
-export default connect(mapStateToProps)(ProductsDisplayContainer);
+function mapDispatchToProps (dispatch) {
+  return {
+    dispatchActivateProduct: (product) => {
+      dispatch(actions.activateProduct(product))
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsViewContainer);

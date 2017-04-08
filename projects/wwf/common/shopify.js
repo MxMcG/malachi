@@ -78,6 +78,19 @@ export function queryByCollectionId(collection_id) {
   });
 }
 
+export function queryByProductId(product_id) {
+  return new Promise((resolve, reject) => {
+    // fetch all products of collection
+    shopClient.fetchProduct(product_id)
+      .then((product) => {
+        resolve(product);
+      }).catch((error) => {
+        console.error(new Error('Fetching products error!'));
+        reject(error);
+      });
+  });
+}
+
 export function createNewCart() {
   return function (dispatch) {
     return new Promise((resolve, reject) => {

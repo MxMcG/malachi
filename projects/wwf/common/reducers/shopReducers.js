@@ -9,7 +9,8 @@ const initialState = {
   loadCrafterProducts: [],
   fetchSlides: [],
   shopCollectionsLoaded: false,
-  shopProductsLoaded: false
+  shopProductsLoaded: false,
+  activeProduct: []
 }
 
 export default function shopReducers (state = initialState, action) {
@@ -17,6 +18,10 @@ export default function shopReducers (state = initialState, action) {
     case 'ACTIVATE_CATEGORY':
       return Object.assign({}, state, {
         activeCategory: action.payload
+      });
+    case 'ACTIVATE_PRODUCT':
+      return Object.assign({}, state, {
+        activeProduct: action.payload
       });
     case 'INITIALIZE_SHOP_COLLECTIONS':
       return Object.assign({}, state, {

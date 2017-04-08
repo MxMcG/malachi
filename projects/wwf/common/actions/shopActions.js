@@ -72,3 +72,10 @@ export const addBuyLinksToSlides = (href, index) => {
     index
   }
 }
+
+export const activateProduct = (product) => {
+  return {
+    type: 'ACTIVATE_PRODUCT',
+    payload: product
+  }
+}

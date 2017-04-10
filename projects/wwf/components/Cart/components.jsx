@@ -39,6 +39,7 @@ export default class Cart extends Component {
     const elements = [];
     const activeCart = this.props.cart.activeCart
     const lineItems = activeCart.lineItems;
+    
     if (lineItems) {
       lineItems.forEach((item, index) => {
         elements.push(

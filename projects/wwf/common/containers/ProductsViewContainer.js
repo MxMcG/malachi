@@ -2,6 +2,11 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
 import ProductsView from '../../components/ProductsView/components.jsx';
+const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document);
+let updateCart;
+if (isBrowser) {
+  updateCart = require('../shopify.js').updateCart;
+}
 
 // include actions as they are needed by each component
 // they are called via dispatch()
@@ -14,8 +19,12 @@ const propTypes = {
 // in here, we determine the props to be passed down to the specific component needed
 class ProductsViewContainer extends Component {
 
+  componentDidMount() {
+    console.log("AYOOO",this.props)
+  }
+
   render () {
-    console.log("FDFD",this.props)
+
     return (
       <ProductsView {...this.props} paramId={this.props.params.id}/>
     );
@@ -47,6 +56,9 @@ function mapDispatchToProps (dispatch) {
   return {
     dispatchActivateProduct: (product) => {
       dispatch(actions.activateProduct(product))
+    },
+    dispatchAddToCart: (cart, id, quantity) => {
+      updateCart(dispatch, cart, id, quantity)
     }
   }
 }

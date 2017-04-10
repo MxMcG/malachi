@@ -20,7 +20,7 @@ class CrafterContainer extends Component {
     super(props)
   }
 
-  render () {  
+  render () {    
     return (
       <Crafter {...this.props} />
     );

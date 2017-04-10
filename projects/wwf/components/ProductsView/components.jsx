@@ -15,7 +15,6 @@ export default class ProductsView extends Component {
   }
 
   componentWillMount() {
-    console.log(this.props)
     if (isBrowser) {
       queryByProductId(this.props.paramId)
       .then((product) => {
@@ -26,9 +25,9 @@ export default class ProductsView extends Component {
     }
   }
 
-  addToCart(id, quantity) {
+  addToCart(id, quantity, image) {
     if (isBrowser) {
-      updateCart(this.props.dispatch, this.props.activeCart, id, quantity);
+      this.props.dispatchAddToCart(this.props.activeCart, id, quantity);
     }
   }
 
@@ -41,12 +40,13 @@ export default class ProductsView extends Component {
     const descriptWrapper = [];
     const variants = product.attrs.variants;
     const html = (
-      <div className="productsView">
+      <div className="productsView" key="1">
         <img src={images[0].src}/>
         <h2>{title}</h2>
-        <h4>{price}</h4>
+        <h4>Price: {price}</h4>
+        <h4>Details</h4>        
         <div className="decription" dangerouslySetInnerHTML={{__html: product.attrs.body_html}}></div>
-        <button onClick={() => this.addToCart(product.id, 1)}>View Product</button>
+        <button onClick={() => this.addToCart(product.selectedVariant, 1)}>Add to Cart</button>
       </div>
     )
     htmlWrapper.push(html);
@@ -55,9 +55,8 @@ export default class ProductsView extends Component {
 
   render() {
     return (
-      <div>
+      <div className="productsView">
         { this.props.activeProduct }
-
       </div>
     );
   }

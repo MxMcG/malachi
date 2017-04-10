@@ -18,6 +18,9 @@
     margin-bottom: 17px;
     font-size: 15px;
   }
+  h4 {
+    padding: 20px 0;
+  }
 
   button {
         background: black;
@@ -29,9 +32,15 @@
         width: 140px;
         letter-spacing: .03em;
         text-transform: uppercase;
+        margin: 90px 0;
+  }
+  .description {
+    padding: 40px 0;
   }
 }
-
+.productsView {
+  padding: 40px 0;
+}
 .product {
   margin-bottom: 50px;
 

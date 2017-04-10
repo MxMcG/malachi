@@ -106,11 +106,11 @@ export function createNewCart() {
   }
 }
 
-export function updateCart(dispatch, cart, productId, quantity) {
+export function updateCart(dispatch, activeCart, productId, quantity) {
   return new Promise((resolve, reject) => {
-    cart.createLineItemsFromVariants({ variant: productId, quantity})
+    activeCart.createLineItemsFromVariants({ variant: productId, quantity})
       .then((cart) => {
-        dispatch(actions.addItemToCart(cart, quantity));
+        dispatch(actions.addItemToCart(activeCart, quantity));
       }).catch((error) => {
         console.error(new Error('Error Adding to Cart!'));
         reject(error);

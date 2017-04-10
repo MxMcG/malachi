@@ -15,7 +15,7 @@ const propTypes = {
 class ProductsDisplayContainer extends Component {
 
   render () {
-    console.log(this.props)
+    console.log("display", this.props)
     return (
       <ProductsDisplay {...this.props} paramId={this.props.paramId} />
     );

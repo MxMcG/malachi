@@ -13,7 +13,7 @@ const propTypes = {
 // in here, we determine the props to be passed down to the specific component needed
 class AboutContainer extends Component {
 
-  render () {
+  render () {    
     return (
       <About {...this.props} />
     );

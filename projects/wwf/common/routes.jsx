@@ -25,8 +25,8 @@ export default (
     <Route path="/" component={LayoutContainer}>
       <IndexRoute component={HomeContainer}/>
       <Route path="shop" component={ShopContainer} />
-      <Route path="/crafters/:id" component={CrafterContainer} />
-      <Route path="/products/:id" component={ProductsViewContainer}/>
+      <Route path="crafters/:id" component={CrafterContainer} />
+      <Route path="products/:id" component={ProductsViewContainer} />
       <Route path="about" component={AboutContainer} />
       <Route path="events" component={EventsContainer} />
       <Route path="missions" component={MissionsContainer} />

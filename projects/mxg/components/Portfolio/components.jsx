@@ -33,9 +33,9 @@ export default class Portfolio extends Component {
               </a>
             </div>
             <div className="screenshots">
-              <img src={`${cdnImageBase}/tour1.png`} className="tl1" ></img>
-              <img src={`${cdnImageBase}/tour2.png`} className="tl2"></img>
-              <img src={`${cdnImageBase}/tour3.png`} className="tl3"></img>
+              <img src={`${cdnImageBase}tour1.png`} className="tl1" ></img>
+              <img src={`${cdnImageBase}tour2.png`} className="tl2"></img>
+              <img src={`${cdnImageBase}tour3.png`} className="tl3"></img>
             </div>
           </div>
 
@@ -57,8 +57,8 @@ export default class Portfolio extends Component {
               </a>
             </div>
             <div className="screenshots">
-              <img src={`${cdnImageBase}/nf1.png`} className="nf1" ></img>
-              <img src={`${cdnImageBase}/nf2.png`} className="nf2"></img>
+              <img src={`${cdnImageBase}nf1.png`} className="nf1" ></img>
+              <img src={`${cdnImageBase}nf2.png`} className="nf2"></img>
             </div>
           </div>
 
@@ -83,8 +83,8 @@ export default class Portfolio extends Component {
               </a>
             </div>
             <div className="screenshots">
-              <img src={`${cdnImageBase}/wwf1.png`} className="wwf1" ></img>
-              <img src={`${cdnImageBase}/ww2.png`} className="wwf2"></img>              
+              <img src={`${cdnImageBase}wwf1.png`} className="wwf1" ></img>
+              <img src={`${cdnImageBase}ww2.png`} className="wwf2"></img>              
             </div>
           </div>
 

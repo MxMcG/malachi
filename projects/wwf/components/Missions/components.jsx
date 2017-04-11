@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ComplexFeatureTextContainer from '../../common/containers/ComplexFeatureTextContainer.js';
+
+import MultTextImgHoverContainer from '../../common/containers/MultTextImgHoverContainer.js';
 
 export default class Missions extends Component {
 
@@ -9,9 +10,8 @@ export default class Missions extends Component {
 
   render() {
     return (
-
       <div className="missions" >
-        <ComplexFeatureTextContainer />
+        <MultTextImgHoverContainer />
       </div>
 
     );

@@ -3,7 +3,7 @@ const path = require('path');
 const gutil = require('gulp-util');
 const _ = require('lodash');
 const mongoose = require('mongoose');
-const mongodbUri = 'mongodb://mxmcg-1:Mx11mcg27*^*@ds035546-a0.mlab.com:35546,ds035546-a1.mlab.com:35546/tourlookup-1?replicaSet=rs-ds035546'
+const mongodbUri = 'mongodb://mxmcg-1:Tru$$vine*^*@ds153870-a0.mlab.com:53870,ds153870-a1.mlab.com:53870/tourlookup-1?replicaSet=rs-ds153870'
 const activeProject = require('yargs').argv.project;
 const projectContent = activeProject ? require(`../../projects/${activeProject}/content/content.json`) : null
 

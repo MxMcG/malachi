@@ -7,14 +7,14 @@
 import * as actions from './actions/index';
 
 const shopClient = ShopifyBuy.buildClient({
-  apiKey: 'f50e172619e144d0e415b0333134ac33',
+  accessToken: 'f50e172619e144d0e415b0333134ac33',
   appId: 6,
   domain: 'westward-foundation.myshopify.com'
 });
 
 export function fetchAllCollections() {
   return function (dispatch) {
-    reduceCollectionsToAttributes()
+    reduceCollectionsToAttributes(dispatch)
       .then((collections) => {
         dispatch(actions.initializeShopCollections(collections))
       })
@@ -24,15 +24,27 @@ export function fetchAllCollections() {
   }
 }
 
-const reduceCollectionsToAttributes = () => {
+const reduceCollectionsToAttributes = (dispatch) => {
   return new Promise((resolve, reject) => {
     const collectionAttributes = [];
     shopClient.fetchAllCollections()
       .then((collections) => {
-        collections.map((collection) => {
-          collectionAttributes.push(collection.attrs);
+        const collectionCount = collections.length;
+        let counter = 0;
+        collections.forEach((collection, index) => {
+          queryByCollectionId(collection.attrs.collection_id).then((products) => {
+            collectionAttributes.push({
+              collection_id: collection.attrs.collection_id,
+              attrs: collection.attrs,
+              products
+            });
+            counter++;
+            if ((counter === collectionCount)) {
+              dispatch(actions.shopCollectionsLoaded(true));
+              resolve(collectionAttributes)
+            }
+          });
         });
-        resolve(collectionAttributes);
       }).catch((error) => {
         console.error(new Error('Fetching products error!'));
         reject(error);
@@ -45,6 +57,7 @@ export function fetchAllProducts() {
     shopClient.fetchAllProducts()
       .then((products) => {
         dispatch(actions.initializeShopProducts(products));
+        dispatch(actions.shopProductsLoaded(true));
       }).catch((error) => {
         console.error(new Error('Fetching products error!'));
         reject(error);
@@ -58,6 +71,19 @@ export function queryByCollectionId(collection_id) {
     shopClient.fetchQueryProducts({ collection_id })
       .then((products) => {
         resolve(products);
+      }).catch((error) => {
+        console.error(new Error('Fetching products error!'));
+        reject(error);
+      });
+  });
+}
+
+export function queryByProductId(product_id) {
+  return new Promise((resolve, reject) => {
+    // fetch all products of collection
+    shopClient.fetchProduct(product_id)
+      .then((product) => {
+        resolve(product);
       }).catch((error) => {
         console.error(new Error('Fetching products error!'));
         reject(error);
@@ -80,11 +106,11 @@ export function createNewCart() {
   }
 }
 
-export function updateCart(dispatch, cart, productId, quantity) {
+export function updateCart(dispatch, activeCart, productId, quantity) {
   return new Promise((resolve, reject) => {
-    cart.createLineItemsFromVariants({ variant: productId, quantity})
+    activeCart.createLineItemsFromVariants({ variant: productId, quantity})
       .then((cart) => {
-        dispatch(actions.addItemToCart(cart));
+        dispatch(actions.addItemToCart(activeCart, quantity));
       }).catch((error) => {
         console.error(new Error('Error Adding to Cart!'));
         reject(error);
@@ -96,7 +122,7 @@ export function updateVariantInCart(dispatch, cart, productId, quantity) {
   return new Promise((resolve, reject) => {
     cart.updateLineItem(productId, quantity)
       .then((cart) => {
-        dispatch(actions.addItemToCart(cart));
+        dispatch(actions.addItemToCart(cart, quantity));
       }).catch((error) => {
         console.error(new Error('Error Adding to Cart!'));
         reject(error);

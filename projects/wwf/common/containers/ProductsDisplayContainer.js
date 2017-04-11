@@ -15,8 +15,9 @@ const propTypes = {
 class ProductsDisplayContainer extends Component {
 
   render () {
+    console.log("display", this.props)
     return (
-      <ProductsDisplay {...this.props} />
+      <ProductsDisplay {...this.props} paramId={this.props.paramId} />
     );
   }
 }
@@ -26,6 +27,7 @@ ProductsDisplayContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   const componentContent = state.content.project.components.CrafterContainer.ProductsDisplayContainer;
   const loadedProducts = state.shop.loadCrafterProducts;
+  const shopCollections = state.shop.shopCollections;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
   const activeCart = state.cart.activeCart;
@@ -34,7 +36,8 @@ function mapStateToProps(state) {
     loadedProducts,
     cdnImageBase,
     cdnUrl,
-    activeCart
+    activeCart,
+    shopCollections
   };
 }
 //

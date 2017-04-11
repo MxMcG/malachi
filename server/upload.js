@@ -133,6 +133,10 @@ const fileType = (file) => {
       return 'application/javascript';
     case '.css':
       return 'text/css';
+    case '.woff':
+      return 'font/woff';
+    case '.woff2':
+      return 'font/woff2';
   }
 }
 

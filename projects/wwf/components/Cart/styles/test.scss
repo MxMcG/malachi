@@ -14,6 +14,7 @@
 
 .active {
   display: block;
+  overflow: scroll;
   transform: translateX(0);
   box-shadow: -5px 0 5px rgba(0, 0, 0, 0.1);
 }
@@ -280,12 +281,12 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: #DB2B39;
   color: white;
   position: absolute;
-  right: 8px;
-  font-size: 13px;
-  text-align: center;
-  top: 8px;
+  line-height: 17px;
+  right: 7px;
   border-radius: 100%;
-  padding: 1px 6px;
+  top: 8px;
+  padding: 0 5px;
+  font-size: 13px;
 }
 
 .cartContainer {
@@ -306,5 +307,10 @@ i {
         line-height: 83px;
         right: 40px;
         top:0;
+
+        .counter {
+          top: 16px;
+          right: 9px;
+        }
     }
 }

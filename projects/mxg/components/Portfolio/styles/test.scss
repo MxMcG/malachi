@@ -1,5 +1,8 @@
 .portfolio {
   background-color: #F9F6F2;
+  p {
+    font-size: 18px;
+  }
   .projects {
     padding: 42px 0 68px 18px;
   }
@@ -25,16 +28,74 @@
     background: #EF798A;
   }
   .links {
-    border-bottom: 2px black solid;
-    padding-bottom: 22px;
+
   }
   .link {
     text-decoration: none;
+  }
+  .screenshots img {
+    padding: 20px
+  }
+  .tl1 {
+    height: 400px;
+    width: 280px;
+  }
+  .tl2 {
+    height: 400px;
+    width: 280px;
+  }
+  .tl3 {
+
+  }
+  .nf1 {
+    height: 300px;
+    width: 550px;
+  }
+  .nf2 {
+    height: 350px;
+    width: 450px;
+  }
+  .wwf1 {
+    height: 300px;
+    width: 256px;
+  }
+  .wwf2 {
+    height: 300px;
+  }
+  .screenshots {
+    border-bottom: 2px black solid;
+    padding-bottom: 22px;
   }
   @media (min-width: 768px) {
     .projects {
       padding: 42px 30% 68px 100px;
     }
   }
+  @media (max-width: 480px) {
+    .tl1 {
+      height: 333px;
+      width: 229px;
+    }
+    .tl2 {
+      height: 300px;
+      width: 250px;
+    }
+    .tl3 {
+      height: 300px;
+    }
+    .nf1 {
+      height: 244px;
+      width: 254px;
+    }
+    .nf2 {
+      height: 198px;
+      width: 250px;
+    }
+    .wwf1 {
 
+    }
+    .wwf2 {
+
+    }
+  }
 }

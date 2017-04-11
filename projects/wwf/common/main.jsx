@@ -30,7 +30,8 @@ store.dispatch(actions.fetchSlides(frontPageSlideData));
 
 render(
   <Provider store={store}>
-    <Router history={browserHistory}>
+    <Router history={browserHistory}
+      onUpdate={() => { window.setTimeout(() => { window.scrollTo(0, 0) }), 20 } }>
       {routes}
     </Router>
   </Provider>, window.document.getElementById('react-view')

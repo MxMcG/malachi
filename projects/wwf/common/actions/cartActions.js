@@ -15,9 +15,10 @@ export const createCart = (cart) => {
   }
 }
 
-export const addItemToCart = (cart) => {
+export const addItemToCart = (cart, quantity) => {
   return {
     type: 'ADD_ITEM_TO_CART',
-    payload: cart
+    payload: cart,
+    quantity: quantity
   }
 }

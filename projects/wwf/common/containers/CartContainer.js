@@ -31,6 +31,7 @@ function mapStateToProps(state) {
   const showCart = state.cart.showCart;
   const activeCart = state.cart.activeCart;
   const quantity = state.cart.quantity;
+  const lineItemCount = state.cart.activeCart.lineItemCount;
   return {
     cart,
     componentContent,
@@ -38,7 +39,8 @@ function mapStateToProps(state) {
     cdnImageBase,
     showCart,
     activeCart,
-    quantity
+    quantity,
+    lineItemCount
   };
 }
 

@@ -7,16 +7,28 @@ export default class CategorizedTiles extends Component {
     super(props);
   }
 
-  componentWillMount() {
-    this.updateCollectionsWithProductTypes();
+  componentWillMount () {
+    if ((this.props.shopProducts.length > 0) && (this.props.shopCollections.length > 0)) {
+      this.updateCollectionsWithProductTypes();
+    }
+  }
+
+  componentDidUpdate(nextProps, nextState){
+    // if the products and collections are loaded, then fire off the function to load shop tiles.
+    if (
+      (this.props.shopProductsLoaded === true) &&
+      (this.props.shopCollectionsLoaded === true) &&
+      (this.props.shopTilesLoaded === false)
+    ) { this.updateCollectionsWithProductTypes(); }
   }
 
   updateCollectionsWithProductTypes() {
     let collections = [];
+    if (this.props.shopCollections.length === 0) { return null; }
     this.props.shopCollections.forEach((collection, index) => {
       this.props.shopProducts.forEach((product, nestedIndex) => {
-        if (collection.title === product.attrs.vendor) {
-          collection.product_type = product.attrs.product_type;
+        if (collection.attrs.title === product.attrs.vendor) {
+          collection.attrs.product_type = product.attrs.product_type;
         }
       });
       collections.push(collection);
@@ -24,31 +36,31 @@ export default class CategorizedTiles extends Component {
     this.createElements(collections);
   }
 
-  createElements(collections) {
+  createElements(collections) {    
     if (collections) {
       const newTiles = [];
       collections.forEach((collection, index) => {
-        if (newTiles.indexOf(collection.product_type) === -1) {
-          newTiles.push(collection.product_type);
+        if (newTiles.indexOf(collection.attrs.product_type) === -1) {
+          newTiles.push(collection.attrs.product_type);
         }
       });
       const elements = [];
       newTiles.forEach((tile, outerIndex) => {
         const innerElements = []
         collections.forEach((coll, innerIndex) => {
-          if (coll.product_type === tile) {
+          if (coll.attrs.product_type === tile) {
             innerElements.push(
               <div className="tiles" key={innerIndex}>
-                <Link to={`/crafters/${coll.collection_id}`} className="">
+                <Link to={`/crafters/${coll.attrs.collection_id}`} className="">
                   <div className="prodOverlayWrap per">
-                      <div className="vendorImage" style={{backgroundImage: 'url(' + coll.image.src + ')'}}></div>
+                      <div className="vendorImage" style={{backgroundImage: 'url(' + coll.attrs.image.src + ')'}}></div>
                       <div className="overlayDescription t_b hov">
                         <div className="t_cen">
-                            <p>{coll.title}</p>
+                            <p>{coll.attrs.title}</p>
                         </div>
                       </div>
                   </div>
-                  <p>{coll.title}</p>
+                  <p>{coll.attrs.title}</p>
                 </Link>
               </div>
             );
@@ -65,16 +77,18 @@ export default class CategorizedTiles extends Component {
       this.props.dispatchLoadShopTiles(elements);
       this.props.dispatchShopTilesLoaded(true);
     }
+
+    // let elements = null;
+    // if (this.props.shopTilesLoaded) {
+    //   elements = this.props.loadedShopTiles;
+    // }
+    // return elements;
   }
 
   render() {
-    let elements = null;
-    if (this.props.shopTilesLoaded) {
-      elements = this.props.loadedShopTiles;
-    }    
     return (
       <div className="categorizedTiles">
-        { elements }
+        { this.props.loadedShopTiles }
       </div>
     );
   }

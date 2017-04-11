@@ -16,10 +16,11 @@ const propTypes = {
 class CrafterContainer extends Component {
 
   constructor(props) {
+
     super(props)
   }
 
-  render () {
+  render () {    
     return (
       <Crafter {...this.props} />
     );

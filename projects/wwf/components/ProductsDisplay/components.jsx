@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document)
 let updateCart;
 if (isBrowser) {
@@ -18,24 +19,43 @@ export default class ProductsDisplay extends Component {
   }
 
   renderProducts() {
-    const loadedProducts = this.props.loadedProducts;
+    // const loadedProducts = this.props.loadedProducts;
     const elements = [];
-    loadedProducts.forEach((product, index) => {
-      const imageSrc = product.attrs.images[0].src;
-      const title = product.title;
-      const price = product.variants[0].formatted_price;
-      const id = product.selectedVariant;
-      // const url = product.variants[0].checkoutUrl(1);
-      const buttonText = this.props.componentContent.ctaText;
-      const html = (
-        <div className="product" key={index}>
-          <img className="productImage" src={imageSrc}></img>
-          <h6 className="productTitle">{title}</h6>
-          <p className="productPrice">{price}</p>
-          <button onClick={() => { this.addToCart(id, 1) }}>Add To Cart</button>
-        </div>
-      )
-      elements.push(html);
+    this.props.shopCollections.forEach((collection, index) => {
+      if (collection.collection_id.toString() === this.props.paramId) {
+        collection.products.forEach((product, index) => {
+          // We will do the dropdowns on the template page instead
+          // const dropdowns = [];
+          // const selects = product.options.forEach((option) => {
+          //   const options = [];
+          //   option.attrs.values.forEach((value) => {
+          //     options.push(<option value={value}>{value}</option>);
+          //   })
+          //   dropdowns.push(
+          //     <select name={option.attrs.name}>
+          //       <option selected disabled>{option.attrs.name}</option>
+          //       {options}
+          //     </select>
+          //   );
+          // });
+          const formattedPrice = product.attrs.variants[0].formatted_price;
+          const imageSrc = product.attrs.images[0].src;
+          const title = product.title;
+          const id = product.selectedVariant;
+          // const url = product.variants[0].checkoutUrl(1);
+          const buttonText = this.props.componentContent.ctaText;
+          const html = (
+            <div className="product" key={index}>
+              <img className="productImage" src={imageSrc}></img>
+              <h6 className="productTitle">{title}</h6>
+
+              <p className="productPrice">{formattedPrice}</p>
+              <Link to={`/products/${product.id}`}><button>View Product</button></Link>
+            </div>
+          )
+          elements.push(html);
+        });
+      }
     });
     return elements;
   }

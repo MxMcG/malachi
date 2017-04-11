@@ -30,6 +30,8 @@ function mapStateToProps(state) {
   const shopCollections = state.shop.shopCollections;
   const shopProducts = state.shop.shopProducts;
   const shopTilesLoaded = state.shop.shopTilesLoaded;
+  const shopProductsLoaded = state.shop.shopProductsLoaded;
+  const shopCollectionsLoaded = state.shop.shopCollectionsLoaded;
   const loadedShopTiles = state.shop.loadShopTiles;
   return {
     shopCollections,
@@ -38,7 +40,9 @@ function mapStateToProps(state) {
     shopTilesLoaded,
     componentContent,
     cdnUrl,
-    cdnImageBase
+    cdnImageBase,
+    shopProductsLoaded,
+    shopCollectionsLoaded
   };
 }
 
@@ -49,6 +53,9 @@ function mapDispatchToProps (dispatch) {
     },
     dispatchLoadShopTiles: (elements) => {
       dispatch(actions.loadShopTiles(elements))
+    },
+    dispatchLoadCrafterProducts: (products) => {
+      dispatch(actions.loadCrafterProducts(products))
     }
   }
 }

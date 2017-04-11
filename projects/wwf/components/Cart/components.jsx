@@ -39,6 +39,7 @@ export default class Cart extends Component {
     const elements = [];
     const activeCart = this.props.cart.activeCart
     const lineItems = activeCart.lineItems;
+    
     if (lineItems) {
       lineItems.forEach((item, index) => {
         elements.push(
@@ -50,18 +51,18 @@ export default class Cart extends Component {
               </div>
               <div className="cart-item__content-row">
                 <div className="cart-item__quantity-container">
-                  <button className="btn--seamless quantity-decrement" type="button" data-variant-id="10493405315">
-                    <span onClick={() => {
-                        this.decrementQuantity(item.id, (item.quantity - 1))
-                      }
-                    }>-</span>
+                  <button className="btn--seamless quantity-decrement" type="button" data-variant-id="10493405315" onClick={() => {
+                      this.decrementQuantity(item.id, (item.quantity - 1))
+                    }
+                  }>
+                    <span>-</span>
                   </button>
                   <input className="cart-item__quantity" type="number" min="0" aria-label="Quantity" value={item.quantity}/>
-                  <button className="btn--seamless quantity-increment" type="button" data-variant-id="10493405315">
-                    <span onClick={() => {
-                        this.incrementQuantity(item.id, (item.quantity + 1))
-                      }
-                    }>+</span>
+                  <button className="btn--seamless quantity-increment" type="button" data-variant-id="10493405315" onClick={() => {
+                      this.incrementQuantity(item.id, (item.quantity + 1))
+                    }
+                  }>
+                    <span>+</span>
                   </button>
                 </div>
                 <span className="cart-item__price">{`$ ${(item.price*item.quantity)}`}</span>
@@ -81,7 +82,7 @@ export default class Cart extends Component {
   }
 
   renderCounter () {
-    const quantity = this.props.cart.quantity
+    const quantity = this.props.lineItemCount;
     if (quantity > 0) {
       return (<div className="counter">{ quantity }</div>)  ;
     }

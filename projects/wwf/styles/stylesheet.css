@@ -1,37 +1,61 @@
 @font-face {
     font-family: 'aleo';
-    src: url('Aleo-Light-webfont.eot');
-    src: url('Aleo-Light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Aleo-Light-webfont.woff') format('woff'),
-         url('Aleo-Light-webfont.ttf') format('truetype'),
-         url('Aleo-Light-webfont.svg#aleolight') format('svg');
-    font-weight: 300;
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-bold-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-bold-webfont.woff') format('woff');
+    font-weight: bold;
     font-style: normal;
+}
+
+@font-face {
+    font-family: 'aleo';
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-bolditalic-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-bolditalic-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+
+
+@font-face {
+    font-family: 'aleo';
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-italic-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+
+
+
+@font-face {
+    font-family: 'aleo';
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-light-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-light-webfont.woff') format('woff');
+    font-weight: lighter;
+    font-style: normal;
+}
+
+
+
+
+@font-face {
+    font-family: 'aleo';
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-lightitalic-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-lightitalic-webfont.woff') format('woff');
+    font-weight: lighter;
+    font-style: italic;
+
 
 }
 
 @font-face {
     font-family: 'aleo';
-    src: url('Aleo-Regular-webfont.eot');
-    src: url('Aleo-Regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Aleo-Regular-webfont.woff') format('woff'),
-         url('Aleo-Regular-webfont.ttf') format('truetype'),
-         url('Aleo-Regular-webfont.svg#aleoregular') format('svg');
+
+    src: url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-regular-webfont.woff2') format('woff2'),
+         url('https://s3-us-west-1.amazonaws.com/truvine/fonts/aleo-regular-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
 }
-
-@font-face {
-    font-family: 'aleo';
-    src: url('Aleo-Bold-webfont.eot');
-    src: url('Aleo-Bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Aleo-Bold-webfont.woff') format('woff'),
-         url('Aleo-Bold-webfont.ttf') format('truetype'),
-         url('Aleo-Bold-webfont.svg#aleobold') format('svg');
-    font-weight: bold;
-    font-style: normal;
-
-}
-
 

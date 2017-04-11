@@ -52,7 +52,7 @@ export default class SwipeSlideshow extends Component {
       return (
         <div className="swipeSlideshow" >
           <Link to={preRenderSlides[0].hrefCrafter} className="link">
-            <img className="image" src={cdnImageBase + preRenderSlides[0].src}></img>
+            <img className="image" src={cdnImageBase + preRenderSlides[0].image.src}></img>
             <h2>{preRenderSlides[0].headline}</h2>
           </Link>
           <Link to={preRenderSlides[0].hrefBuy} className="link">

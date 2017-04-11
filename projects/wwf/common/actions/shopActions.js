@@ -15,6 +15,20 @@ export const initializeShopProducts = (attrs) => {
   }
 }
 
+export const shopProductsLoaded = (bool) => {
+  return {
+    type: 'SHOP_PRODUCTS_LOADED',
+    payload: bool
+  }
+}
+
+export const shopCollectionsLoaded = (bool) => {
+  return {
+    type: 'SHOP_COLLECTIONS_LOADED',
+    payload: bool
+  }
+}
+
 export const shopTilesLoaded = (bool) => {
   return {
     type: 'SHOP_TILES_LOADED',
@@ -56,5 +70,12 @@ export const addBuyLinksToSlides = (href, index) => {
     type: 'ADD_BUY_LINKS',
     href,
     index
+  }
+}
+
+export const activateProduct = (product) => {
+  return {
+    type: 'ACTIVATE_PRODUCT',
+    payload: product
   }
 }

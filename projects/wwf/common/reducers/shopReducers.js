@@ -7,7 +7,10 @@ const initialState = {
   shopTilesLoaded: false,
   loadShopTiles: [],
   loadCrafterProducts: [],
-  fetchSlides: []
+  fetchSlides: [],
+  shopCollectionsLoaded: false,
+  shopProductsLoaded: false,
+  activeProduct: []
 }
 
 export default function shopReducers (state = initialState, action) {
@@ -15,6 +18,10 @@ export default function shopReducers (state = initialState, action) {
     case 'ACTIVATE_CATEGORY':
       return Object.assign({}, state, {
         activeCategory: action.payload
+      });
+    case 'ACTIVATE_PRODUCT':
+      return Object.assign({}, state, {
+        activeProduct: action.payload
       });
     case 'INITIALIZE_SHOP_COLLECTIONS':
       return Object.assign({}, state, {
@@ -40,6 +47,14 @@ export default function shopReducers (state = initialState, action) {
       return Object.assign({}, state, {
         fetchSlides: action.payload
       });
+    case 'SHOP_COLLECTIONS_LOADED':
+      return Object.assign({}, state, {
+        shopCollectionsLoaded: action.payload
+      });
+    case 'SHOP_PRODUCTS_LOADED':
+      return Object.assign({}, state, {
+        shopProductsLoaded: action.payload
+      });
     case 'ADD_SLIDE_LINK':
       return update(state, {
         fetchSlides: {
@@ -50,7 +65,7 @@ export default function shopReducers (state = initialState, action) {
           }
         }
       });
-    case 'ADD_BUY_LINKS':      
+    case 'ADD_BUY_LINKS':
       return update(state, {
         fetchSlides: {
           [action.index]: {

@@ -16,6 +16,19 @@
       "SwipeSlideshowContainer": {
         "slides": [
           {
+            "headline": "THE WOOD JOURNAL",
+            "ctaText": "BUY NOW",
+            "paragraph":"Featuring LoHarvey’s Beautiful Hand-lettering",
+            "image": {
+              "src": "Journal2.jpg",
+              "alt": "#"
+            },
+            "vendorName": "WestWard",
+            "hrefCrafter": "/crafters/375570578",
+            "hrefBuy": "/products/9063958162",
+            "productTitle": ""
+          },
+          {
             "headline": "LEATHER PATCH HAT",
             "ctaText": "BUY NOW",
             "paragraph":"Branded By Hand in Carlsbad, CA",
@@ -24,22 +37,9 @@
               "alt": "#"
             },
             "vendorName": "WestWard",
-            "hrefCrafter": "",
-            "hrefBuy": "",
+            "hrefCrafter": "/crafters/375570578",
+            "hrefBuy": "/products/9063958162",
             "productTitle": "Stitched Hat"
-          },
-          {
-            "headline": "THE WOOD JOURNAL",
-            "ctaText": "BUY NOW",
-            "paragraph":"Featuring LoHarvey’s Beautiful Hand-lettering",
-            "image": {
-              "src": "",
-              "alt": "#"
-            },
-            "vendorName": "The Giving Keys",
-            "hrefCrafter": "",
-            "hrefBuy": "",
-            "productTitle": "Hope Key"
           }
         ]
       },
@@ -218,7 +218,7 @@
         "headline": "About Mason",
         "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."},
       "ProductsDisplayContainer": {
-        "headline": "Featured Crafts",
+        "headline": "Featured Items",
         "ctaText": "Add To Cart"
       }
     }

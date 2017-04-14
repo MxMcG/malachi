@@ -7,19 +7,19 @@ export default class HoverImageTile extends Component {
   }
 
   render() {
-    const { ctaText, headline, subheadline, title, image } = this.props.componentContent;
+    const { ctaText, headline, subheadline, title, image, link } = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
     return (
     <div className="h_c">
       <img src={cdnImageBase + image.src} alt={image.alt}></img>
         <div className="hoverImageTile" >
-            <div className="t_c t_b">      
+            <div className="t_c t_b">
                 <div className="tb_c t_b">
                     <h5 className="tr_u">{title}</h5>
                     <div className="wesCross"><div className="w t_b">w</div><div className="mi t_b"></div><div className="th t_b"></div></div>
                     <h1 className="tr_u">{headline}</h1>
                     <p className="tr_u">{subheadline}</p>
-                    <a className="tr_b red button solid">{ctaText}</a>
+                    <a className="tr_b red button solid" href={link}>{ctaText}</a>
                 </div>
             </div>
         </div>

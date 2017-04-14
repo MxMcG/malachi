@@ -7,10 +7,11 @@ class FeaturedImagesTile extends Component {
   }
 
   renderImages() {
-    const images = this.props.componentContent.images;    
+    const images = this.props.componentContent.images;
     const cdnImageBase = this.props.cdnImageBase;
     const imageElements = [];
     images.forEach((image, index) => {
+      console.log(image)
       imageElements.push(<img className="image" src={cdnImageBase + image.src}
         alt={image.alt} key={index}></img>
       );

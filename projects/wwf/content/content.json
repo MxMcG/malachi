@@ -6,7 +6,7 @@
         "logoImage": "WestwardLogo.png"
       },
       "PromoBannerContainer": {
-        "headline": "25% GOES TO MISSIONARIES"
+        "headline": ""
       }
     },
     "CartContainer": {
@@ -16,11 +16,11 @@
       "SwipeSlideshowContainer": {
         "slides": [
           {
-            "headline": "LOCALLY ROASTED COFFEE",
+            "headline": "LEATHER PATCH HAT",
             "ctaText": "BUY NOW",
-            "paragraph":"Fresh roasted coffee from sunny Carlsbad",
+            "paragraph":"Branded By Hand in Carlsbad, CA",
             "image": {
-              "src": "Westward_03.jpg",
+              "src": "Journal2.jpg",
               "alt": "#"
             },
             "vendorName": "WestWard",
@@ -29,30 +29,17 @@
             "productTitle": "Stitched Hat"
           },
           {
-            "headline": "FAITH, LOVE, HOPE KEYS",
+            "headline": "THE WOOD JOURNAL",
             "ctaText": "BUY NOW",
-            "paragraph":"Fresh roasted coffee from sunny Carlsbad",
+            "paragraph":"Featuring LoHarvey’s Beautiful Hand-lettering",
             "image": {
-              "src": "faithKeys.jpg",
+              "src": "",
               "alt": "#"
             },
             "vendorName": "The Giving Keys",
             "hrefCrafter": "",
             "hrefBuy": "",
             "productTitle": "Hope Key"
-          },
-          {
-            "headline": "LOST COAST CANDLE SERIES",
-            "ctaText": "BUY NOW",
-            "paragraph":"Fresh roasted coffee from sunny Carlsbad",
-            "image": {
-              "src": "craftFoster.jpg",
-              "alt": "#"
-            },
-            "vendorName": "Craft + Foster",
-            "hrefCrafter": "",
-            "hrefBuy": "",
-            "productTitle": "Lost Coast - 8oz. Soy Candle"
           }
         ]
       },
@@ -64,6 +51,11 @@
         "headline": "Organizations We Support",
         "images": [
           {
+            "name": "Outside The Bowl",
+            "src": "outsideTheBowl.png",
+            "alt": "outsideTheBowl.png"
+          },
+          {
             "name": "Christian Surfers",
             "src": "Westward_06.jpg",
             "alt": "cattle.jpg"
@@ -72,11 +64,6 @@
             "name": "Youth With A Mission",
             "src": "Westward_08.jpg",
             "alt": "testimg2.jpg"
-          },
-          {
-            "name": "North Coast Calvary Chapel",
-            "src": "Westward_13.jpg",
-            "alt": "cattle.jpg"
           }
         ]
       },
@@ -133,17 +120,19 @@
     "AboutContainer": {
       "ComplexFeatureTextContainer": {
         "headline": "Our Story",
-        "subheadline": "We Are A Collective Of Crafters",
-        "description": "We walk with the sun aligning our path we move west; it's the only way that brings life We don't stray far for we know the path we are on is a means of provision and protection Conditions will beat us up; we will keep moving forward We can rest in the midst of the storms Our hope lays in the Son of all creation for we know He has already blazed a trail for us It's not a chasing after freedom; it's walking in it It's not working for Hope; its working from it It's not finding Love along the way; it's living from it! The Son is our Freedom, our Hope, and our Love The pains of this journey have suddenly lost their sting, so WE KEEP MOVING WESTWARD."},
+        "subheadline": "We Were Created To Create",
+        "description": "My Dad once told me, \"if you put a little bit of time and effort into something everyday, after a while you will have something huge.\" I put this nugget of wisdom to the plow and made it through business school, made investments with the resources that were available to me, and invested my time into people. I learned the greatest asset a business could have is its people. It was evident after working four years in a successful startup company in Carlsbad, CA, because the people were incredible and so talented. Over time at the startup the work with my hands became less and less. My desk crept higher up into the office corner. It took a tough conversation with my business partners to see if this was the place for me. I followed with the response, \"I just want to work with my hands, talk to people, and Love people.\" Here is where we begin our journey WestWard; working with our hands and Loving people."
+      },
       "HoverImageTileContainer": {
-        "title": "Mason Ward",
+        "title": "WestWard",
         "headline": "Westward",
-        "subheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "ctaText": "Learn More",
+        "subheadline": "Invite Our Mobile Store To Your Next Event!",
+        "ctaText": "Contact",
         "image": {
-          "src": "WestwardAboutMason.png",
+          "src": "WestWardTable.jpg",
           "alt": "about mason"
-        }
+        },
+        "link": "mailto:westwardfoundation@gmail.com"
       },
       "CategorizedRowsContainer": {
         "ctaText": "Learn More"
@@ -162,53 +151,38 @@
         "blocks": [
           {
             "topBlock": {
-              "topHeadline": "North Coast Calvary Chapel",
-              "topSubheadline": "We Are A Collective Of Crafters",
-              "topDescription": "We walk with the sun aligning our path we move west; it's the only way that brings life We don't stray far for we know the path we are on is a means of provision and protection Conditions will beat us up; we will keep moving forward We can rest in the midst of the storms Our hope lays in the Son of all creation for we know He has already blazed a trail for us It's not a chasing after freedom; it's walking in it It's not working for Hope; its working from it It's not finding Love along the way; it's living from it! The Son is our Freedom, our Hope, and our Love The pains of this journey have suddenly lost their sting, so WE KEEP MOVING WESTWARD."
+              "topHeadline": "Outside The Bowl",
+              "topSubheadline": "A world in which all children are physically and spiritually nourished.",
+              "topDescription": "In response to Jesus’ command to feed the hungry, Outside the Bowl is dedicated to eliminating physical and spiritual starvation in impoverished communities by building Super Kitchens, and working with established community partners to serve hot, nutritious meals to those who need them most."
             },
             "bottomBlock": {
               "lowCtaText": "Learn More",
-              "lowHeadline": "Westward",
-              "lowSubheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-              "lowTitle": "Mason Ward",
+              "lowHeadline": "",
+              "lowSubheadline": "",
+              "lowTitle": "OUTSIDE THE BOWL",
               "lowImage": {
-                "src": "WestwardAboutMason.png",
+                "src": "outsideTheBowl.png",
                 "alt": "about mason"
-              }
+              },
+              "link": "http://www.outsidethebowl.org/super-kitchen/"
             }
           },
           {
             "topBlock": {
               "topHeadline": "Christian Surfers",
-              "topSubheadline": "International",
-              "topDescription": "We walk with the sun aligning our path we move west; it's the only way that brings life We don't stray far for we know the path we are on is a means of provision and protection Conditions will beat us up; we will keep moving forward We can rest in the midst of the storms Our hope lays in the Son of all creation for we know He has already blazed a trail for us It's not a chasing after freedom; it's walking in it It's not working for Hope; its working from it It's not finding Love along the way; it's living from it! The Son is our Freedom, our Hope, and our Love The pains of this journey have suddenly lost their sting, so WE KEEP MOVING WESTWARD."
+              "topSubheadline": "See the World. Surf the World. Change the World.",
+              "topDescription": "An organization that unifies communities with the common ground of surfing. This group is welcome to all ages and they meet up in chapters based on your geographic location. Chapters share six core ideas, which give them the Christian Surfers DNA: Fellowship: We are a fellowship of surfers following Jesus together; Service: Partner with charities to serve the local beach communities; Intentional Relationships: We follow the biblical mandate to make disciples of Christ, so we journey together to grow in our faith in Christ; Leadership: The leaders of the chapters organize the meetings and serve as leaders; Membership: Partnering with local churches to be held accountable; Surfing: Made up of surfers dedicated to the lifestyle of riding waves, chasing waves, obsessing over surfboards, talking about surfing legends…"
             },
             "bottomBlock": {
               "lowCtaText": "Learn More",
-              "lowHeadline": "Christian Surfers",
-              "lowSubheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-              "lowTitle": "Mason Ward",
+              "lowHeadline": "",
+              "lowSubheadline": "",
+              "lowTitle": "CHRISTIAN SURFERS",
               "lowImage": {
-                "src": "WestwardAboutMason.png",
+                "src": "Westward_06.jpg",
                 "alt": "about mason"
-              }
-            }
-          },
-          {
-            "topBlock": {
-              "topHeadline": "Youth With A Mission",
-              "topSubheadline": "We Are A Collective Of Crafters",
-              "topDescription": "We walk with the sun aligning our path we move west; it's the only way that brings life We don't stray far for we know the path we are on is a means of provision and protection Conditions will beat us up; we will keep moving forward We can rest in the midst of the storms Our hope lays in the Son of all creation for we know He has already blazed a trail for us It's not a chasing after freedom; it's walking in it It's not working for Hope; its working from it It's not finding Love along the way; it's living from it! The Son is our Freedom, our Hope, and our Love The pains of this journey have suddenly lost their sting, so WE KEEP MOVING WESTWARD."
-            },
-            "bottomBlock": {
-              "lowCtaText": "Learn More",
-              "lowHeadline": "Westward",
-              "lowSubheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-              "lowTitle": "Mason Ward",
-              "lowImage": {
-                "src": "WestwardAboutMason.png",
-                "alt": "about mason"
-              }
+              },
+              "link": "https://christiansurfers.com/get-involved/chapters/"
             }
           }
         ]

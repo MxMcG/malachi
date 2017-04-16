@@ -46,7 +46,7 @@ export default class ProductsView extends Component {
         <h4>Price: {price}</h4>
         <h4>Details</h4>        
         <div className="decription" dangerouslySetInnerHTML={{__html: product.attrs.body_html}}></div>
-        <button onClick={() => this.addToCart(product.selectedVariant, 1)}>Add to Cart</button>
+        <button onClick={() => this.addToCart(product.selectedVariant, 1)} className="button solid t_b black">Add to Cart</button>
       </div>
     )
     htmlWrapper.push(html);

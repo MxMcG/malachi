@@ -1,3 +1,6 @@
+
+
+
 .nav {
   height: 62px;
   position: fixed;
@@ -70,7 +73,7 @@
       a {
            font-size: 15px;
            display: inline-block;
-           color: black;
+           color: #2F2F2F;
            line-height: 1;
            cursor: pointer;
            border-radius: 25px;
@@ -90,7 +93,7 @@
   }
 
   .banner {
-    background: black;
+    background: #2F2F2F;
     color: white;
     float: left;
     width: 100%;

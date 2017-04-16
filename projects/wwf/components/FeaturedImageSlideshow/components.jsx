@@ -68,7 +68,7 @@ export default class FeaturedImageSlideshow extends Component {
         <h2>Events</h2>
         <h6>Want Westward Cold Brew?</h6>
       </div>
-        <a href="" className="t_b button red solid">Learn More</a>
+        <a href="" className="t_b button black solid">Learn More</a>
         <Slider {...settings}>
             { this.renderImages() }  
         </Slider>

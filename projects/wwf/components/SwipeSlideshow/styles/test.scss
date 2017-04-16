@@ -37,9 +37,8 @@ background-position: left;
       border: 2px solid white;
 
       &:hover {
-      border: 2px solid #E07A5F;
-        background: #E07A5F;
-        color: white;
+        color: #2F2F2F;
+        background: white;
       }
 
 @media screen and (min-width: 500px) {
@@ -144,7 +143,7 @@ opacity: 1;
 
 
 body .slick-dots li button:before {
-    border: 1px solid black;
+    border: 1px solid #2F2F2F;
     width: 5px;
     background: transparent;
     height: 5px;
@@ -164,7 +163,7 @@ body .slick-dots li {
 
  body .slick-dots li.slick-active button:before {
     opacity: 1;
-    background: black;
+    background: #2F2F2F;
 }
 
 body .slick-dots {

@@ -15,6 +15,7 @@ text-align: center;
   .tiles {
   display: inline-block;
   width: 50%;
+  vertical-align: top;
   position:relative;
   overflow: auto;
   p {
@@ -69,7 +70,7 @@ text-align: center;
     right: 0;
     left:0;
     bottom:0;
-    background: black;
+    background: #2F2F2F;
 
     div {
 

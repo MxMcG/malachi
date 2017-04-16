@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import jquery from 'jquery';
+import $ from 'jquery';
+
 export default class ImageWithEffects extends Component {
 
   constructor(props) {
@@ -11,8 +14,14 @@ export default class ImageWithEffects extends Component {
   }
 
   handleScroll(e) {
-    const scrollTop = e.srcElement.body.scrollTop;
-    document.getElementById("first").style.opacity = scrollTop / 200;
+    var scrollTop = $(document).scrollTop();
+    $('#first').css({"opacity" : scrollTop / 200});
+
+    if(scrollTop > 600) {
+      $('.co .image').hide();
+    } else {
+      $('.co .image').show();
+    }
   }
 
   render() {

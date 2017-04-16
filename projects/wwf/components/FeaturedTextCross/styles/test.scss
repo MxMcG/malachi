@@ -4,24 +4,33 @@ padding-top:25px;
 max-width: 95%;
 margin: 0 auto 50px;
     h2 {
-      color: black;  
+      color: #2F2F2F;  
       display: inline-block;
       position: relative;
       vertical-align: middle;
-      margin-right: 47.53px;
+
+  @media screen and (min-width: 480px) {
+       margin-right: 47.53px;
+  }
     }
 
 .wesCross {
-  display: inline-block;
-  margin:0 12px 0 0;
+  margin:0 0 7px 0;
   vertical-align: middle;
+  display: block;
+
 
   .w {
-    color:black;
+    color:#2F2F2F;
   }
 
   .mi, .th {
-    background: black;
+    background: #2F2F2F;
+  }
+
+  @media screen and (min-width: 480px) {
+      margin:0 12px 0 0;
+      display: inline-block;
   }
 }
 
@@ -29,7 +38,7 @@ margin: 0 auto 50px;
   vertical-align: middle;
   width: 20px;
   height: 2px;
-  background: black;
+  background: #2F2F2F;
   display: inline-block;
   margin-left: 12px;
 }

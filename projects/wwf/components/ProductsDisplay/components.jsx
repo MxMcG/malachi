@@ -50,7 +50,7 @@ export default class ProductsDisplay extends Component {
               <h6 className="productTitle">{title}</h6>
 
               <p className="productPrice">{formattedPrice}</p>
-              <Link to={`/products/${product.id}`}><button>View Product</button></Link>
+              <Link to={`/products/${product.id}`}><button className="button solid t_b black">View Product</button></Link>
             </div>
           )
           elements.push(html);

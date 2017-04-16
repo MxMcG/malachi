@@ -23,11 +23,11 @@ export default class FeaturedImageSlideshow extends Component {
       );
     } else {
       loadedImages.forEach((images, index) => {
-        Imageelements.push( 
+        Imageelements.push(
           <div className="featuredImageSlide" style={{backgroundImage: 'url(' + cdnImageBase + images.src + ')'}} key={index}>
-          </div>  
+          </div>
         )
-      }); 
+      });
     }
     return Imageelements;
   }
@@ -66,11 +66,11 @@ export default class FeaturedImageSlideshow extends Component {
       <div className="featuredImageSlideshow">
       <div className="feat_con">
         <h2>Events</h2>
-        <h6>Want Westward Cold Brew?</h6>
+        <h6>Book our Mobile Store!</h6>
       </div>
-        <a href="" className="t_b button black solid">Learn More</a>
+        <Link to="/events" className="t_b button black solid">Learn More</Link>
         <Slider {...settings}>
-            { this.renderImages() }  
+            { this.renderImages() }
         </Slider>
 
       </div>

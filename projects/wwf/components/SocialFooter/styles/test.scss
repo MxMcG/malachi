@@ -1,18 +1,16 @@
 .socialFooter {
 font-size: 15px;
 text-align: center;
-background: white;
+background: #2f2f2f;
 position:relative;
 padding: 20px 0;
-  -webkit-box-shadow: inset 0px 14px 10px -11px rgba(209,209,209,0.45);
--moz-box-shadow: inset 0px 14px 10px -11px rgba(209,209,209,0.45);
-box-shadow: inset 0px 14px 10px -11px rgba(209,209,209,0.45);
+color: white;
 
 h2 {
   font-weight:300;
   margin:0 0 5px 0;
   text-transform: uppercase;
-  color: #2F2F2F;
+  color: white;
   font-size: 15px;
 }
 
@@ -22,10 +20,8 @@ div, a {
 
 a {
   margin: 0 5px;
+  color: white;
 }
 
 
 }
-
-
-

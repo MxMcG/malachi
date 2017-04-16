@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 export default class MissionsBlock extends Component {
 
@@ -20,7 +21,8 @@ export default class MissionsBlock extends Component {
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 cillum dolore eu fugiat nulla pariatur.</p>
-            <a href="" className="t_b button solid black">Learn More</a>
+            <Link to="/missions" className="t_b button solid black">View Partners</Link>
+
           </div>
         </div>
         <div className="con mid words t_right hide-below-769"><h2>Remember the <br></br><span className="red">Jesus</span> in Chile</h2></div>

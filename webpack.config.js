@@ -5,6 +5,7 @@ const nodeModulesPath = path.resolve(__dirname, 'node_modules');
 const env = process.env.NODE_ENV
 const activeProject = require('yargs').argv.project;
 const buildPath = path.resolve(__dirname, 'build', activeProject);
+const fontPath = path.resolve(__dirname, 'build', activeProject, '/');
 const projectPath = activeProject ? path.resolve(__dirname, 'projects', activeProject) : null;
 const mainPath = activeProject ? './projects/' + activeProject + '/config.js' : null;
 const assetsOutput = activeProject ? path.resolve(__dirname, 'projects', activeProject) : null;
@@ -67,6 +68,22 @@ const config = {
         test: /\.scss$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader'],
         exclude: [nodeModulesPath]
+      },
+      {
+        // Match woff2 in addition to patterns like .woff?v=1.1.1.
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        loader: 'url-loader',
+        options: {
+          // Limit at 50k. Above that it emits separate files
+          limit: 50000,
+
+          // url-loader sets mimetype if it's passed.
+          // Without this it derives it from the file extension
+          mimetype: 'application/font-woff',
+
+          // Output below fonts directory
+          name: 'projects/wwf/styles/[name].[ext]',
+        },
       },
       {
         test: /\.json$/,

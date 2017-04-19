@@ -44,8 +44,8 @@
         ]
       },
       "MissionsBlockContainer": {
-        "aus": "austr.jpg",
-        "chil": "chile.jpg"
+        "firstSrc": "littleGirlOutsideTheBowl.png",
+        "secondSrc": "chile.jpg"
       },
       "FeaturedImagesTileContainer": {
         "headline": "Organizations We Support",

@@ -8,21 +8,24 @@ body {
 }
 
 .swipeSlideshow {
-// background-position: left;
 background-position: 100% center;
 
   .swipeContent {
  position: absolute;
     text-align: center;
-    width: 250px;
-    left: 0;
-    top: 20%;
+    width: 100%;
     z-index: 4;
+    top: 21%;
+    .wesCross {
+    margin-bottom: 12px;
 
-    @media screen and (min-width: 500px) {
-      width: 50%;
-      top: 29%;
-      left: 1%;
+    @media screen and (min-width: 769px) {
+      margin-bottom: 16px;
+    }
+    }
+
+    @media screen and (min-width: 769px) {
+        top: 30%;
     }
 
     .cta {
@@ -51,7 +54,7 @@ background-position: 100% center;
 
     p {
     display: none;
-    margin: 4px 0 17px 0;
+    margin: 10px 0 22px 0;
     font-weight: 400;
     color: white;
 
@@ -64,7 +67,7 @@ background-position: 100% center;
   h2 {
     color: white;
     font-size: 30px;
-    margin: 0 20px 7px 20px;
+    margin: 0 0 12px 0;
     line-height: 1.2;
 
     @media screen and (min-width: 769px) {

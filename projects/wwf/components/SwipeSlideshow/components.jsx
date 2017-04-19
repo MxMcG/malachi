@@ -69,10 +69,10 @@ export default class SwipeSlideshow extends Component {
               <div className="o_lay"></div>
             </Link>
             <div className="swipeContent">
-              <div className="wesCross"><div className="w">w</div><div className="mi"></div><div className="th"></div></div>
-                <h2>{slide.headline}</h2>
-                <p>{slide.paragraph}</p>
-              <Link to={slide.hrefBuy} className="link cta t_b">
+              <div className="wesCross"><div className="w tx_s">w</div><div className="mi bx_s"></div><div className="th bx_s"></div></div>
+                <h2 className="tx_s">{slide.headline}</h2>
+                <p className="tx_s">{slide.paragraph}</p>
+              <Link to={slide.hrefBuy} className="link cta t_b bx_s">
                 {slide.ctaText}
               </Link>
             </div>

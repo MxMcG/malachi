@@ -1,7 +1,6 @@
 .featuredTextCross{
 text-align: center;
-padding-top:25px;
-max-width: 95%;
+padding-top:20px;
 margin: 0 auto 50px;
     h2 {
       color: #2F2F2F;  
@@ -53,3 +52,28 @@ p{
 }
 }
 
+
+.desk_feat {
+  display: none;
+
+  @media screen and (min-width: 1042px) {
+    width: 60%;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.featuredTextCross {
+  text-align: left;
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  h2 {
+    margin-right: 0;
+  }
+
+  p {
+    font-size: 16px;
+  }
+}
+
+}

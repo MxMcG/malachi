@@ -6,3 +6,24 @@ h2 {
   height: 600px;
   width: 200px;
 }
+
+.about {
+
+
+@media screen and (min-width: 1059px) {
+padding: 55px 0;
+text-align: center;
+
+}
+  
+  .h_c {
+    @media screen and (min-width: 1059px) {
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 420px;
+      margin-right: 5%;
+    }
+  }
+}
+
+

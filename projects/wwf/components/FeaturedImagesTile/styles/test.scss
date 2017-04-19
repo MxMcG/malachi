@@ -9,8 +9,14 @@ margin: 60px 0 45px 0;
     display:inline-block;
     margin-bottom: 20px;
 
+
+
+
+
     @media screen and (min-width: 769px) {
       max-width: 250px;
+      margin-right: 10px;
+      margin-left: 10px;
     }
   }
 
@@ -20,4 +26,8 @@ margin: 60px 0 45px 0;
     text-align: center;
     margin-bottom: 33px;
   }
+}
+
+.featuredImagesTile img:nth-of-type(1) {
+  margin-bottom: 35px;
 }

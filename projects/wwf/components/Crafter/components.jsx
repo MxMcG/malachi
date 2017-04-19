@@ -33,7 +33,7 @@ export default class Crafter extends Component {
       <div className="crafter" >
         <ImageWithEffectsContainer />
         <div className="cr_b">
-          <FeaturedTextCrossContainer />
+          <div className="show-for-mobile"><FeaturedTextCrossContainer /></div>
           <ProductsDisplayContainer paramId={this.props.params.id} />
         </div>
       </div>

@@ -1,6 +1,10 @@
 .productsDisplay {
   text-align: center;
 
+   @media screen and (min-width: 769px) { 
+    padding-top: 75px;
+   }
+
   img {
     max-width: 200px;
     margin-bottom:17px;
@@ -10,26 +14,53 @@
   }
   h2 {
     color: #2F2F2F;
-    margin-bottom: 30px;
+    position: relative;
+    margin: 0 auto 30px;
   }
+
 
   h6 {
     font-weight: 500;
-    margin-bottom: 17px;
+    margin-bottom: 7px;
     font-size: 15px;
   }
 
-}
+
 
 .product {
   margin-bottom: 50px;
+  width: 100%;
 
-  &:last-child {
-    padding-bottom: 30px;
-    margin-bottom:0;
+  @media screen and (min-width: 769px) {
+    width: 375px;
+    display: inline-block;
   }
 }
 
+
+
 .productPrice {
-  margin-bottom: 16px;
+    position: relative;
+    display: block;
+    width: 180px;
+    margin: 0 auto 16px;
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      height: 2px;
+      background: #2F2F2F;
+      display: block;
+      width: 50px;
+      top: 50%;
+    }
+
+    &:before {
+      left: 0;
+    }
+    &:after {
+      right: 0;
+    }
+  }
 }
+
+

@@ -1,20 +1,30 @@
 .complexFeatureText {
   text-align: center;
 
+
+  @media screen and (min-width: 1059px) {
+    display: inline-block;
+    vertical-align: middle;
+    text-align:left;
+  }
   h2 {
     margin: 0;
     text-align: center;
-    padding: 25px 0 3px 0;
+    padding: 16px 0 0 0;
     color: #2F2F2F;
+      @media screen and (min-width: 1059px) {
+    text-align:left;
+    padding-top: 0;
+  }
   }
 
   h6 {
-    margin: 9px 0 12px 0;
+    margin: 5px 0 12px 0;
     display: inline-block;
-    padding: 0 21px 3px 21px;
     text-transform: uppercase;
-    border-bottom: 2px #2F2F2F solid;
     font-size: 14px;
+    font-weight: bold;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 
   p {
@@ -28,7 +38,7 @@
     @media screen and (min-width: 500px) {
       font-size: 16px;
       max-width: 600px;
-      margin: 0 auto 35px;
+      margin: 0 auto;
     }
   }
 

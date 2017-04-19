@@ -314,6 +314,17 @@ h6 {
 
 
 
+.bx_s {
+  -webkit-box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.5);
+}
+
+.tx_s {
+  text-shadow: 2px 2px 14px rgba(0, 0, 0, 0.5);
+}
+
+
 
 .slick-prev::before {
   content: '<' !important;

@@ -14,8 +14,8 @@ export default class About extends Component {
     console.log("ABPT", this.props)
     return (
       <div className="about" >
-        <ComplexFeatureTextContainer />
         <HoverImageTileContainer />
+        <ComplexFeatureTextContainer />
       </div>
     );
   }

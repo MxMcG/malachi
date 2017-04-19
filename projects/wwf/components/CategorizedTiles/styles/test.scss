@@ -26,10 +26,12 @@ text-align: center;
     border-bottom: 2px solid black;
     padding: 0 0 2px 0;
     text-align: center;
-    margin: 25px auto;
+    margin: 15px auto;
+    font-size: 11px;
 
-    @media screen and (min-width: 769px) {
+    @media screen and (min-width: 600px) {
       font-size: 20px;
+      margin: 25px auto;
     }
   }
   .vendorImage {
@@ -45,7 +47,7 @@ text-align: center;
      -moz-transform: rotate3d(0, 0, 0 ,0);
       -webkit-transform: rotate3d(0, 0, 0, 0);
       -o-transform: rotate3d(0, 0, 0, 0);
-      opacity: 1;
+      opacity: .9;
       pointer-events: all;
 }
 
@@ -103,4 +105,12 @@ text-align: center;
 
 
 
+}
+
+
+.show-for-mobile {
+  display: block;
+ @media screen and (min-width: 1042px) {
+  display: none;
+ }
 }

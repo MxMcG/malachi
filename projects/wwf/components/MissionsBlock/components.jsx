@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-
 export default class MissionsBlock extends Component {
 
   constructor(props) {
     super(props);
   }
+
 
   render() {
     const ausSrc = this.props.componentContent.firstSrc;
@@ -22,7 +22,7 @@ export default class MissionsBlock extends Component {
 
           </div>
         </div>
-        <div className="con mid words t_right hide-below-769"><h2>Remember the <br></br><span className="red">Jesus</span> in Chile</h2></div>
+        <div className="con mid words t_right hide-below-769"><h2>Remember the lives<br></br> in Chile</h2></div>
         <img src={ cdnImageBase + chilSrc } className="con mid ov"></img>
       </div>
     );

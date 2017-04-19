@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import jquery from 'jquery';
 import $ from 'jquery';
+import FeaturedTextCrossContainer from '../../common/containers/FeaturedTextCrossContainer.js';
 
 export default class ImageWithEffects extends Component {
 
@@ -15,14 +16,14 @@ export default class ImageWithEffects extends Component {
 
   handleScroll(e) {
     var scrollTop = $(document).scrollTop();
-    $('#first').css({"opacity" : scrollTop / 200});
+    $('.co .se').css({"transform" : "translate3d(0,"+scrollTop / 5+"px,0)"});
 
-    if(scrollTop > 600) {
-      $('.co .image').hide();
+    if(scrollTop > 100) {
+      return false
     } else {
-      $('.co .image').show();
+      return true
     }
-  }
+  } 
 
   render() {
     const { imageBase, imageEffects } = this.props.componentContent;
@@ -30,9 +31,9 @@ export default class ImageWithEffects extends Component {
     return (
       <div className="imageWithEffects">
         <div className="co">
-          <img className="image fi" id="first" style={{opacity: 0}} src={cdnImageBase + imageEffects.src} alt={imageBase.alt}></img>
           <img className="image se" src={cdnImageBase + imageBase.src} alt={imageBase.alt}></img>
         </div>
+        <div className="desk_feat"><FeaturedTextCrossContainer /></div>
       </div>
     );
   }

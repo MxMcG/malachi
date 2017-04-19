@@ -45,6 +45,7 @@ export default class ProductsDisplay extends Component {
           // const url = product.variants[0].checkoutUrl(1);
           const buttonText = this.props.componentContent.ctaText;
           const html = (
+          <Link to={`/products/${product.id}`}>
             <div className="product" key={index}>
               <img className="productImage" src={imageSrc}></img>
               <h6 className="productTitle">{title}</h6>
@@ -52,6 +53,7 @@ export default class ProductsDisplay extends Component {
               <p className="productPrice">{formattedPrice}</p>
               <Link to={`/products/${product.id}`}><button className="button solid t_b black">View Product</button></Link>
             </div>
+          </Link>
           )
           elements.push(html);
         });

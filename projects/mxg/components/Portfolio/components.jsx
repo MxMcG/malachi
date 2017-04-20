@@ -23,7 +23,7 @@ export default class Portfolio extends Component {
             <div className="links">
               <a href="https://www.tourlookup.com" className="link" target="_blank">
                 <div className="socialCircle projectImg">
-                  <i className="fa fa-share-alt icon" aria-hidden="true"></i>
+                  <i className="fa fa-laptop icon" aria-hidden="true"></i>
                 </div>
               </a>
               <a href="https://github.com/MxMcG/soundtrails" className="link" target="_blank">
@@ -52,7 +52,7 @@ export default class Portfolio extends Component {
             <div className="links">
               <a href="https://nationsmagazine.com" className="link" target="_blank">
                 <div className="socialCircle projectImg">
-                  <i className="fa fa-share-alt icon" aria-hidden="true"></i>
+                  <i className="fa fa-laptop icon" aria-hidden="true"></i>
                 </div>
               </a>
             </div>
@@ -73,7 +73,7 @@ export default class Portfolio extends Component {
             <div className="links">
               <a href="https://www.staging.westwardfoundation.com/" className="link" target="_blank">
                 <div className="socialCircle projectImg">
-                  <i className="fa fa-share-alt icon" aria-hidden="true"></i>
+                  <i className="fa fa-laptop icon" aria-hidden="true"></i>
                 </div>
               </a>
               <a href="https://github.com/MxMcG/malachi/tree/master/projects/wwf" className="link" target="_blank">
@@ -84,7 +84,7 @@ export default class Portfolio extends Component {
             </div>
             <div className="screenshots">
               <img src={`${cdnImageBase}wwf1.png`} className="wwf1" ></img>
-              <img src={`${cdnImageBase}ww2.png`} className="wwf2"></img>              
+              <img src={`${cdnImageBase}ww2.png`} className="wwf2"></img>
             </div>
           </div>
 

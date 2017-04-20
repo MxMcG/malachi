@@ -19,8 +19,10 @@
   }
 
   .imageSecond {
-    -ms-transform: rotate(90deg); /* IE 9 */
-    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
     transform: rotate(90deg);
     border-radius: 0;
     margin: 48px 0;
@@ -65,7 +67,7 @@
     .skillSect {
       padding: 0 30% 65px 100px;
     }
-    .imageSecond {      
+    .imageSecond {
       margin: 70px 0;
     }
   }

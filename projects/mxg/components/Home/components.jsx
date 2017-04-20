@@ -25,7 +25,7 @@ export default class Home extends Component {
           <br></br>
           <p>Upon graduation from Dev Bootcamp, I journeyed south to San Diego and set out to land my first software job. In early 2016, I was hired by Zeeto Media in downtown San Diego as a front end developer. Zeeto offers a SAAS product enabling high-volume websites to monetize traffic through propriety algorithms. I worked on the Optimization Team, which worked on an in-house A/B testing platform built with React, Browserify, and Node.js. I quickly learned the React library and took on challenging server-side tickets in order to learn more about Node middleware. At Zeeto, I was surrounded by some of the top engineers in the city and was truly challenged to build out complex features required by our clients. </p>
           <br></br>
-          <div className="imageWrap">
+          <div className="imageWrap imageWrapSecond">
             <img className="imageSecond" src={this.props.cdnImageBase + 'maxBeachJoel.jpg'}></img>
           </div>
           <br></br>

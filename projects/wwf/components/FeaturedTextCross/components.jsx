@@ -6,14 +6,22 @@ export default class FeaturedTextCross extends Component {
     super(props);
   }
 
+  componentWillUpdate(nextProps, nextState) {
+    if (nextProps.crafterCollection.attrs) {
+
+    }
+  }
+
   displayCrafterTitle() {
-    const product = this.props.loadedProducts[0];
-    if (product) {
-      const crafter = product.attrs.vendor;      
+    if (this.props.crafterCollection.attrs !== undefined) {
+      const title = this.props.crafterCollection.attrs.title;
+      const body = this.props.crafterCollection.attrs.body_html;
       return (
-        <h2>About { crafter }</h2>);
-    } else {
-      return (<h2>About</h2>);
+        <div>
+          <h2>About { title }</h2>
+          <p dangerouslySetInnerHTML={{__html: body}}></p>
+        </div>
+      );
     }
   }
 
@@ -23,7 +31,6 @@ export default class FeaturedTextCross extends Component {
       <div className="featuredTextCross" >
         <div className="wesCross"><div className="w">w</div><div className="mi"></div><div className="th"></div></div>
         { this.displayCrafterTitle() }
-        <p>{description}</p>
       </div>
     );
   }

@@ -14,8 +14,7 @@ const propTypes = {
 // in here, we determine the props to be passed down to the specific component needed
 class ProductsDisplayContainer extends Component {
 
-  render () {
-    console.log("display", this.props)
+  render () {    
     return (
       <ProductsDisplay {...this.props} paramId={this.props.paramId} />
     );

@@ -22,16 +22,18 @@ class FeaturedTextCrossContainer extends Component {
 
 FeaturedTextCrossContainer.propTypes = propTypes;
 
-function mapStateToProps(state) {  
+function mapStateToProps(state) {
   const componentContent = state.content.project.components.CrafterContainer.FeaturedTextCrossContainer;
   const loadedProducts = state.shop.loadCrafterProducts;
   const cdnImageBase = state.urls.cdnImageBase;
+  const crafterCollection = state.shop.crafterCollection;
   const cdnUrl = state.urls.cdnUrl
   return {
     componentContent,
     loadedProducts,
     cdnImageBase,
-    cdnUrl
+    cdnUrl,
+    crafterCollection
   };
 }
 

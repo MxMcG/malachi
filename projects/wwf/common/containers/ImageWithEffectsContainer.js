@@ -25,13 +25,17 @@ ImageWithEffectsContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   const componentContent = state.content.project.components.CrafterContainer.ImageWithEffectsContainer;
   const loadedProducts = state.shop.loadCrafterProducts;
+  const shopCollections = state.shop.shopCollections;
+  const crafterCollection = state.shop.crafterCollection;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
   return {
     componentContent,
     loadedProducts,
     cdnImageBase,
-    cdnUrl
+    cdnUrl,
+    shopCollections,
+    crafterCollection
   };
 }
 

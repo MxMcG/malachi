@@ -36,7 +36,7 @@ export default class CategorizedTiles extends Component {
     this.createElements(collections);
   }
 
-  createElements(collections) {    
+  createElements(collections) {
     if (collections) {
       const newTiles = [];
       collections.forEach((collection, index) => {
@@ -51,7 +51,7 @@ export default class CategorizedTiles extends Component {
           if (coll.attrs.product_type === tile) {
             innerElements.push(
               <div className="tiles" key={innerIndex}>
-                <Link to={`/crafters/${coll.attrs.collection_id}`} className="">
+                <Link to={`/crafters/${coll.attrs.collection_id}`} className="" onClick={ () => { this.props.dispatchCrafterCollection({}) }}>
                   <div className="prodOverlayWrap per">
                       <div className="vendorImage" style={{backgroundImage: 'url(' + coll.attrs.image.src + ')'}}></div>
                       <div className="overlayDescription t_b hov">
@@ -77,12 +77,6 @@ export default class CategorizedTiles extends Component {
       this.props.dispatchLoadShopTiles(elements);
       this.props.dispatchShopTilesLoaded(true);
     }
-
-    // let elements = null;
-    // if (this.props.shopTilesLoaded) {
-    //   elements = this.props.loadedShopTiles;
-    // }
-    // return elements;
   }
 
   render() {

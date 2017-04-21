@@ -1,5 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import * as actions from '../actions/index';
+const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document);
+let fetchAllCollections, fetchAllProducts, createNewCart;
+if (isBrowser) {
+  fetchAllCollections = require('../shopify.js').fetchAllCollections;
+  fetchAllProducts = require('../shopify.js').fetchAllProducts;
+  createNewCart = require('../shopify.js').createNewCart;
+}
 
 import Layout from '../../components/Layout/components.jsx';
 
@@ -14,8 +22,12 @@ const propTypes = {
 // in here, we determine the props to be passed down to the specific component needed
 class LayoutContainer extends Component {
   componentDidMount () {
-    console.log("YOY", this.props)
     const { dispatch, componentContent } = this.props;
+    if (isBrowser) {
+      this.props.dispatch(fetchAllCollections());
+      this.props.dispatch(fetchAllProducts());
+      this.props.dispatch(createNewCart());
+    }
   }
 
   render () {

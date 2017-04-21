@@ -56,6 +56,9 @@ function mapDispatchToProps (dispatch) {
     },
     dispatchLoadCrafterProducts: (products) => {
       dispatch(actions.loadCrafterProducts(products))
+    },
+    dispatchCrafterCollection: (collection) => {
+      dispatch(actions.loadCrafterCollection(collection))
     }
   }
 }

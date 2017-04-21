@@ -10,8 +10,7 @@ export default class About extends Component {
     super(props);
   }
 
-  render() {
-    console.log("ABPT", this.props)
+  render() {    
     return (
       <div className="about" >
         <HoverImageTileContainer />

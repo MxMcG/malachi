@@ -48,38 +48,23 @@ export default class SwipeSlideshow extends Component {
     const preRenderSlides = this.props.componentContent.slides;
     const cdnImageBase = this.props.cdnImageBase;
     const elements = [];
-    if (!loadedSlides[0]) {
-      return (
-        <div className="swipeSlideshow" >
-          <Link to={preRenderSlides[0].hrefCrafter} className="link">
-            <img className="image" src={cdnImageBase + preRenderSlides[0].image.src}></img>
-            <h2>{preRenderSlides[0].headline}</h2>
+    loadedSlides.forEach((slide, index) => {
+      elements.push(
+        <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
+          <Link to={slide.hrefCrafter} className="link">
+            <div className="o_lay"></div>
           </Link>
-          <Link to={preRenderSlides[0].hrefBuy} className="link">
-            {preRenderSlides[0].ctaText}
-          </Link>
-        </div>
-      );
-    } else {
-      loadedSlides.forEach((slide, index) => {
-        console.log(slide)
-        elements.push(
-          <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
-            <Link to={slide.hrefCrafter} className="link">
-              <div className="o_lay"></div>
+          <div className="swipeContent">
+            <div className="wesCross"><div className="w tx_s">w</div><div className="mi bx_s"></div><div className="th bx_s"></div></div>
+              <h2 className="tx_s">{slide.headline}</h2>
+              <p className="tx_s">{slide.paragraph}</p>
+            <Link to={slide.hrefBuy} className="link cta t_b bx_s">
+              {slide.ctaText}
             </Link>
-            <div className="swipeContent">
-              <div className="wesCross"><div className="w tx_s">w</div><div className="mi bx_s"></div><div className="th bx_s"></div></div>
-                <h2 className="tx_s">{slide.headline}</h2>
-                <p className="tx_s">{slide.paragraph}</p>
-              <Link to={slide.hrefBuy} className="link cta t_b bx_s">
-                {slide.ctaText}
-              </Link>
-            </div>
           </div>
-        )
-      });
-    }
+        </div>
+      )
+    });
     return elements;
   }
 

@@ -10,7 +10,8 @@ const initialState = {
   fetchSlides: [],
   shopCollectionsLoaded: false,
   shopProductsLoaded: false,
-  activeProduct: []
+  activeProduct: [],
+  crafterCollection: {}
 }
 
 export default function shopReducers (state = initialState, action) {
@@ -54,6 +55,10 @@ export default function shopReducers (state = initialState, action) {
     case 'SHOP_PRODUCTS_LOADED':
       return Object.assign({}, state, {
         shopProductsLoaded: action.payload
+      });
+    case 'CRAFTER_COLLECTION':
+      return Object.assign({}, state, {
+        crafterCollection: action.payload
       });
     case 'ADD_SLIDE_LINK':
       return update(state, {

@@ -8,8 +8,7 @@ export default class Events extends Component {
     super(props);
   }
 
-  render() {
-    console.log("Component Content", this.props.componentContent)
+  render() {    
     return (
       <div className="events" >
         <HoverImageTileContainer />

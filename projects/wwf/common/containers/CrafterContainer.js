@@ -20,7 +20,7 @@ class CrafterContainer extends Component {
     super(props)
   }
 
-  render () {    
+  render () {
     return (
       <Crafter {...this.props} />
     );
@@ -30,11 +30,17 @@ class CrafterContainer extends Component {
 CrafterContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
+  const shopCollectionsLoaded = state.shop.shopCollectionsLoaded;
   const componentContent = state.content.project.components.CrafterContainer;
   const loadedProducts = state.shop.loadCrafterProducts;
+  const shopCollections = state.shop.shopCollections;
+  const crafterCollection = state.shop.crafterCollection;
   return {
     componentContent,
-    loadedProducts
+    loadedProducts,
+    shopCollections,
+    shopCollectionsLoaded,
+    crafterCollection
   };
 }
 
@@ -42,6 +48,9 @@ function mapDispatchToProps (dispatch) {
   return {
     dispatchLoadCrafterProducts: (products) => {
       dispatch(actions.loadCrafterProducts(products))
+    },
+    dispatchCrafterCollection: (collection) => {
+      dispatch(actions.loadCrafterCollection(collection))
     }
   }
 }

@@ -16,6 +16,18 @@ export default class Crafter extends Component {
     super(props);
   }
 
+  componentWillUpdate(nextProps, nextState){
+    // if the products and collections are loaded, then fire off the function to load shop tiles.
+    if (nextProps.shopCollections.length > 0) {      
+      nextProps.shopCollections.forEach((collection, index) => {
+       if (collection.collection_id.toString() === this.props.params.id) {
+         this.props.dispatchCrafterCollection(collection);
+        }
+      })
+    }
+
+  }
+
   componentWillMount() {
     const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document)
     if (isBrowser) {
@@ -25,13 +37,21 @@ export default class Crafter extends Component {
       }).catch((error) => {
         console.log('Fetching products error!', error);
       });
+      // If collections are loaded, use them
+      if (this.props.shopCollections.length > 0) {
+       this.props.shopCollections.forEach((collection, index) => {
+        if (collection.collection_id.toString() === this.props.paramId) {
+          this.props.dispatchCrafterCollection(collection);
+          }
+        })
+      }
     }
   }
 
   render() {
     return (
       <div className="crafter" >
-        <ImageWithEffectsContainer />
+        <ImageWithEffectsContainer paramId={this.props.params.id} />
         <div className="cr_b">
           <div className="show-for-mobile"><FeaturedTextCrossContainer /></div>
           <ProductsDisplayContainer paramId={this.props.params.id} />

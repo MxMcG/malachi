@@ -12,6 +12,7 @@ export default class ImageWithEffects extends Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
+
   }
 
   handleScroll(e) {
@@ -23,18 +24,21 @@ export default class ImageWithEffects extends Component {
     } else {
       return true
     }
-  } 
+  }
 
   render() {
     const { imageBase, imageEffects } = this.props.componentContent;
     const cdnImageBase = this.props.cdnImageBase;
+    const src = this.props.crafterCollection.attrs ? this.props.crafterCollection.attrs.image.src : null;
     return (
       <div className="imageWithEffects">
         <div className="co">
-          <img className="image se" src={cdnImageBase + imageBase.src} alt={imageBase.alt}></img>
+          <img className="image se" src={ src } alt={imageBase.alt}></img>
         </div>
         <div className="desk_feat"><FeaturedTextCrossContainer /></div>
       </div>
     );
   }
 }
+
+// <img className="image se" src={cdnImageBase } alt={this.props.crafterCollection.attrs.image.alt}></img>

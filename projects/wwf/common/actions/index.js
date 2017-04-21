@@ -12,7 +12,8 @@ import { initializeShopProducts,
   addBuyLinksToSlides,
   shopCollectionsLoaded,
   shopProductsLoaded,
-  activateProduct } from './shopActions';
+  activateProduct,
+  loadCrafterCollection } from './shopActions';
 
 import {
   showCart,
@@ -34,5 +35,6 @@ export {
   addItemToCart,
   shopCollectionsLoaded,
   shopProductsLoaded,
-  activateProduct
+  activateProduct,
+  loadCrafterCollection
 };

@@ -79,3 +79,10 @@ export const activateProduct = (product) => {
     payload: product
   }
 }
+
+export const loadCrafterCollection = (collection) => {
+  return {
+    type: 'CRAFTER_COLLECTION',
+    payload: collection
+  }
+}

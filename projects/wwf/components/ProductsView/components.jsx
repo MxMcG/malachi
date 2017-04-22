@@ -18,7 +18,6 @@ export default class ProductsView extends Component {
     if (isBrowser) {
       queryByProductId(this.props.paramId)
       .then((product) => {
-
         this.convertObjectToHtml(product);
       }).catch((error) => {
         console.log('Fetching products error!', error);
@@ -33,15 +32,14 @@ export default class ProductsView extends Component {
   }
 
   handleChange(select) {
-    console.log(select)
-    const optionName = select.name;
-    const selectedValue = select.value;
-    const optionSelected = this.props.activeProduct.data.options.filter((option) => {
-      console.log(option.name)
-      console.log(optionName)
-     return option.name === optionName;
-    })[0];
-
+    const optionName = select.target.value;
+    const optionSelected = this.props.activeProduct.data.options.forEach((option) => {
+      option.values.forEach((value) => {
+        if (value === optionName) {
+          option.selected = value;          
+        };
+      })
+    });
   }
 
   convertObjectToHtml(product) {

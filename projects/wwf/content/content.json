@@ -44,8 +44,8 @@
         ]
       },
       "MissionsBlockContainer": {
-        "firstSrc": "frontPageContent1.jpg",
-        "secondSrc": "frontPageContent2.jpg"
+        "firstSrc": "FrontPageContent1.jpg",
+        "secondSrc": "FrontPageContent2.jpg"
       },
       "FeaturedImagesTileContainer": {
         "headline": "Organizations We Support",

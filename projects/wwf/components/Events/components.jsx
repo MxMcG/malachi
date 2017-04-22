@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import HoverImageTileContainer from '../../common/containers/HoverImageTileContainer.js';
+import EventsHoverImageTileContainer from '../../common/containers/EventsHoverImageTileContainer.js';
 
 export default class Events extends Component {
 
@@ -8,10 +8,10 @@ export default class Events extends Component {
     super(props);
   }
 
-  render() {    
+  render() {
     return (
       <div className="events" >
-        <HoverImageTileContainer />
+        <EventsHoverImageTileContainer />
       </div>
     );
   }

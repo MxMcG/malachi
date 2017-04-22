@@ -3,37 +3,70 @@
 
   img {
     max-width: 200px;
-    margin-bottom:17px;
+
     @media screen and (min-width: 769px) {
       max-width: 300px;
     }
   }
+
+  .variantSelect {
+    border: 2px solid #2F2F2F;
+    color: #2F2F2F;
+    background: white;
+    width: inherit;
+    font-size: 14px;
+    display: inline-block;
+    padding: 8px 0;    
+    letter-spacing: .04em;
+    font-weight: 600;
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    border-radius: 0;
+    margin: 16px;
+  }
+  .variantOption {
+    text-align: center;
+  }
+
   h2 {
     color: black;
-    margin-bottom: 30px;
+
   }
 
   h6 {
     font-weight: 500;
-    margin-bottom: 17px;
+
     font-size: 15px;
   }
   h4 {
-    padding: 20px 0;
+    padding: 10px;
   }
 
   .description {
-    padding: 40px 0;
+    padding-bottom: 20px !important;
+    width: 300px;
+    margin: 0 auto;
   }
+  button {
+    margin-bottom: 40px;
+  }
+
+
 }
 .productsView {
-  padding: 40px 0;
+
 }
 .product {
-  margin-bottom: 50px;
+
 
   &:last-child {
-    padding-bottom: 30px;
+
     margin-bottom:0;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .description {
+    width: 500px !important;
   }
 }

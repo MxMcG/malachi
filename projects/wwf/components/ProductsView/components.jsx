@@ -18,6 +18,7 @@ export default class ProductsView extends Component {
     if (isBrowser) {
       queryByProductId(this.props.paramId)
       .then((product) => {
+
         this.convertObjectToHtml(product);
       }).catch((error) => {
         console.log('Fetching products error!', error);
@@ -31,7 +32,33 @@ export default class ProductsView extends Component {
     }
   }
 
+  handleChange(select) {
+    console.log(select)
+    const optionName = select.name;
+    const selectedValue = select.value;
+    const optionSelected = this.props.activeProduct.data.options.filter((option) => {
+      console.log(option.name)
+      console.log(optionName)
+     return option.name === optionName;
+    })[0];
+
+  }
+
   convertObjectToHtml(product) {
+    // We will do the dropdowns on the template page instead
+    const dropdowns = [];
+    const selects = product.options.forEach((option) => {
+      const options = [];
+      option.attrs.values.forEach((value) => {
+        options.push(<option value={value} className="variantOption">{value}</option>);
+      })
+      dropdowns.push(
+        <select name={option.attrs.name} className="variantSelect" onChange={this.handleChange.bind(this)}>
+          <option selected disabled className="variantOption">{option.attrs.name}</option>
+          {options}
+        </select>
+      );
+    });
     const htmlWrapper = [];
     const variant = product.variants[0];
     const title = product.attrs.title;
@@ -44,19 +71,22 @@ export default class ProductsView extends Component {
         <img src={images[0].src}/>
         <h2>{title}</h2>
         <h4>Price: {price}</h4>
-        <h4>Details</h4>        
-        <div className="decription" dangerouslySetInnerHTML={{__html: product.attrs.body_html}}></div>
+        { dropdowns }
+        <div className="description" dangerouslySetInnerHTML={{__html: product.attrs.body_html}}></div>
         <button onClick={() => this.addToCart(product.selectedVariant, 1)} className="button solid t_b black">Add to Cart</button>
       </div>
     )
     htmlWrapper.push(html);
-    this.props.dispatchActivateProduct(htmlWrapper)
+    this.props.dispatchActivateProduct({
+      html: htmlWrapper,
+      data: product
+    })
   }
 
   render() {
     return (
       <div className="productsView">
-        { this.props.activeProduct }
+        { this.props.activeProduct.html }
       </div>
     );
   }

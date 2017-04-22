@@ -10,7 +10,10 @@ const initialState = {
   fetchSlides: [],
   shopCollectionsLoaded: false,
   shopProductsLoaded: false,
-  activeProduct: [],
+  activeProduct: {
+    html: [],
+    data: {}
+  },
   crafterCollection: {}
 }
 
@@ -22,7 +25,10 @@ export default function shopReducers (state = initialState, action) {
       });
     case 'ACTIVATE_PRODUCT':
       return Object.assign({}, state, {
-        activeProduct: action.payload
+        activeProduct: {
+          html: action.payload.html,
+          data: action.payload.data
+        }
       });
     case 'INITIALIZE_SHOP_COLLECTIONS':
       return Object.assign({}, state, {

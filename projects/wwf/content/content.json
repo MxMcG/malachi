@@ -44,8 +44,8 @@
         ]
       },
       "MissionsBlockContainer": {
-        "firstSrc": "littleGirlOutsideTheBowl.png",
-        "secondSrc": "chile.jpg"
+        "firstSrc": "frontPageContent1.jpg",
+        "secondSrc": "frontPageContent2.jpg"
       },
       "FeaturedImagesTileContainer": {
         "headline": "Organizations We Support",
@@ -74,18 +74,18 @@
         "images": [
           {
             "name": "imageA",
-            "src": "WestwardLatte.jpg",
-            "alt": "#"
+            "src": "Events1.jpg",
+            "alt": "WestWard Foundation Event"
           },
           {
             "name": "imageB",
-            "src": "WestwardTable.jpg",
-            "alt": "#"
+            "src": "Events2.jpg",
+            "alt": "WestWard Foundation Event"
           },
           {
             "name": "imageC",
-            "src": "WestwardLatte.jpg",
-            "alt": "#"
+            "src": "WestwardTable.jpg",
+            "alt": "Westward Table"
           }
         ]
       },
@@ -129,8 +129,8 @@
         "subheadline": "Invite Our Mobile Store To Your Next Event!",
         "ctaText": "Contact",
         "image": {
-          "src": "WestwardTable.jpg",
-          "alt": "about mason"
+          "src": "WestwardMasonHeadshot.jpg",
+          "alt": "Mason Ward WestWard Foundation"
         },
         "link": "mailto:westwardfoundation@gmail.com"
       },
@@ -139,11 +139,16 @@
       }
     },
     "EventsContainer": {
-      "HoverImageTileContainer": {
+      "EventsHoverImageTileContainer": {
         "title": "Mason Ward",
         "headline": "Westward",
-        "subheadline": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-        "ctaText": "Learn More"
+        "subheadline": "Invite Our Mobile Store To Your Next Event!",
+        "ctaText": "Contact",
+        "image": {
+          "src": "WestwardTable.jpg",
+          "alt": "Mason Ward WestWard Foundation"
+        },
+        "link": "mailto:westwardfoundation@gmail.com"
       }
     },
     "MissionsContainer": {
@@ -161,7 +166,7 @@
               "lowSubheadline": "",
               "lowTitle": "OUTSIDE THE BOWL",
               "lowImage": {
-                "src": "outsideTheBowl.png",
+                "src": "outsideTheBowlGirl.jpg",
                 "alt": "about mason"
               },
               "link": "http://www.outsidethebowl.org/super-kitchen/"
@@ -179,7 +184,7 @@
               "lowSubheadline": "",
               "lowTitle": "CHRISTIAN SURFERS",
               "lowImage": {
-                "src": "Westward_06.jpg",
+                "src": "ywamChile.jpg",
                 "alt": "about mason"
               },
               "link": "https://christiansurfers.com/get-involved/chapters/"

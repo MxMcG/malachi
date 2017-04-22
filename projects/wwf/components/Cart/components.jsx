@@ -39,7 +39,7 @@ export default class Cart extends Component {
     const elements = [];
     const activeCart = this.props.cart.activeCart
     const lineItems = activeCart.lineItems;
-    
+
     if (lineItems) {
       lineItems.forEach((item, index) => {
         elements.push(
@@ -117,7 +117,9 @@ export default class Cart extends Component {
                 <div className="subtotal">${activeCart.subtotal}</div>
               </div>
               <div className="checkout">
-                <div className="checkoutDisclaimer">Shipping and discount codes are added at checkout.</div>
+                <div className="checkoutDisclaimer">
+                  <p>Shipping and discount codes are added at checkout.</p>
+                </div>
                 <Link to={activeCart.checkoutUrl} target="_blank" className="checkoutLink">
                   <button className="checkoutLinkButton">Checkout</button>
                 </Link>

@@ -246,6 +246,9 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 12px;
   font-size: 13px;
   margin-top: 17px;
+  p {
+    line-height: 1.4;
+  }
 }
 
 .checkoutLinkButton {
@@ -289,6 +292,20 @@ input[type=number]::-webkit-outer-spin-button {
   font-size: 13px;
 }
 
+.sh {
+  .counter {
+    background-color: #DB2B39;
+    color: white;
+    position: absolute;
+    line-height: 17px;
+    right: 7px;
+    border-radius: 100%;
+    top: 8px;
+    padding: 0 5px;
+    font-size: 13px;
+  }
+}
+
 .cartContainer {
         position:absolute;
         z-index: 20;
@@ -304,13 +321,18 @@ i {
 }
     @media screen and (min-width: 769px) {
         line-height: 83px;
-        line-height: 83px;
         right: 40px;
         top:0;
-
         .counter {
-          top: 16px;
+          top: 18px;
           right: 9px;
         }
     }
+}
+
+@media screen and (min-width: 769px) {
+  .sh .counter {
+    right: 9px !important;
+    top: 9px !important;
+  }
 }

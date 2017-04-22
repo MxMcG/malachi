@@ -1,1 +1,14 @@
 // this component inherits styles from HoverImageTile and ComplexFeatureText
+.MultTextImgHover {
+  .complexFeatureText {
+    width: 100%;
+    margin: 40px auto 20px auto;
+  }
+  h2 {
+    text-align: center;
+  }
+  h6 {
+    text-align: center;
+    display: block;
+  }
+}

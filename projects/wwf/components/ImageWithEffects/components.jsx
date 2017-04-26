@@ -33,7 +33,7 @@ export default class ImageWithEffects extends Component {
     return (
       <div className="imageWithEffects">
         <div className="co">
-          <img className="image se" src={ src } alt={imageBase.alt}></img>
+          <img className="image se" src={ src } ></img>
         </div>
         <div className="desk_feat"><FeaturedTextCrossContainer /></div>
       </div>

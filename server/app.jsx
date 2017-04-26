@@ -55,8 +55,10 @@ app.get('*', (req, res) => {
   setupConfigs(env, activeProject, (config) => {
     const store = configureStore(config, env);
     const location = createLocation(req.url);
-
+    console.log("LOCATION", location)
+    console.log("ROUTES", routes)
     match({ routes, location }, (err, redirectLocation, renderProps) => {
+      console.log("RENDER", renderProps)
       if (err) {
         gutil.error(err);
         return res.status(500).end('Internal server error');

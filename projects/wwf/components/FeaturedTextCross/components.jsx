@@ -29,7 +29,6 @@ export default class FeaturedTextCross extends Component {
     const { headline, description } = this.props.componentContent;
     return (
       <div className="featuredTextCross" >
-        <div className="wesCross"><div className="w">w</div><div className="mi"></div><div className="th"></div></div>
         { this.displayCrafterTitle() }
       </div>
     );

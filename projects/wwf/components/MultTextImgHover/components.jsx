@@ -24,7 +24,6 @@ export default class MultTextImgHover extends Component {
               <div className="t_c t_b">
                 <div className="tb_c t_b">
                     <h5 className="tr_u">{block.bottomBlock.lowTitle}</h5>
-                    <div className="wesCross"><div className="w t_b">w</div><div className="mi t_b"></div><div className="th t_b"></div></div>
                     <h1 className="tr_u">{block.bottomBlock.lowHeadline}</h1>
                     <p className="tr_u">{block.bottomBlock.lowSubheadline}</p>
                     <a className="tr_b black button solid"  href={block.bottomBlock.link} target="_blank">{block.bottomBlock.lowCtaText}</a>

@@ -11,17 +11,19 @@
   }
 
   .variantSelect {
-    border: 2px solid #2F2F2F;
-    color: #2F2F2F;
-    background: white;
-    width: inherit;
-    font-size: 14px;
+border: 2px solid #2f2f2f;
+    color: #2f2f2f;
+    -webkit-appearance: none;
+    width: 198px;
+    text-transform: uppercase;
+    height: 49px;
+    font-size: 12px;
+    padding-left: 15px;
     display: inline-block;
-    padding: 8px 0;    
     letter-spacing: .04em;
+    background: url(https://image.freepik.com/free-icon/caret-arrowhead-facing-down_318-34455.jpg) 90%/ 13px no-repeat;
     font-weight: 600;
-    text-align: center;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: Source Sans Pro,sans-serif;
     border-radius: 0;
     margin: 16px;
   }

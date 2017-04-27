@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 import { Link } from 'react-router';
 const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document)
 let updateCart;
@@ -82,8 +83,21 @@ export default class ProductsView extends Component {
   }
 
   render() {
+    let title;
+    if (this.props.activeProduct.data.attrs) {
+      title = this.props.activeProduct.data.attrs.title;
+    }
     return (
       <div className="productsView">
+        <Helmet
+          title={`${title ? title : ''} | WestWard`}
+          meta={[
+            {
+              property: 'og:title',
+              content: `Shop ${title ? title : ''} online today and support global missions partners. Buy a hand-crafted item and choose your favorite charity to donate`
+            }
+          ]}
+        />
         { this.props.activeProduct.html }
       </div>
     );

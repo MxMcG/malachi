@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import Helmet from 'react-helmet';
+
 const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document)
 let updateCart;
 if (isBrowser) {
@@ -64,9 +66,26 @@ export default class ProductsDisplay extends Component {
 
   render() {
     const { headline, ctaText } = this.props.componentContent;
-
+    let productTitle;
+    let productHandle;
+    this.props.shopCollections.forEach((collection, index) => {
+      if (collection.collection_id.toString() === this.props.paramId) {
+        productTitle = collection.attrs.title;
+        productHandle = collection.attrs.handle.charAt(0).toUpperCase() + collection.attrs.handle.slice(1);
+        console.log(collection)
+      }
+    });
     return (
       <div className="productsDisplay" >
+        <Helmet
+          title={`${productTitle} | ${productHandle} | WestWard`}
+          meta={[
+            {
+              property: 'og:title',
+              content: `Shop ${productTitle} online today and support global missions partners. Buy a hand-crafted item and choose your favorite charity to donate`
+            }
+          ]}
+        />
         <h2>{headline}</h2>
           { this.renderProducts() }
       </div>

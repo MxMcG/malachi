@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 
 import SwipeSlideshowContainer from '../../common/containers/SwipeSlideshowContainer.js';
 import FeaturedImagesTileContainer from '../../common/containers/FeaturedImagesTileContainer.js';
@@ -15,6 +16,15 @@ export default class Home extends Component {
   render() {
     return (
       <div className="home" >
+        <Helmet
+          title="Westward Foundation | Hand-crafted wood and leather goods"
+          meta={[
+            {
+              property: 'og:title',
+              content: 'Support missions and local crafters. Our hand-crafted leather and wood goods are created in San Diego, CA. WestWard donates 25% of proceeds missions partners'
+            }
+          ]}
+        />
         <SwipeSlideshowContainer / >
         <FeaturedImagesTileContainer />
         <MissionsBlockContainer />

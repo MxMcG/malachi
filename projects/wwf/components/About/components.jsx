@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Helmet from 'react-helmet';
 
 import ComplexFeatureTextContainer from '../../common/containers/ComplexFeatureTextContainer.js';
 import HoverImageTileContainer from '../../common/containers/HoverImageTileContainer.js';
@@ -10,9 +11,18 @@ export default class About extends Component {
     super(props);
   }
 
-  render() {    
+  render() {
     return (
       <div className="about" >
+        <Helmet
+          title="About | San Diego-based Wood and Leather Craft Goods"
+          meta={[
+            {
+              property: 'og:title',
+              content: 'WestWard Foundation is a Christian small business out of San Diego, California. Specialized in wood & leather craft goods, adventure apparel, and coffee.'
+            }
+          ]}
+        />
         <HoverImageTileContainer />
         <ComplexFeatureTextContainer />
       </div>

@@ -36,7 +36,7 @@ export default class ProductsView extends Component {
     const optionSelected = this.props.activeProduct.data.options.forEach((option) => {
       option.values.forEach((value) => {
         if (value === optionName) {
-          option.selected = value;          
+          option.selected = value;
         };
       })
     });
@@ -45,14 +45,14 @@ export default class ProductsView extends Component {
   convertObjectToHtml(product) {
     // We will do the dropdowns on the template page instead
     const dropdowns = [];
-    const selects = product.options.forEach((option) => {
+    const selects = product.options.forEach((option, index) => {
       const options = [];
       option.attrs.values.forEach((value) => {
         options.push(<option value={value} className="variantOption">{value}</option>);
       })
       dropdowns.push(
-        <select name={option.attrs.name} className="variantSelect" onChange={this.handleChange.bind(this)}>
-          <option selected disabled className="variantOption">{option.attrs.name}</option>
+        <select name={option.attrs.name} className="variantSelect" onChange={this.handleChange.bind(this)} key={index} defaultValue={option.attrs.name}>
+          <option disabled className="variantOption">{option.attrs.name}</option>
           {options}
         </select>
       );

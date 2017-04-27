@@ -55,10 +55,7 @@ app.get('*', (req, res) => {
   setupConfigs(env, activeProject, (config) => {
     const store = configureStore(config, env);
     const location = createLocation(req.url);
-    console.log("LOCATION", location)
-    console.log("ROUTES", routes)
     match({ routes, location }, (err, redirectLocation, renderProps) => {
-      console.log("RENDER", renderProps)
       if (err) {
         gutil.error(err);
         return res.status(500).end('Internal server error');
@@ -83,6 +80,7 @@ app.get('*', (req, res) => {
       // let meta;
       // let title;
       let googleAnalytics;
+      let tags
       switch (activeProject) {
         case 'dms':
           // meta = "<meta name='description' content='Follow the good news of the Messiah and relevant topics. Stories about Jesus Christ and discipleship in the modern Western world'/>";
@@ -93,6 +91,12 @@ app.get('*', (req, res) => {
           // meta = "<meta name='description' content='@MxMcG is a full-stack JavaScript developer. Gradaute of UCLA and DevBootcamp S.F. Works out of San Diego, CA.'/>";
           // title = "<title>MxMcG | Full-stack JavaScript Developer</title>";
           googleAnalytics = "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-81672933-2', 'auto');ga('send', 'pageview');</script>";
+          break;
+        case 'wwf':
+          // meta = "<meta name='description' content='@MxMcG is a full-stack JavaScript developer. Gradaute of UCLA and DevBootcamp S.F. Works out of San Diego, CA.'/>";
+          // title = "<title>MxMcG | Full-stack JavaScript Developer</title>";
+          googleAnalytics = "<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-81672933-2', 'auto');ga('send', 'pageview');</script>";
+          tags = `<link rel='icon' type='image/png' href=${config.urls.cdnImageBase}westWardIcon1.png>`
           break;
         default:
           googleAnalytics = null;
@@ -109,6 +113,7 @@ app.get('*', (req, res) => {
           <script src="https://use.fontawesome.com/3dbc112c20.js"></script>
           ${head.title.toString()}
           ${head.meta.toString()}
+          ${tags}
           <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet" />
           <script src="https://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
           <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />

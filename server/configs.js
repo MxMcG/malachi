@@ -16,8 +16,7 @@ export const setupConfigs = (env, activeProject, callback) => {
       config.content = data;
       config.urls.cdnUrl = 'http://localhost:8080/projects/' + activeProject + '/';
       config.urls.cdnImageBase = 'http://localhost:8080/projects/' + activeProject + '/images/';
-      config.urls.bundleUrl = 'http://localhost:8080/bundle.js/'
-      console.log('CONFIGS', config)
+      config.urls.bundleUrl = 'http://localhost:8080/bundle.js/'      
       callback(config);
     });
   }

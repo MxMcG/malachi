@@ -15,7 +15,6 @@ export default class HoverImageTile extends Component {
         <div className="hoverImageTile" >
             <div className="t_c t_b">
                 <div className="tb_c t_b">
-                    <h5 className="tr_u">{title}</h5>
                     <div className="wesCross"><div className="w t_b">w</div><div className="mi t_b"></div><div className="th t_b"></div></div>
                     <h1 className="tr_u">{headline}</h1>
                     <p className="tr_u">{subheadline}</p>

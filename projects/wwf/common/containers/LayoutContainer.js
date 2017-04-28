@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
+import ReactGA from 'react-ga';
 import { connect } from 'react-redux';
 import * as actions from '../actions/index';
+
 const isBrowser = !!(typeof window !== 'undefined' && typeof navigator !== 'undefined' && window.document);
 let fetchAllCollections, fetchAllProducts, createNewCart;
 if (isBrowser) {
@@ -21,6 +23,13 @@ const propTypes = {
 
 // in here, we determine the props to be passed down to the specific component needed
 class LayoutContainer extends Component {
+
+  componentWillMount() {
+    if (isBrowser) {
+      ReactGA.initialize('UA-96472854-1');
+    }
+  }
+
   componentDidMount () {
     const { dispatch, componentContent } = this.props;
     if (isBrowser) {

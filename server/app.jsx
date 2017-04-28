@@ -76,9 +76,7 @@ app.get('*', (req, res) => {
         }
         return "<link rel='stylesheet' />";
       }
-      //
-      // let meta;
-      // let title;
+
       let googleAnalytics;
       let headTags
       switch (activeProject) {
@@ -121,10 +119,10 @@ app.get('*', (req, res) => {
         <head>
           <meta charset="UTF-8">
           <meta name='viewport' content='width=device-width, initial-scale=1, user-scalable=0' />
+          ${headTags}
           ${stylesheet()}
           ${head.title.toString()}
           ${head.meta.toString()}
-          ${headTags}
         </head>
         <body>
           <div id="react-view">${componentHTML}</div>

@@ -13,7 +13,7 @@ const propTypes = {
 // in here, we determine the props to be passed down to the specific component needed
 class AboutContainer extends Component {
 
-  render () {    
+  render () {
     return (
       <About {...this.props} />
     );
@@ -24,8 +24,16 @@ AboutContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
   const componentContent = state.content.project.components.AboutContainer;
+  const complexFeatureTextContainerA = state.content.project.components.AboutContainer.ComplexFeatureTextContainerA;
+  const complexFeatureTextContainerB = state.content.project.components.AboutContainer.ComplexFeatureTextContainerB;
+  const hoverImageTileContainerA = state.content.project.components.AboutContainer.HoverImageTileContainerA;
+  const hoverImageTileContainerB = state.content.project.components.AboutContainer.HoverImageTileContainerB;
   return {
-    componentContent
+    componentContent,
+    complexFeatureTextContainerA,
+    complexFeatureTextContainerB,
+    hoverImageTileContainerA,
+    hoverImageTileContainerB
   };
 }
 

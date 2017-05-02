@@ -70,8 +70,11 @@ app.get('*', (req, res) => {
       );
 
       // allows server side rendering of css
+      // run script to generate sitemap.xml
       const stylesheet = () => {
+        require("../sitemap-builder.js");
         if (isProduction) {
+
           return `<link rel='stylesheet' href=${config.bundleCssUrl} />`;
         }
         return "<link rel='stylesheet' />";
@@ -216,6 +219,10 @@ app.post('/admin/login', (req, res) => {
     gutil.log(errMessage);
     gutil.log('Error description: ', err);
   });
+});
+
+app.get('/sitemap.xml', (req, res) => {
+  res.sendFile('../sitemap.xml');
 });
 
 app.listen(port, () => {

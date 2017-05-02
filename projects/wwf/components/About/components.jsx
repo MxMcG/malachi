@@ -23,8 +23,11 @@ export default class About extends Component {
             }
           ]}
         />
-        <HoverImageTileContainer />
-        <ComplexFeatureTextContainer />
+        <HoverImageTileContainer componentContent={this.props.hoverImageTileContainerA} />
+        <ComplexFeatureTextContainer componentContent={this.props.complexFeatureTextContainerA} />
+        <HoverImageTileContainer componentContent={this.props.hoverImageTileContainerB}/>
+        <ComplexFeatureTextContainer componentContent={this.props.complexFeatureTextContainerB} />
+
       </div>
     );
   }

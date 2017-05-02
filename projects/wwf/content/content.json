@@ -118,12 +118,33 @@
       }
     },
     "AboutContainer": {
-      "ComplexFeatureTextContainer": {
-        "headline": "Our Story",
+      "ComplexFeatureTextContainerA": {
+        "style": "1",
+        "headline": "The WestWard Story",
+        "subheadline": "Wood and Leather Goods For The Good",
+        "header1": "Mission",
+        "description1": "WestWard Foundation is a for-profit company that exists to fund partnered charitable organizations and spread God’s love through the work of business and craftsmanship.",
+        "header2": "Vision",
+        "description2": "Our focus is creating quality wood and leather goods for the purpose of giving 25% of our profits to partnered charitable organizations. By having a low profit foundation, we are set up to work for people rather than for money. Whatever we do, we will work with all of our hearts to ensure we establish good works with our hands for the Greater Good."
+      },
+      "ComplexFeatureTextContainerB": {
+        "style": "2",
+        "headline": "Founder's Story",
         "subheadline": "We Were Created To Create",
         "description": "My Dad once told me, \"if you put a little bit of time and effort into something everyday, after a while you will have something huge.\" I put this nugget of wisdom to the plow and made it through business school, made investments with the resources that were available to me, and invested my time into people. I learned the greatest asset a business could have is its people. It was evident after working four years in a successful startup company in Carlsbad, CA, because the people were incredible and so talented. Over time at the startup the work with my hands became less and less. My desk crept higher up into the office corner. It took a tough conversation with my business partners to see if this was the place for me. I followed with the response, \"I just want to work with my hands, talk to people, and Love people.\" Here is where we begin our journey WestWard; working with our hands and Loving people."
       },
-      "HoverImageTileContainer": {
+      "HoverImageTileContainerA": {
+        "title": "WestWard",
+        "headline": "Westward",
+        "subheadline": "",
+        "ctaText": "Contact",
+        "image": {
+          "src": "westwardLogoSign.png",
+          "alt": "Mason Ward WestWard Foundation"
+        },
+        "link": "mailto:westwardfoundation@gmail.com"
+      },
+      "HoverImageTileContainerB": {
         "title": "WestWard",
         "headline": "Westward",
         "subheadline": "Invite Our Mobile Store To Your Next Event!",

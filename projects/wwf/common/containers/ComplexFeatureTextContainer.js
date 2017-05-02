@@ -23,11 +23,9 @@ class ComplexFeatureTextContainer extends Component {
 ComplexFeatureTextContainer.propTypes = propTypes;
 
 function mapStateToProps(state) {
-  const componentContent = state.content.project.components.AboutContainer.ComplexFeatureTextContainer;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
-  return {
-    componentContent,
+  return {    
     cdnUrl,
     cdnImageBase
   };

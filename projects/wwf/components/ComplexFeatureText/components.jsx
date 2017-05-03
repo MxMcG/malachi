@@ -24,8 +24,7 @@ export default class ComplexFeatureText extends Component {
       <div className="complexFeatureText" >
         <h2 className="paddingTop">{headline}</h2>
         <h6>{subheadline}</h6>
-        <p>{description}</p>
-        <p>{description}</p>
+        <p>{description}</p>        
       </div>
     );
   }

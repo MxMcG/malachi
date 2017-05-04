@@ -71,8 +71,7 @@ export default class ProductsDisplay extends Component {
     this.props.shopCollections.forEach((collection, index) => {
       if (collection.collection_id.toString() === this.props.paramId) {
         productTitle = collection.attrs.title;
-        productHandle = collection.attrs.handle.charAt(0).toUpperCase() + collection.attrs.handle.slice(1);
-        console.log(collection)
+        productHandle = collection.attrs.handle.charAt(0).toUpperCase() + collection.attrs.handle.slice(1);        
       }
     });
     return (

@@ -11,8 +11,8 @@ export default class Resume extends Component {
     const cdnImageBase = this.props.cdnImageBase;
     return (
       <div className="resume" >
-        <a href={cdnImageBase + 'MaxResumeFeb2017.pdf'}>
-          <img className="image" src={cdnImageBase + 'MaxResumeFeb2017.png'}></img>
+        <a href={cdnImageBase + 'MaxResume.pdf'}>
+          <img className="image" src={cdnImageBase + 'MaxResume.jpg'}></img>
         </a>
       </div>
     );

@@ -40,7 +40,7 @@ export default class Portfolio extends Component {
           </div>
 
           <div className="project">
-            <a className="link" href="https://nationsmagazine.com" target="_blank">
+            <a className="link" href="https://nationsfoundation.org" target="_blank">
               <h2 className="title">Nations Foundation</h2>
             </a>
             <p>
@@ -50,7 +50,7 @@ export default class Portfolio extends Component {
               new featured into this site in the months to come.
             </p>
             <div className="links">
-              <a href="https://nationsmagazine.com" className="link" target="_blank">
+              <a href="https://nationsfoundation.org" className="link" target="_blank">
                 <div className="socialCircle projectImg">
                   <i className="fa fa-laptop icon" aria-hidden="true"></i>
                 </div>
@@ -63,7 +63,7 @@ export default class Portfolio extends Component {
           </div>
 
           <div className="project">
-            <a className="link" href="https://www.staging.westwardfoundation.com/" target="_blank">
+            <a className="link" href="https://www.westwardfoundation.com/" target="_blank">
               <h2 className="title">WestWard Foundation</h2>
             </a>
             <p>In early 2017, the WestWard Foundation web app is the first project that I built using my own front-end platform.
@@ -71,7 +71,7 @@ export default class Portfolio extends Component {
               create a native-app experience on the web. Our client is able to switch out content in the Shopify dashboard and immediately
               see the changes within the app. The app utilizes Redux, React-Router, Webpack, and Mongoose.</p>
             <div className="links">
-              <a href="https://www.staging.westwardfoundation.com/" className="link" target="_blank">
+              <a href="https://www.westwardfoundation.com/" className="link" target="_blank">
                 <div className="socialCircle projectImg">
                   <i className="fa fa-laptop icon" aria-hidden="true"></i>
                 </div>

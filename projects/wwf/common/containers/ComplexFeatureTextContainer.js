@@ -25,7 +25,7 @@ ComplexFeatureTextContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
-  return {    
+  return {
     cdnUrl,
     cdnImageBase
   };

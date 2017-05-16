@@ -20,7 +20,6 @@ export default class Layout extends Component {
       <div >
         <NavContainer />
         { this.props.children }
-        <DynamicImageContainer />
         <SocialFooterContainer />
       </div>
     );

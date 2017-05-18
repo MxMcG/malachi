@@ -11,6 +11,13 @@
   letter-spacing: .03em;
   background: white;
 
+  .hideMobile {
+    display: none;
+    @media screen and (min-width: 769px) {
+      display: inline-block;
+    }
+  }
+
   @media screen and (min-width: 769px) {
     height: 83px;
   }
@@ -22,13 +29,14 @@
 
 
     img {
-      height: 56px;
+      height: 60px;
       padding: 3px 0;
-      margin-left: 14px;
+      // margin-left: 14px;
       float:left;
 
   @media screen and (min-width: 769px) {
-    height: 77px;
+    height: 80px;
+    margin-left: 14px;
   }
 
       @media screen and (min-width: 768px) {

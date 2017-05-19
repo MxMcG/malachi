@@ -52,7 +52,7 @@ export default class Nav extends Component {
           <li className="t_b sr" onClick={this.scrollRight.bind(this)}><Link to="/missions" className="n_l t_b" activeClassName="act">Missions</Link></li>
         </ul>
         <CartContainer {...this.props} />
-        <div className="banner">25% Profits To Charity<span className="hideMobile"> – Handmade Goods For The Good – Free Shipping On Us!</span></div>
+        <div className="banner">25% Profits To Charity <span className="hideMobile"> – Handmade Goods For The Good – Free Shipping On Us!</span></div>
       </div>
     );
   }

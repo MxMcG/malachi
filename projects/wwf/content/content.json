@@ -51,6 +51,11 @@
         "headline": "Organizations We Support",
         "images": [
           {
+            "name": "The Cause",
+            "src": "theCauseLogo.jpg",
+            "alt": "The Cause"
+          },
+          {
             "name": "Outside The Bowl",
             "src": "outsideTheBowl.png",
             "alt": "outsideTheBowl.png"
@@ -75,12 +80,12 @@
           {
             "name": "imageA",
             "src": "Events1.jpg",
-            "alt": "WestWard Foundation Event"
+            "alt": "WestWard Makers Event"
           },
           {
             "name": "imageB",
             "src": "Events2.jpg",
-            "alt": "WestWard Foundation Event"
+            "alt": "WestWard Makers Event"
           },
           {
             "name": "imageC",
@@ -140,7 +145,7 @@
         "ctaText": "Contact",
         "image": {
           "src": "westwardLogoSign.png",
-          "alt": "Mason Ward WestWard Foundation"
+          "alt": "Mason Ward WestWard Makers"
         },
         "link": "mailto:westwardmakers@gmail.com"
       },
@@ -151,7 +156,7 @@
         "ctaText": "Contact",
         "image": {
           "src": "WestwardMasonHeadshot.jpg",
-          "alt": "Mason Ward WestWard Foundation"
+          "alt": "Mason Ward WestWard Makers"
         },
         "link": "mailto:westwardmakers@gmail.com"
       },
@@ -167,7 +172,7 @@
         "ctaText": "Contact",
         "image": {
           "src": "WestwardTable.jpg",
-          "alt": "Mason Ward WestWard Foundation"
+          "alt": "Mason Ward WestWard Makers"
         },
         "link": "mailto:westwardmakers@gmail.com"
       }
@@ -175,6 +180,24 @@
     "MissionsContainer": {
       "MultTextImgHoverContainer": {
         "blocks": [
+          {
+            "topBlock": {
+              "topHeadline": "The Cause",
+              "topSubheadline": "You change the world... We'll do the rest!",
+              "topDescription": "The Cause is a faith-based nonprofit providing an organizational covering for projects that demonstrate God’s love and improve lives around the world. This is our secret: The Cause is not actually about The Cause…we are about our partners! Our mission is to help our partners accomplish their missions. Our vision is to empower a community of people dedicated to making a difference in the world. Our goal is to provide our partners with a solid administrative backing while strengthening our partners’ God-given abilities through leadership and financial coaching, as well as offering spiritual and emotional support."
+            },
+            "bottomBlock": {
+              "lowCtaText": "Learn More",
+              "lowHeadline": "",
+              "lowSubheadline": "",
+              "lowTitle": "THE CAUSE",
+              "lowImage": {
+                "src": "theCause.jpg",
+                "alt": "the cause"
+              },
+              "link": "https://www.thecause.org/"
+            }
+          },
           {
             "topBlock": {
               "topHeadline": "Outside The Bowl",

@@ -29,7 +29,7 @@ export default (
       <Route path="products/:id" component={ProductsViewContainer} />
       <Route path="about" component={AboutContainer} />
       <Route path="events" component={EventsContainer} />
-      <Route path="missions" component={MissionsContainer} />
+      <Route path="charities" component={MissionsContainer} />
     </Route>
   </Route>
 );

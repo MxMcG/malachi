@@ -13,11 +13,11 @@ export default class Missions extends Component {
     return (
       <div className="missions" >
         <Helmet
-          title="Missions | WestWard Loves Christian Partner Organizations"
+          title="Charities | WestWard Loves Christian Partner Organizations"
           meta={[
             {
               property: 'og:title',
-              content: 'As a maker of craft goods, WestWard foundation supports organizations including Christian Surfers, Youth with a Mission (YWAM), and Outside the Bowl'
+              content: 'As a maker of craft goods, WestWard Makers supports organizations including The Cause, Christian Surfers, Youth with a Mission (YWAM), and Outside the Bowl'
             }
           ]}
         />

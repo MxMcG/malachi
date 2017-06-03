@@ -17,7 +17,7 @@ export default class Home extends Component {
     return (
       <div className="home" >
         <Helmet
-          title="Westward Foundation | Hand-crafted wood and leather goods"
+          title="Westward Makers | Hand-crafted wood and leather goods"
           meta={[
             {
               property: 'og:title',

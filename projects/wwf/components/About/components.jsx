@@ -19,7 +19,7 @@ export default class About extends Component {
           meta={[
             {
               property: 'og:title',
-              content: 'WestWard Foundation is a Christian small business out of San Diego, California. Specialized in wood & leather craft goods, adventure apparel, and coffee.'
+              content: 'WestWard Makers is a Christian small business out of San Diego, California. Specialized in wood & leather craft goods, adventure apparel, and coffee.'
             }
           ]}
         />

@@ -4,6 +4,6 @@ const router = require('./projects/wwf/common/routes.jsx').default;
 
 (
 	new Sitemap(router)
-		.build('https://westwardfoundation.com')
+		.build('https://westwardmakers.com')
 		.save('./sitemap.xml')
 );

@@ -68,7 +68,6 @@ export default class FeaturedImageSlideshow extends Component {
         <h2>Events</h2>
         <h6>Book our Mobile Store!</h6>
       </div>
-        <Link to="/events" className="t_b button black solid">Learn More</Link>
         <Slider {...settings}>
             { this.renderImages() }
         </Slider>
@@ -77,3 +76,5 @@ export default class FeaturedImageSlideshow extends Component {
     );
   }
 }
+
+// <Link to="/events" className="t_b button black solid">Learn More</Link>

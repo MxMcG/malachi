@@ -1,14 +1,60 @@
 // this component inherits styles from HoverImageTile and ComplexFeatureText
 .MultTextImgHover {
+max-width: 1300px;
+margin: 0 auto;
+ @media screen and (min-width: 1059px) {
+padding-top: 20px;
+}
+text-align: center;
+  .complexFeatureText, .h_c {
+  @media screen and (min-width: 1059px) {
+      display: inline-block;
+      vertical-align: middle;
+      max-width: 420px;
+  }
+
+  }
+
   .complexFeatureText {
-    width: 100%;
-    margin: 40px auto 20px auto;
+
+    p {
+    margin: 0 auto 35px;
+    @media screen and (max-width: 330px) {
+      max-width: 300px;
+    }
+      @media screen and (max-width: 768px) and (min-width: 330px) {
+          max-width: 333px;
+ 
+      }
+    }
+  }
+
+  .h_c {
+    margin: 40px auto 0;
+  @media screen and (min-width: 1059px) {
+    margin: 40px 5% 40px 0;
+    }
   }
   h2 {
+    @media screen and (max-width: 768px) {
+    margin-bottom: 10px;
+  }
     text-align: center;
+    @media screen and (min-width: 1059px) {
+    text-align: left;
+    }
   }
   h6 {
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
+  @media screen and (min-width: 1059px) {
+      text-align: left;
+  }
     text-align: center;
     display: block;
+    max-width: 100%;
   }
+
+  
 }

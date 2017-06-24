@@ -314,6 +314,7 @@ h6 {
 
 
 
+
 .bx_s {
   -webkit-box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 2px 2px 14px 0px rgba(0, 0, 0, 0.5);
@@ -337,4 +338,10 @@ h6 {
       -webkit-transform: rotate3d(0, -20, -1, -35deg);
       -moz-transform: rotate3d(0, -20, -1, -35deg);
       -o-transform: rotate3d(0, -20, -1, -35deg);
+}
+
+
+ol {
+  margin: 0;
+  padding: 0;
 }

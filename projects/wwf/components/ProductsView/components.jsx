@@ -68,11 +68,13 @@ export default class ProductsView extends Component {
     const html = (
       <div className="productsView" key="1">
         <img src={images[0].src}/>
-        <h2>{title}</h2>
-        <h4>Price: {price}</h4>
-        { dropdowns }
-        <div className="description" dangerouslySetInnerHTML={{__html: product.attrs.body_html}}></div>
-        <button onClick={() => this.addToCart(product.selectedVariant, 1)} className="button solid t_b black">Add to Cart</button>
+        <div className="productDetails">
+            <h2>{title}</h2>
+            <h4>{price}</h4>
+            { dropdowns }
+            <div className="description" dangerouslySetInnerHTML={{__html: product.attrs.body_html}}></div>
+            <button onClick={() => this.addToCart(product.selectedVariant, 1)} className="button solid t_b black">Add to Cart</button>
+        </div>
       </div>
     )
     htmlWrapper.push(html);

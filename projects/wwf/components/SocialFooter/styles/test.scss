@@ -5,14 +5,17 @@ background: #2f2f2f;
 position:relative;
 padding: 20px 0;
 color: white;
-margin-top: 40px;
+
+i {
+  margin-right: 7px;
+}
 
 h2 {
   font-weight:300;
   margin:0 0 5px 0;
   text-transform: uppercase;
   color: white;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 div, a {
@@ -20,7 +23,7 @@ div, a {
 }
 
 a {
-  margin: 0 5px;
+  margin: 0 10px;
   color: white;
 }
 

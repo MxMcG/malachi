@@ -1,31 +1,40 @@
 .productsView {
   text-align: center;
-
+  @media screen and (max-width: 769px) {
+    padding-top: 15px;
+  }
+  @media screen and (min-width: 769px) {
+    padding-top: 25px;
+  }
   img {
-    max-width: 200px;
+    max-width: 300px;
     margin-bottom: 15px;
     @media screen and (min-width: 769px) {
-      max-width: 300px;
+
+      display: inline-block;
+      margin-right: 5%;
+      vertical-align: middle;
 
     }
   }
 
   .variantSelect {
-border: 2px solid #2f2f2f;
+    border: 2px solid #2f2f2f;
     color: #2f2f2f;
     -webkit-appearance: none;
     width: 198px;
     text-transform: uppercase;
-    height: 49px;
+    height: 40px;
     font-size: 12px;
     padding-left: 15px;
     display: inline-block;
     letter-spacing: .04em;
-    background: url(https://image.freepik.com/free-icon/caret-arrowhead-facing-down_318-34455.jpg) 90%/ 13px no-repeat;
+    padding-right: 35px;
+    background: url(https://image.freepik.com/free-icon/caret-arrowhead-facing-down_318-34455.jpg) 93%/ 13px no-repeat;
     font-weight: 600;
     font-family: Source Sans Pro,sans-serif;
     border-radius: 0;
-    margin: 16px;
+    margin: 0 0 16px;
   }
   .variantOption {
     text-align: center;
@@ -33,30 +42,49 @@ border: 2px solid #2f2f2f;
 
   h2 {
     color: black;
-
+    position: relative;
   }
 
   h6 {
     font-weight: 500;
-
     font-size: 15px;
   }
   h4 {
-    padding: 10px;
-  }
+    padding: 5px 0 10px;
+    font-size: 30px;
+    font-weight: 300;
+    font-family: 'Source Sans Pro', sans-serif;
+}
 
   .description {
-    padding-bottom: 20px !important;
-    width: 300px;
-    margin: 0 auto;
     text-align: left;
+    margin-bottom: 20px;
 
+    div {
+      text-align: left !important;
+    }
+    li {
+      margin-bottom: 10px;
+      &:before {
+        content: '';
+        height: 2px;
+        width: 7px;
+        margin-right: 7px;
+        background: black;
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+      }
+        
+    }
     p {
       margin: 10px 0;
+      display: none;
     }
   }
   button {
-    margin-bottom: 40px;
+    width: 300px;
+
   }
 
 
@@ -66,6 +94,7 @@ border: 2px solid #2f2f2f;
 
 
 .productsView {
+  min-height: 500px;
 a {
 
   &:last-child .product {
@@ -75,8 +104,13 @@ a {
 
 }
 
-@media screen and (min-width: 769px) {
-  .description {
-    width: 500px !important;
+.productDetails {
+  max-width: 300px;
+  text-align: left;
+  display: inline-block;
+  @media screen and (min-width: 769px) {
+    max-width: 360px;
+    vertical-align: middle;
+
   }
 }

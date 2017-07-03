@@ -171,9 +171,9 @@ a, h2, h4, h5, h6, p, h1{
   position: relative;
   overflow: hidden;
   padding-top: 82px;
+  min-height: calc(100vh - 81.25px);
   @media screen and (min-width: 769px) {
     padding-top: 112px;
-    min-height: calc(100vh - 81.25px);
   }
   
 }

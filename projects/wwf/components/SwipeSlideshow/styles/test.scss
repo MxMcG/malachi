@@ -11,11 +11,10 @@ body {
 background-position: 100% center;
 
   .swipeContent {
- position: absolute;
+    position: absolute;
     text-align: center;
     width: 100%;
     z-index: 4;
-    top: 21%;
     .wesCross {
     margin-bottom: 12px;
 
@@ -27,7 +26,13 @@ background-position: 100% center;
     @media screen and (min-width: 769px) {
         top: 30%;
     }
-
+    @media screen and (max-width: 769px) {
+        top: 50%;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+    }
     .cta {
       color: white;
       font-size: 14px;

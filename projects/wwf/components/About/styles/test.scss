@@ -8,11 +8,12 @@ h2 {
 }
 
 .about {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 0 auto;
-
+  padding: 0 15px;
+  box-sizing: border-box;
 @media screen and (min-width: 1059px) {
-padding: 55px 0;
+padding: 0 0 55px 0;
 text-align: center;
 
 }

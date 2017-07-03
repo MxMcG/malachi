@@ -34,14 +34,24 @@ a {
   overflow:hidden;
   margin: 0 auto 40px;
   max-width: 1400px;
-
   @media screen and (min-width: 769px) {
   margin: 0 auto 50px;
+  text-align: center;
   }
+     img {
+      
+
+      &.con {
+        max-width: 400px;
+      }
+    }
 
   .con {
     width: 100%;
     display: inline-block;
+
+
+ 
 
      @media screen and (min-width: 769px) {
      width: 50%;
@@ -161,6 +171,7 @@ a, h2, h4, h5, h6, p, h1{
   position: relative;
   overflow: hidden;
   padding-top: 82px;
+  min-height: calc(100vh - 81.25px);
   @media screen and (min-width: 769px) {
     padding-top: 112px;
   }
@@ -220,6 +231,9 @@ h6 {
 }
 
 
+.main-container {
+  padding-bottom: 100px;
+}
 
 .wesCross {
   display: inline-block;
@@ -235,6 +249,8 @@ h6 {
     font-size: 11px;
     font-weight: bold;
 }
+
+::-webkit-scrollbar { display: none; }
 
   .mi {
     width: 2px;

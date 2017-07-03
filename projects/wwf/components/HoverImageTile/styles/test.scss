@@ -2,7 +2,11 @@
   max-width: 333px;
   margin: 40px auto;
   position: relative;
+  font-size: 0;
 
+  @media screen and (max-width: 769px) {
+    margin: 25px auto 5px;
+  }
     img {
       width: 100%;
       position: relative;
@@ -35,7 +39,7 @@
       padding: 20px;
     }
   .t_c {
-    height: 99%;
+    height: 100%;
     width: 100%;
     display: table;
 

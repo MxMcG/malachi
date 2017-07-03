@@ -17,9 +17,11 @@ export default class Layout extends Component {
 
   render() {
     return (
-      <div >
-        <NavContainer />
-        { this.props.children }
+      <div className="main-container">
+        <div>
+          <NavContainer />
+          { this.props.children }
+        </div>
         <SocialFooterContainer />
       </div>
     );

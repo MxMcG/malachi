@@ -10,7 +10,8 @@
     max-width: 300px;
     margin-bottom: 15px;
     @media screen and (min-width: 769px) {
-
+      width: 50%;
+      max-width: 500px;
       display: inline-block;
       margin-right: 5%;
       vertical-align: middle;
@@ -94,7 +95,6 @@
 
 
 .productsView {
-  margin-bottom: 200px;
 a {
 
   &:last-child .product {
@@ -110,7 +110,7 @@ a {
   display: inline-block;
   @media screen and (min-width: 769px) {
     max-width: 360px;
-    vertical-align: middle;
+    vertical-align: top;
 
   }
 }

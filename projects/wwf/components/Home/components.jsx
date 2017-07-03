@@ -25,7 +25,7 @@ export default class Home extends Component {
             }
           ]}
         />
-        <SwipeSlideshowContainer / >
+        <SwipeSlideshowContainer />
         <FeaturedImagesTileContainer />
         <MissionsBlockContainer />
         <div className="wr_o">

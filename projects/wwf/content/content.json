@@ -33,7 +33,7 @@
             "ctaText": "BUY NOW",
             "paragraph":"Branded By Hand in Carlsbad, CA",
             "image": {
-              "src": "CamoHat.jpg",
+              "src": "Thedouglas-walkaway.jpeg",
               "alt": "#"
             },
             "vendorName": "WestWard",
@@ -44,8 +44,8 @@
         ]
       },
       "MissionsBlockContainer": {
-        "firstSrc": "howItWorks.jpg",
-        "secondSrc": "FrontPageContent2.jpg"
+        "firstSrc": "Thedouglas-walkaway.jpeg",
+        "secondSrc": "leatherBelt.jpg"
       },
       "FeaturedImagesTileContainer": {
         "headline": "Organizations We Support",

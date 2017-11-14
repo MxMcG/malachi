@@ -65,8 +65,8 @@ export default class FeaturedImageSlideshow extends Component {
     return (
       <div className="featuredImageSlideshow">
       <div className="feat_con">
-        <h2>Events</h2>
-        <h6>Book our Mobile Store!</h6>
+        <h2>Lifestyle</h2>
+        <h6></h6>
       </div>
         <Slider {...settings}>
             { this.renderImages() }

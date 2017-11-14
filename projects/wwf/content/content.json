@@ -16,6 +16,19 @@
       "SwipeSlideshowContainer": {
         "slides": [
           {
+            "headline": "LEATHER PATCH HAT",
+            "ctaText": "BUY NOW",
+            "paragraph":"Branded By Hand in Carlsbad, CA",
+            "image": {
+              "src": "Thedouglas-leanfence.jpeg",
+              "alt": "#"
+            },
+            "vendorName": "WestWard",
+            "hrefCrafter": "/crafters/363209490",
+            "hrefBuy": "/products/9183952914",
+            "productTitle": "Stitched Hat"
+          },
+          {
             "headline": "THE WOOD JOURNAL",
             "ctaText": "BUY NOW",
             "paragraph":"Featuring LoHarvey’s Beautiful Hand-lettering",
@@ -27,19 +40,6 @@
             "hrefCrafter": "/crafters/375570578",
             "hrefBuy": "/products/9063958162",
             "productTitle": ""
-          },
-          {
-            "headline": "LEATHER PATCH HAT",
-            "ctaText": "BUY NOW",
-            "paragraph":"Branded By Hand in Carlsbad, CA",
-            "image": {
-              "src": "Thedouglas-walkaway.jpeg",
-              "alt": "#"
-            },
-            "vendorName": "WestWard",
-            "hrefCrafter": "/crafters/363209490",
-            "hrefBuy": "/products/9183952914",
-            "productTitle": "Stitched Hat"
           }
         ]
       },
@@ -73,13 +73,18 @@
         ]
       },
       "FeaturedImageSlideshowContainer": {
-        "headline": "Events",
+        "headline": "Lifestyle",
         "subheadline": "Westward Cold Brew",
         "ctaText": "Book Now",
         "images": [
           {
+            "name": "imageB",
+            "src": "Thedouglas-sideprofile.jpeg",
+            "alt": "WestWard Makers Event"
+          },
+          {
             "name": "imageA",
-            "src": "Events1.jpg",
+            "src": "Thedouglas-hatgrab.jpeg",
             "alt": "WestWard Makers Event"
           },
           {

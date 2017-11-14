@@ -127,6 +127,8 @@ const fileType = (file) => {
   switch (type) {
     case '.jpg':
       return 'image/jpeg';
+    case '.jpeg':
+      return 'image/jpeg';
     case '.png':
       return 'image/png';
     case '.js':

@@ -47,11 +47,11 @@ export default class Nav extends Component {
         </Link>
         <ul className="scroller">
           <li className="t_b sr" onClick={this.scrollLeft.bind(this)}><Link to="/shop" className="n_l t_b" activeClassName="act">Shop</Link></li>
-          <li className="t_b sr" onClick={this.scrollLeft.bind(this)}><Link to="/about" className="n_l t_b" activeClassName="act">About</Link></li>          
+          <li className="t_b sr" onClick={this.scrollLeft.bind(this)}><Link to="/about" className="n_l t_b" activeClassName="act">About</Link></li>
           <li className="t_b sr" onClick={this.scrollRight.bind(this)}><Link to="/charities" className="n_l t_b" activeClassName="act">Charities</Link></li>
         </ul>
         <CartContainer {...this.props} />
-        <div className="banner">25% Profits To Charity <span className="hideMobile"> – Handmade Goods For The Good – Free Shipping On Us!</span></div>
+        <div className="banner">Goods for the Good - Free Shipping On Us <span className="hideMobile"></span></div>
       </div>
     );
   }

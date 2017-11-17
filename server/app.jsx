@@ -108,6 +108,7 @@ app.get('*', (req, res) => {
             <script src="https://sdks.shopifycdn.com/js-buy-sdk/v0/latest/shopify-buy.umd.polyfilled.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
             <script src="https://use.fontawesome.com/22e36cff83.js"></script>
+            <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
           `
           break;
         default:

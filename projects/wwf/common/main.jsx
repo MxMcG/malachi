@@ -22,7 +22,7 @@ const store = configureStore(initialState, env);
 const frontPageSlideData = store.getState().content.project.components.HomeContainer.SwipeSlideshowContainer.slides;
 store.dispatch(actions.fetchSlides(frontPageSlideData));
 
-const fireTracking = () => {    
+const fireTracking = () => {
   window.ga("send", "pageview", location.pathname)
 }
 

@@ -1,9 +1,10 @@
 {
    "urls": {
-      "cdnUrl": "http://localhost:8080/projects/wwf/",
-      "cdnImageBase": "http://localhost:8080/projects/wwf/images/",
-      "bundleUrl": "http://localhost:8080/bundle.js/"
+      "cdnUrl": "https://d3hc4gv509jw9l.cloudfront.net/projects/wwf_v84/",
+      "cdnImageBase": "https://d3hc4gv509jw9l.cloudfront.net/projects/wwf_v84/images/",
+      "bundleUrl": "https://d3hc4gv509jw9l.cloudfront.net/projects/wwf_v84/bundle.js"
    },
+   "projectVersion": 84,
    "content": {
       "projectName": "wwf",
       "project": {
@@ -286,6 +287,8 @@
                "logo": "TL.jpg"
             }
          }
-      }
-   }
+      },
+      "projectVersion": 84
+   },
+   "bundleCssUrl": "https://d3hc4gv509jw9l.cloudfront.net/projects/wwf_v84/index.css"
 }

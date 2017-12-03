@@ -47,6 +47,7 @@ text-align: center;
      -moz-transform: rotate3d(0, 0, 0 ,0);
       -webkit-transform: rotate3d(0, 0, 0, 0);
       -o-transform: rotate3d(0, 0, 0, 0);
+      transform: rotate3d(0, 0, 0, 0);
       opacity: .9;
       pointer-events: all;
 }

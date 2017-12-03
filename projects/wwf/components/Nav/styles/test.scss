@@ -27,9 +27,11 @@
   }
   a {
 
-
+  border: none;
+  outline: 0;
     img {
-
+    border: none;
+    outline: 0;
       height: 56px;
       padding: 3px 0;
       // margin-left: 14px;
@@ -51,7 +53,7 @@
 
   ul {
   white-space: nowrap;
-  overflow-x: scroll;
+  
     li {
       line-height: 62px;
       display:inline-block;
@@ -63,6 +65,10 @@
       &:last-child {
         margin-right: 30px;
       }
+
+  @media screen and (max-width: 450px) {
+    overflow-x: scroll;
+  }
 
   @media screen and (min-width: 769px) {
     line-height: 83px;

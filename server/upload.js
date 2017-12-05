@@ -13,16 +13,19 @@ const database = require('./database/index.js');
  */
 const toS3 = (project) => {
   // first fetch current project version number
-  database.fetchProjectVersion(activeProject, (err, currentProjectVersion) => {
-    // existing CDN version is one less than currentProjectVersion bc build has already incremented in db
-    const deletableProjectVersion = (currentProjectVersion > 1) ? currentProjectVersion - 2 : 1;
-    const deletableKeyPaths = [];
-    gutil.log('Current Project Version: ', currentProjectVersion);
-
-    if (err) { throw err; }
-    else {
+  // database.fetchProjectVersion(activeProject, (err, currentProjectVersion) => {
+  //   // existing CDN version is one less than currentProjectVersion bc build has already incremented in db
+  //   const deletableProjectVersion = (currentProjectVersion > 1) ? currentProjectVersion - 2 : 1;
+  //   const deletableKeyPaths = [];
+  //   gutil.log('Current Project Version: ', currentProjectVersion);
+  //
+  //   if (err) { throw err; }
+  //   else {
+      const deletableKeyPaths = [];
       const projectBuildPath = path.resolve(__dirname, '../build', project);
       const s3 = new AWS.S3();
+      const versionHash = Math.random().toString(36).substring(7);
+      console.log("VERSION HASH: ", versionHash);
       fs.readdir(projectBuildPath, (err, folderContents) => {
         folderContents.forEach((folderContent, outerMostIndex) => {
           // determine if path contains directory or file
@@ -40,10 +43,10 @@ const toS3 = (project) => {
               console.log('Files in Folder... most likely images', files)
               files.forEach((file, innerIndex) => {
                 const fileInDirectory = path.join(projectBuildPath, folderContent, file);
-                const keyPath = `projects/${project}_v${currentProjectVersion}/${folderContent}/${file}`;
-                const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}/${file}`;
+                const keyPath = `projects/${project}_v${versionHash}/${folderContent}/${file}`;
+                // const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}/${file}`;
                 const contentType = fileType(file);
-                deletableKeyPaths.push({ Key: deleteKeyPath });
+                // deletableKeyPaths.push({ Key: deleteKeyPath });
                 fs.readFile(fileInDirectory, (err, data) => {
                   // take data, push to s3
                   s3.putObject({
@@ -59,9 +62,9 @@ const toS3 = (project) => {
                     else {
                       gutil.log('Uploading asset ' + file);
                       // if end of new file uploading, delete old version of objects in S3
-                      if (currentProjectVersion > 1 && folderContents[outerMostIndex + 1] === undefined && files[innerIndex + 1] === undefined) {
-                        s3deleteObjects(s3, deletableKeyPaths);
-                      }
+                      // if (currentProjectVersion > 1 && folderContents[outerMostIndex + 1] === undefined && files[innerIndex + 1] === undefined) {
+                      //   s3deleteObjects(s3, deletableKeyPaths);
+                      // }
                     }
                   });
                 });
@@ -73,10 +76,10 @@ const toS3 = (project) => {
           } else if (isFile) {
             // path to file
             const filePath = path.join(projectBuildPath, folderContent);
-            const keyPath = `projects/${project}_v${currentProjectVersion}/${folderContent}`;
-            const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}`;
+            const keyPath = `projects/${project}_v${versionHash}/${folderContent}`;
+            // const deleteKeyPath = `projects/${project}_v${deletableProjectVersion}/${folderContent}`;
             const contentType = fileType(filePath);
-            deletableKeyPaths.push({ Key: deleteKeyPath });
+            // deletableKeyPaths.push({ Key: deleteKeyPath });
             // read file and upload to s3
             fs.readFile(filePath, (err, data) => {
               s3.putObject({
@@ -92,17 +95,17 @@ const toS3 = (project) => {
                 else {
                   gutil.log('Uploading asset ' + file);
                   // if end of new file uploading, delete old version of objects in S3
-                  if (currentProjectVersion > 1 && folderContents[outerMostIndex + 1] === undefined) {
-                    s3deleteObjects(s3, deletableKeyPaths);
-                  }
+                  // if (currentProjectVersion > 1 && folderContents[outerMostIndex + 1] === undefined) {
+                  //   s3deleteObjects(s3, deletableKeyPaths);
+                  // }
                 }
               });
             });
           }
         });
       });
-    }
-  });
+  //   }
+  // });
 }
 
 const s3deleteObjects = (s3Connection, deletableObjects) => {

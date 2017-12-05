@@ -71,6 +71,7 @@ app.get('*', (req, res) => {
 
       // allows server side rendering of css
       // run script to generate sitemap.xml
+      console.log("CONFIG: ", config.bundleCssUrl)
       const stylesheet = () => {
         require("../sitemap-builder.js");
         if (isProduction) {

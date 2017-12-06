@@ -40,6 +40,7 @@ export const setupConfigs = (env, activeProject, callback) => {
     //   config.urls.bundleUrl = 'https://d3hc4gv509jw9l.cloudfront.net/projects/' + activeProject + '_v' + currentProjectVersion + '/bundle.js';
     //   callback(prodContent);
     // });
+    console.log("PRODCONTENT: ", prodContent)
     callback(prodContent);
   }
 }

@@ -13,12 +13,6 @@ export default class Cart extends Component {
     super(props);
   }
 
-  // componentDidUpdate(newProps, newState) {
-  //   if (newProps.activeCart !== this.props.activeCart) {
-  //
-  //   }
-  // }
-
   showCart(boolean) {
     this.props.dispatchShowCart(boolean);
   }

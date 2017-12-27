@@ -44,7 +44,7 @@ function mapStateToProps(state) {
   };
 }
 
-function mapDispatchToProps (dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
     dispatchShowCart: (boolean) => {
       dispatch(actions.showCart(boolean))

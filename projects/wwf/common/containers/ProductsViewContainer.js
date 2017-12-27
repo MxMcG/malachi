@@ -55,7 +55,10 @@ function mapDispatchToProps (dispatch) {
     },
     dispatchAddToCart: (cart, id, quantity) => {
       updateCart(dispatch, cart, id, quantity)
-    }
+    },
+    dispatchShowCart: (boolean) => {
+      dispatch(actions.showCart(boolean))
+    },
   }
 }
 

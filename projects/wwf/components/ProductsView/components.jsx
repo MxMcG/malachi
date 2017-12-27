@@ -73,7 +73,12 @@ export default class ProductsView extends Component {
             <h4>{price}</h4>
             { dropdowns }
             <div className="description" dangerouslySetInnerHTML={{__html: product.attrs.body_html}}></div>
-            <button onClick={() => this.addToCart(product.selectedVariant, 1)} className="button solid t_b black">Add to Cart</button>
+            <button
+              onClick={() => {
+                this.addToCart(product.selectedVariant, 1);
+                this.props.dispatchShowCart(true);
+              }}
+              className="button solid t_b black">Add to Cart</button>
         </div>
       </div>
     )

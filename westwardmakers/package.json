@@ -1,0 +1,33 @@
+{
+  "name": "westwardmakers",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Malachi can best be utilized via various gulp tasks that perform different actions. ",
+  "main": "package.json",
+  "author": "Max McGee <mmcgeevibes@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "sanity start",
+    "test": "sanity check"
+  },
+  "keywords": [
+    "sanity"
+  ],
+  "dependencies": {
+    "@sanity/base": "^0.124.2",
+    "@sanity/client": "^0.123.0",
+    "@sanity/components": "^0.124.5",
+    "@sanity/core": "^0.124.5",
+    "@sanity/default-layout": "^0.124.5",
+    "@sanity/default-login": "^0.124.0",
+    "@sanity/desk-tool": "^0.124.5",
+    "@sanity/vision": "^0.124.6",
+    "react": "^15.6",
+    "react-dom": "^15.6"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MxMcG/malachi.git"
+  }
+}

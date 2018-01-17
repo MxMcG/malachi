@@ -25,7 +25,7 @@ HomeContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   const componentContent = state.content.project.components.HomeContainer;
   return {
-    componentContent
+    componentContent,
   };
 }
 

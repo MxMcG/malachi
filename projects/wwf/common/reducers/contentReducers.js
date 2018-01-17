@@ -12,7 +12,7 @@ export default function contentReducers (state = initialState, action) {
       });
     case 'UPDATE_ADMIN_CONTENT':
       return update(state,
-        { $set: action.payload });      
+        { $set: action.payload });
     default:
       return state;
   }

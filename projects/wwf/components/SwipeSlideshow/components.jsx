@@ -44,6 +44,7 @@ export default class SwipeSlideshow extends Component {
   }
 
   renderSlides() {
+    console.log('slides', this.props.sliderData)
     const loadedSlides = this.props.slides;
     const preRenderSlides = this.props.componentContent.slides;
     const cdnImageBase = this.props.cdnImageBase;
@@ -56,8 +57,8 @@ export default class SwipeSlideshow extends Component {
           </Link>
           <div className="swipeContent">
             <div className="wesCross"><div className="w tx_s">w</div><div className="mi bx_s"></div><div className="th bx_s"></div></div>
-              <h2 className="tx_s">{slide.headline}</h2>
-              <p className="tx_s">{slide.paragraph}</p>
+              <h2 className="tx_s">{this.props.sliderData[0].headline}</h2>
+              <p className="tx_s">{this.props.sliderData[0].subheadline}</p>
             <Link to={slide.hrefBuy} className="link cta t_b bx_s">
               {slide.ctaText}
             </Link>

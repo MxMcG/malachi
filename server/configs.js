@@ -4,7 +4,6 @@ import gutil from 'gulp-util';
 import content from '../projects/wwf/content/content.json'
 import prodContent from '../projects/wwf/content/productionContent.json'
 
-
 export const setupConfigs = (env, activeProject, callback) => {
   const config = {
     urls: {}

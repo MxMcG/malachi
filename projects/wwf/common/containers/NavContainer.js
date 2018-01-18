@@ -28,10 +28,12 @@ function mapStateToProps(state) {
   const componentContent = state.content.project.components.NavContainer;
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl
+  const sanityData = state.sanityData.banner
   return {
     componentContent,
     cdnUrl,
-    cdnImageBase
+    cdnImageBase,
+    sanityData,
   };
 }
 

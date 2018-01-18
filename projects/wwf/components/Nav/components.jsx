@@ -51,7 +51,7 @@ export default class Nav extends Component {
           <li className="t_b sr" onClick={this.scrollRight.bind(this)}><Link to="/charities" className="n_l t_b" activeClassName="act">Charities</Link></li>
         </ul>
         <CartContainer {...this.props} />
-        <div className="banner">Goods for the Good - Free Shipping On Us <span className="hideMobile"></span></div>
+        <div className="banner">{ this.props.sanityData }<span className="hideMobile"></span></div>
       </div>
     );
   }

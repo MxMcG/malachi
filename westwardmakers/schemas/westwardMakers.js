@@ -115,5 +115,10 @@ export default {
         },
       ],
     },
+    {
+      name: 'banner',
+      title: 'Banner',
+      type: 'string',
+    },
   ],
 };

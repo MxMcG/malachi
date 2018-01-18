@@ -5,11 +5,11 @@ export default {
   fields: [
     {
       title: 'Top Slider',
-      name: 'TopSlider',
+      name: 'topSlider',
       type: 'array',
       of: [
         {
-          name: 'Slide',
+          name: 'slide',
           title: 'Slide',
           type: 'object',
           fields: [
@@ -50,16 +50,16 @@ export default {
     },
     {
       title: 'Missions Block',
-      name: 'MissionsBlock',
+      name: 'missionsBlock',
       type: 'object',
       fields: [
         {
-          name: 'FirstHeadline',
+          name: 'firstHeadline',
           title: 'First Headline',
           type: 'string'
         },
         {
-          name: 'FirstImage',
+          name: 'firstImage',
           title: 'First Image',
           type: 'image',
           options: {
@@ -67,12 +67,12 @@ export default {
           }
         },
         {
-          name: 'SecondHeadline',
+          name: 'secondHeadline',
           title: 'Second Headline',
           type: 'string'
         },
         {
-          name: 'SecondImage',
+          name: 'secondImage',
           title: 'Second Image',
           type: 'image',
           options: {
@@ -83,26 +83,26 @@ export default {
     },
     {
       title: 'Featured Images Slideshow',
-      name: 'FeaturedImagesSlideshow',
+      name: 'featuredImagesSlideshow',
       type: 'object',
       fields: [
         {
-          name: 'Headline',
+          name: 'headline',
           title: 'Headline',
           type: 'string',
         },
         {
           title: 'Images',
-          name: 'Images',
+          name: 'images',
           type: 'array',
           of: [
             {
-              name: 'Slideshow Images',
-              title: 'Image',
+              name: 'slideshowImages',
+              title: 'Slideshow Images',
               type: 'object',
               fields: [
                 {
-                  name: 'Image',
+                  name: 'image',
                   title: 'Image',
                   type: 'image',
                   options: {

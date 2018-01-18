@@ -28,11 +28,13 @@ MissionsBlockContainer.propTypes = propTypes;
 function mapStateToProps(state) {
   const componentContent = state.content.project.components.HomeContainer.MissionsBlockContainer;
   const cdnImageBase = state.urls.cdnImageBase;
-  const cdnUrl = state.urls.cdnUrl
+  const cdnUrl = state.urls.cdnUrl;
+  const sanityData = state.sanityData.missionsBlock;
   return {
     componentContent,
     cdnUrl,
-    cdnImageBase
+    cdnImageBase,
+    sanityData,
   };
 }
 

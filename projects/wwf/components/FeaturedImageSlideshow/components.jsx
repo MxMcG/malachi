@@ -10,31 +10,19 @@ export default class FeaturedImageSlideshow extends Component {
   }
 
   renderImages() {
-    const loadedImages = this.props.componentContent.images;
-    const cdnImageBase = this.props.cdnImageBase;
-    const Imageelements = [];
-    if (!loadedImages[0]) {
-      return (
-        <div className="wr_o">
-          <div className="featuredImageSlide" >
-              <img className="image" src={cdnImageBase + loadedImages[0].src}></img>
-          </div>
-        </div>
-      );
-    } else {
-      loadedImages.forEach((images, index) => {
-        Imageelements.push(
-          <div className="featuredImageSlide" style={{backgroundImage: 'url(' + cdnImageBase + images.src + ')'}} key={index}>
-          </div>
-        )
-      });
-    }
-    return Imageelements;
+    const loadedImages = this.props.sanityData.images || this.props.componentContent.images;
+    const sanityUrlFor = this.props.sanityUrlFor;
+    const imageElements = [];
+    loadedImages.forEach((object, index) => {
+      imageElements.push(
+        <div className="featuredImageSlide" style={{ backgroundImage: 'url(' + sanityUrlFor(object.image).url() + ')' }} key={index} />
+      )
+    });
+    return imageElements;
   }
 
 
   render() {
-
     const settings = {
       dots: false,
       infinite: true,
@@ -43,33 +31,33 @@ export default class FeaturedImageSlideshow extends Component {
       arrows: true,
 
       responsive: [
-         {
-           breakpoint: 768,
-           settings: {
-             arrows: true,
-             slidesToShow: 1,
-             centerMode: true
-           }
-         },
-         {
-           breakpoint: 480,
-           settings: {
-             arrows: true,
-             slidesToShow: 1,
-             centerMode: true
-           }
-         }
-       ]
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: true,
+            slidesToShow: 1,
+            centerMode: true
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            arrows: true,
+            slidesToShow: 1,
+            centerMode: true
+          }
+        },
+      ],
     };
 
     return (
       <div className="featuredImageSlideshow">
       <div className="feat_con">
-        <h2>Lifestyle</h2>
+        <h2>{ this.props.sanityData.headline }</h2>
         <h6></h6>
       </div>
         <Slider {...settings}>
-            { this.renderImages() }
+          { this.renderImages() }
         </Slider>
 
       </div>

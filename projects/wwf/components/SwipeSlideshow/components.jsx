@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Slider from 'react-slick';
 
-import sanityConfiguredClient from '../../../../server/sanityClient';
-import imageUrlBuilder from '@sanity/image-url';
-const builder = imageUrlBuilder(sanityConfiguredClient);
-const urlFor = (source) => {
-  return builder.image(source)
-}
-
 export default class SwipeSlideshow extends Component {
 
   constructor(props) {
@@ -53,7 +46,6 @@ export default class SwipeSlideshow extends Component {
   renderSlides() {
     const slideData = this.props.sanityData;
     const loadedSlides = this.props.sanityData || this.props.slides;
-    // const cdnImageBase = this.props.cdnImageBase;
     const sanityUrlFor = this.props.sanityUrlFor;
     const elements = [];
     loadedSlides.forEach((slide, index) => {

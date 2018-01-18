@@ -47,9 +47,73 @@ export default {
           }
         },
       ],
-      options: {
-
-      }
+    },
+    {
+      title: 'Missions Block',
+      name: 'MissionsBlock',
+      type: 'object',
+      fields: [
+        {
+          name: 'FirstHeadline',
+          title: 'First Headline',
+          type: 'string'
+        },
+        {
+          name: 'FirstImage',
+          title: 'First Image',
+          type: 'image',
+          options: {
+            hotspot: true
+          }
+        },
+        {
+          name: 'SecondHeadline',
+          title: 'Second Headline',
+          type: 'string'
+        },
+        {
+          name: 'SecondImage',
+          title: 'Second Image',
+          type: 'image',
+          options: {
+            hotspot: true
+          }
+        },
+      ],
+    },
+    {
+      title: 'Featured Images Slideshow',
+      name: 'FeaturedImagesSlideshow',
+      type: 'object',
+      fields: [
+        {
+          name: 'Headline',
+          title: 'Headline',
+          type: 'string',
+        },
+        {
+          title: 'Images',
+          name: 'Images',
+          type: 'array',
+          of: [
+            {
+              name: 'Slideshow Images',
+              title: 'Image',
+              type: 'object',
+              fields: [
+                {
+                  name: 'Image',
+                  title: 'Image',
+                  type: 'image',
+                  options: {
+                    hotspot: true,
+                  },
+                },
+              ],
+            },
+          ],
+        },
+      ],
     },
   ],
-}
+};

@@ -25,11 +25,11 @@ export default class Home extends Component {
             }
           ]}
         />
-        <SwipeSlideshowContainer />
-        <FeaturedImagesTileContainer />
-        <MissionsBlockContainer />
+        <SwipeSlideshowContainer {...this.props} />
+        <FeaturedImagesTileContainer {...this.props} />
+        <MissionsBlockContainer {...this.props} />
         <div className="wr_o">
-          <FeaturedImageSlideshowContainer />
+          <FeaturedImageSlideshowContainer {...this.props} />
         </div>
       </div>
     );

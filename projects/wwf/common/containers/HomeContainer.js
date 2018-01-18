@@ -14,6 +14,7 @@ const propTypes = {
 class HomeContainer extends Component {
 
   render () {
+    console.log(...this.props)
     return (
       <Home {...this.props} />
     );

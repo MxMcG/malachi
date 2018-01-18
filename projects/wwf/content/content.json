@@ -2,7 +2,8 @@
    "urls": {
       "cdnUrl": "http://localhost:8080/projects/wwf/",
       "cdnImageBase": "http://localhost:8080/projects/wwf/images/",
-      "bundleUrl": "http://localhost:8080/bundle.js/"
+      "bundleUrl": "http://localhost:8080/bundle.js/",
+      "sanityCdnUrl": "https://cdn.sanity.io/images/xv15zcgy/firstrelease/"
    },
    "content": {
       "projectName": "wwf",

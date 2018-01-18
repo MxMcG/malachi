@@ -20,7 +20,7 @@ export default class Layout extends Component {
       <div className="main-container">
         <div>
           <NavContainer />
-          { this.props.children }
+          { React.cloneElement(this.props.children, { sanityUrlFor: this.props.sanityUrlFor })}
         </div>
         <SocialFooterContainer />
       </div>

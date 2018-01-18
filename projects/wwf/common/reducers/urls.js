@@ -3,7 +3,8 @@ import update from 'immutability-helper';
 const initialState = {
   cdnUrl: '',
   cdnImageBase: '',
-  bundleUrl: ''
+  bundleUrl: '',
+  sanityCdnUrl: '',
 };
 
 // 'http://localhost:8080/projects/' + activeProject + '/images/';

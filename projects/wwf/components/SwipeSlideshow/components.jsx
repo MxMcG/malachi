@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import { Link } from 'react-router';
 import Slider from 'react-slick';
 
+import sanityConfiguredClient from '../../../../server/sanityClient';
+import imageUrlBuilder from '@sanity/image-url';
+const builder = imageUrlBuilder(sanityConfiguredClient);
+const urlFor = (source) => {
+  return builder.image(source)
+}
+
 export default class SwipeSlideshow extends Component {
 
   constructor(props) {
@@ -44,23 +51,23 @@ export default class SwipeSlideshow extends Component {
   }
 
   renderSlides() {
-    console.log('slides', this.props.sliderData)
-    const loadedSlides = this.props.slides;
-    const preRenderSlides = this.props.componentContent.slides;
-    const cdnImageBase = this.props.cdnImageBase;
+    const slideData = this.props.sanityData;
+    const loadedSlides = this.props.sanityData || this.props.slides;
+    // const cdnImageBase = this.props.cdnImageBase;
+    const sanityUrlFor = this.props.sanityUrlFor;
     const elements = [];
     loadedSlides.forEach((slide, index) => {
       elements.push(
-        <div className="swipeSlideshow" style={{backgroundImage: 'url(' + cdnImageBase + slide.image.src + ')'}} key={index}>
-          <Link to={slide.hrefCrafter} className="link">
+        <div className="swipeSlideshow" style={{backgroundImage: 'url(' + sanityUrlFor(slide.image).url() + ')'}} key={index}>
+          <Link to={`/crafters/${slide.collectionId}`} className="link">
             <div className="o_lay"></div>
           </Link>
           <div className="swipeContent">
             <div className="wesCross"><div className="w tx_s">w</div><div className="mi bx_s"></div><div className="th bx_s"></div></div>
-              <h2 className="tx_s">{this.props.sliderData[0].headline}</h2>
-              <p className="tx_s">{this.props.sliderData[0].subheadline}</p>
-            <Link to={slide.hrefBuy} className="link cta t_b bx_s">
-              {slide.ctaText}
+              <h2 className="tx_s">{slide.headline}</h2>
+              <p className="tx_s">{slide.subheadline}</p>
+            <Link to={`/products/${slide.productId}`} className="link cta t_b bx_s">
+              BUY NOW
             </Link>
           </div>
         </div>

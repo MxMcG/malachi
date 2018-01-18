@@ -2,7 +2,8 @@
    "urls": {
       "cdnUrl": "https://d3hc4gv509jw9l.cloudfront.net/projects/wwf_vw99ggsyasuy096bt9/",
       "cdnImageBase": "https://d3hc4gv509jw9l.cloudfront.net/projects/wwf_vw99ggsyasuy096bt9/images/",
-      "bundleUrl": "https://d3hc4gv509jw9l.cloudfront.net/projects/wwf_vw99ggsyasuy096bt9/bundle.js"
+      "bundleUrl": "https://d3hc4gv509jw9l.cloudfront.net/projects/wwf_vw99ggsyasuy096bt9/bundle.js",
+      "sanityCdnUrl": "https://cdn.sanity.io/images/xv15zcgy/firstrelease/"
    },
    "bundleCssUrl": "https://d3hc4gv509jw9l.cloudfront.net/projects/wwf_vw99ggsyasuy096bt9/index.css",
    "projectVersion": 84,

@@ -32,7 +32,8 @@ function mapStateToProps(state) {
   const cdnImageBase = state.urls.cdnImageBase;
   const cdnUrl = state.urls.cdnUrl;
   const slides = state.shop.fetchSlides;
-  const sliderData = state.sanityData.TopSlider;
+  const sanityCdnUrl = state.urls.sanityCdnUrl;
+  const sanityData = state.sanityData.TopSlider;
   return {
     componentContent,
     cdnUrl,
@@ -40,7 +41,8 @@ function mapStateToProps(state) {
     shopCollections,
     shopProducts,
     slides,
-    sliderData,
+    sanityData,
+    sanityCdnUrl,
   };
 }
 

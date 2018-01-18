@@ -15,6 +15,8 @@ import { renderToString } from 'react-dom/server';
 import { createLocation } from 'history';
 import gutil from 'gulp-util';
 import Helmet from "react-helmet";
+import imageUrlBuilder from '@sanity/image-url';
+import sanityConfiguredClient from './sanityClient'
 /**
  * Server Folder Imports
  */
@@ -31,12 +33,7 @@ const templatePath = path.resolve(__dirname, '../views');
 const env = process.env.NODE_ENV;
 const configureStore = require('../projects/' + activeProject + '/common/store/configureStore.js').default;
 const routes = require('../projects/' + activeProject + '/common/routes.jsx').default;
-const sanityClient = require('@sanity/client')
-const client = sanityClient({
-  projectId: 'xv15zcgy',
-  dataset: 'firstrelease',
-  useCdn: true, // `false` if you want to ensure fresh data
-})
+
 
 // Determine env
 // access content.json
@@ -59,11 +56,11 @@ app.use((err, req, res, next) => {
 
 app.get('*', (req, res) => {
   setupConfigs(env, activeProject, (config) => {
-    client.getDocument('0d87a2a0-3c79-489b-89fe-f76ea2958938').then(sanityData => {
-      config['sanityData'] = sanityData;
-
+    sanityConfiguredClient.getDocument('0d87a2a0-3c79-489b-89fe-f76ea2958938').then(sanityData => {
       const store = configureStore(config, env);
       const location = createLocation(req.url);
+      config['sanityData'] = sanityData;
+
       match({ routes, location }, (err, redirectLocation, renderProps) => {
         if (err) {
           gutil.error(err);

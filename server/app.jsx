@@ -34,6 +34,8 @@ const env = process.env.NODE_ENV;
 const configureStore = require('../projects/wwf/common/store/configureStore.js').default;
 const routes = require('../projects/wwf/common/routes.jsx').default;
 
+console.log("ACT PROJ", activeProject)
+console.log("NODE ENV", process.env.NODE_ENV)
 console.log("IS PROD", isProduction)
 console.log("PROJEC TYO", activeProject)
 

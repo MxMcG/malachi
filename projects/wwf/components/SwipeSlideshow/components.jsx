@@ -68,8 +68,7 @@ export default class SwipeSlideshow extends Component {
     return elements;
   }
 
-  render() {
-
+  render() {    
     const settings = {
       dots: true,
       infinite: true,

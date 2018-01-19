@@ -100,7 +100,7 @@ gulp.task('upload:prod', () => {
  * pm2 tasks: kill, logs
  */
 gulp.task('start:prod', (callback) => {
-  const child = exec(`NODE_ENV=production PORT=5000 ACTIVE_PROJECT=${activeProject} node server/app.js`);
+  const child = exec(`pm2 start ecosystem.config.js --env production`);
   child.stdout.on('data', (data) => {
     console.log('STDOUT: ' + data);
   });

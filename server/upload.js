@@ -41,6 +41,7 @@ const toS3 = (project) => {
             // read contents of folder and upload to s3
             fs.readdir(folderPath, (err, files) => {
               console.log('Files in Folder... most likely images', files)
+              console.log('BuildPAth', projectBuildPath)
               files.forEach((file, innerIndex) => {
                 const fileInDirectory = path.join(projectBuildPath, folderContent, file);
                 const keyPath = `projects/${project}_v${versionHash}/${folderContent}/${file}`;

@@ -31,8 +31,8 @@ const isProduction = process.env.NODE_ENV === 'production';
 const port = isProduction ? process.env.PORT: 3000;
 const templatePath = path.resolve(__dirname, '../views');
 const env = process.env.NODE_ENV;
-const configureStore = require('../projects/' + activeProject + '/common/store/configureStore.js').default;
-const routes = require('../projects/' + activeProject + '/common/routes.jsx').default;
+const configureStore = require('../projects/wwf/common/store/configureStore.js').default;
+const routes = require('../projects/wwf/common/routes.jsx').default;
 
 console.log("PROJEC TYO", activeProject)
 // Determine env

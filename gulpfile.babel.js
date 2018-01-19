@@ -67,6 +67,7 @@ gulp.task('build:prod', (callback) => {
   if (!activeProject) {
     return gutil.log('Please provide a project argument ex: --project <accronym>');
   }
+  console.log("ACTIVEEEEEE", activeProject)
   // take content.json and ship it to mongo db
   // database.uploadContentProd(activeProject);
   const compiler = webpack(prodconfig, (err, stats) => {
@@ -104,7 +105,7 @@ gulp.task('start:prod', (callback) => {
   process.env.ACTIVE_PROJECT = activeProject;
   process.env.PORT = 5000;
   console.log("ACTIVA", activeProject)
-  const child = exec('pm2 start server/app.js', { env: { NODE_ENV:'production', PORT:'5000', ACTIVE_PROJECT:'wwf'} });
+  const child = exec('NODE_ENV=production PORT=5000 ACTIVE_PROJECT=wwf node start server/app.js');
   child.stdout.on('data', (data) => {
     console.log('STDOUT: ' + data);
   });

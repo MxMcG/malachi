@@ -19,7 +19,7 @@ Adding new admin users:
 
 `$ gulp createUser:dev --project <projectabbr> --username <username> --password <password>`
 
-<h2>Production Deployment<h2>
+<h2>Production Deployment</h2>
 
 Some Useful commands for deployment:
 

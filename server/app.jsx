@@ -34,7 +34,7 @@ const env = process.env.NODE_ENV;
 const configureStore = require('../projects/' + activeProject + '/common/store/configureStore.js').default;
 const routes = require('../projects/' + activeProject + '/common/routes.jsx').default;
 
-
+console.log("PROJEC TYO", activeProject)
 // Determine env
 // access content.json
 // set cdn url to content object

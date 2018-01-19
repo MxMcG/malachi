@@ -6,7 +6,7 @@ const exec = require('child_process').exec;
 const devconfig = require('./webpack.config.js');
 const prodconfig = require('./webpack.config.production.js');
 // ARGVs
-const activeProject = 'wwf';
+const activeProject = require('yargs').argv.project;
 const authUsername = require('yargs').argv.username;
 const authPassword = require('yargs').argv.password;
 

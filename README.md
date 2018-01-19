@@ -19,5 +19,22 @@ Adding new admin users:
 
 `$ gulp createUser:dev --project <projectabbr> --username <username> --password <password>`
 
+<h2>Production Deployment<h2>
 
+Some Useful commands for deployment:
 
+Start nginx:
+
+`$ sudo systemctl start nginx`
+
+Show process logs:
+
+`$ pm2 logs --lines 100`
+
+Stop all processes:
+
+`$ pm2 stop all`
+
+Start app:
+
+`$ gulp start:prod --project wwf`

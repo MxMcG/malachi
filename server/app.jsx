@@ -55,8 +55,7 @@ app.use((err, req, res, next) => {
 
 app.get('*', (req, res) => {
   setupConfigs(env, activeProject, (config) => {
-    sanityConfiguredClient.getDocument('0d87a2a0-3c79-489b-89fe-f76ea2958938').then(sanityData => {
-      console.log(sanityData)
+    sanityConfiguredClient.getDocument('0d87a2a0-3c79-489b-89fe-f76ea2958938').then(sanityData => {      
       const store = configureStore(config, env);
       const location = createLocation(req.url);
       config['sanityData'] = sanityData;

@@ -2,7 +2,7 @@ const gulp = require('gulp');
 const gutil = require("gulp-util");
 const webpack = require('webpack');
 const WebpackDevServer = require("webpack-dev-server");
-const spawn = require('child_process').spawn;
+const exec = require('child_process').exec;
 const devconfig = require('./webpack.config.js');
 const prodconfig = require('./webpack.config.production.js');
 // ARGVs
@@ -105,11 +105,7 @@ gulp.task('start:prod', (callback) => {
   process.env.ACTIVE_PROJECT = activeProject;
   process.env.PORT = 5000;
   console.log("ACTIVA", activeProject)
-  const child = spawn('NODE_ENV=production PORT=5000 ACTIVE_PROJECT=wwf pm2 start server/app.js', {
-  stdio: 'inherit',
-  shell: true,
-  env: { ANSWER: 42 },
-});
+  const child = exec('NODE_ENV=production PORT=5000 ACTIVE_PROJECT=wwf pm2 start server/app.js');
   child.stdout.on('data', (data) => {
     console.log('STDOUT: ' + data);
   });

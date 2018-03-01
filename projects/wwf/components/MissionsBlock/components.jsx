@@ -6,7 +6,7 @@ export default class MissionsBlock extends Component {
     super(props);
   }
 
-  render() {    
+  render() {
     return (
       <div className="missionsBlock">
         <img src={ this.props.sanityUrlFor(this.props.sanityData.firstImage).url() } className="con mid"></img>

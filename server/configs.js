@@ -13,7 +13,6 @@ export const setupConfigs = (env, activeProject, callback) => {
   }
 
   if (env === 'production') {
-    console.log("PRODCONTENT: ", prodContent)
     callback(prodContent);
   }
 }

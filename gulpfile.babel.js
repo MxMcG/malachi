@@ -1,5 +1,5 @@
 const gulp = require('gulp');
-const gutil = require("gulp-util");
+// const gutil = require("gulp-util");
 const webpack = require('webpack');
 const WebpackDevServer = require("webpack-dev-server");
 const exec = require('child_process').exec;
@@ -18,15 +18,15 @@ const projectContent = activeProject ? require(`./projects/${activeProject}/cont
 gulp.task('build:dev', (callback) => {
   process.env.NODE_ENV = 'development';
   if (!activeProject) {
-    return gutil.log('Please provide a project argument ex: --project <accronym>');
+    return console.log('Please provide a project argument ex: --project <accronym>');
   }
 
   // take content.json and ship it to mongo db
   database.uploadContentDev(activeProject);
   const compiler = webpack(devconfig);
   new WebpackDevServer(compiler).listen(8080, "localhost", (err) => {
-    if (err) throw new gutil.PluginError("webpack-dev-server", err);
-    gutil.log('Bundling assets...');
+    // if (err) console.log("webpack-dev-server", err);
+    console.log('Bundling assets...');
     callback();
   });
 });
@@ -34,10 +34,10 @@ gulp.task('build:dev', (callback) => {
 gulp.task('pushContent:dev', (callback) => {
   process.env.NODE_ENV = 'development';
   database.localContentPush(activeProject, projectContent, process.env.NODE_ENV).then((success) => {
-    gutil.log('Local Content Pushed To DB');
+    console.log('Local Content Pushed To DB');
     callback();
   }, (err) => {
-    gutil.log('Err Local Content Pushed To DB', err);
+    console.log('Err Local Content Pushed To DB', err);
     callback();
   });
 });
@@ -65,13 +65,13 @@ gulp.task('start:dev', (callback) => {
 gulp.task('build:prod', (callback) => {
   process.env.NODE_ENV = 'production';
   if (!activeProject) {
-    return gutil.log('Please provide a project argument ex: --project <accronym>');
+    return console.log('Please provide a project argument ex: --project <accronym>');
   }
   // take content.json and ship it to mongo db
   // database.uploadContentProd(activeProject);
   const compiler = webpack(prodconfig, (err, stats) => {
     if (err) throw new gutil.PluginError('webpack', err);
-    gutil.log(stats.toJson());
+    console.log(stats.toJson());
     callback();
     process.exit();
   });
@@ -80,10 +80,10 @@ gulp.task('build:prod', (callback) => {
 gulp.task('pushContent:prod', (callback) => {
   process.env.NODE_ENV = 'production';
   database.localContentPush(activeProject, projectContent, process.env.NODE_ENV).then((success) => {
-    gutil.log('Local Content Pushed To DB');
+    console.log('Local Content Pushed To DB');
     callback();
   }, (err) => {
-    gutil.log('Err Local Content Pushed To DB', err);
+    console.log('Err Local Content Pushed To DB', err);
     callback();
   });
 });
@@ -119,10 +119,10 @@ gulp.task('createUser:dev', (callback) => {
   const env = 'development';
   process.env.ACTIVE_PROJECT = activeProject;
   database.createAdminUser(env, authUsername, authPassword, activeProject).then((data) => {
-    gutil.log(`Successfully added new user: ${data.username} for project: ${data.projectAbv}`);
+    console.log(`Successfully added new user: ${data.username} for project: ${data.projectAbv}`);
     callback();
   }, (err) => {
-    gutil.log('Error: Pushing User to DB', err);
+    console.log('Error: Pushing User to DB', err);
     callback();
   });
 });
@@ -131,10 +131,10 @@ gulp.task('createUser:prod', (callback) => {
   const env = 'production';
   process.env.ACTIVE_PROJECT = activeProject;
   database.createAdminUser(env, authUsername, authPassword, activeProject).then((data) => {
-    gutil.log(`Successfully added new user: ${data.username} for project: ${data.projectAbv}`);
+    console.log(`Successfully added new user: ${data.username} for project: ${data.projectAbv}`);
     callback();
   }, (err) => {
-    gutil.log('Error: Pushing User to DB', err);
+    console.log('Error: Pushing User to DB', err);
     callback();
   });
 });

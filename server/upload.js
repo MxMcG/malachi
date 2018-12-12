@@ -1,7 +1,7 @@
 const AWS  = require('aws-sdk');
 const fs = require('fs');
 const path = require('path');
-const gutil = require('gutil');
+// const gutil = require('gutil');
 const activeProject = require('yargs').argv.project;
 const database = require('./database/index.js');
 
@@ -58,15 +58,15 @@ const toS3 = (project) => {
                     ContentType: contentType
                   }, (err, file) => {
                     // Log any errors
-                    if (err) { gutil.log('Error Uploading File to s3', err); }
+                    // if (err) { gutil.log('Error Uploading File to s3', err); }
                     // If everything went successfully, print which file is being uploaded
-                    else {
-                      gutil.log('Uploading asset ' + file);
+                    // else {
+                      // gutil.log('Uploading asset ' + file);
                       // if end of new file uploading, delete old version of objects in S3
                       // if (currentProjectVersion > 1 && folderContents[outerMostIndex + 1] === undefined && files[innerIndex + 1] === undefined) {
                       //   s3deleteObjects(s3, deletableKeyPaths);
                       // }
-                    }
+                    // }
                   });
                 });
               });
@@ -91,15 +91,15 @@ const toS3 = (project) => {
                 ContentType: contentType
               }, (err, file) => {
                 // Log any errors
-                if (err) { gutil.log('Error Uploading File to s3', err); }
+                // if (err) { gutil.log('Error Uploading File to s3', err); }
                 // If everything went successfully, print which file is being uploaded
-                else {
-                  gutil.log('Uploading asset ' + file);
+                // else {
+                  // gutil.log('Uploading asset ' + file);
                   // if end of new file uploading, delete old version of objects in S3
                   // if (currentProjectVersion > 1 && folderContents[outerMostIndex + 1] === undefined) {
                   //   s3deleteObjects(s3, deletableKeyPaths);
                   // }
-                }
+                // }
               });
             });
           }

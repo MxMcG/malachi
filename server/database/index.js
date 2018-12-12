@@ -1,6 +1,6 @@
 // TODO add linting to server files
 const path = require('path');
-const gutil = require('gulp-util');
+// const gutil = require('gulp-util');
 const _ = require('lodash');
 const mongoose = require('mongoose');
 const mongodbUri = ''

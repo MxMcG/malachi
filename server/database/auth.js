@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import gutil from 'gutil';
+// import gutil from 'gutil';
 const mongoose = require('mongoose');
 
 import { userSchema } from './schemas.js'
@@ -10,11 +10,11 @@ export const loginAdminUser = (env, username, hash, callback) => {
     const AdminUser = (env === 'production') ? mongoose.model('AdminUserProd', userSchema) : mongoose.model('AdminUserDev', userSchema);
     AdminUser.where({ username }).findOne((err, doc) => {
       if (err) {
-        gutil.log('MONGO SAVE ERROR', err)
+        console.log('MONGO SAVE ERROR', err)
         return reject(err);
       };
       if (!doc) {
-        gutil.log('No user found for this username')
+        console.log('No user found for this username')
         return resolve({
           validUser: false,
           projectAbv,
@@ -48,7 +48,7 @@ export const createAdminUser = (env, username, password, projectAbv) => {
       const AdminUser = (env === 'production') ? mongoose.model('AdminUserProd', userSchema) : mongoose.model('AdminUserDev', userSchema)
       AdminUser.create(newUser, (err, user) => {
         if (err) {
-          gutil.log('MONGO SAVE ERROR', err)
+          console.log('MONGO SAVE ERROR', err)
           reject(err);
         };
         resolve({ username, projectAbv });

@@ -13,7 +13,7 @@ import { Router, Route, browserHistory, IndexRoute, match, RouterContext } from 
 import { Provider } from 'react-redux';
 import { renderToString } from 'react-dom/server';
 import { createLocation } from 'history';
-import gutil from 'gulp-util';
+// import gutil from 'gulp-util';
 import Helmet from "react-helmet";
 import imageUrlBuilder from '@sanity/image-url';
 import sanityConfiguredClient from './sanityClient'
@@ -63,7 +63,7 @@ app.get('*', (req, res) => {
 
       match({ routes, location }, (err, redirectLocation, renderProps) => {
         if (err) {
-          gutil.error(err);
+          console.log(err);
           return res.status(500).end('Internal server error');
         }
         if (!renderProps) return res.status(404).end('Not found.');
@@ -167,18 +167,18 @@ app.post('/api/cms/pushContent', (req, res) => {
   // takes content from client req, updates db
   if (env === 'development') {
     database.cmsPushContentDev(projectName, content).then((message) => {
-      gutil.log('Updated Content CMS Development: ', message);
+      console.log('Updated Content CMS Development: ', message);
     }).catch((err, errMessage) => {
-      gutil.log(errmessage);
-      gutil.log('Error description: ', err);
+      console.log(errmessage);
+      console.log('Error description: ', err);
     });
   }
   if (env === 'production') {
     database.cmsPushContentProd(projectName, content).then((message) => {
-      gutil.log('Updated Content CMS Production: ', message);
+      console.log('Updated Content CMS Production: ', message);
     }).catch((err, errMessage) => {
-      gutil.log(errmessage);
-      gutil.log('Error description: ', err);
+      console.log(errmessage);
+      console.log('Error description: ', err);
     });
   }
   // run start script to restart the app w new content
@@ -193,7 +193,7 @@ app.post('/api/cms/fetchContent', (req, res) => {
   if (env === 'development') {
     database.fetchContentDev(projectAbv, (error, data) => {
       if (error) {
-        gutil.error(error);
+        console.log(error);
         return res.status(500).end('Internal server error');
       }
       res.json(data);
@@ -202,7 +202,7 @@ app.post('/api/cms/fetchContent', (req, res) => {
   if (env === 'production') {
     database.fetchContentProd(projectAbv, (error, data) => {
       if (error) {
-        gutil.error(error);
+        console.log(error);
         return res.status(500).end('Internal server error');
       }
       res.json(data);
@@ -226,8 +226,8 @@ app.post('/admin/login', (req, res) => {
       });
     }
   }).catch((err, errMessage) => {
-    gutil.log(errMessage);
-    gutil.log('Error description: ', err);
+    console.log(errMessage);
+    console.log('Error description: ', err);
   });
 });
 
@@ -236,7 +236,7 @@ app.get('/sitemap.xml', (req, res) => {
 });
 
 app.listen(port, () => {
-  gutil.log('Server running on port ' + port);
+  console.log('Server running on port ' + port);
 });
 
 // ex: https://www.westward.com/ => localhost:3000/ww/
